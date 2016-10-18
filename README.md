@@ -114,7 +114,7 @@ videos.CreateVideo(nil, file: fileToUpload.path!, cover: nil, callback: nil, pro
 #### Advanced
 You can add your custom completion/progress callbacks here to make the SDK inform your app about uploading progress and response. Cover image is optional and could be nil, making Ziggeo platform to generate default video cover
 ```
-videos.CreateVideo(nil, file: fileToUpload.path!, cover: <#T##UIImage?#>, callback: { (jsonObject, response, error) in
+videos.CreateVideo(nil, file: fileToUpload.path!, cover: UIImage?, callback: { (jsonObject, response, error) in
     //update ui
 }, progress: { (totalBytesSent, totalBytesExpectedToSend) in
     //update progress ui
@@ -159,21 +159,21 @@ let connection = self.application.connect;
 
 ### Make POST request and parse JSON response
 ```
-connection.PostJsonWithPath(path, data: <#T##NSDictionary?#>, callback: { (jsonObject, response, error) in
+connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, response, error) in
 //jsonObject contains parsed json response received from Ziggeo API Server
 })
 ```
 
 ### Make POST request and get RAW data response
 ```
-connection.PostWithPath(<#T##path: String##String#>, data: <#T##NSDictionary?#>, callback: { (data, response, error) in
+connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, response, error) in
 //data contains RAW data received from Ziggeo API Server
 })
 ```
 
 ### Make GET request and get string response
 ```
-connection.GetStringWithPath(<#T##path: String##String#>, data: <#T##NSDictionary?#>, callback: { (string, response, error) in
+connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (string, response, error) in
     //the string contains stringified response received from Ziggeo API Server
 })
 ```
