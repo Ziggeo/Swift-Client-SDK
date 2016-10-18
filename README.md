@@ -36,7 +36,8 @@ func createPlayer()->AVPlayer {
     playerController.player = createPlayer();
     self.presentViewController(playerController, animated: true, completion: nil);
     playerController.player?.play();
-}```
+}
+```
 
 ### Embedded playback
 ```
