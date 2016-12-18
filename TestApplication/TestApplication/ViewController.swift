@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        m_ziggeo = Ziggeo(token: "30392b6a5591929ddd19242c1225b349");
+        m_ziggeo = Ziggeo(token: "ZIGGEO_APPLICATION_ID");
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -29,27 +29,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func index(sender: AnyObject) {
+    @IBAction func index(_ sender: AnyObject) {
         m_ziggeo.videos.Index(nil) { (jsonArray, error) in
             NSLog("index error: \(error), response: \(jsonArray)");
         };
     }
 
     func createPlayer()->AVPlayer {
-        //return ZiggeoPlayer(application: m_ziggeo, videoToken: "99c641539cfcd1792fcd24631630b29b");
-        let player = AVPlayer(URL: NSURL(string: m_ziggeo.videos.GetURLForVideo("99c641539cfcd1792fcd24631630b29b"))!);
+        let player = AVPlayer(url: URL(string: m_ziggeo.videos.GetURLForVideo("ZIGGEO_VIDEO_ID"))!);
         return player;
     }
     
     
-    @IBAction func playFullScreen(sender: AnyObject) {
+    @IBAction func playFullScreen(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
         playerController.player = createPlayer();
-        self.presentViewController(playerController, animated: true, completion: nil);
+        self.present(playerController, animated: true, completion: nil);
         playerController.player?.play();
     }
     
-    @IBAction func playEmbedded(sender: AnyObject) {
+    @IBAction func playEmbedded(_ sender: AnyObject) {
         if m_embeddedPlayer != nil {
             m_embeddedPlayer.pause();
             m_embeddedPlayerLayer.removeFromSuperlayer();
@@ -63,12 +62,12 @@ class ViewController: UIViewController {
         m_embeddedPlayer.play();
     }
 
-    @IBAction func record(sender: AnyObject) {
+    @IBAction func record(_ sender: AnyObject) {
         let recorder = ZiggeoRecorder(application: m_ziggeo);
         recorder.coverSelectorEnabled = true;
         recorder.cameraFlipButtonVisible = true;
-        recorder.cameraDevice = UIImagePickerControllerCameraDevice.Rear;
-        self.presentViewController(recorder, animated: true, completion: nil);
+        recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
+        self.present(recorder, animated: true, completion: nil);
     }
 }
 
