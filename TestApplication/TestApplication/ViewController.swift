@@ -11,7 +11,7 @@ import ZiggeoSwiftFramework
 import AVKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var m_ziggeo: Ziggeo! = nil;
     var m_embeddedPlayer:AVPlayer! = nil;
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        m_ziggeo = Ziggeo(token: "ZIGGEO_APPLICATION_ID");
+        m_ziggeo = Ziggeo(token: "ZIGGEO_APP_ID");
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -62,6 +62,21 @@ class ViewController: UIViewController {
         m_embeddedPlayer.play();
     }
 
+    @IBAction func uploadExisting(_ sender: Any) {
+        let imagePickerController = UIImagePickerController();
+        imagePickerController.sourceType = .photoLibrary;
+        imagePickerController.delegate = self;
+        imagePickerController.mediaTypes = ["public.movie"];
+        present(imagePickerController, animated: true, completion: nil);
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        let videoURL = info["UIImagePickerControllerMediaURL"] as? NSURL;
+        m_ziggeo.videos.CreateVideo(nil, file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
+        picker.dismiss(animated:true, completion: nil)
+    }
+    
     @IBAction func record(_ sender: AnyObject) {
         let recorder = ZiggeoRecorder(application: m_ziggeo);
         recorder.coverSelectorEnabled = true;
