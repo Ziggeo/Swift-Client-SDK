@@ -12,16 +12,18 @@
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
 		FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D91D65C05100DC784F /* Assets.xcassets */; };
 		FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */; };
-		FAD3594F1E158EFB00A0E627 /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD3594E1E158EFB00A0E627 /* ZiggeoSwiftFramework.framework */; };
+		FAD26D7F1E4238300034B66F /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD26D7D1E4238270034B66F /* ZiggeoSwiftFramework.framework */; };
+		FAD26D801E4238300034B66F /* ZiggeoSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD26D7D1E4238270034B66F /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FAD3594B1E158AA700A0E627 /* Embed Frameworks */ = {
+		FAD26D781E4231720034B66F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FAD26D801E4238300034B66F /* ZiggeoSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,7 +38,7 @@
 		FA65B1D91D65C05100DC784F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA65B1DC1D65C05100DC784F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA65B1DE1D65C05100DC784F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAD3594E1E158EFB00A0E627 /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
+		FAD26D7D1E4238270034B66F /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD3594F1E158EFB00A0E627 /* ZiggeoSwiftFramework.framework in Frameworks */,
+				FAD26D7F1E4238300034B66F /* ZiggeoSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +56,7 @@
 		FA65B1C61D65C05100DC784F = {
 			isa = PBXGroup;
 			children = (
-				FAD3594E1E158EFB00A0E627 /* ZiggeoSwiftFramework.framework */,
+				FAD26D7D1E4238270034B66F /* ZiggeoSwiftFramework.framework */,
 				FA65B1D11D65C05100DC784F /* TestApplication */,
 				FA65B1D01D65C05100DC784F /* Products */,
 			);
@@ -91,7 +93,7 @@
 				FA65B1CB1D65C05100DC784F /* Sources */,
 				FA65B1CC1D65C05100DC784F /* Frameworks */,
 				FA65B1CD1D65C05100DC784F /* Resources */,
-				FAD3594B1E158AA700A0E627 /* Embed Frameworks */,
+				FAD26D781E4231720034B66F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

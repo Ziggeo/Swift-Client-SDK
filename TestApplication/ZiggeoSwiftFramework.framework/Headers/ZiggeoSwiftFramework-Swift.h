@@ -180,6 +180,8 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework6Ziggeo")
 @property (nonatomic, readonly, strong) ZiggeoConfig * _Nonnull config;
 @property (nonatomic, strong) ZiggeoConnect * _Null_unspecified connect;
 @property (nonatomic, strong) ZiggeoVideos * _Null_unspecified videos;
+@property (nonatomic) BOOL enableDebugLogs;
+- (void)LogWithItem:(NSString * _Nonnull)item;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -246,7 +248,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application videoToken:(NSString * _Null_unspecified)videoToken OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
-- (void)retake;
+- (void)retake:(NSURL * _Null_unspecified)fileToBeRemoved;
 - (void)upload:(NSURL * _Nonnull)fileToUpload;
 - (void)coverSelected:(NSString * _Nonnull)videoPath image:(UIImage * _Null_unspecified)image;
 @property (nonatomic, readonly) BOOL shouldAutorotate;

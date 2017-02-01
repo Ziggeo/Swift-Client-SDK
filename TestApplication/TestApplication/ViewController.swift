@@ -11,7 +11,7 @@ import ZiggeoSwiftFramework
 import AVKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZiggeoRecorderDelegate {
     
     var m_ziggeo: Ziggeo! = nil;
     var m_embeddedPlayer:AVPlayer! = nil;
@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         m_ziggeo = Ziggeo(token: "ZIGGEO_APP_ID");
+        m_ziggeo.enableDebugLogs = true;
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -72,9 +73,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
+        picker.dismiss(animated:true, completion: nil)
         let videoURL = info["UIImagePickerControllerMediaURL"] as? NSURL;
         m_ziggeo.videos.CreateVideo(nil, file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
-        picker.dismiss(animated:true, completion: nil)
     }
     
     @IBAction func record(_ sender: AnyObject) {
@@ -82,7 +83,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.coverSelectorEnabled = true;
         recorder.cameraFlipButtonVisible = true;
         recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
+        recorder.recorderDelegate = self;
         self.present(recorder, animated: true, completion: nil);
     }
+    
+    public func ziggeoRecorderDidCancel() {
+        NSLog("cancellation");
+    }
+    
+    public func ziggeoRecorderRetake(_ oldFile: URL!) {
+        NSLog("file \(oldFile) removed, recording restarted");
+    }
+
 }
 
