@@ -11,7 +11,7 @@ import ZiggeoSwiftFramework
 import AVKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZiggeoRecorderDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZiggeoRecorderDelegate, ZiggeoVideosDelegate {
     
     var m_ziggeo: Ziggeo! = nil;
     var m_embeddedPlayer:AVPlayer! = nil;
@@ -21,7 +21,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         m_ziggeo = Ziggeo(token: "ZIGGEO_APP_ID");
-        m_ziggeo.enableDebugLogs = true;
+        m_ziggeo.enableDebugLogs = false;
+        m_ziggeo.videos.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -93,6 +94,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     public func ziggeoRecorderRetake(_ oldFile: URL!) {
         NSLog("file \(oldFile) removed, recording restarted");
+    }
+
+    public func VideoPreparingToUpload(_ sourcePath: String) {
+        NSLog("preparing to upload \(sourcePath) video");
+    }
+    
+    public func VideoPreparingToUpload(_ sourcePath: String, token: String) {
+        NSLog("preparing to upload \(sourcePath) video with token \(token)");
+    }
+    
+    public func VideoFailedToUpload(_ sourcePath: String) {
+        NSLog("failed to upload \(sourcePath) video");
+    }
+    
+    public func VideoUploadStarted(_ sourcePath: String, token: String, backgroundTask: URLSessionTask) {
+        NSLog("upload started with \(sourcePath) video and token \(token)");
+    }
+    
+    public func VideoUploadComplete(_ sourcePath: String, token: String, response: URLResponse?, error: NSError?, json:  NSDictionary?) {
+        NSLog("upload complete with \(sourcePath) video and token \(token)");
+    }
+    
+    public func VideoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
+        NSLog("upload progress is \(totalBytesSent) from total \(totalBytesExpectedToSend)");
     }
 
 }
