@@ -6,11 +6,11 @@
 	<dict>
 		<key>CoverSelectorController.nib</key>
 		<data>
-		z8lflxr0o0swIcE/hfcgAXNTMvY=
+		cLPgYmXNxvaroBj8q31FwcUGxb8=
 		</data>
 		<key>CoverSelectorTableCell.nib</key>
 		<data>
-		OxQs/ni+GG37r/e8prFZES/gmrs=
+		n1K5RzfZyk1ZHTErm5spYHS+4WQ=
 		</data>
 		<key>Delete-50.png</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1aGFDnuMx2sHFQ79GIT1VrIS2Gg=
+		XBPhnO3UsNaDyH4/JYoPSFdwhu4=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>RecordedVideoPreview.nib</key>
 		<data>
-		ej4j3ez/yboUJJWO9Jy+Gc73OOk=
+		gm8EdsQ/TTUCUb54lieCDKQr+jY=
 		</data>
 		<key>Stop-100.png</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>ZiggeoRecorder.nib</key>
 		<data>
-		wYrPesRHIlIQMsZJZZUjxHCwM2s=
+		4g9b28sK5mjjAVDGNQsRAYdt0T0=
 		</data>
 		<key>trash-50.png</key>
 		<data>
@@ -139,22 +139,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			z8lflxr0o0swIcE/hfcgAXNTMvY=
+			cLPgYmXNxvaroBj8q31FwcUGxb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			aZUfxDijAWpg8mrxV1oEqcrCoi0fgtYqsagWQd9nsXM=
+			6aK7fI8nPptkJ0u9Ctilp5OLktWq41CGsL48MC4ZqZ0=
 			</data>
 		</dict>
 		<key>CoverSelectorTableCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OxQs/ni+GG37r/e8prFZES/gmrs=
+			n1K5RzfZyk1ZHTErm5spYHS+4WQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			19Wmzf8TIc7OH9oOPPjFBg8pzjTnMtExTKSUn/s+sVs=
+			L8ISA70PcTenSRMQ5OI3SiETig+q7GVhb5grmP20E8E=
 			</data>
 		</dict>
 		<key>Delete-50.png</key>
@@ -348,11 +348,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ej4j3ez/yboUJJWO9Jy+Gc73OOk=
+			gm8EdsQ/TTUCUb54lieCDKQr+jY=
 			</data>
 			<key>hash2</key>
 			<data>
-			BhngJ7c39HGiXIaAmesv91V0SJuQjwFSZ0A5CIGx0Wg=
+			LSwLuUHp17cnwEUGzx/xDKbNmMwjtRAHUxjzadrgfDw=
 			</data>
 		</dict>
 		<key>Stop-100.png</key>
@@ -403,11 +403,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wYrPesRHIlIQMsZJZZUjxHCwM2s=
+			4g9b28sK5mjjAVDGNQsRAYdt0T0=
 			</data>
 			<key>hash2</key>
 			<data>
-			HurrnLdqs5b96NuDPWLqMOYTumJYq1dQqEY7hI+1ccE=
+			7K9KYwGJs1s6OnH4XHnlYmrOguiXqJcvY8c6VGOAn14=
 			</data>
 		</dict>
 		<key>trash-50.png</key>
