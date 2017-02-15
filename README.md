@@ -6,7 +6,7 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 ## Setup
 - Create iOS App
 - Add ZiggeoSwiftFramework.framework
-- Add bridging header to swift project
+- Add bridging header in case of mixed objective-C/Swift project
   ```
   #import <ZiggeoSwiftFramework/ZiggeoSwiftFramework.h>
   ```
