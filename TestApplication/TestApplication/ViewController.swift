@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         m_ziggeo = Ziggeo(token: "ZIGGEO_APP_ID");
-        m_ziggeo.enableDebugLogs = false;
+        m_ziggeo.enableDebugLogs = true;
         m_ziggeo.videos.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
     }

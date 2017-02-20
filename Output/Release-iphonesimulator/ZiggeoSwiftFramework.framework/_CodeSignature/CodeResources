@@ -6,11 +6,11 @@
 	<dict>
 		<key>CoverSelectorController.nib</key>
 		<data>
-		dBbtiAkRt/Fsde8tTrh1sEUKSgo=
+		N7sH8EVK8fzoh6Watar4ZMmPHzU=
 		</data>
 		<key>CoverSelectorTableCell.nib</key>
 		<data>
-		lD/H2Y8nRkKxAoeZYVQpsDpZKaI=
+		LQBzYIDJNMd5LLMSnfBBGwlFCwg=
 		</data>
 		<key>Delete-50.png</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/ZiggeoSwiftFramework-Swift.h</key>
 		<data>
-		d9BW1krbuxHGy5LSc6Qlqw4ilj8=
+		WQmPZSZu7VpvQ2fy2ZNZMIEIrEs=
 		</data>
 		<key>Headers/ZiggeoSwiftFramework.h</key>
 		<data>
@@ -34,23 +34,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XBPhnO3UsNaDyH4/JYoPSFdwhu4=
+		6FEuhwVDDQnhwaIIp89fSKuhhpM=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftdoc</key>
 		<data>
-		sXNQ6L3Ci1c+Lds2YMh3oT3xySY=
+		KQnpbcqiyw7+JKY1XeUFacdX3Kc=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftmodule</key>
 		<data>
-		3Vw37q1SlvCH7bIAgFp+W65pCwA=
+		kyJ5dQIjo1TBwKX2P5Rndroxtp8=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		9Qqzqwjqd9gd88Dw45vcY66DfyY=
+		6j0oVCAhf23+SjwRtAQReROGHFI=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		4QddqoVizbHHErE0dk0n95NBmvU=
+		fMrTA7LSAldjX5h2x9B6KLTN2uk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>RecordedVideoPreview.nib</key>
 		<data>
-		bpaP/E8EJFoVOp7xMW4f8Q9N8so=
+		wQQsd7E7mpJGcL23twJglaYw5C8=
 		</data>
 		<key>Stop-100.png</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>ZiggeoRecorder.nib</key>
 		<data>
-		F5mp0R333vwRsuP+0+A7lj+5F54=
+		AHpxHbmgAPNJbOb7U60figB+MRc=
 		</data>
 		<key>trash-50.png</key>
 		<data>
@@ -139,22 +139,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dBbtiAkRt/Fsde8tTrh1sEUKSgo=
+			N7sH8EVK8fzoh6Watar4ZMmPHzU=
 			</data>
 			<key>hash2</key>
 			<data>
-			HD6kpTA9QTnayQB3rlOufMxSZ1VFKSi+bbiW8++Oj0I=
+			fqIXNJ6pQz/M8rc3hkCkNce5N8cZzG86v1yedlHJzs4=
 			</data>
 		</dict>
 		<key>CoverSelectorTableCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lD/H2Y8nRkKxAoeZYVQpsDpZKaI=
+			LQBzYIDJNMd5LLMSnfBBGwlFCwg=
 			</data>
 			<key>hash2</key>
 			<data>
-			RfepXpR1A2zWog6FMPLWPwQ98Y7GHSyRE+e8NfB5CyI=
+			lhR65i1Q4ds85MzRjpjzevHlA/HBGCZJo1bgtLZcILY=
 			</data>
 		</dict>
 		<key>Delete-50.png</key>
@@ -194,11 +194,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d9BW1krbuxHGy5LSc6Qlqw4ilj8=
+			WQmPZSZu7VpvQ2fy2ZNZMIEIrEs=
 			</data>
 			<key>hash2</key>
 			<data>
-			Iyi9lL0WPJSYME3EzGELVM/Sn8YWpWEno3kPcJ+OXFE=
+			eus1l/SFvbn1h2Gt6qn8LbH8Z+UM/myWCTJfqIOgidg=
 			</data>
 		</dict>
 		<key>Headers/ZiggeoSwiftFramework.h</key>
@@ -216,44 +216,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sXNQ6L3Ci1c+Lds2YMh3oT3xySY=
+			KQnpbcqiyw7+JKY1XeUFacdX3Kc=
 			</data>
 			<key>hash2</key>
 			<data>
-			LcLGFy04kbv8ZaB0ky+oIVgpXnKeheNJ/9kinp7iKt4=
+			dVARUJ70/WwvcvokdknOF0OJRmrTvdHTV78tnT5ah6Y=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3Vw37q1SlvCH7bIAgFp+W65pCwA=
+			kyJ5dQIjo1TBwKX2P5Rndroxtp8=
 			</data>
 			<key>hash2</key>
 			<data>
-			kfSf5Nzh1mLjw5GchCgJ8ZYPQpP0nxKsbR1VF1gVOpI=
+			VCudLy55VdqkXvVJDxcK99bp+txJ9YyLcUWHpsBuHTQ=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9Qqzqwjqd9gd88Dw45vcY66DfyY=
+			6j0oVCAhf23+SjwRtAQReROGHFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			IWg8qJUaxQF/fLAHAWfAh7bqbDteU2z/yF8+QGgGPf4=
+			3uajuMwG0wuwI4CJvUNEDHAWLbj2ZoWJmpimdv7o0i4=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4QddqoVizbHHErE0dk0n95NBmvU=
+			fMrTA7LSAldjX5h2x9B6KLTN2uk=
 			</data>
 			<key>hash2</key>
 			<data>
-			x9EhRnc3VOwjJUOJPyRQ7nizgtpnBEwxjvLtyRrMHd8=
+			T+IUO2vKCzKW2z3lX+DB6Gr07jt0e9QlvAbeMIKKs/4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -348,11 +348,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bpaP/E8EJFoVOp7xMW4f8Q9N8so=
+			wQQsd7E7mpJGcL23twJglaYw5C8=
 			</data>
 			<key>hash2</key>
 			<data>
-			NsrlfoOJKgsV8kZEdcpkd00YexqEtQl7xUZaMPHi2yU=
+			vrY20fj2a8ASESAXA6V+f1SLv8hw1hbjgjOGLxgl3Ic=
 			</data>
 		</dict>
 		<key>Stop-100.png</key>
@@ -403,11 +403,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			F5mp0R333vwRsuP+0+A7lj+5F54=
+			AHpxHbmgAPNJbOb7U60figB+MRc=
 			</data>
 			<key>hash2</key>
 			<data>
-			v9pA4/k+/l9rcEM/4DeL6Akys+Z4ybC3YW3zfjbHipY=
+			wx5+cy9fdwm3n2qCnYSKIPosX2EGNX80c1i2F75NBhY=
 			</data>
 		</dict>
 		<key>trash-50.png</key>
@@ -495,6 +495,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -539,6 +544,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
