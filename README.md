@@ -6,8 +6,21 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 ## Setup
 - Create iOS App
 - Add ZiggeoSwiftFramework.framework
+- Add bridging header in case of mixed objective-C/Swift project
+
+  ```
+  #import <ZiggeoSwiftFramework/ZiggeoSwiftFramework.h>
+  ```
 - Make sure ZiggeoSwiftFramework.framework is added to Embedded Binaries and Linked Framework sections in your app target settings
 
+## Building/packaging app
+- You need to remove the current framework from your app
+- Grab framework you need from Swift-Client-SDK/Output/Release-iphoneos/ directory
+  1. `Release-iphoneos` - used for testing on phones / ipads, and to push to store.
+  2. `Release-iphonesimulator` - used to build simulator app, nothing else (can not be pushed to store nor used in real device)
+  3. `Release-iphoneuniversal` - can be used for both simulator and real device, however can not be pushed to store when this framework is used
+- Add same framework into "linked frameworks" and "embedded binaries" at the project build settings
+- Clean and rebuild the application
 
 # Basic usage
 ## Initialize Application
