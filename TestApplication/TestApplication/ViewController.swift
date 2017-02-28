@@ -32,13 +32,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func index(_ sender: AnyObject) {
-        m_ziggeo.videos.Index(nil) { (jsonArray, error) in
+        m_ziggeo.videos.index(nil) { (jsonArray, error) in
             NSLog("index error: \(error), response: \(jsonArray)");
         };
     }
 
     func createPlayer()->AVPlayer {
-        let player = AVPlayer(url: URL(string: m_ziggeo.videos.GetURLForVideo("ZIGGEO_VIDEO_ID"))!);
+        let player = AVPlayer(url: URL(string: m_ziggeo.videos.getURLForVideo("ZIGGEO_VIDEO_ID"))!);
         return player;
     }
     
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     {
         picker.dismiss(animated:true, completion: nil)
         let videoURL = info["UIImagePickerControllerMediaURL"] as? NSURL;
-        m_ziggeo.videos.CreateVideo(nil, file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
+        m_ziggeo.videos.createVideo(nil, file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
     }
     
     @IBAction func record(_ sender: AnyObject) {
@@ -96,27 +96,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSLog("file \(oldFile) removed, recording restarted");
     }
 
-    public func VideoPreparingToUpload(_ sourcePath: String) {
+    public func videoPreparingToUpload(_ sourcePath: String) {
         NSLog("preparing to upload \(sourcePath) video");
     }
     
-    public func VideoPreparingToUpload(_ sourcePath: String, token: String) {
+    public func videoPreparingToUpload(_ sourcePath: String, token: String) {
         NSLog("preparing to upload \(sourcePath) video with token \(token)");
     }
     
-    public func VideoFailedToUpload(_ sourcePath: String) {
+    public func videoFailedToUpload(_ sourcePath: String) {
         NSLog("failed to upload \(sourcePath) video");
     }
     
-    public func VideoUploadStarted(_ sourcePath: String, token: String, backgroundTask: URLSessionTask) {
+    public func videoUploadStarted(_ sourcePath: String, token: String, backgroundTask: URLSessionTask) {
         NSLog("upload started with \(sourcePath) video and token \(token)");
     }
     
-    public func VideoUploadComplete(_ sourcePath: String, token: String, response: URLResponse?, error: NSError?, json:  NSDictionary?) {
+    public func videoUploadComplete(_ sourcePath: String, token: String, response: URLResponse?, error: NSError?, json:  NSDictionary?) {
         NSLog("upload complete with \(sourcePath) video and token \(token)");
     }
     
-    public func VideoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
+    public func videoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
         NSLog("upload progress is \(totalBytesSent) from total \(totalBytesExpectedToSend)");
     }
 

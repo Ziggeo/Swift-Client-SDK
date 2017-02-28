@@ -6,11 +6,11 @@
 	<dict>
 		<key>CoverSelectorController.nib</key>
 		<data>
-		N7sH8EVK8fzoh6Watar4ZMmPHzU=
+		IzF76YDqIW/mBM1ZSmW/AqdRe60=
 		</data>
 		<key>CoverSelectorTableCell.nib</key>
 		<data>
-		LQBzYIDJNMd5LLMSnfBBGwlFCwg=
+		X/pA355i2dYQyS8PCxHmgP+e0jw=
 		</data>
 		<key>Delete-50.png</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/ZiggeoSwiftFramework-Swift.h</key>
 		<data>
-		WQmPZSZu7VpvQ2fy2ZNZMIEIrEs=
+		QEJiCfDoqZ39KkISXkeLGIu1qIs=
 		</data>
 		<key>Headers/ZiggeoSwiftFramework.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftmodule</key>
 		<data>
-		kyJ5dQIjo1TBwKX2P5Rndroxtp8=
+		85iotuJ8kG322UyPeptq5ZIktNI=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		fMrTA7LSAldjX5h2x9B6KLTN2uk=
+		jWOIl+hPq3fX0tmzg/Ji+g0krRM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>RecordedVideoPreview.nib</key>
 		<data>
-		wQQsd7E7mpJGcL23twJglaYw5C8=
+		us1w/q0PECvSg+jBUU46EJOqDIU=
 		</data>
 		<key>Stop-100.png</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>ZiggeoRecorder.nib</key>
 		<data>
-		AHpxHbmgAPNJbOb7U60figB+MRc=
+		sI/dzcg+MCNYfhSnDnFJzRS73Z4=
 		</data>
 		<key>trash-50.png</key>
 		<data>
@@ -139,22 +139,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N7sH8EVK8fzoh6Watar4ZMmPHzU=
+			IzF76YDqIW/mBM1ZSmW/AqdRe60=
 			</data>
 			<key>hash2</key>
 			<data>
-			fqIXNJ6pQz/M8rc3hkCkNce5N8cZzG86v1yedlHJzs4=
+			c9cClVx3rTAb3Hw7eQ1s1h/HSQAeWnyJH7C84raqRzI=
 			</data>
 		</dict>
 		<key>CoverSelectorTableCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LQBzYIDJNMd5LLMSnfBBGwlFCwg=
+			X/pA355i2dYQyS8PCxHmgP+e0jw=
 			</data>
 			<key>hash2</key>
 			<data>
-			lhR65i1Q4ds85MzRjpjzevHlA/HBGCZJo1bgtLZcILY=
+			W2iTUMzW9P+Q1Zkp4J9uJSUxntJ7/HWlOuvqj++VvAM=
 			</data>
 		</dict>
 		<key>Delete-50.png</key>
@@ -194,11 +194,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WQmPZSZu7VpvQ2fy2ZNZMIEIrEs=
+			QEJiCfDoqZ39KkISXkeLGIu1qIs=
 			</data>
 			<key>hash2</key>
 			<data>
-			eus1l/SFvbn1h2Gt6qn8LbH8Z+UM/myWCTJfqIOgidg=
+			gOT7eiRQzGdlxMq/Jz3e5fxfsMlX0IUPAvOgPxzXBh4=
 			</data>
 		</dict>
 		<key>Headers/ZiggeoSwiftFramework.h</key>
@@ -227,11 +227,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kyJ5dQIjo1TBwKX2P5Rndroxtp8=
+			85iotuJ8kG322UyPeptq5ZIktNI=
 			</data>
 			<key>hash2</key>
 			<data>
-			VCudLy55VdqkXvVJDxcK99bp+txJ9YyLcUWHpsBuHTQ=
+			zMpxgb+XO0Qj5knl/JFfRW7owvM6ihLJ7fWj3wsTWjE=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftdoc</key>
@@ -249,11 +249,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fMrTA7LSAldjX5h2x9B6KLTN2uk=
+			jWOIl+hPq3fX0tmzg/Ji+g0krRM=
 			</data>
 			<key>hash2</key>
 			<data>
-			T+IUO2vKCzKW2z3lX+DB6Gr07jt0e9QlvAbeMIKKs/4=
+			6joiffMJPeONshoMC2K3oeGRUdnt4N9fAMpSBALJfIA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -348,11 +348,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wQQsd7E7mpJGcL23twJglaYw5C8=
+			us1w/q0PECvSg+jBUU46EJOqDIU=
 			</data>
 			<key>hash2</key>
 			<data>
-			vrY20fj2a8ASESAXA6V+f1SLv8hw1hbjgjOGLxgl3Ic=
+			Yfb7+BJ7uspkAhE3567JuoNv8Zfz6VJiAxZVfvyV8t4=
 			</data>
 		</dict>
 		<key>Stop-100.png</key>
@@ -403,11 +403,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AHpxHbmgAPNJbOb7U60figB+MRc=
+			sI/dzcg+MCNYfhSnDnFJzRS73Z4=
 			</data>
 			<key>hash2</key>
 			<data>
-			wx5+cy9fdwm3n2qCnYSKIPosX2EGNX80c1i2F75NBhY=
+			cBYtM2s4wvlBTrAHXWWM38OxeGE9HZ8NKIN28vL769M=
 			</data>
 		</dict>
 		<key>trash-50.png</key>
