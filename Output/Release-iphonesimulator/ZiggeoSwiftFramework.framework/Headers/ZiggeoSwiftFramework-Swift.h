@@ -181,7 +181,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework6Ziggeo")
 @property (nonatomic, strong) ZiggeoConnect * _Null_unspecified connect;
 @property (nonatomic, strong) ZiggeoVideos * _Null_unspecified videos;
 @property (nonatomic) BOOL enableDebugLogs;
-- (void)LogWithItem:(NSString * _Nonnull)item;
+- (void)logWithItem:(NSString * _Nonnull)item;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -206,22 +206,22 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 - (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
 - (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
 - (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
-- (void)AppWakeupSignalTaskComplete:(NSString * _Nonnull)sessionID;
-- (NSString * _Nonnull)FormatURLRequest:(NSURLRequest * _Nonnull)request;
-- (NSURLSessionTask * _Nonnull)BackgroundUploadWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data identifier:(NSString * _Nonnull)identifier file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
-- (NSURLSessionTask * _Nonnull)PostRawDataWithPath:(NSString * _Nonnull)path data:(NSData * _Nonnull)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)RequestWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)RequestStringWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)RequestJSONWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)RequestJSONArrayWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)GetWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)GetStringWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)GetJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)GetJsonArrayWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)PostWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)PostJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)DeleteWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)DeleteJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (void)appWakeupSignalTaskComplete:(NSString * _Nonnull)sessionID;
+- (NSString * _Nonnull)formatURLRequest:(NSURLRequest * _Nonnull)request;
+- (NSURLSessionTask * _Nonnull)backgroundUploadWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data identifier:(NSString * _Nonnull)identifier file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
+- (NSURLSessionTask * _Nonnull)postRawDataWithPath:(NSString * _Nonnull)path data:(NSData * _Nonnull)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)requestWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)requestStringWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)requestJSONWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)requestJSONArrayWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)getWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)getStringWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)getJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)getJsonArrayWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)postWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)postJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)deleteWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)deleteJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -265,20 +265,20 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoVideos")
 @interface ZiggeoVideos : NSObject
-- (NSURLSessionTask * _Nonnull)Index:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)AttachVideo:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken data:(NSDictionary * _Nullable)data file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
-- (NSURLSessionTask * _Nonnull)CreateVideo:(NSDictionary * _Nullable)data file:(NSString * _Nonnull)file cover:(UIImage * _Nullable)cover callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
-- (NSURLSessionTask * _Nonnull)ReRecordVideo:(NSString * _Nonnull)token file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
-- (NSURLSessionTask * _Nullable)GetImageForVideo:(NSString * _Nonnull)token callback:(void (^ _Nonnull)(UIImage * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (void)GetImageForLocalVideo:(NSString * _Nonnull)path callback:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))callback;
-- (NSString * _Nonnull)GetURLForVideo:(NSString * _Nonnull)token;
-- (NSURLSessionTask * _Nonnull)DeleteVideo:(NSString * _Nonnull)token callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)GetDefaultStream:(NSString * _Nonnull)token callback:(void (^ _Nullable)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)CreateStream:(NSString * _Nonnull)token callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)CreateEmptyVideo:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (NSURLSessionTask * _Nonnull)RecorderSubmit:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
-- (void)EnforceImageForVideo:(NSString * _Nonnull)path image:(UIImage * _Nonnull)image;
-- (NSURLSessionTask * _Nullable)AttachCover:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken cover:(UIImage * _Nullable)cover callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)index:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)attachVideo:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken data:(NSDictionary * _Nullable)data file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
+- (NSURLSessionTask * _Nonnull)createVideo:(NSDictionary * _Nullable)data file:(NSString * _Nonnull)file cover:(UIImage * _Nullable)cover callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
+- (NSURLSessionTask * _Nonnull)reRecordVideo:(NSString * _Nonnull)token file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress;
+- (NSURLSessionTask * _Nullable)getImageForVideo:(NSString * _Nonnull)token callback:(void (^ _Nonnull)(UIImage * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (void)getImageForLocalVideo:(NSString * _Nonnull)path callback:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))callback;
+- (NSString * _Nonnull)getURLForVideo:(NSString * _Nonnull)token;
+- (NSURLSessionTask * _Nonnull)deleteVideo:(NSString * _Nonnull)token callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)getDefaultStream:(NSString * _Nonnull)token callback:(void (^ _Nullable)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)createStream:(NSString * _Nonnull)token callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)createEmptyVideo:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (NSURLSessionTask * _Nonnull)recorderSubmit:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
+- (void)enforceImageForVideo:(NSString * _Nonnull)path image:(UIImage * _Nonnull)image;
+- (NSURLSessionTask * _Nullable)attachCover:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken cover:(UIImage * _Nullable)cover callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
