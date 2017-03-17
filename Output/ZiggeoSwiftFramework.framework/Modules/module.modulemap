@@ -1,0 +1,10 @@
+framework module ZiggeoSwiftFramework {
+  umbrella header "ZiggeoSwiftFramework.h"
+
+  export *
+  module * { export * }
+}
+
+module ZiggeoSwiftFramework.Swift {
+    header "ZiggeoSwiftFramework-Swift.h"
+}
