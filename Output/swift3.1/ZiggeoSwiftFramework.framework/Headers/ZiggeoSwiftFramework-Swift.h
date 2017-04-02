@@ -207,7 +207,8 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoConfig")
 @interface ZiggeoConfig : NSObject
 @property (nonatomic, copy) NSString * _Nonnull serverAPIUrl;
 @property (nonatomic, copy) NSString * _Nonnull cdnAPIUrl;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 @class NSURLSession;
