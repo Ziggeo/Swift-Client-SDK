@@ -18,6 +18,26 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 - Add framework into "linked frameworks" and "embedded binaries" at the project build settings
 - Clean and rebuild the application
 
+## CocoaPods support (optional)
+- Install CocoaPods
+  ```
+  $ sudo gem install cocoapods
+  ```
+- Create new iOS project
+- Init pods in the xcode project directory
+  ```
+  $ pod init
+  ```
+- Add framework to Podfile
+  ```
+  pod 'ZiggeoSwiftSDK', '1.0.0'
+  ```
+- Install framework
+  ```
+  $ pod install
+  ```
+- Reopen the project using the .xcworkspace
+
 ## Preparing app for the submission to App Store
 - Create "new run script phase" at the application target build settings to strip the unused architectures. Use the script provided with the Swift-Client-SDK/TestApplication example (TestApplication target settings -> Build phases -> Run script section)
 
