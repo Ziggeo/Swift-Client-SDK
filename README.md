@@ -137,6 +137,63 @@ videos.Index(nil) { (jsonArray, error) in
 };
 ```
 
+## Videos delegate
+
+```
+class ViewController: UIViewController, ... ZiggeoVideosDelegate {
+...
+  //somewhere after initializing Ziggeo object
+  m_ziggeo.videos.delegate = self;
+...
+}
+```
+
+### Get video preparing to upload event after the token received
+```
+    public func videoPreparingToUpload(_ sourcePath: String, token: String) {
+        NSLog("preparing to upload \(sourcePath) video with token \(token)");
+    }
+```
+
+### Get video preparing to upload event before the actual token received
+```
+    public func videoPreparingToUpload(_ sourcePath: String) {
+        NSLog("preparing to upload \(sourcePath) video");
+    }
+```
+        
+### Get video failed (or cancelled) to upload event
+```
+    public func videoFailedToUpload(_ sourcePath: String) {
+        NSLog("failed to upload \(sourcePath) video");
+    }
+```
+    
+### Get video upload started event
+```
+    public func videoUploadStarted(_ sourcePath: String, token: String, backgroundTask: URLSessionTask) {
+        NSLog("upload started with \(sourcePath) video and token \(token)");
+        
+        //capture the uploading task to be able to cancel it later using m_uploadingTask.cancel()
+        m_uploadingTask = backgroundTask;
+    }
+```
+
+### Get video upload complete event
+```
+    public func videoUploadComplete(_ sourcePath: String, token: String, response: URLResponse?, error: NSError?, json:  NSDictionary?) {
+        NSLog("upload complete with \(sourcePath) video and token \(token)");
+    }
+```
+    
+### Get video upload progress report
+```
+    public func videoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
+        NSLog("upload progress is \(totalBytesSent) from total \(totalBytesExpectedToSend)");
+    }
+```
+
+
 ### Create new video
 #### Basic
 ```
