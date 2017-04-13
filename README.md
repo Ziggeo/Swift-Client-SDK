@@ -30,7 +30,7 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
   ```
 - Add framework to Podfile
   ```
-  pod 'ZiggeoSwiftSDK', '1.0.0'
+  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => '1.0.0'
   ```
 - Install framework
   ```
