@@ -13,14 +13,20 @@ import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZiggeoRecorderDelegate, ZiggeoVideosDelegate {
     
+    
     var m_ziggeo: Ziggeo! = nil;
-    var m_embeddedPlayer:AVPlayer! = nil;
-    var m_embeddedPlayerLayer:AVPlayerLayer! = nil;
     @IBOutlet weak var videoViewPlaceholder: UIView!
+    var m_recorder: ZiggeoRecorder! = nil;
+
+
+    //custom UI
+    @IBOutlet var overlayView: UIView!
+    @IBOutlet weak var toggleRecordingButton: UIBarButtonItem!
+    @IBOutlet weak var switchCameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        m_ziggeo = Ziggeo(token: "ZIGGEO_APP_ID");
+        m_ziggeo = Ziggeo(token: "ZIGGEO_APPLICATION_TOKEN");
         m_ziggeo.enableDebugLogs = true;
         m_ziggeo.videos.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,7 +44,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func createPlayer()->AVPlayer {
-        let player = AVPlayer(url: URL(string: m_ziggeo.videos.getURLForVideo("ZIGGEO_VIDEO_ID"))!);
+        let player = AVPlayer(url: URL(string: m_ziggeo.videos.getURLForVideo("ZIGGEO_VIDEO_TOKEN"))!);
         return player;
     }
     
@@ -51,17 +57,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func playEmbedded(_ sender: AnyObject) {
-        if m_embeddedPlayer != nil {
-            m_embeddedPlayer.pause();
-            m_embeddedPlayerLayer.removeFromSuperlayer();
-            m_embeddedPlayer = nil;
-            m_embeddedPlayerLayer = nil;
-        }
-        m_embeddedPlayer = createPlayer();
-        m_embeddedPlayerLayer = AVPlayerLayer(player: m_embeddedPlayer);
-        m_embeddedPlayerLayer.frame = videoViewPlaceholder.frame;
-        videoViewPlaceholder.layer.addSublayer(m_embeddedPlayerLayer);
-        m_embeddedPlayer.play();
+        let playerController: AVPlayerViewController = AVPlayerViewController();
+        playerController.player = createPlayer();
+        self.addChildViewController(playerController);
+        self.videoViewPlaceholder.addSubview(playerController.view);
+        playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
+        playerController.player?.play();
     }
 
     @IBAction func uploadExisting(_ sender: Any) {
@@ -88,6 +89,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(recorder, animated: true, completion: nil);
     }
     
+    //
+    // ZiggeoRecorder main delegate
+    //
+    
     public func ziggeoRecorderDidCancel() {
         NSLog("cancellation");
     }
@@ -96,6 +101,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSLog("file \(oldFile) removed, recording restarted");
     }
 
+    //
+    // ziggeo.videos delegate
+    //
     public func videoPreparingToUpload(_ sourcePath: String) {
         NSLog("preparing to upload \(sourcePath) video");
     }
@@ -119,6 +127,54 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     public func videoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
         NSLog("upload progress is \(totalBytesSent) from total \(totalBytesExpectedToSend)");
     }
+    
+    //
+    // Custom UI
+    //
 
+    @IBAction func recordCustomUI(_ sender: Any) {
+        m_recorder = ZiggeoRecorder(application: m_ziggeo);
+        m_recorder.coverSelectorEnabled = true;
+        m_recorder.cameraFlipButtonVisible = true;
+        m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
+        m_recorder.recorderDelegate = self;
+        m_recorder.showControls = false;
+        Bundle.main.loadNibNamed("CustomRecorderControls", owner: self, options: nil);
+        m_recorder.overlayView = self.overlayView;
+        self.present(m_recorder, animated: true, completion: nil);
+    }
+
+    
+    @IBAction func closeButtonCustomUI(_ sender: Any) {
+        m_recorder?.dismiss(animated: true, completion: nil);
+    }
+    
+    @IBAction func toggleRecordingCustomUI(_ sender: Any) {
+        m_recorder?.toggleMovieRecording(self);
+    }
+    
+    @IBAction func switchCameraCustomUI(_ sender: Any) {
+        m_recorder?.changeCamera(self);
+    }
+    
+    //
+    // custom UI recorder delegate
+    //
+    public func ziggeoRecorderDidStartRecording() {
+        toggleRecordingButton.title = "stop";
+        switchCameraButton.isEnabled = false;
+    }
+    
+    public func ziggeoRecorderDidFinishRecording() {
+        toggleRecordingButton.title = "record";
+        switchCameraButton.isEnabled = true;
+    }
+
+    //enable camera control buttons after capture session initialization
+    public func ziggeoRecorderCaptureSessionStateChanged(_ runningNow: Bool) {
+        toggleRecordingButton.isEnabled = true;
+        switchCameraButton.isEnabled = true;
+    }
+    
 }
 
