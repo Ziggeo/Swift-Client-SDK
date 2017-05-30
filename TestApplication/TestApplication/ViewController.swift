@@ -86,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.cameraFlipButtonVisible = true;
         recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         recorder.recorderDelegate = self;
+        recorder.maxRecordedDurationSeconds = 0; //infinite
         self.present(recorder, animated: true, completion: nil);
     }
     
@@ -161,20 +162,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // custom UI recorder delegate
     //
     public func ziggeoRecorderDidStartRecording() {
-        toggleRecordingButton.title = "stop";
-        switchCameraButton.isEnabled = false;
+        toggleRecordingButton?.title = "stop";
+        switchCameraButton?.isEnabled = false;
     }
     
     public func ziggeoRecorderDidFinishRecording() {
-        toggleRecordingButton.title = "record";
-        switchCameraButton.isEnabled = true;
+        toggleRecordingButton?.title = "record";
+        switchCameraButton?.isEnabled = true;
     }
 
     //enable camera control buttons after capture session initialization
     public func ziggeoRecorderCaptureSessionStateChanged(_ runningNow: Bool) {
-        toggleRecordingButton.isEnabled = true;
-        switchCameraButton.isEnabled = true;
+        toggleRecordingButton?.isEnabled = true;
+        switchCameraButton?.isEnabled = true;
     }
     
+    public func ziggeoRecorderCurrentRecordedDuration(_ seconds: Double) {
+        NSLog("recording duration: \(seconds)");
+    }
+
 }
 
