@@ -12,6 +12,18 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
   #import <ZiggeoSwiftFramework/ZiggeoSwiftFramework.h>
   ```
 - Make sure ZiggeoSwiftFramework.framework is added to Embedded Binaries and Linked Framework sections in your app target settings
+- Configure audio session in the AppDelegate
+  ```
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions ...) {
+        // Override point for customization after application launch.
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: [AVAudioSessionCategoryOptions.duckOthers, AVAudioSessionCategoryOptions.defaultToSpeaker]);
+        }
+        catch {}
+        return true
+    }
+  ```
+- Add NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
 ## Building/packaging app
 - Grab framework from Swift-Client-SDK/Output/ directory. Use Swift 3.1 version for Xcode 8.3+ and Swift 3 for older Xcode versions
