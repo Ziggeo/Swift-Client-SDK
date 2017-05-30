@@ -258,6 +258,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 @protocol UIViewControllerTransitionCoordinator;
 @class UIGestureRecognizer;
 @class AVCaptureFileOutput;
+@class AVCaptureDevice;
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 @interface ZiggeoRecorder : UIViewController <AVCaptureFileOutputRecordingDelegate>
@@ -265,6 +266,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 @property (nonatomic) BOOL cameraFlipButtonVisible;
 @property (nonatomic) UIImagePickerControllerCameraDevice cameraDevice;
 @property (nonatomic, strong) id <ZiggeoRecorderDelegate> _Null_unspecified recorderDelegate;
+@property (nonatomic) double maxRecordedDurationSeconds;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified overlayView;
 @property (nonatomic) BOOL showControls;
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application;
@@ -286,6 +288,8 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 - (IBAction)toggleMovieRecording:(id _Nonnull)sender;
 - (void)captureOutput:(AVCaptureFileOutput * _Null_unspecified)captureOutput didStartRecordingToOutputFileAtURL:(NSURL * _Null_unspecified)fileURL fromConnections:(NSArray * _Null_unspecified)connections;
 - (void)captureOutput:(AVCaptureFileOutput * _Null_unspecified)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL * _Null_unspecified)outputFileURL fromConnections:(NSArray * _Null_unspecified)connections error:(NSError * _Null_unspecified)error;
+- (void)focus:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode point:(CGPoint)point monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange;
+- (void)setFlashMode:(AVCaptureFlashMode)flashMode device:(AVCaptureDevice * _Nonnull)device;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
@@ -301,6 +305,8 @@ SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework22ZiggeoRecorderDelegate_")
 - (void)ziggeoRecorderSessionWasInterruptedWithReason:(NSInteger)reason;
 - (void)ziggeoRecorderSessionInterruptionEnded;
 - (void)ziggeoRecorderCaptureSessionStateChanged:(BOOL)runningNow;
+- (void)ziggeoRecorderSubjectAreaDidChange;
+- (void)ziggeoRecorderCurrentRecordedDuration:(double)seconds;
 @end
 
 @protocol ZiggeoVideosDelegate;
