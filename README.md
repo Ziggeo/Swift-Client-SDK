@@ -127,6 +127,11 @@ recorder.cameraFlipButtonVisible = false;
 recorder.cameraDevice = UIImagePickerControllerCameraDevice.Rear;
 ```
 
+### Additional video parameters (effects, profiles, etc)
+```
+recorder.extraArgsForCreateVideo = ["effect_profile": "12345"];
+```
+
 # Advanced SDK usage
 # Ziggeo API access
 You can use the SDK to access Ziggeo Server API methods in the async manner. The SDK provides next functionality:
