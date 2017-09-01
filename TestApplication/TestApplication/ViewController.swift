@@ -140,6 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         m_recorder.recorderDelegate = self;
         m_recorder.showControls = false;
+        m_recorder.extraArgsForCreateVideo = ["effect_profile": "12345"];
         Bundle.main.loadNibNamed("CustomRecorderControls", owner: self, options: nil);
         m_recorder.overlayView = self.overlayView;
         self.present(m_recorder, animated: true, completion: nil);

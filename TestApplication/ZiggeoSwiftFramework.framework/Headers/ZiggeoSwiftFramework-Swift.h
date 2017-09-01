@@ -267,6 +267,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 @property (nonatomic) UIImagePickerControllerCameraDevice cameraDevice;
 @property (nonatomic, strong) id <ZiggeoRecorderDelegate> _Null_unspecified recorderDelegate;
 @property (nonatomic) double maxRecordedDurationSeconds;
+@property (nonatomic, strong) NSDictionary * _Nullable extraArgsForCreateVideo;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified overlayView;
 @property (nonatomic) BOOL showControls;
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application;
