@@ -26,7 +26,7 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 - Add NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
 ## Building/packaging app
-- Grab framework from Swift-Client-SDK/Output/ directory. Use Swift 3.1 version for Xcode 8.3+ and Swift 3 for older Xcode versions
+- Grab framework from Swift-Client-SDK/Output/ directory. Use Swift 3.2 version for Xcode 9.0+, Swift 3.1 version for Xcode 8.3+ and Swift 3 for older Xcode versions
 - Add framework into "linked frameworks" and "embedded binaries" at the project build settings
 - Clean and rebuild the application
 
