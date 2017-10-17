@@ -198,6 +198,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIImage;
 @class UITableView;
 @class UITableViewCell;
 @class NSBundle;
@@ -205,6 +206,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13CoverSelector")
 @interface CoverSelector : UIViewController <UITableViewDataSource, UITableViewDelegate>
 - (nonnull instancetype)initWithVideoPath:(NSString * _Nonnull)videoPath OBJC_DESIGNATED_INITIALIZER;
++ (void)getDefaultCover:(NSString * _Nonnull)path callback:(void (^ _Nullable)(UIImage * _Nullable))callback;
 @property (nonatomic, readonly) BOOL prefersStatusBarHidden;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -301,7 +303,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 @end
 
 @protocol ZiggeoRecorderDelegate;
-@class UIImage;
 @protocol UIViewControllerTransitionCoordinator;
 @class UIGestureRecognizer;
 @class AVCaptureFileOutput;
