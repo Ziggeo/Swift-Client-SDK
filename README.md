@@ -25,12 +25,12 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
   ```
 - Add NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
-## Building/packaging app
+## Building/Packaging App
 - Grab framework from Swift-Client-SDK/Output/ directory. Use Swift 3.2 version for Xcode 9.0+, Swift 3.1 version for Xcode 8.3+ and Swift 3 for older Xcode versions
 - Add framework into "linked frameworks" and "embedded binaries" at the project build settings
 - Clean and rebuild the application
 
-## CocoaPods support (optional)
+## CocoaPods Support (optional)
 - Install CocoaPods
   ```
   $ sudo gem install cocoapods
@@ -50,10 +50,10 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
   ```
 - Reopen the project using the .xcworkspace
 
-## Preparing app for the submission to App Store
+## Preparing App for the Submission to App Store
 - Create "new run script phase" at the application target build settings to strip the unused architectures. Use the script provided with the Swift-Client-SDK/TestApplication example (TestApplication target settings -> Build phases -> Run script section)
 
-# Basic usage
+# Basic Usage
 ## Initialize Application
 
 ```
@@ -63,7 +63,7 @@ var m_ziggeo: Ziggeo! = nil;
 m_ziggeo = Ziggeo(token: "YOUR_APP_TOKEN_HERE");
 ```
 
-## Player
+## Video Player
 
 ### Initialization
 ```
@@ -73,7 +73,7 @@ func createPlayer()->AVPlayer {
 }
 ```
 
-### Fullscreen playback
+### Fullscreen Playback
 ```
 @IBAction func playFullScreen(sender: AnyObject) {
     let playerController: AVPlayerViewController = AVPlayerViewController();
@@ -83,7 +83,7 @@ func createPlayer()->AVPlayer {
 }
 ```
 
-### Embedded playback
+### Embedded Playback
 ```
 @IBAction func playEmbedded(sender: AnyObject) {
     //cleanup
@@ -101,7 +101,7 @@ func createPlayer()->AVPlayer {
 }
 ```
 
-## Recorder
+## Video Recorder
 
 ```
 @IBAction func record(sender: AnyObject) {
@@ -110,51 +110,52 @@ func createPlayer()->AVPlayer {
 }
 ```
 
-### Enable cover selector dialog
+### Enable Cover Selector Dialog
 ```
 recorder.coverSelectorEnabled = true;
 ```
 
-### Disable camera flip button
+### Disable Camera Flip Button
 
 ```
 recorder.cameraFlipButtonVisible = false;
 ```
 
-### Set active camera device
+### Set Active Camera Device
 
 ```
 recorder.cameraDevice = UIImagePickerControllerCameraDevice.Rear;
 ```
 
-### Additional video parameters (effects, profiles, etc)
+### Additional Video Parameters (effects, profiles, etc)
 ```
 recorder.extraArgsForCreateVideo = ["effect_profile": "12345"];
 ```
 
-# Advanced SDK usage
-# Ziggeo API access
-You can use the SDK to access Ziggeo Server API methods in the async manner. The SDK provides next functionality:
+# Advanced SDK Usage
+
+# Ziggeo API Access
+You can use the SDK to access Ziggeo Server API methods in the async manner. The SDK provides the following functionality:
 - Create/remove/index videos
 - Custom Ziggeo Embedded Server API requests 
 
-All the API methods are working asynchronously and never blocking the calling thread. You may optionally use custom callbacks (completion blocks) to receive the results.
+All API methods work asynchronously and never block the calling thread. As an option, you may use custom callbacks (completion blocks) to receive results.
 
 ## Videos API
 
-### Get video accessor object
+### Get Video Accessor Object
 ```
 let videos = m_ziggeo.videos;
 ```
 
-### Get all videos
+### Get All Videos
 ```
 videos.Index(nil) { (jsonArray, error) in
     NSLog("index error: \(error), response: \(jsonArray)");
 };
 ```
 
-## Videos delegate
+## Videos Delegate
 
 ```
 class ViewController: UIViewController, ... ZiggeoVideosDelegate {
@@ -165,28 +166,28 @@ class ViewController: UIViewController, ... ZiggeoVideosDelegate {
 }
 ```
 
-### Get video preparing to upload event after the token received
+### Get Video Preparing to Upload Event After the Token Received
 ```
     public func videoPreparingToUpload(_ sourcePath: String, token: String) {
         NSLog("preparing to upload \(sourcePath) video with token \(token)");
     }
 ```
 
-### Get video preparing to upload event before the actual token received
+### Get Video Preparing to Upload Event Before the Actual Token Received
 ```
     public func videoPreparingToUpload(_ sourcePath: String) {
         NSLog("preparing to upload \(sourcePath) video");
     }
 ```
         
-### Get video failed (or cancelled) to upload event
+### Get Video Failed (or Cancelled) to Upload Event
 ```
     public func videoFailedToUpload(_ sourcePath: String) {
         NSLog("failed to upload \(sourcePath) video");
     }
 ```
     
-### Get video upload started event
+### Get Video Upload Started Event
 ```
     public func videoUploadStarted(_ sourcePath: String, token: String, backgroundTask: URLSessionTask) {
         NSLog("upload started with \(sourcePath) video and token \(token)");
@@ -196,14 +197,14 @@ class ViewController: UIViewController, ... ZiggeoVideosDelegate {
     }
 ```
 
-### Get video upload complete event
+### Get Video Upload Complete Event
 ```
     public func videoUploadComplete(_ sourcePath: String, token: String, response: URLResponse?, error: NSError?, json:  NSDictionary?) {
         NSLog("upload complete with \(sourcePath) video and token \(token)");
     }
 ```
     
-### Get video upload progress report
+### Get Video Upload Progress Report
 ```
     public func videoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
         NSLog("upload progress is \(totalBytesSent) from total \(totalBytesExpectedToSend)");
@@ -211,14 +212,14 @@ class ViewController: UIViewController, ... ZiggeoVideosDelegate {
 ```
 
 
-### Create new video
+### Create New Video
 #### Basic
 ```
 videos.CreateVideo(nil, file: fileToUpload.path!, cover: nil, callback: nil, progress: nil);
 ```
 
 #### Advanced
-You can add your custom completion/progress callbacks here to make the SDK inform your app about uploading progress and response. Cover image is optional and could be nil, making Ziggeo platform to generate default video cover
+Add custom completion/progress callbacks here to make the SDK inform your app about uploading progress and response. Cover image is optional -- Ziggeo can generate default video cover shot.
 ```
 videos.CreateVideo(nil, file: fileToUpload.path!, cover: UIImage?, callback: { (jsonObject, response, error) in
     //update ui
@@ -234,12 +235,12 @@ videos.DeleteVideo("YOUR_VIDEO_TOKEN", callback: { (responseData, response, erro
 })
 ```
 
-### Get video URL to be used in your own custom player
+### Retrieve Video URL to Use in Custom Player
 ```
 let url = videos.GetURLForVideo("YOUR_VIDEO_TOKEN_HERE"))
 ```
 
-### Get remote video thumb asynchronously
+### Get Remote Video Thumb asynchronously
 Remote video thumbs are cached on client side, so you can call the method as frequently as you wish without the performance or network load impact
 ```
 videos.GetImageForVideo("YOUR_VIDEO_TOKEN_HERE", callback: { (image, response, error) in
@@ -247,7 +248,7 @@ videos.GetImageForVideo("YOUR_VIDEO_TOKEN_HERE", callback: { (image, response, e
 })
 ```
 
-### Generate local video thumb asynchronously
+### Generate Local Video Thumb asynchronously
 Local video thumbs are cached on client side, so you can call the method as frequently as you wish without the performance impact
 ```
 self.application.videos.GetImageForLocalVideo("LOCAL_VIDEO_PATH", callback: { (image, error) in
@@ -255,32 +256,31 @@ self.application.videos.GetImageForLocalVideo("LOCAL_VIDEO_PATH", callback: { (i
 })
 ```
 
-## Custom Ziggeo API requests
+## Custom Ziggeo API Requests
 The SDK provides an opportunity to make custom requests to Ziggeo Embedded Server API. You can make POST/GET/custom_method requests and receive RAW data, json-dictionary or string as the result.
 
-### Get API accessor object
+### Get API Accessor Object
 ```
 let connection = self.application.connect;
 ```
 
-### Make POST request and parse JSON response
+### Make POST Request and Parse JSON Response
 ```
 connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, response, error) in
 //jsonObject contains parsed json response received from Ziggeo API Server
 })
 ```
 
-### Make POST request and get RAW data response
+### Make POST Request and Get RAW Data Response
 ```
 connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, response, error) in
 //data contains RAW data received from Ziggeo API Server
 })
 ```
 
-### Make GET request and get string response
+### Make GET Request and Get String Response
 ```
 connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (string, response, error) in
     //the string contains stringified response received from Ziggeo API Server
 })
 ```
-There are bunch of other methods for different http methods and response types.
