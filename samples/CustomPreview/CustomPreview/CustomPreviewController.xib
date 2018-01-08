@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomPreviewController" customModule="CustomPreview" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="heX-HV-DbE" id="3Yg-oM-xoX"/>
+                <outlet property="playButton" destination="keK-Sw-Nbf" id="DMQ-Ff-mwG"/>
+                <outlet property="uploadButton" destination="EOw-z7-pKu" id="bb3-7w-gqD"/>
+                <outlet property="videoPlaceholder" destination="are-0h-aOk" id="83m-9F-Uhq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="are-0h-aOk">
+                    <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODP-tD-T9W">
+                    <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heX-HV-DbE">
+                            <rect key="frame" x="8" y="9" width="34" height="30"/>
+                            <state key="normal" title="Back"/>
+                            <connections>
+                                <action selector="retake:" destination="-1" eventType="touchUpInside" id="x7X-w9-eyN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keK-Sw-Nbf">
+                            <rect key="frame" x="172" y="9" width="30" height="30"/>
+                            <state key="normal" title="Play"/>
+                            <connections>
+                                <action selector="play:" destination="-1" eventType="touchUpInside" id="0S6-0k-lu8"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOw-z7-pKu">
+                            <rect key="frame" x="317" y="9" width="50" height="30"/>
+                            <state key="normal" title="Upload"/>
+                            <connections>
+                                <action selector="upload:" destination="-1" eventType="touchUpInside" id="uqT-Fi-MQU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="heX-HV-DbE" firstAttribute="centerY" secondItem="ODP-tD-T9W" secondAttribute="centerY" id="CrZ-nV-Zu2"/>
+                        <constraint firstAttribute="trailing" secondItem="EOw-z7-pKu" secondAttribute="trailing" constant="8" id="HqO-Oi-iKC"/>
+                        <constraint firstItem="keK-Sw-Nbf" firstAttribute="centerY" secondItem="ODP-tD-T9W" secondAttribute="centerY" id="SAS-10-8cK"/>
+                        <constraint firstItem="heX-HV-DbE" firstAttribute="leading" secondItem="ODP-tD-T9W" secondAttribute="leading" constant="8" id="XMd-vN-Ui5"/>
+                        <constraint firstItem="keK-Sw-Nbf" firstAttribute="centerX" secondItem="ODP-tD-T9W" secondAttribute="centerX" id="i9E-OC-LzL"/>
+                        <constraint firstAttribute="height" constant="48" id="v0x-ej-jHg"/>
+                        <constraint firstItem="EOw-z7-pKu" firstAttribute="centerY" secondItem="ODP-tD-T9W" secondAttribute="centerY" id="wfE-IZ-x1I"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="are-0h-aOk" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="60O-qe-V3O"/>
+                <constraint firstItem="are-0h-aOk" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="HmZ-Qs-FXs"/>
+                <constraint firstItem="ODP-tD-T9W" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Kfs-Xv-YW2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ODP-tD-T9W" secondAttribute="bottom" id="Lx0-0O-Vej"/>
+                <constraint firstItem="are-0h-aOk" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="cbw-vf-Uen"/>
+                <constraint firstItem="ODP-tD-T9W" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="kBM-qe-C4p"/>
+                <constraint firstItem="are-0h-aOk" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="nVP-jm-bUf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
