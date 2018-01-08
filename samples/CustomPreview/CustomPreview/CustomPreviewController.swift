@@ -2,8 +2,7 @@
 //  CustomPreviewController.swift
 //  CustomPreview
 //
-//  Created by alex on 08/01/2018.
-//  Copyright © 2018 alex. All rights reserved.
+//  Copyright © 2018 ziggeo. All rights reserved.
 //
 
 import UIKit
