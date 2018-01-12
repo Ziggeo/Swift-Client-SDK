@@ -115,6 +115,11 @@ func createPlayer()->AVPlayer {
 recorder.coverSelectorEnabled = true;
 ```
 
+### Enable Recorded Video Preview Dialog
+```
+recorder.recordedVideoPreviewEnabled = true;
+```
+
 ### Disable Camera Flip Button
 
 ```
