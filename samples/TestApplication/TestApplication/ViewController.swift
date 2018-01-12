@@ -83,6 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func record(_ sender: AnyObject) {
         let recorder = ZiggeoRecorder(application: m_ziggeo);
         recorder.coverSelectorEnabled = true;
+        recorder.recordedVideoPreviewEnabled = true;
         recorder.cameraFlipButtonVisible = true;
         recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         recorder.recorderDelegate = self;
@@ -136,6 +137,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func recordCustomUI(_ sender: Any) {
         m_recorder = ZiggeoRecorder(application: m_ziggeo);
         m_recorder.coverSelectorEnabled = true;
+        recorder.recordedVideoPreviewEnabled = true;
         m_recorder.cameraFlipButtonVisible = true;
         m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         m_recorder.recorderDelegate = self;
