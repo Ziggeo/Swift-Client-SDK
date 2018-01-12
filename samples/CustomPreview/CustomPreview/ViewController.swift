@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     @IBAction func recordWithCustomPreview(_ sender: Any) {
         let recorder = ZiggeoRecorder(application: m_ziggeo);
         recorder.coverSelectorEnabled = true;
+        recorder.recordedVideoPreviewEnabled = true;
         recorder.cameraFlipButtonVisible = true;
         recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         recorder.maxRecordedDurationSeconds = 0; //infinite

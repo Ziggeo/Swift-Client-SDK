@@ -311,6 +311,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 @interface ZiggeoRecorder : UIViewController <AVCaptureFileOutputRecordingDelegate>
 @property (nonatomic) BOOL coverSelectorEnabled;
+@property (nonatomic) BOOL recordedVideoPreviewEnabled;
 @property (nonatomic) BOOL cameraFlipButtonVisible;
 @property (nonatomic) UIImagePickerControllerCameraDevice cameraDevice;
 @property (nonatomic, strong) id <ZiggeoRecorderDelegate> _Null_unspecified recorderDelegate;
