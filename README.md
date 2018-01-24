@@ -68,7 +68,15 @@ m_ziggeo = Ziggeo(token: "YOUR_APP_TOKEN_HERE");
 ### Initialization
 ```
 func createPlayer()->AVPlayer {
-   let player = AVPlayer(URL: NSURL(string: m_ziggeo.videos.GetURLForVideo("YOUR_VIDEO_TOKEN_HERE"))!);
+   let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN");
+   return player;
+}
+```
+
+### Initialization with optional authorization token
+```
+func createPlayer()->AVPlayer {
+   let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN", authToken: "OPTIONAL_AUTH_TOKEN");
    return player;
 }
 ```
