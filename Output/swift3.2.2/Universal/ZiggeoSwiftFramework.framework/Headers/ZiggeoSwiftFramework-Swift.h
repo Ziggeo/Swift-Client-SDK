@@ -297,6 +297,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 @interface ZiggeoPlayer : AVPlayer
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application videoToken:(NSString * _Nonnull)videoToken OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application videoToken:(NSString * _Nonnull)videoToken authToken:(NSString * _Nonnull)authToken OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithURL:(NSURL * _Nonnull)URL SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithPlayerItem:(AVPlayerItem * _Nullable)item SWIFT_UNAVAILABLE;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
