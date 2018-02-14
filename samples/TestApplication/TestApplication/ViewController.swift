@@ -44,7 +44,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func createPlayer()->AVPlayer {
-        let player = AVPlayer(url: URL(string: m_ziggeo.videos.getURLForVideo("ZIGGEO_VIDEO_TOKEN"))!);
+        let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN");
+        //let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN", authToken: "OPTIONAL_AUTH_TOKEN");
         return player;
     }
     
@@ -137,7 +138,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func recordCustomUI(_ sender: Any) {
         m_recorder = ZiggeoRecorder(application: m_ziggeo);
         m_recorder.coverSelectorEnabled = true;
-        recorder.recordedVideoPreviewEnabled = true;
+        m_recorder.recordedVideoPreviewEnabled = true;
         m_recorder.cameraFlipButtonVisible = true;
         m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         m_recorder.recorderDelegate = self;
