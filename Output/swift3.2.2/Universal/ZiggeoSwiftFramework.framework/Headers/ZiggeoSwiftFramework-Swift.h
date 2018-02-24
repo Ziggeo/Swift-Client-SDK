@@ -276,7 +276,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 - (void)appWakeupSignalTaskComplete:(NSString * _Nonnull)sessionID;
 - (NSString * _Nonnull)formatURLRequest:(NSURLRequest * _Nonnull)request SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)backgroundUploadWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data identifier:(NSString * _Nonnull)identifier file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress SWIFT_WARN_UNUSED_RESULT;
-- (NSURLSessionTask * _Nonnull)postRawDataWithPath:(NSString * _Nonnull)path data:(NSData * _Nonnull)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)postRawDataWithPath:(NSString * _Nonnull)path data:(NSData * _Nonnull)data params:(NSDictionary * _Nullable)params callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)requestWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)requestStringWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)requestJSONWithMethod:(NSString * _Nonnull)method path:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
@@ -289,6 +289,8 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 - (NSURLSessionTask * _Nonnull)postJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)deleteWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)deleteJsonWithPath:(NSString * _Nonnull)path data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Null_unspecified)addSessionData:(NSDictionary * _Nullable)data path:(NSString * _Nonnull)path callback:(NSURLSessionTask * _Nonnull (^ _Nonnull)(NSDictionary * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)getSessionWithCallback:(NSURLSessionTask * _Nonnull (^ _Nonnull)(NSString * _Nullable, NSString * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -300,7 +302,8 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application videoToken:(NSString * _Nonnull)videoToken authToken:(NSString * _Nonnull)authToken OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithPlayerItem:(AVPlayerItem * _Nullable)playerItem OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithURL:(NSURL * _Nonnull)URL SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithURL:(NSURL * _Nonnull)url OBJC_DESIGNATED_INITIALIZER;
++ (void)createPlayerWithAdditionalParamsWithApplication:(Ziggeo * _Nonnull)application videoToken:(NSString * _Nonnull)videoToken params:(NSDictionary * _Nullable)params callback:(void (^ _Nonnull)(ZiggeoPlayer * _Nullable))callback;
 @end
 
 @protocol ZiggeoRecorderDelegate;
@@ -368,17 +371,17 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoVideos")
 - (NSURLSessionTask * _Nonnull)index:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSArray * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)attachVideo:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken data:(NSDictionary * _Nullable)data file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)createVideo:(NSDictionary * _Nullable)data file:(NSString * _Nonnull)file cover:(UIImage * _Nullable)cover callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress SWIFT_WARN_UNUSED_RESULT;
-- (NSURLSessionTask * _Nonnull)reRecordVideo:(NSString * _Nonnull)token file:(NSString * _Nonnull)file callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)reRecordVideo:(NSString * _Nonnull)token file:(NSString * _Nonnull)file data:(NSDictionary * _Nullable)data callback:(void (^ _Nullable)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback progress:(void (^ _Nullable)(int64_t, int64_t))progress SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nullable)getImageForVideo:(NSString * _Nonnull)token callback:(void (^ _Nonnull)(UIImage * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (void)getImageForLocalVideo:(NSString * _Nonnull)path callback:(void (^ _Nonnull)(UIImage * _Nullable, NSError * _Nullable))callback;
 - (NSString * _Nonnull)getURLForVideo:(NSString * _Nonnull)token SWIFT_WARN_UNUSED_RESULT;
-- (NSURLSessionTask * _Nonnull)deleteVideo:(NSString * _Nonnull)token callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
-- (NSURLSessionTask * _Nonnull)getDefaultStream:(NSString * _Nonnull)token callback:(void (^ _Nullable)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
-- (NSURLSessionTask * _Nonnull)createStream:(NSString * _Nonnull)token callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)deleteVideo:(NSString * _Nonnull)token data:(NSDictionary * _Nullable)data callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)getDefaultStream:(NSString * _Nonnull)token data:(NSDictionary * _Nullable)data callback:(void (^ _Nullable)(NSString * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)createStream:(NSString * _Nonnull)token data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (NSURLSessionTask * _Nonnull)createEmptyVideo:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
-- (NSURLSessionTask * _Nonnull)recorderSubmit:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nonnull)recorderSubmit:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken data:(NSDictionary * _Nullable)data callback:(void (^ _Nonnull)(NSDictionary * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (void)enforceImageForVideo:(NSString * _Nonnull)path image:(UIImage * _Nonnull)image;
-- (NSURLSessionTask * _Nullable)attachCover:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken cover:(UIImage * _Nullable)cover callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
+- (NSURLSessionTask * _Nullable)attachCover:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken cover:(UIImage * _Nullable)cover data:(NSDictionary * _Nullable)data callback:(void (^ _Nullable)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))callback SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 

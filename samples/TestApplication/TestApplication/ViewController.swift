@@ -26,7 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        m_ziggeo = Ziggeo(token: "ZIGGEO_APPLICATION_TOKEN");
+        m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN");
         m_ziggeo.enableDebugLogs = true;
         m_ziggeo.videos.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,23 +43,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         };
     }
 
-    func createPlayer()->AVPlayer {
-        let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN");
-        //let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN", authToken: "OPTIONAL_AUTH_TOKEN");
-        return player;
-    }
-    
+   
     
     @IBAction func playFullScreen(_ sender: AnyObject) {
-        let playerController: AVPlayerViewController = AVPlayerViewController();
-        playerController.player = createPlayer();
-        self.present(playerController, animated: true, completion: nil);
-        playerController.player?.play();
+        ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: "VIDEO_TOKEN", params: ["client_auth":"CLIENT_AUTH_TOKEN"]) { (player:ZiggeoPlayer?) in
+            DispatchQueue.main.async {
+                let playerController: AVPlayerViewController = AVPlayerViewController();
+                playerController.player = player;
+                self.present(playerController, animated: true, completion: nil);
+                playerController.player?.play();
+            }
+        }
     }
     
     @IBAction func playEmbedded(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
-        playerController.player = createPlayer();
+        playerController.player = ZiggeoPlayer(application: m_ziggeo, videoToken: "VIDEO_TOKEN");
         self.addChildViewController(playerController);
         self.videoViewPlaceholder.addSubview(playerController.view);
         playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
@@ -89,6 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         recorder.recorderDelegate = self;
         recorder.maxRecordedDurationSeconds = 0; //infinite
+        //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"];
         self.present(recorder, animated: true, completion: nil);
     }
     
