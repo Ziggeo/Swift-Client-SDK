@@ -75,9 +75,13 @@ func createPlayer()->AVPlayer {
 
 ### Initialization with optional authorization token
 ```
-func createPlayer()->AVPlayer {
-   let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN", authToken: "OPTIONAL_AUTH_TOKEN");
-   return player;
+ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: "VIDEO_TOKEN", params: ["client_auth":"CLIENT_AUTH_TOKEN"]) { (player:ZiggeoPlayer?) in
+    DispatchQueue.main.async {
+        let playerController: AVPlayerViewController = AVPlayerViewController();
+        playerController.player = player;
+        self.present(playerController, animated: true, completion: nil);
+        playerController.player?.play();
+    }
 }
 ```
 
