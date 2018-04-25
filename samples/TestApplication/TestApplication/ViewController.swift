@@ -89,6 +89,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.recorderDelegate = self;
         recorder.maxRecordedDurationSeconds = 0; //infinite
         //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"];
+        //m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN";
         self.present(recorder, animated: true, completion: nil);
     }
     
