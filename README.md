@@ -3,7 +3,10 @@ Ziggeo Swift SDK 1.0
 
 Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playback with only two lines of code in your site, service or app. This is the iOS SDK repository. 
 
-##Upgrading from v.1.0.5 to v.1.0.6
+## Upgrading from v.1.0.6 to v.1.0.7
+The update bring new `serverAuthToken` and `clientAuthToken` parameters in `ziggeo.connect` object (useful for global auth tokens).
+
+## Upgrading from v.1.0.5 to v.1.0.6
 
 New changes bring new features without changing the entry or exit points of any methods or functions. You can safely upgrade without any changes to your existing codes.
 
@@ -157,6 +160,18 @@ recorder.cameraDevice = UIImagePickerControllerCameraDevice.Rear;
 ### Additional Video Parameters (effects, profiles, etc)
 ```
 recorder.extraArgsForCreateVideo = ["effect_profile": "12345"];
+```
+
+### Authorization tokens
+
+Recorder-level auth tokens:
+```
+    recorder.extraArgsForCreateVideo = ["client_auth" : "CLIENT_AUTH_TOKEN"];
+```
+
+Global (application-level) auth tokens:
+```
+    m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN";
 ```
 
 # Advanced SDK Usage
