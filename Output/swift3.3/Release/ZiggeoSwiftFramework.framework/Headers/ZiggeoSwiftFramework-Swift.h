@@ -245,6 +245,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework6Ziggeo")
 @property (nonatomic, strong) ZiggeoVideos * _Null_unspecified videos;
 @property (nonatomic) BOOL enableDebugLogs;
 - (void)logWithItem:(NSString * _Nonnull)item;
+- (void)logErrorWithItem:(NSString * _Nonnull)item;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
