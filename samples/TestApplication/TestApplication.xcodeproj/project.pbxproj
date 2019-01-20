@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA01D0C720909CC0009160F7 /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA01D0C620909CC0009160F7 /* ZiggeoSwiftFramework.framework */; };
-		FA50667A211A2789002CEA58 /* ZiggeoSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA01D0C620909CC0009160F7 /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA16F11C21F4AF5600E3F62D /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16F11B21F4AF5600E3F62D /* ZiggeoSwiftFramework.framework */; };
+		FA16F11D21F4AFEB00E3F62D /* ZiggeoSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA16F11B21F4AF5600E3F62D /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FA50667A211A2789002CEA58 /* ZiggeoSwiftFramework.framework in Embed Frameworks */,
+				FA16F11D21F4AFEB00E3F62D /* ZiggeoSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,7 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FA01D0C620909CC0009160F7 /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZiggeoSwiftFramework.framework; path = ../../Output/swift3.3/Universal/ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
+		FA16F11B21F4AF5600E3F62D /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZiggeoSwiftFramework.framework; path = ../../Output/swift3.4/Universal/ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
 		FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRecorderControls.xib; sourceTree = "<group>"; };
 		FA65B1CF1D65C05100DC784F /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA65B1D21D65C05100DC784F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA01D0C720909CC0009160F7 /* ZiggeoSwiftFramework.framework in Frameworks */,
+				FA16F11C21F4AF5600E3F62D /* ZiggeoSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 		FA65B1C61D65C05100DC784F = {
 			isa = PBXGroup;
 			children = (
-				FA01D0C620909CC0009160F7 /* ZiggeoSwiftFramework.framework */,
+				FA16F11B21F4AF5600E3F62D /* ZiggeoSwiftFramework.framework */,
 				FA65B1D11D65C05100DC784F /* TestApplication */,
 				FA65B1D01D65C05100DC784F /* Products */,
 			);
@@ -296,7 +296,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7BT7647345;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift3.3/Universal";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift3.4/Universal";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -312,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7BT7647345;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift3.3/Universal";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift3.4/Universal";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

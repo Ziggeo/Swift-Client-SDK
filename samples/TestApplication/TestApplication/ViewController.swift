@@ -18,6 +18,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var videoViewPlaceholder: UIView!
     var m_recorder: ZiggeoRecorder! = nil;
 
+    var lastRecordedToken: String! = "VIDEO_TOKEN"; //will be updated when new recording is done
+    
 
     //custom UI
     @IBOutlet var overlayView: UIView!
@@ -46,7 +48,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
    
     
     @IBAction func playFullScreen(_ sender: AnyObject) {
-        ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: "VIDEO_TOKEN", params: ["client_auth":"CLIENT_AUTH_TOKEN"]) { (player:ZiggeoPlayer?) in
+        
+        ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: lastRecordedToken/*VIDEO_TOKEN*/, params: ["client_auth":"CLIENT_AUTH_TOKEN"]) { (player:ZiggeoPlayer?) in
             DispatchQueue.main.async {
                 let playerController: AVPlayerViewController = AVPlayerViewController();
                 playerController.player = player;
@@ -58,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func playEmbedded(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
-        playerController.player = ZiggeoPlayer(application: m_ziggeo, videoToken: "VIDEO_TOKEN");
+        playerController.player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/);
         self.addChildViewController(playerController);
         self.videoViewPlaceholder.addSubview(playerController.view);
         playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
@@ -89,8 +92,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.recorderDelegate = self;
         
         recorder.maxRecordedDurationSeconds = 0; //infinite
-        //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"];
-        //m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN";
+        //recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
+        //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"]; //recorder-level auth token
+        //m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN"; //global auth token
         self.present(recorder, animated: true, completion: nil);
     }
     
@@ -114,6 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     public func videoPreparingToUpload(_ sourcePath: String, token: String) {
+        lastRecordedToken = token;
         NSLog("preparing to upload \(sourcePath) video with token \(token)");
     }
     
@@ -145,7 +150,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
         m_recorder.recorderDelegate = self;
         m_recorder.showControls = false;
-        m_recorder.extraArgsForCreateVideo = ["effect_profile": "12345"];
+        m_recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
         Bundle.main.loadNibNamed("CustomRecorderControls", owner: self, options: nil);
         m_recorder.overlayView = self.overlayView;
         self.present(m_recorder, animated: true, completion: nil);
