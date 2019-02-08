@@ -165,6 +165,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import AVFoundation;
 @import CoreGraphics;
+@import CoreMedia;
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
@@ -313,11 +314,12 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 @protocol ZiggeoRecorderDelegate;
 @protocol UIViewControllerTransitionCoordinator;
 @class UIGestureRecognizer;
-@class AVCaptureFileOutput;
+@class AVCaptureOutput;
+@class AVCaptureConnection;
 @class AVCaptureDevice;
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
-@interface ZiggeoRecorder : UIViewController <AVCaptureFileOutputRecordingDelegate>
+@interface ZiggeoRecorder : UIViewController <AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (nonatomic) BOOL coverSelectorEnabled;
 @property (nonatomic) BOOL recordedVideoPreviewEnabled;
 @property (nonatomic) BOOL cameraFlipButtonVisible;
@@ -325,6 +327,10 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 @property (nonatomic, strong) id <ZiggeoRecorderDelegate> _Null_unspecified recorderDelegate;
 @property (nonatomic) double maxRecordedDurationSeconds;
 @property (nonatomic, strong) NSDictionary * _Nullable extraArgsForCreateVideo;
+@property (nonatomic) double duration;
+@property (nonatomic) BOOL enableFaceOutline;
+@property (nonatomic) BOOL enableLuxMeterIndicator;
+@property (nonatomic) BOOL enableAudioLevelIndicator;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified overlayView;
 @property (nonatomic) BOOL showControls;
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application;
@@ -344,8 +350,9 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 - (IBAction)changeCamera:(id _Nonnull)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer * _Nonnull)gestureRecognizer;
 - (IBAction)toggleMovieRecording:(id _Nonnull)sender;
-- (void)captureOutput:(AVCaptureFileOutput * _Null_unspecified)captureOutput didStartRecordingToOutputFileAtURL:(NSURL * _Null_unspecified)fileURL fromConnections:(NSArray * _Null_unspecified)connections;
-- (void)captureOutput:(AVCaptureFileOutput * _Null_unspecified)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL * _Null_unspecified)outputFileURL fromConnections:(NSArray * _Null_unspecified)connections error:(NSError * _Null_unspecified)error;
+- (void)processRecordedVideoWithOutputFileURL:(NSURL * _Null_unspecified)outputFileURL error:(NSError * _Null_unspecified)error;
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+- (void)captureOutput:(AVCaptureOutput * _Null_unspecified)output didOutputMetadataObjects:(NSArray * _Null_unspecified)metadataObjects fromConnection:(AVCaptureConnection * _Null_unspecified)connection;
 - (void)focus:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode point:(CGPoint)point monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange;
 - (void)setFlashMode:(AVCaptureFlashMode)flashMode device:(AVCaptureDevice * _Nonnull)device;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
@@ -365,6 +372,9 @@ SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework22ZiggeoRecorderDelegate_")
 - (void)ziggeoRecorderCaptureSessionStateChanged:(BOOL)runningNow;
 - (void)ziggeoRecorderSubjectAreaDidChange;
 - (void)ziggeoRecorderCurrentRecordedDuration:(double)seconds;
+- (void)ziggeoRecorderLuxMeter:(double)luminousity;
+- (void)ziggeoRecorderAudioMeter:(double)audioLevel;
+- (void)ziggeoRecorderFaceDetected:(NSInteger)faceID rect:(CGRect)rect;
 @end
 
 @protocol ZiggeoVideosDelegate;
