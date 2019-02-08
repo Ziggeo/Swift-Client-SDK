@@ -1,7 +1,10 @@
-Ziggeo Swift SDK 1.0
+Ziggeo Swift SDK 1.1.1
 =============
 
 Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playback with only two lines of code in your site, service or app. This is the iOS SDK repository. 
+
+## Upgrading from v 1.1.0 to v.1.1.1
+The update brings new optional features such as lux meter, audio level meter and face outlining. These features are also available in the updated ZiggeoRecorder delegate
 
 ## Upgrading from v 1.0.9 to v.1.1.0
 Caching issue resolved for videos with default effect applied
@@ -164,6 +167,21 @@ recorder.cameraFlipButtonVisible = false;
 
 ```
 recorder.cameraDevice = UIImagePickerControllerCameraDevice.Rear;
+```
+
+### Enable Face Outlining
+```
+recorder.enableFaceOutline = true;
+```
+
+### Enable Lux Meter Indicator
+```
+recorder.enableLuxMeterIndicator = false;
+```
+
+### Enable Audio Level Indicator
+```
+recorder.enableAudioLevelIndicator = false;
 ```
 
 ### Additional Video Parameters (effects, profiles, etc)

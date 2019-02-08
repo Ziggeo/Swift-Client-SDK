@@ -88,7 +88,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.coverSelectorEnabled = true;
         recorder.recordedVideoPreviewEnabled = true;
         recorder.cameraFlipButtonVisible = true;
-        recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
+        recorder.cameraDevice = UIImagePickerControllerCameraDevice.front;
+        recorder.enableAudioLevelIndicator = false;
+        recorder.enableLuxMeterIndicator = false;
+        recorder.enableFaceOutline = true;
         recorder.recorderDelegate = self;
         
         recorder.maxRecordedDurationSeconds = 0; //infinite
@@ -147,7 +150,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         m_recorder.coverSelectorEnabled = true;
         m_recorder.recordedVideoPreviewEnabled = true;
         m_recorder.cameraFlipButtonVisible = true;
-        m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.rear;
+        m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.front;
         m_recorder.recorderDelegate = self;
         m_recorder.showControls = false;
         m_recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
@@ -191,6 +194,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     public func ziggeoRecorderCurrentRecordedDuration(_ seconds: Double) {
         NSLog("recording duration: \(seconds)");
     }
+    
+    public func ziggeoRecorderLuxMeter(_ luminousity: Double) {
+        //NSLog("luminousity: \(luminousity)");
+    }
+    
+    public func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
+        //NSLog("audio level: \(audioLevel)");
+    }
+    
+    public func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
+        //NSLog("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)");
+    }
+
 
 }
 
