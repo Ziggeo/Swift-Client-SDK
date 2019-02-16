@@ -328,9 +328,9 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder")
 @property (nonatomic) double maxRecordedDurationSeconds;
 @property (nonatomic, strong) NSDictionary * _Nullable extraArgsForCreateVideo;
 @property (nonatomic) double duration;
-@property (nonatomic) BOOL enableFaceOutline;
-@property (nonatomic) BOOL enableLuxMeterIndicator;
-@property (nonatomic) BOOL enableAudioLevelIndicator;
+@property (nonatomic) BOOL showFaceOutline;
+@property (nonatomic) BOOL showLightIndicator;
+@property (nonatomic) BOOL showSoundIndicator;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified overlayView;
 @property (nonatomic) BOOL showControls;
 - (nonnull instancetype)initWithApplication:(Ziggeo * _Nonnull)application;
