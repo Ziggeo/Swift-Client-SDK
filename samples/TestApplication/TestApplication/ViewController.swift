@@ -89,9 +89,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.recordedVideoPreviewEnabled = true;
         recorder.cameraFlipButtonVisible = true;
         recorder.cameraDevice = UIImagePickerControllerCameraDevice.front;
-        recorder.enableAudioLevelIndicator = false;
-        recorder.enableLuxMeterIndicator = false;
-        recorder.enableFaceOutline = true;
+        recorder.showSoundIndicator = true;
+        recorder.showLightIndicator = true;
+        recorder.showFaceOutline = true;
         recorder.recorderDelegate = self;
         
         recorder.maxRecordedDurationSeconds = 0; //infinite
