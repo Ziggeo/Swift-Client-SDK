@@ -62,7 +62,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func playEmbedded(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
         playerController.player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/);
-        self.addChildViewController(playerController);
+        self.addChild(playerController);
         self.videoViewPlaceholder.addSubview(playerController.view);
         playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
         playerController.player?.play();
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.coverSelectorEnabled = true;
         recorder.recordedVideoPreviewEnabled = true;
         recorder.cameraFlipButtonVisible = true;
-        recorder.cameraDevice = UIImagePickerControllerCameraDevice.front;
+        recorder.cameraDevice = UIImagePickerController.CameraDevice.front;
         recorder.showSoundIndicator = true;
         recorder.showLightIndicator = true;
         recorder.showFaceOutline = true;
@@ -150,7 +150,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         m_recorder.coverSelectorEnabled = true;
         m_recorder.recordedVideoPreviewEnabled = true;
         m_recorder.cameraFlipButtonVisible = true;
-        m_recorder.cameraDevice = UIImagePickerControllerCameraDevice.front;
+        m_recorder.cameraDevice = UIImagePickerController.CameraDevice.front;
         m_recorder.recorderDelegate = self;
         m_recorder.showControls = false;
         m_recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
