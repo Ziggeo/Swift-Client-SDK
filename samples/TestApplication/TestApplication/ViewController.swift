@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var m_recorder: ZiggeoRecorder! = nil;
 
     var lastRecordedToken: String! = "VIDEO_TOKEN"; //will be updated when new recording is done
-    
+    var uploaderTask: URLSessionTask! = nil;
 
     //custom UI
     @IBOutlet var overlayView: UIView!
@@ -76,11 +76,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePickerController, animated: true, completion: nil);
     }
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated:true, completion: nil)
-        let videoURL = info["UIImagePickerControllerMediaURL"] as? NSURL;
-        m_ziggeo.videos.createVideo(nil, file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
+        let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? NSURL;
+        uploaderTask = m_ziggeo.videos.createVideo(["data":"{\"foo\":\"bar\"}"], file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
     }
     
     @IBAction func record(_ sender: AnyObject) {
@@ -95,6 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.recorderDelegate = self;
         
         recorder.maxRecordedDurationSeconds = 0; //infinite
+        //recorder.extraArgsForCreateVideo = ["data":"{\"foo\":\"bar\"}"]; //pass custom data
         //recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
         //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"]; //recorder-level auth token
         //m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN"; //global auth token
