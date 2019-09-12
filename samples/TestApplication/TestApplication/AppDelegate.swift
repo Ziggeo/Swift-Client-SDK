@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import ZiggeoSwiftFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -46,6 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        let ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN");
+        ziggeo.connect.postWithPath(identifier, data: nil) { (data, response, error) in
+            completionHandler();
+        }
+    }
 
 }
 
