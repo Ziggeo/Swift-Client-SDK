@@ -1,7 +1,10 @@
-Ziggeo Swift SDK 1.1.6
+Ziggeo Swift SDK 1.1.7
 =============
 
 Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playback with only two lines of code in your site, service or app. This is the iOS SDK repository. 
+
+## Upgrading from v 1.1.6 to v.1.1.7
+Sequence of video items playback support added. See ZiggeoPlayer.createPlayerForMultipleVideos for details
 
 ## Upgrading from v 1.1.5 to v.1.1.6
 Custom data support fixed. Use `["data":"{\"foo\":\"bar\"}"]` as an extra data args to pass custom data to the recorded video
@@ -144,6 +147,21 @@ ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken:
     m_embeddedPlayerLayer.frame = videoViewPlaceholder.frame;
     videoViewPlaceholder.layer.addSublayer(m_embeddedPlayerLayer);
     m_embeddedPlayer.play();
+}
+```
+
+### Sequence of Videos Playback
+```
+@IBAction func playSequenceOfVideos(_ sender: Any) {
+    ZiggeoPlayer.createPlayerForMultipleVideos(application: m_ziggeo, videoTokens: ["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", "VIDEO_TOKEN_N"], params: nil) { (player) in
+        DispatchQueue.main.async {
+            self.queuePlayer = player;
+            self.playerLayer = AVPlayerLayer(player: player)
+            self.playerLayer.frame = self.videoViewPlaceholder.layer.bounds
+            self.videoViewPlaceholder.layer.addSublayer(self.playerLayer)
+            player?.play();
+        }
+    }
 }
 ```
 
