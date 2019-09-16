@@ -20,6 +20,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     var lastRecordedToken: String! = "VIDEO_TOKEN"; //will be updated when new recording is done
     var uploaderTask: URLSessionTask! = nil;
+    
+    var queuePlayer: AVQueuePlayer! = nil;
+    var playerLayer: AVPlayerLayer! = nil;
 
     //custom UI
     @IBOutlet var overlayView: UIView!
@@ -101,6 +104,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(recorder, animated: true, completion: nil);
     }
     
+    @IBAction func playSequenceOfVideos(_ sender: Any) {
+        ZiggeoPlayer.createPlayerForMultipleVideos(application: m_ziggeo, videoTokens: ["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", "VIDEO_TOKEN_N"], params: nil) { (player) in
+            DispatchQueue.main.async {
+                self.queuePlayer = player;
+                self.playerLayer = AVPlayerLayer(player: player)
+                
+                self.playerLayer.frame = self.videoViewPlaceholder.layer.bounds
+                self.videoViewPlaceholder.layer.addSublayer(self.playerLayer)
+                player?.play();
+            }
+        }
+        
+    }
     //
     // ZiggeoRecorder main delegate
     //
