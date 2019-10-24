@@ -220,6 +220,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13CoverSelector")
 @interface CoverSelector : UIViewController <UITableViewDataSource, UITableViewDelegate>
+- (void)viewDidLoad;
 @property (nonatomic, readonly) BOOL prefersStatusBarHidden;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
