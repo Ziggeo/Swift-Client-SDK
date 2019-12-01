@@ -13,20 +13,20 @@
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
 		FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D91D65C05100DC784F /* Assets.xcassets */; };
 		FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */; };
-		FA9F672123616CBC00536C40 /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F672023616CBC00536C40 /* ZiggeoSwiftFramework.framework */; };
-		FA9F672223616CD900536C40 /* ZiggeoSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA9F672023616CBC00536C40 /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FABA667623936631007E51DF /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */; };
+		FABA6677239366AF007E51DF /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FAD26D781E4231720034B66F /* Embed Frameworks */ = {
+		FAD26D781E4231720034B66F /* Embed Frameworks (1 item) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FA9F672223616CD900536C40 /* ZiggeoSwiftFramework.framework in Embed Frameworks */,
+				FABA6677239366AF007E51DF /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */,
 			);
-			name = "Embed Frameworks";
+			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -40,7 +40,7 @@
 		FA65B1D91D65C05100DC784F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA65B1DC1D65C05100DC784F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA65B1DE1D65C05100DC784F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA9F672023616CBC00536C40 /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZiggeoSwiftFramework.framework; path = ../../Output/swift5.1/Universal/ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
+		FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZiggeoSwiftFramework.framework; path = ../../Output/swift5.1.2/Universal/ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9F672123616CBC00536C40 /* ZiggeoSwiftFramework.framework in Frameworks */,
+				FABA667623936631007E51DF /* ZiggeoSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 		FA65B1C61D65C05100DC784F = {
 			isa = PBXGroup;
 			children = (
-				FA9F672023616CBC00536C40 /* ZiggeoSwiftFramework.framework */,
+				FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */,
 				FA65B1D11D65C05100DC784F /* TestApplication */,
 				FA65B1D01D65C05100DC784F /* Products */,
 			);
@@ -96,7 +96,7 @@
 				FA65B1CB1D65C05100DC784F /* Sources */,
 				FA65B1CC1D65C05100DC784F /* Frameworks */,
 				FA65B1CD1D65C05100DC784F /* Resources */,
-				FAD26D781E4231720034B66F /* Embed Frameworks */,
+				FAD26D781E4231720034B66F /* Embed Frameworks (1 item) */,
 				FA9BE02C1E86DB620000170A /* ShellScript */,
 			);
 			buildRules = (
@@ -229,7 +229,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1/Universal";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1.2/Universal";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -276,7 +276,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1/Universal";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1.2/Universal";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -299,7 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7BT7647345;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1/Universal";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1.2/Universal";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -315,7 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7BT7647345;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1/Universal";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1.2/Universal";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
