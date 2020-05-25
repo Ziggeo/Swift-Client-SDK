@@ -43,9 +43,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func index(_ sender: AnyObject) {
-        m_ziggeo.videos.index(nil) { (jsonArray, error) in
-            NSLog("index error: \(error), response: \(jsonArray)");
-        };
+        m_ziggeo.videos.index([
+            "skip": "0",
+        ]) {
+            jsonArray, error in
+            NSLog("index error: \(error), response: \(jsonArray)")
+        }
     }
 
    
