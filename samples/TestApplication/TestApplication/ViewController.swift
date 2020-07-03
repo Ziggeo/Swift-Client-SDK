@@ -107,7 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         let customizeButtons = false
         if customizeButtons {
-            let recorderUIConfig = RecorderUIConfig()
+            let recorderUIConfig = ZiggeoRecorderButtonConfig()
             recorderUIConfig.recordButton.scale = 2
             recorderUIConfig.closeButton.scale = 0.5
             recorderUIConfig.cameraFlipButton.scale = 0.5
