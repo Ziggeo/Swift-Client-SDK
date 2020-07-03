@@ -104,6 +104,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
         //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"]; //recorder-level auth token
         //m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN"; //global auth token
+
+        let customizeButtons = false
+        if customizeButtons {
+            let recorderUIConfig = RecorderUIConfig()
+            recorderUIConfig.recordButton.scale = 2
+            recorderUIConfig.closeButton.scale = 0.5
+            recorderUIConfig.cameraFlipButton.scale = 0.5
+            if let flipCameraPath = Bundle.main.url(forResource: "FlipCamera", withExtension: "png")?.path {
+                recorderUIConfig.cameraFlipButton.imagePath = flipCameraPath
+            }
+            recorder.recorderUIConfig = recorderUIConfig
+        }
+
         self.present(recorder, animated: true, completion: nil);
     }
     
