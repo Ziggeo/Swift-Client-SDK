@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842910E525012C4400FAAEE1 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842910E425012C4400FAAEE1 /* ReplayKit.framework */; };
+		842910E825012C4400FAAEE1 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842910E725012C4400FAAEE1 /* SampleHandler.swift */; };
+		842910EF25012C4500FAAEE1 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842910E425012C4400FAAEE1 /* ReplayKit.framework */; };
+		842910F125012C4500FAAEE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842910F025012C4500FAAEE1 /* UIKit.framework */; };
+		842910F425012C4500FAAEE1 /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842910F325012C4500FAAEE1 /* BroadcastSetupViewController.swift */; };
+		842910F825012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 842910EE25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		842910FB25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 842910E225012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
@@ -17,7 +24,36 @@
 		FABA6677239366AF007E51DF /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		842910F625012C4500FAAEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65B1C71D65C05100DC784F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 842910ED25012C4500FAAEE1;
+			remoteInfo = TestApplicationBroadcastUploadExtensionSetupUI;
+		};
+		842910F925012C4500FAAEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA65B1C71D65C05100DC784F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 842910E125012C4300FAAEE1;
+			remoteInfo = TestApplicationBroadcastUploadExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		842910FC25012C4500FAAEE1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				842910FB25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtension.appex in Embed App Extensions */,
+				842910F825012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAD26D781E4231720034B66F /* Embed Frameworks (1 item) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -32,6 +68,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		842910E225012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TestApplicationBroadcastUploadExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		842910E425012C4400FAAEE1 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		842910E725012C4400FAAEE1 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		842910E925012C4400FAAEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842910EE25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TestApplicationBroadcastUploadExtensionSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		842910F025012C4500FAAEE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		842910F325012C4500FAAEE1 /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
+		842910F525012C4500FAAEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRecorderControls.xib; sourceTree = "<group>"; };
 		FA65B1CF1D65C05100DC784F /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA65B1D21D65C05100DC784F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +88,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		842910DF25012C4300FAAEE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842910E525012C4400FAAEE1 /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		842910EB25012C4500FAAEE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842910EF25012C4500FAAEE1 /* ReplayKit.framework in Frameworks */,
+				842910F125012C4500FAAEE1 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65B1CC1D65C05100DC784F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,11 +116,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842910E325012C4400FAAEE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				842910E425012C4400FAAEE1 /* ReplayKit.framework */,
+				842910F025012C4500FAAEE1 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		842910E625012C4400FAAEE1 /* TestApplicationBroadcastUploadExtension */ = {
+			isa = PBXGroup;
+			children = (
+				842910E725012C4400FAAEE1 /* SampleHandler.swift */,
+				842910E925012C4400FAAEE1 /* Info.plist */,
+			);
+			path = TestApplicationBroadcastUploadExtension;
+			sourceTree = "<group>";
+		};
+		842910F225012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI */ = {
+			isa = PBXGroup;
+			children = (
+				842910F325012C4500FAAEE1 /* BroadcastSetupViewController.swift */,
+				842910F525012C4500FAAEE1 /* Info.plist */,
+			);
+			path = TestApplicationBroadcastUploadExtensionSetupUI;
+			sourceTree = "<group>";
+		};
 		FA65B1C61D65C05100DC784F = {
 			isa = PBXGroup;
 			children = (
 				FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */,
 				FA65B1D11D65C05100DC784F /* TestApplication */,
+				842910E625012C4400FAAEE1 /* TestApplicationBroadcastUploadExtension */,
+				842910F225012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI */,
+				842910E325012C4400FAAEE1 /* Frameworks */,
 				FA65B1D01D65C05100DC784F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				FA65B1CF1D65C05100DC784F /* TestApplication.app */,
+				842910E225012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension.appex */,
+				842910EE25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +182,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		842910E125012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8429110225012C4500FAAEE1 /* Build configuration list for PBXNativeTarget "TestApplicationBroadcastUploadExtension" */;
+			buildPhases = (
+				842910DE25012C4300FAAEE1 /* Sources */,
+				842910DF25012C4300FAAEE1 /* Frameworks */,
+				842910E025012C4300FAAEE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestApplicationBroadcastUploadExtension;
+			productName = TestApplicationBroadcastUploadExtension;
+			productReference = 842910E225012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		842910ED25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8429110125012C4500FAAEE1 /* Build configuration list for PBXNativeTarget "TestApplicationBroadcastUploadExtensionSetupUI" */;
+			buildPhases = (
+				842910EA25012C4500FAAEE1 /* Sources */,
+				842910EB25012C4500FAAEE1 /* Frameworks */,
+				842910EC25012C4500FAAEE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestApplicationBroadcastUploadExtensionSetupUI;
+			productName = TestApplicationBroadcastUploadExtensionSetupUI;
+			productReference = 842910EE25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FA65B1CE1D65C05100DC784F /* TestApplication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA65B1E11D65C05100DC784F /* Build configuration list for PBXNativeTarget "TestApplication" */;
@@ -98,10 +225,13 @@
 				FA65B1CD1D65C05100DC784F /* Resources */,
 				FAD26D781E4231720034B66F /* Embed Frameworks (1 item) */,
 				FA9BE02C1E86DB620000170A /* ShellScript */,
+				842910FC25012C4500FAAEE1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				842910F725012C4500FAAEE1 /* PBXTargetDependency */,
+				842910FA25012C4500FAAEE1 /* PBXTargetDependency */,
 			);
 			name = TestApplication;
 			productName = TestApplication;
@@ -114,10 +244,20 @@
 		FA65B1C71D65C05100DC784F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Ziggeo Inc";
 				TargetAttributes = {
+					842910E125012C4300FAAEE1 = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = 7BT7647345;
+						ProvisioningStyle = Automatic;
+					};
+					842910ED25012C4500FAAEE1 = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = 7BT7647345;
+						ProvisioningStyle = Automatic;
+					};
 					FA65B1CE1D65C05100DC784F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7BT7647345;
@@ -140,11 +280,27 @@
 			projectRoot = "";
 			targets = (
 				FA65B1CE1D65C05100DC784F /* TestApplication */,
+				842910E125012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension */,
+				842910ED25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		842910E025012C4300FAAEE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		842910EC25012C4500FAAEE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65B1CD1D65C05100DC784F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +331,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		842910DE25012C4300FAAEE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842910E825012C4400FAAEE1 /* SampleHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		842910EA25012C4500FAAEE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842910F425012C4500FAAEE1 /* BroadcastSetupViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA65B1CB1D65C05100DC784F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +357,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		842910F725012C4500FAAEE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 842910ED25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI */;
+			targetProxy = 842910F625012C4500FAAEE1 /* PBXContainerItemProxy */;
+		};
+		842910FA25012C4500FAAEE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 842910E125012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension */;
+			targetProxy = 842910F925012C4500FAAEE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FA65B1D61D65C05100DC784F /* Main.storyboard */ = {
@@ -206,6 +391,144 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		842910FD25012C4500FAAEE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7647345;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestApplicationBroadcastUploadExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		842910FE25012C4500FAAEE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7647345;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestApplicationBroadcastUploadExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		842910FF25012C4500FAAEE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7647345;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestApplicationBroadcastUploadExtensionSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtensionSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8429110025012C4500FAAEE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7647345;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestApplicationBroadcastUploadExtensionSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtensionSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FA65B1DF1D65C05100DC784F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -296,6 +619,7 @@
 		FA65B1E21D65C05100DC784F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7BT7647345;
@@ -312,6 +636,7 @@
 		FA65B1E31D65C05100DC784F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7BT7647345;
@@ -328,6 +653,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8429110125012C4500FAAEE1 /* Build configuration list for PBXNativeTarget "TestApplicationBroadcastUploadExtensionSetupUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842910FF25012C4500FAAEE1 /* Debug */,
+				8429110025012C4500FAAEE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8429110225012C4500FAAEE1 /* Build configuration list for PBXNativeTarget "TestApplicationBroadcastUploadExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842910FD25012C4500FAAEE1 /* Debug */,
+				842910FE25012C4500FAAEE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FA65B1CA1D65C05100DC784F /* Build configuration list for PBXProject "TestApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
