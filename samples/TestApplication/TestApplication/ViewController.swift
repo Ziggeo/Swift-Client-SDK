@@ -10,17 +10,18 @@ import UIKit
 import ZiggeoSwiftFramework
 import AVKit
 import AVFoundation
+import ReplayKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZiggeoRecorderDelegate, ZiggeoVideosDelegate {
-    
-    
+
+
     var m_ziggeo: Ziggeo! = nil;
     @IBOutlet weak var videoViewPlaceholder: UIView!
     var m_recorder: ZiggeoRecorder! = nil;
 
-    var lastRecordedToken: String! = "VIDEO_TOKEN"; //will be updated when new recording is done
+    var lastRecordedToken: String! = "aceba4c0a3bc5db81e67cb9861703634"; //will be updated when new recording is done
     var uploaderTask: URLSessionTask! = nil;
-    
+
     var queuePlayer: AVQueuePlayer! = nil;
     var playerLayer: AVPlayerLayer! = nil;
 
@@ -28,10 +29,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var overlayView: UIView!
     @IBOutlet weak var toggleRecordingButton: UIBarButtonItem!
     @IBOutlet weak var switchCameraButton: UIBarButtonItem!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN");
+        m_ziggeo = Ziggeo(token: "344a71099193b17a693ab11fdd0eeb10");
         m_ziggeo.enableDebugLogs = true;
         m_ziggeo.videos.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
@@ -51,10 +52,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
-   
-    
+
+
     @IBAction func playFullScreen(_ sender: AnyObject) {
-        
+
         ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: lastRecordedToken/*VIDEO_TOKEN*/, params: ["client_auth":"CLIENT_AUTH_TOKEN"]) { (player:ZiggeoPlayer?) in
             DispatchQueue.main.async {
                 let playerController: AVPlayerViewController = AVPlayerViewController();
@@ -64,7 +65,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
-    
+
     @IBAction func playEmbedded(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
         playerController.player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/);
@@ -81,13 +82,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePickerController.mediaTypes = ["public.movie"];
         present(imagePickerController, animated: true, completion: nil);
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated:true, completion: nil)
         let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? NSURL;
         uploaderTask = m_ziggeo.videos.createVideo(["data":"{\"foo\":\"bar\"}"], file: videoURL!.path!, cover: nil, callback: nil, progress: nil);
     }
-    
+
     @IBAction func record(_ sender: AnyObject) {
         let recorder = ZiggeoRecorder(application: m_ziggeo);
         recorder.coverSelectorEnabled = true;
@@ -98,7 +99,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         recorder.showLightIndicator = true;
         recorder.showFaceOutline = true;
         recorder.recorderDelegate = self;
-        
+
         recorder.maxRecordedDurationSeconds = 0; //infinite
         //recorder.extraArgsForCreateVideo = ["data":"{\"foo\":\"bar\"}"]; //pass custom data
         //recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"];
@@ -119,28 +120,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         self.present(recorder, animated: true, completion: nil);
     }
-    
+
     @IBAction func playSequenceOfVideos(_ sender: Any) {
         ZiggeoPlayer.createPlayerForMultipleVideos(application: m_ziggeo, videoTokens: ["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", "VIDEO_TOKEN_N"], params: nil) { (player) in
             DispatchQueue.main.async {
                 self.queuePlayer = player;
                 self.playerLayer = AVPlayerLayer(player: player)
-                
+
                 self.playerLayer.frame = self.videoViewPlaceholder.layer.bounds
                 self.videoViewPlaceholder.layer.addSublayer(self.playerLayer)
                 player?.play();
             }
         }
-        
+
     }
     //
     // ZiggeoRecorder main delegate
     //
-    
+
     public func ziggeoRecorderDidCancel() {
         NSLog("cancellation");
     }
-    
+
     public func ziggeoRecorderRetake(_ oldFile: URL!) {
         NSLog("file \(oldFile) removed, recording restarted");
     }
@@ -151,28 +152,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     public func videoPreparingToUpload(_ sourcePath: String) {
         NSLog("preparing to upload \(sourcePath) video");
     }
-    
+
     public func videoPreparingToUpload(_ sourcePath: String, token: String) {
         lastRecordedToken = token;
         NSLog("preparing to upload \(sourcePath) video with token \(token)");
     }
-    
+
     public func videoFailedToUpload(_ sourcePath: String) {
         NSLog("failed to upload \(sourcePath) video");
     }
-    
+
     public func videoUploadStarted(_ sourcePath: String, token: String, backgroundTask: URLSessionTask) {
         NSLog("upload started with \(sourcePath) video and token \(token)");
     }
-    
+
     public func videoUploadComplete(_ sourcePath: String, token: String, response: URLResponse?, error: NSError?, json:  NSDictionary?) {
         NSLog("upload complete with \(sourcePath) video and token \(token)");
     }
-    
+
     public func videoUploadProgress(_ sourcePath: String, token: String, totalBytesSent: Int64, totalBytesExpectedToSend:  Int64) {
         NSLog("upload progress is \(totalBytesSent) from total \(totalBytesExpectedToSend)");
     }
-    
+
     //
     // Custom UI
     //
@@ -191,19 +192,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(m_recorder, animated: true, completion: nil);
     }
 
-    
+
     @IBAction func closeButtonCustomUI(_ sender: Any) {
         m_recorder?.dismiss(animated: true, completion: nil);
     }
-    
+
     @IBAction func toggleRecordingCustomUI(_ sender: Any) {
         m_recorder?.toggleMovieRecording(self);
     }
-    
+
     @IBAction func switchCameraCustomUI(_ sender: Any) {
         m_recorder?.changeCamera(self);
     }
-    
+
     //
     // custom UI recorder delegate
     //
@@ -211,7 +212,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         toggleRecordingButton?.title = "stop";
         switchCameraButton?.isEnabled = false;
     }
-    
+
     public func ziggeoRecorderDidFinishRecording() {
         toggleRecordingButton?.title = "record";
         switchCameraButton?.isEnabled = true;
@@ -222,23 +223,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         toggleRecordingButton?.isEnabled = true;
         switchCameraButton?.isEnabled = true;
     }
-    
+
     public func ziggeoRecorderCurrentRecordedDuration(_ seconds: Double) {
         NSLog("recording duration: \(seconds)");
     }
-    
+
     public func ziggeoRecorderLuxMeter(_ luminousity: Double) {
         //NSLog("luminousity: \(luminousity)");
     }
-    
+
     public func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
         //NSLog("audio level: \(audioLevel)");
     }
-    
+
     public func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
         //NSLog("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)");
     }
 
+    @IBAction func didTapRecordScreenButton(_ sender: Any) {
+        
+        let broadcastPicker = RPSystemBroadcastPickerView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        // broadcastPicker.preferredExtension = "com.your-app.broadcast.extension"
 
+        view.addSubview(broadcastPicker)
+    }
+    
 }
 
