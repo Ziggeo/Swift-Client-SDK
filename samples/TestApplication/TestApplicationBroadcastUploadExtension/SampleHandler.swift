@@ -17,41 +17,23 @@ class SampleHandler: RPBroadcastSampleHandler {
 
     var videoWriterInput: AVAssetWriterInput?
 
+    private var adapter: AVAssetWriterInputPixelBufferAdaptor?
+
     private var audioWriterInput: AVAssetWriterInput?
 
     private var videoWriter: AVAssetWriter!
 
     private var lastSampleTime: CMTime = CMTime()
 
+    private var _time: Double = 0
+
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
         let filename = UUID().uuidString
-        videoOutputFullFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(_filename).mov")
+        videoOutputFullFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(filename).mov")
 
         isRecordingVideo = true
-
-        let session = AVCaptureSession()
-        session.sessionPreset = .hd1920x1080
-
-//        guard
-//            let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .unspecified),
-//            let input = try? AVCaptureDeviceInput(device: device),
-//            session.canAddInput(input) else { return }
-
-//        session.beginConfiguration()
-//        session.addInput(input)
-//        session.commitConfiguration()
-
-        //let output = AVCaptureVideoDataOutput()
-        //guard session.canAddOutput(output) else { return }
-        //output.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.yusuke024.video"))
-        //session.beginConfiguration()
-        //session.addOutput(output)
-        //session.commitConfiguration()
-
-
-        session.startRunning()
-//        _videoOutput = output
-        _captureSession = session
+        
+        print("Starting screen capture...")
 
         let screen = UIScreen.main
         let screenBounds = screen.bounds
@@ -71,37 +53,62 @@ class SampleHandler: RPBroadcastSampleHandler {
             return
         }
 
-        videoWriter = try! AVAssetWriter(outputURL: videoOutputFullFileName, fileType: .mov)
-
-        let settings =
-             videoSettings
-//            _videoOutput!.recommendedVideoSettingsForAssetWriter(writingTo: .mov)
-
-
-        let input = AVAssetWriterInput(mediaType: .video, outputSettings: settings) // [AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: 1920, AVVideoHeightKey: 1080])
-        //input.mediaTimeScale = CMTimeScale(bitPattern: 600)
-        input.expectsMediaDataInRealTime = true
-        //input.transform = CGAffineTransform(rotationAngle: .pi/2)
+        let inputSize = screenBounds
+        let outputSize = screenBounds
         
-        let adapter = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: nil)
-        if videoWriter.canAdd(input) {
-            videoWriter.add(input)
+        var error: NSError?
+
+        do {
+            try FileManager.default.removeItem(at: videoOutputFullFileName)
+        } catch {}
+
+        do {
+            try videoWriter = AVAssetWriter(outputURL: videoOutputFullFileName, fileType: AVFileType.mov)
+        } catch let writerError as NSError {
+            error = writerError
+            videoWriter = nil
         }
-        
-        let started = videoWriter.startWriting()
 
-        if !started {
+        guard let videoWriter = videoWriter else {
+            print("Failed to initialize videoWriter")
+            return
+        }
+    
+
+        videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: videoSettings)
+
+        guard let videoWriterInput = videoWriterInput else {
+            print("Failed to instantiate AVAssetWriterInput")
+            return
+        }
+
+        let sourceBufferAttributes = [
+            (kCVPixelBufferPixelFormatTypeKey as String): Int(kCVPixelFormatType_32ARGB),
+            (kCVPixelBufferWidthKey as String): Float(inputSize.width),
+            (kCVPixelBufferHeightKey as String): Float(inputSize.height)] as [String : Any]
+
+        adapter = AVAssetWriterInputPixelBufferAdaptor(
+            assetWriterInput: videoWriterInput,
+            sourcePixelBufferAttributes: sourceBufferAttributes
+        )
+
+        assert(videoWriter.canAdd(videoWriterInput))
+        videoWriter.add(videoWriterInput)
+
+        print("videoWriter.startWriting()...")
+        
+        if !videoWriter.startWriting() {
             print("Failed to start writing")
+            return
         }
-
+        
+        print("videoWriter.startWriting() SUCCESS")
         videoWriter.startSession(atSourceTime: .zero)
-        _assetWriter = videoWriter
-        _assetWriterInput = input
-//        _adpater = adapter
+        print("videoWriter.startSession() success")
+
         _captureState = .capturing
 
-        //_time = timestamp
-
+        // _time = timestamp
     }
     
     override func broadcastPaused() {
@@ -134,43 +141,45 @@ class SampleHandler: RPBroadcastSampleHandler {
     }
 
     func captureOutput(sampleBuffer: CMSampleBuffer) {
+        print("Capturing sample buffer")
         let timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer).seconds
 
-        if _assetWriterInput?.isReadyForMoreMediaData == true {
+        if videoWriterInput?.isReadyForMoreMediaData == true {
             let time = CMTime(seconds: timestamp - _time, preferredTimescale: CMTimeScale(600))
-            _adpater?.append(CMSampleBufferGetImageBuffer(sampleBuffer)!, withPresentationTime: time)
+            adapter?.append(CMSampleBufferGetImageBuffer(sampleBuffer)!, withPresentationTime: time)
+            print("Capture success")
         }
     }
     
     override func broadcastFinished() {
-        guard _assetWriterInput?.isReadyForMoreMediaData == true else {
-            // todo log error
+        print("Finishing capture")
+        guard videoWriterInput?.isReadyForMoreMediaData == true else {
+            print("Error: videoWriterInput?.isReadyForMoreMediaData == false")
             return
         }
-        guard  _assetWriter!.status != .failed else {
-            // todo log error
+        guard  videoWriter!.status != .failed else {
+            print("Error: videoWriter!.status == .failed")
             return
         }
 
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(_filename).mov")
-        _assetWriterInput?.markAsFinished()
-        _assetWriter?.finishWriting {
+        print("videoWriterInput?.markAsFinished()...")
+        videoWriterInput?.markAsFinished()
+        print("OK")
+        
+        print("videoWriter?.finishWriting()...")
+        videoWriter?.finishWriting {
             [weak self] in
             self?._captureState = .idle
-            self?._assetWriter = nil
-            self?._assetWriterInput = nil
+            self?.videoWriter = nil
+            self?.videoWriterInput = nil
+            
+            print("videoWriter?.finishWriting() DONE!")
+            
             // todo notify the app that recording finished
         }
+        print("OK")
     }
 
-
-    private var _captureSession: AVCaptureSession?
-    private var _videoOutput: AVCaptureVideoDataOutput?
-    private var _assetWriter: AVAssetWriter?
-    private var _assetWriterInput: AVAssetWriterInput?
-    private var _adpater: AVAssetWriterInputPixelBufferAdaptor?
-    private var _filename = ""
-    private var _time: Double = 0
 
     private enum _CaptureState {
         case idle, start, capturing, end
