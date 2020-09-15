@@ -11,6 +11,9 @@ import Photos
 
 class SampleHandler: RPBroadcastSampleHandler {
 
+    let APPLICATION_GROUP_IDENTIFIER = "Ziggeo.TestApplication76876876876535431"
+
+
     var isRecordingVideo = false
 
     var videoOutputFullFileName: URL?
@@ -29,10 +32,20 @@ class SampleHandler: RPBroadcastSampleHandler {
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
         let filename = UUID().uuidString
-        videoOutputFullFileName = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(filename).mov")
 
-        isRecordingVideo = true
-        
+        // this doesn't work for app extensions: let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+
+//        guard let directory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: APPLICATION_GROUP_IDENTIFIER) else {
+//            print("Can not get container url. Check value in the property APPLICATION_GROUP_IDENTIFIER")
+//            return
+//        }
+
+        let directory = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+
+        videoOutputFullFileName = directory.appendingPathComponent("\(filename).mov")
+
+        print("Video file name: \(videoOutputFullFileName?.absoluteString ?? "NULL")")
+
         print("Starting screen capture...")
 
         let screen = UIScreen.main
@@ -101,14 +114,12 @@ class SampleHandler: RPBroadcastSampleHandler {
             print("Failed to start writing")
             return
         }
-        
+
         print("videoWriter.startWriting() SUCCESS")
         videoWriter.startSession(atSourceTime: .zero)
         print("videoWriter.startSession() success")
 
-        _captureState = .capturing
-
-        // _time = timestamp
+        isRecordingVideo = true
     }
     
     override func broadcastPaused() {
@@ -153,6 +164,8 @@ class SampleHandler: RPBroadcastSampleHandler {
     
     override func broadcastFinished() {
         print("Finishing capture")
+        print("videoWriter.status: \(videoWriter!.status.rawValue)")
+        
         guard videoWriterInput?.isReadyForMoreMediaData == true else {
             print("Error: videoWriterInput?.isReadyForMoreMediaData == false")
             return
@@ -168,35 +181,40 @@ class SampleHandler: RPBroadcastSampleHandler {
         
         print("videoWriter?.finishWriting()...")
         videoWriter?.finishWriting {
-            [weak self] in
-            self?._captureState = .idle
-            self?.videoWriter = nil
-            self?.videoWriterInput = nil
-            
             print("videoWriter?.finishWriting() DONE!")
-            
+
+            var size: Int64 = -1
+            if let url = self.videoOutputFullFileName {
+                size = self.fileSize(url)
+            }
+            print("Output file size: \(size)")
+
             // todo notify the app that recording finished
+            self.isRecordingVideo = false
         }
-        print("OK")
-    }
+        print("videoWriter.status: \(videoWriter!.status.rawValue)")
+        print("OK. finishWriting() is now continue running asynchronously...")
 
 
-    private enum _CaptureState {
-        case idle, start, capturing, end
-    }
-    private var _captureState = _CaptureState.idle
-    @IBAction func capture(_ sender: Any) {
-        switch _captureState {
-        case .idle:
-            _captureState = .start
-        case .capturing:
-            _captureState = .end
-        default:
-            break
+        while videoWriter!.status == .writing && isRecordingVideo {
+            Thread.sleep(forTimeInterval: 1)
         }
     }
+
 
     func log(_ s: String) {
+    }
+
+    func fileSize(_ url: URL) -> Int64 {
+        guard let fileAttributes = try? FileManager.default.attributesOfItem(atPath: url.path) else {
+            return -1
+        }
+
+        guard let bytes = fileAttributes[.size] as? Int64 else {
+            return -1
+        }
+
+        return bytes
     }
 
 }
