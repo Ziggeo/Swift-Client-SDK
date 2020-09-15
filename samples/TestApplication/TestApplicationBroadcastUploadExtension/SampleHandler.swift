@@ -11,9 +11,6 @@ import Photos
 
 class SampleHandler: RPBroadcastSampleHandler {
 
-    let APPLICATION_GROUP_IDENTIFIER = "Ziggeo.TestApplication76876876876535431"
-
-
     var isRecordingVideo = false
 
     var videoOutputFullFileName: URL?
@@ -32,13 +29,6 @@ class SampleHandler: RPBroadcastSampleHandler {
 
     override func broadcastStarted(withSetupInfo setupInfo: [String : NSObject]?) {
         let filename = UUID().uuidString
-
-        // this doesn't work for app extensions: let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-
-//        guard let directory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: APPLICATION_GROUP_IDENTIFIER) else {
-//            print("Can not get container url. Check value in the property APPLICATION_GROUP_IDENTIFIER")
-//            return
-//        }
 
         let directory = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
 
