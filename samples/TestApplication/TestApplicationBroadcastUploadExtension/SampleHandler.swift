@@ -40,9 +40,6 @@ class SampleHandler: RPBroadcastSampleHandler {
 
         let screen = UIScreen.main
         let screenBounds = screen.bounds
-        let videoCompressionProperties = [
-            AVVideoAverageBitRateKey: screenBounds.width * screenBounds.height * 10.1
-        ]
 
         let videoSettings: [String: Any] = [
             AVVideoCodecKey: AVVideoCodecType.h264,
