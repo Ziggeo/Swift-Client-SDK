@@ -14,14 +14,16 @@
 		842910F425012C4500FAAEE1 /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842910F325012C4500FAAEE1 /* BroadcastSetupViewController.swift */; };
 		842910F825012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 842910EE25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		842910FB25012C4500FAAEE1 /* TestApplicationBroadcastUploadExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 842910E225012C4300FAAEE1 /* TestApplicationBroadcastUploadExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		842911012518F46E00FAAEE1 /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842911002518F3C100FAAEE1 /* ZiggeoSwiftFramework.framework */; };
+		842911042518F49700FAAEE1 /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = 842911002518F3C100FAAEE1 /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		842911052518F67A00FAAEE1 /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842911002518F3C100FAAEE1 /* ZiggeoSwiftFramework.framework */; };
+		842911062518F67A00FAAEE1 /* ZiggeoSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 842911002518F3C100FAAEE1 /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
 		FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D91D65C05100DC784F /* Assets.xcassets */; };
 		FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */; };
-		FABA667623936631007E51DF /* ZiggeoSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */; };
-		FABA6677239366AF007E51DF /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,13 @@
 			remoteGlobalIDString = 842910E125012C4300FAAEE1;
 			remoteInfo = TestApplicationBroadcastUploadExtension;
 		};
+		842910FF2518F3C100FAAEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 842910FA2518F3C100FAAEE1 /* ZiggeoSwiftFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA98CF6B1D61D20C00C49B48;
+			remoteInfo = ZiggeoSwiftFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,13 +63,24 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		842911072518F67A00FAAEE1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				842911062518F67A00FAAEE1 /* ZiggeoSwiftFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAD26D781E4231720034B66F /* Embed Frameworks (1 item) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FABA6677239366AF007E51DF /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */,
+				842911042518F49700FAAEE1 /* ZiggeoSwiftFramework.framework in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +96,7 @@
 		842910F025012C4500FAAEE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		842910F325012C4500FAAEE1 /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
 		842910F525012C4500FAAEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842910FA2518F3C100FAAEE1 /* ZiggeoSwiftFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZiggeoSwiftFramework.xcodeproj; path = ../../../ZigSwiftSDK/ZiggeoSwiftFramework.xcodeproj; sourceTree = "<group>"; };
 		FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRecorderControls.xib; sourceTree = "<group>"; };
 		FA65B1CF1D65C05100DC784F /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA65B1D21D65C05100DC784F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +105,6 @@
 		FA65B1D91D65C05100DC784F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA65B1DC1D65C05100DC784F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA65B1DE1D65C05100DC784F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZiggeoSwiftFramework.framework; path = ../../Output/swift5.1.2/Universal/ZiggeoSwiftFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842911052518F67A00FAAEE1 /* ZiggeoSwiftFramework.framework in Frameworks */,
 				842910E525012C4400FAAEE1 /* ReplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABA667623936631007E51DF /* ZiggeoSwiftFramework.framework in Frameworks */,
+				842911012518F46E00FAAEE1 /* ZiggeoSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +164,18 @@
 			path = TestApplicationBroadcastUploadExtensionSetupUI;
 			sourceTree = "<group>";
 		};
+		842910FB2518F3C100FAAEE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				842911002518F3C100FAAEE1 /* ZiggeoSwiftFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FA65B1C61D65C05100DC784F = {
 			isa = PBXGroup;
 			children = (
-				FABA667523936631007E51DF /* ZiggeoSwiftFramework.framework */,
+				842910FA2518F3C100FAAEE1 /* ZiggeoSwiftFramework.xcodeproj */,
 				FA65B1D11D65C05100DC784F /* TestApplication */,
 				842910E625012C4400FAAEE1 /* TestApplicationBroadcastUploadExtension */,
 				842910F225012C4500FAAEE1 /* TestApplicationBroadcastUploadExtensionSetupUI */,
@@ -189,6 +218,7 @@
 				842910DE25012C4300FAAEE1 /* Sources */,
 				842910DF25012C4300FAAEE1 /* Frameworks */,
 				842910E025012C4300FAAEE1 /* Resources */,
+				842911072518F67A00FAAEE1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,7 +290,7 @@
 					};
 					FA65B1CE1D65C05100DC784F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7BT7647345;
+						DevelopmentTeam = QZV8S889Y3;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -277,6 +307,12 @@
 			mainGroup = FA65B1C61D65C05100DC784F;
 			productRefGroup = FA65B1D01D65C05100DC784F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 842910FB2518F3C100FAAEE1 /* Products */;
+					ProjectRef = 842910FA2518F3C100FAAEE1 /* ZiggeoSwiftFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FA65B1CE1D65C05100DC784F /* TestApplication */,
@@ -285,6 +321,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		842911002518F3C100FAAEE1 /* ZiggeoSwiftFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZiggeoSwiftFramework.framework;
+			remoteRef = 842910FF2518F3C100FAAEE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		842910E025012C4300FAAEE1 /* Resources */ = {
@@ -417,7 +463,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication34665322362834BroadcastUploadExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -451,7 +497,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication34665322362834BroadcastUploadExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -486,7 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtensionSetupUI;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication34665322362834BroadcastUploadExtensionSetupUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -520,7 +566,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication.TestApplicationBroadcastUploadExtensionSetupUI;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication34665322362834BroadcastUploadExtensionSetupUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -622,12 +668,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 7BT7647345;
+				DEVELOPMENT_TEAM = QZV8S889Y3;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1.2/Universal";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication34665322362834;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -639,12 +685,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 7BT7647345;
+				DEVELOPMENT_TEAM = QZV8S889Y3;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Output/swift5.1.2/Universal";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication34665322362834;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
