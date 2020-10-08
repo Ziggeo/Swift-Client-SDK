@@ -15,6 +15,7 @@ class SampleHandler: ZiggeoScreenRecorderSampleHandler, ZiggeoVideosDelegate {
     var uploaderTask: URLSessionTask?
     
     override func videoIsReady(fileUrl: URL) {
+        print("videoIsReady() is called")
         super.videoIsReady(fileUrl: fileUrl)
 
         isRecordingVideo = true // this will prevent sample handler from termination while video is uploading
@@ -22,7 +23,9 @@ class SampleHandler: ZiggeoScreenRecorderSampleHandler, ZiggeoVideosDelegate {
         let ziggeo = Ziggeo(token: "")
         ziggeo.enableDebugLogs = true
         ziggeo.videos.delegate = self
+        print("done")
 
+        print("Calling ziggeo.videos.createVideo()...")
         uploaderTask = ziggeo.videos.createVideo(
             [
                 "data": "{}"
@@ -38,6 +41,7 @@ class SampleHandler: ZiggeoScreenRecorderSampleHandler, ZiggeoVideosDelegate {
                 a, b in print("Uploading recorded video: a: \(a), b: \(b)")
             }
         )
+        print("Call to ziggeo.videos.createVideo() is finished")
     }
 
 
