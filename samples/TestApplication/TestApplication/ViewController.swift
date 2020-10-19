@@ -241,11 +241,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func didTapRecordScreenButton(_ sender: Any) {
-        
-        let broadcastPicker = RPSystemBroadcastPickerView(frame: CGRect(x: 20, y: 100, width: 50, height: 50))
-        // broadcastPicker.preferredExtension = "com.your-app.broadcast.extension"
-
-        view.addSubview(broadcastPicker)
+        let rect = CGRect(x: 20, y: 100, width: 50, height: 50)
+        m_ziggeo.videos.startScreenRecording(addRecordingButtonToView: view, frame: rect)
     }
     
 }

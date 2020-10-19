@@ -11,90 +11,17 @@ import AVFoundation
 import ZiggeoSwiftFramework
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate {
 
     var window: UIWindow?
-
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [AVAudioSession.CategoryOptions.duckOthers, AVAudioSession.CategoryOptions.defaultToSpeaker]);
-            setupFileWatcher()
         }
         catch {}
         return true
-    }
-
-    var eventSource: DispatchSourceFileSystemObject?
-    
-    func setupFileWatcher() {
-        guard let screenRecorderVideoDirectory = Self.getSharedDirectory() else {
-            print("Failed to get shared directory")
-            return
-        }
-
-        guard FileManager.default.fileExists(atPath: screenRecorderVideoDirectory.path) else {
-            print("Shared directory doesn't exist")
-            return
-        }
-
-        let descriptor = open(screenRecorderVideoDirectory.path, O_EVTONLY)
-        if descriptor == -1 {
-            return
-        }
-
-        self.eventSource = DispatchSource.makeFileSystemObjectSource(fileDescriptor: descriptor, eventMask: .write, queue: DispatchQueue.main)
-
-        self.eventSource?.setEventHandler {
-            self.processNewScreenRecordings()
-        }
-
-        self.eventSource?.setCancelHandler() {
-            close(descriptor)
-        }
-        
-        self.eventSource?.resume()
-    }
-
-    func processNewScreenRecordings() {
-        guard let screenRecorderVideoDirectory = Self.getSharedDirectory() else {
-            print("Failed to get shared directory")
-            return
-        }
-
-        let files = (try? FileManager.default.contentsOfDirectory(at: screenRecorderVideoDirectory, includingPropertiesForKeys: nil, options: [])) ?? []
-
-        let documentsDirectory = getDocumentsDirectory()
-
-        print("Processing screen recordings:")
-
-        for file in files {
-            print("* \(file)")
-            moveFile(file, to: documentsDirectory)
-        }
-    }
-
-    func moveFile(_ source: URL, to destinationDirectory: URL) {
-        let fileName = source.lastPathComponent
-
-        let destination = destinationDirectory.appendingPathComponent(fileName)
-        print("Moving file \(source) to \(destination)...")
-        do {
-            try FileManager.default.moveItem(at: source, to: destination)
-            print("OK")
-            // todo upload file with path stored in `destination`
-        } catch {
-            print("Unexpected error: \(error).")
-        }
-    }
-
-    func getDocumentsDirectory() -> URL {
-        // find all possible documents directories for this user
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-        // just send back the first one, which ought to be the only one
-        return paths[0]
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -125,14 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler();
         }
     }
-
-    static func getSharedDirectory() -> URL? {
-        // path in the url variable is read only. only the Library/Caches subdirectory is writable
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.Ziggeo.TestApplication.Group")
-        let writableUrl = url?.appendingPathComponent("Library/Caches")
-        return writableUrl
-    }
-
 
 }
 
