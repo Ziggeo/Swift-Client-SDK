@@ -20,9 +20,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [AVAudioSession.CategoryOptions.duckOthers, AVAudioSession.CategoryOptions.defaultToSpeaker]);
+            setupFileWatcher()
         }
         catch {}
         return true
+    }
+
+    var eventSource: DispatchSourceFileSystemObject?
+    
+    func setupFileWatcher() {
+        guard let screenRecorderVideoDirectory = Self.getSharedDirectory() else {
+            print("Failed to get shared directory")
+            return
+        }
+
+        guard FileManager.default.fileExists(atPath: screenRecorderVideoDirectory.path) else {
+            print("Shared directory doesn't exist")
+            return
+        }
+
+        let descriptor = open(screenRecorderVideoDirectory.path, O_EVTONLY)
+        if descriptor == -1 {
+            return
+        }
+
+        self.eventSource = DispatchSource.makeFileSystemObjectSource(fileDescriptor: descriptor, eventMask: .write, queue: DispatchQueue.main)
+
+        self.eventSource?.setEventHandler {
+
+            let files = (try? FileManager.default.contentsOfDirectory(at: screenRecorderVideoDirectory, includingPropertiesForKeys: nil, options: [])) ?? []
+
+            print("Found files:")
+            for file in files {
+                print("* \(file)")
+            }
+
+        }
+
+        self.eventSource?.setCancelHandler() {
+            close(descriptor)
+        }
+        
+        self.eventSource?.resume()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -53,6 +92,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler();
         }
     }
+
+    static func getSharedDirectory() -> URL? {
+        // path in the url variable is read only. only the Library/Caches subdirectory is writable
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.Ziggeo.TestApplication.Group")
+        let writableUrl = url?.appendingPathComponent("Library/Caches")
+        return writableUrl
+    }
+
 
 }
 
