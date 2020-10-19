@@ -47,14 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.eventSource = DispatchSource.makeFileSystemObjectSource(fileDescriptor: descriptor, eventMask: .write, queue: DispatchQueue.main)
 
         self.eventSource?.setEventHandler {
-
-            let files = (try? FileManager.default.contentsOfDirectory(at: screenRecorderVideoDirectory, includingPropertiesForKeys: nil, options: [])) ?? []
-
-            print("Found files:")
-            for file in files {
-                print("* \(file)")
-            }
-
+            self.processNewScreenRecordings()
         }
 
         self.eventSource?.setCancelHandler() {
@@ -62,6 +55,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.eventSource?.resume()
+    }
+
+    func processNewScreenRecordings() {
+        guard let screenRecorderVideoDirectory = Self.getSharedDirectory() else {
+            print("Failed to get shared directory")
+            return
+        }
+
+        let files = (try? FileManager.default.contentsOfDirectory(at: screenRecorderVideoDirectory, includingPropertiesForKeys: nil, options: [])) ?? []
+
+        let documentsDirectory = getDocumentsDirectory()
+
+        print("Processing screen recordings:")
+
+        for file in files {
+            print("* \(file)")
+            moveFile(file, to: documentsDirectory)
+        }
+    }
+
+    func moveFile(_ source: URL, to destinationDirectory: URL) {
+        let fileName = source.lastPathComponent
+
+        let destination = destinationDirectory.appendingPathComponent(fileName)
+        print("Moving file \(source) to \(destination)...")
+        do {
+            try FileManager.default.moveItem(at: source, to: destination)
+            print("OK")
+            // todo upload file with path stored in `destination`
+        } catch {
+            print("Unexpected error: \(error).")
+        }
+    }
+
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
