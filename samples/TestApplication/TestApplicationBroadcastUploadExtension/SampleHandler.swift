@@ -12,4 +12,8 @@ import ZiggeoSwiftFramework
 
 class SampleHandler: ZiggeoScreenRecorderSampleHandler, ZiggeoVideosDelegate {
 
+    override func getApplicationGroup() -> String {
+        "group.Ziggeo.TestApplication.Group"
+    }
+
 }

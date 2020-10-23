@@ -14,6 +14,7 @@ import ReplayKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ZiggeoRecorderDelegate, ZiggeoVideosDelegate {
 
+    let appGroup = "group.Ziggeo.TestApplication.Group"
 
     var m_ziggeo: Ziggeo! = nil;
     @IBOutlet weak var videoViewPlaceholder: UIView!
@@ -242,7 +243,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func didTapRecordScreenButton(_ sender: Any) {
         let rect = CGRect(x: 20, y: 100, width: 50, height: 50)
-        m_ziggeo.videos.startScreenRecording(addRecordingButtonToView: view, frame: rect)
+        m_ziggeo.videos.startScreenRecording(addRecordingButtonToView: view, frame: rect, appGroup: appGroup)
     }
     
 }
