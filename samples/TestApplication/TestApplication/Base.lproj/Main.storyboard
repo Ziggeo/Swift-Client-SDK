@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,8 +36,22 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDh-7z-aT3">
-                                <rect key="frame" x="-4" y="120" width="328" height="448"/>
+                                <rect key="frame" x="-4" y="100" width="328" height="468"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-RA-skS">
+                                        <rect key="frame" x="8" y="8" width="312" height="30"/>
+                                        <state key="normal" title="Record Screen"/>
+                                        <connections>
+                                            <action selector="didTapRecordScreenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ose-B4-EyV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="9rw-RA-skS" firstAttribute="leading" secondItem="vDh-7z-aT3" secondAttribute="leading" constant="8" id="EiY-Ns-3RW"/>
+                                    <constraint firstItem="9rw-RA-skS" firstAttribute="top" secondItem="vDh-7z-aT3" secondAttribute="top" constant="8" id="Zkf-JR-kd4"/>
+                                    <constraint firstAttribute="trailing" secondItem="9rw-RA-skS" secondAttribute="trailing" constant="8" id="myH-I0-a3d"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-Ih-Kst">
                                 <rect key="frame" x="197" y="20" width="107" height="30"/>
@@ -71,14 +83,6 @@
                                 <state key="normal" title="Customized UI"/>
                                 <connections>
                                     <action selector="recordCustomUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFQ-0R-8fr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-RA-skS">
-                                <rect key="frame" x="25" y="73" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sequence of videos"/>
-                                <connections>
-                                    <action selector="playSequenceOfVideos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="upF-Tn-v3D"/>
                                 </connections>
                             </button>
                         </subviews>
