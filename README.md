@@ -3,6 +3,9 @@ Ziggeo Swift SDK
 
 Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playback with only two lines of code in your site, service or app. This is the iOS SDK repository. 
 
+## Upgrading from v 1.1.19 to v.1.1.20
+Fixed support of Swift 5.2
+
 ## Upgrading from v 1.1.18 to v.1.1.19
 Added support for Swift 5.3
 
