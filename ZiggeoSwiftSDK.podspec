@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZiggeoSwiftSDK'
-  s.version          = '1.1.22'
+  s.version          = '1.1.23'
   s.summary          = 'Ziggeo Swift Client SDK'
   s.description      = 'Ziggeo Swift recording and playback SDK'
 
@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.swift_version    = "5.3.1"
 
   s.ios.deployment_target = '9.0'
-  s.vendored_frameworks = 'Output/Swift5.3.1/ZiggeoSwiftFramework.framework'
+  s.vendored_frameworks = 'Output/Swift5.3.1/ZiggeoSwiftFramework.xcframework'
 
 end
