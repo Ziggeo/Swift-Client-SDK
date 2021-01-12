@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.swift_version    = "5.3.1"
 
   s.ios.deployment_target = '9.0'
-  s.vendored_frameworks = 'Output/Swift5.3.1/ZiggeoSwiftFramework.xcframework'
+  s.vendored_frameworks = 'Output/ZiggeoSwiftFramework.xcframework'
 
 end
