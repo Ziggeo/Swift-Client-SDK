@@ -11,9 +11,11 @@ import AVFoundation
 import ZiggeoSwiftFramework
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    
+    var ziggeo: Ziggeo!
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,6 +23,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [AVAudioSession.CategoryOptions.duckOthers, AVAudioSession.CategoryOptions.defaultToSpeaker]);
         }
         catch {}
+        
+        ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN")
+        // ziggeo.connect.serverAuthToken = "ZIGGEO_SERVER_TOKEN"
+
+        if #available(iOS 10.0, *) {
+            let center  = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+                if error == nil {
+                    DispatchQueue.main.async(execute: {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    })
+                }
+            }
+        } else {
+            let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+
         return true
     }
 
@@ -30,8 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        ziggeo.connect.applicationDidEnterBackground()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -47,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate {
     }
 
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-        let ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN");
         ziggeo.connect.postWithPath(identifier, data: nil) { (data, response, error) in
             completionHandler();
         }

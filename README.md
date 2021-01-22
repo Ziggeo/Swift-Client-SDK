@@ -434,3 +434,30 @@ connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (str
     //the string contains stringified response received from Ziggeo API Server
 })
 ```
+
+
+## Notification when uploading videos in background
+iOS has limitations on time which the app can do various activity in background mode. 
+For instance in iOS 14 this time is limited by around 30 seconds.
+In case if user moves the current app into background and Ziggeo SDK is still uploading some video(s) then the SDK will show 
+an user notification asking the user to bring the app to foreground to make sure that videos will be uploaded successfully.
+This functionality requires UNNotifications enabled in the app. 
+To enable them add the following code in the method `func application(_ application: didFinishLaunchingWithOptions: )` in the `AppDelegate` class:
+
+```
+if #available(iOS 10.0, *) {
+    let center  = UNUserNotificationCenter.current()
+    center.delegate = self
+    center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+        if error == nil {
+            DispatchQueue.main.async(execute: {
+                UIApplication.shared.registerForRemoteNotifications()
+            })
+        }
+    }
+} else {
+    let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
+    UIApplication.shared.registerUserNotificationSettings(settings)
+    UIApplication.shared.registerForRemoteNotifications()
+}
+```
