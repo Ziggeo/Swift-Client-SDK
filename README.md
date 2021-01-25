@@ -5,6 +5,9 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 
 Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
 
+## Upgrading from v 1.1.24 to v.1.1.25
+Added notifications telling the user to switch back to the app when the app is uploading videos in background 
+
 ## Upgrading from v 1.1.23 to v.1.1.24
 Fixed issue when video uploads failed when they started right away after each other
 
