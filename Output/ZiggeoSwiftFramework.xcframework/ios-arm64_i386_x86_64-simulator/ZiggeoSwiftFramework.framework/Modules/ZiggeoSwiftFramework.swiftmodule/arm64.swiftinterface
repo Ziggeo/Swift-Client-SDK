@@ -82,6 +82,7 @@ import UIKit
 @objc @_hasMissingDesignatedInitializers open class ZiggeoConnect : ObjectiveC.NSObject, Foundation.URLSessionDataDelegate {
   open var clientAuthToken: Swift.String?
   open var serverAuthToken: Swift.String?
+  open func applicationDidEnterBackground()
   @objc open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
   @objc open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
   @objc open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
