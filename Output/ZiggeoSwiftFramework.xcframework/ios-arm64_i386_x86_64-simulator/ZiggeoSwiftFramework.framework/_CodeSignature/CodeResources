@@ -6,15 +6,15 @@
 	<dict>
 		<key>AudioLevelView.nib</key>
 		<data>
-		yQnwEIHebChlIacWA7IGX7oGckw=
+		71seSzbvGA9IqpxYjHUsiWKwK2g=
 		</data>
 		<key>CoverSelectorController.nib</key>
 		<data>
-		MtuFfqtlSmpWDBpdKLxVQGyV5t8=
+		9PJCgSUqugolsaGGT2zovj3MH4Q=
 		</data>
 		<key>CoverSelectorTableCell.nib</key>
 		<data>
-		DzinSUSozOtZ3oxGcyrGngrvXQA=
+		VIWjvkYMrXWhoFIQ3AcX5Gwp6so=
 		</data>
 		<key>Delete-50.png</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>LuxMeterView.nib</key>
 		<data>
-		2gJuFr+aYDx/AEUY5hjD1fv7gjw=
+		f5cJM0ApGP4XggZWQpT9unxw+b4=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>RecordedVideoPreview.nib</key>
 		<data>
-		PjmtCI+n86ZlRdWuch9BEv8eKJc=
+		X/JSxKZ5XDk9Nh+uj8gOI63pBtQ=
 		</data>
 		<key>Stop-100.png</key>
 		<data>
@@ -170,7 +170,7 @@
 		</data>
 		<key>ZiggeoRecorder.nib</key>
 		<data>
-		KqgWHyViLVpBL5OPAMH2ma8UM14=
+		frLLws7NLvOdm5nNmzhpzTQvyCQ=
 		</data>
 		<key>sun-50.png</key>
 		<data>
@@ -215,33 +215,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yQnwEIHebChlIacWA7IGX7oGckw=
+			71seSzbvGA9IqpxYjHUsiWKwK2g=
 			</data>
 			<key>hash2</key>
 			<data>
-			8nrlNRTMi5NkGDlyu9HCfE+a4A1EK8AGr7bDUTlvmwI=
+			D3Sz8+pGNY6OoH9++MeNMbmA3Ee4DLRwEZsNQRmcAhs=
 			</data>
 		</dict>
 		<key>CoverSelectorController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MtuFfqtlSmpWDBpdKLxVQGyV5t8=
+			9PJCgSUqugolsaGGT2zovj3MH4Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			25c7Fez49nrjMExTy0MCPwhD9ljVq9MLlfAojVvv/8g=
+			DENK03j7qZZEwArWgAjZoxPo3VTit0gZoveZl8A3BGg=
 			</data>
 		</dict>
 		<key>CoverSelectorTableCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DzinSUSozOtZ3oxGcyrGngrvXQA=
+			VIWjvkYMrXWhoFIQ3AcX5Gwp6so=
 			</data>
 			<key>hash2</key>
 			<data>
-			SbUjFHo5ha/y60ioH3BexviEfrdfukVzLii//DxZxqE=
+			j5anOKNeYKRrnzYbRYRKFMsKCKqIECMTEthLns4EvOY=
 			</data>
 		</dict>
 		<key>Delete-50.png</key>
@@ -303,11 +303,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2gJuFr+aYDx/AEUY5hjD1fv7gjw=
+			f5cJM0ApGP4XggZWQpT9unxw+b4=
 			</data>
 			<key>hash2</key>
 			<data>
-			m3r9liB/cAWc/5lGMLH/yKpIMrTZXtOeV+Yx4pcRP2Q=
+			irvhtbqW0apTf4OtWS6Qt60jrivseCdEaRZNa26Pjyc=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -600,11 +600,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PjmtCI+n86ZlRdWuch9BEv8eKJc=
+			X/JSxKZ5XDk9Nh+uj8gOI63pBtQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			B8uFQpLIfZQADJ+YwJRnvr38LbF4J9BQ5huaHX125lc=
+			S8MQn3DkTjEu7ZEs8Hz7PQV/gB4wqBnjbGlqgq3CwPo=
 			</data>
 		</dict>
 		<key>Stop-100.png</key>
@@ -655,11 +655,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KqgWHyViLVpBL5OPAMH2ma8UM14=
+			frLLws7NLvOdm5nNmzhpzTQvyCQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			gZg2F3ik0/wwiEkre1wmgMJVbzLoD0HYN9SCO1xIcSw=
+			TX12M4s9O08W2v6wRWlWziq1gETPiaUzRi+Rg5SDMDU=
 			</data>
 		</dict>
 		<key>sun-50.png</key>

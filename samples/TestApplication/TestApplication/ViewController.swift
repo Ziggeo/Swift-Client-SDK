@@ -16,7 +16,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let appGroup = "group.Ziggeo.TestApplication.Group"
 
-    var m_ziggeo: Ziggeo! = nil;
+    var m_ziggeo: Ziggeo {
+        AppDelegate.ziggeo.videos.delegate = self
+        return AppDelegate.ziggeo
+    }
+
     @IBOutlet weak var videoViewPlaceholder: UIView!
     var m_recorder: ZiggeoRecorder! = nil;
 
@@ -33,9 +37,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        m_ziggeo = Ziggeo(token: "344a71099193b17a693ab11fdd0eeb10");
-        m_ziggeo.enableDebugLogs = true;
-        m_ziggeo.videos.delegate = self;
         // Do any additional setup after loading the view, typically from a nib.
     }
 
