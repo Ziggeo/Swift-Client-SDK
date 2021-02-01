@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNU
 
     var window: UIWindow?
     
-    var ziggeo: Ziggeo!
+    static var ziggeo: Ziggeo = {
+        let result = Ziggeo(token: "ZIGGEO_APP_TOKEN")
+        // result.connect.serverAuthToken = "ZIGGEO_AUTH_TOKEN"
+        result.enableDebugLogs = true
+        return result
+    }()
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,9 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNU
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [AVAudioSession.CategoryOptions.duckOthers, AVAudioSession.CategoryOptions.defaultToSpeaker]);
         }
         catch {}
-        
-        ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN")
-        // ziggeo.connect.serverAuthToken = "ZIGGEO_SERVER_TOKEN"
 
         if #available(iOS 10.0, *) {
             let center  = UNUserNotificationCenter.current()
@@ -52,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNU
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        ziggeo.connect.applicationDidEnterBackground()
+        Self.ziggeo.connect.applicationDidEnterBackground()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -68,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNU
     }
 
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-        ziggeo.connect.postWithPath(identifier, data: nil) { (data, response, error) in
+        Self.ziggeo.connect.postWithPath(identifier, data: nil) { (data, response, error) in
             completionHandler();
         }
     }
