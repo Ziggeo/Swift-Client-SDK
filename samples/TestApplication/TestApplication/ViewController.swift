@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let appGroup = "group.Ziggeo.TestApplication.Group"
 
+    let adsUrl: String? = nil
+
     var m_ziggeo: Ziggeo {
         AppDelegate.ziggeo.videos.delegate = self
         return AppDelegate.ziggeo
@@ -63,18 +65,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let playerController: AVPlayerViewController = AVPlayerViewController();
                 playerController.player = player;
                 self.present(playerController, animated: true, completion: nil);
-                playerController.player?.play();
+
+                DispatchQueue.main.async {
+                    if let player = player {
+                        if let adsUrl = self.adsUrl {
+                            player.requestAds(adTagURLString: self.adsUrl, adContainer: playerController.view)
+                        }
+                        player.play()
+                    }
+                }
             }
         }
     }
 
     @IBAction func playEmbedded(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
-        playerController.player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/);
-        self.addChild(playerController);
-        self.videoViewPlaceholder.addSubview(playerController.view);
+        let player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/)
+        playerController.player = player
+        addChild(playerController)
+        videoViewPlaceholder.addSubview(playerController.view);
         playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
-        playerController.player?.play();
+
+        if let adsUrl = adsUrl {
+            player.requestAds(adTagURLString: self.adsUrl, adContainer: playerController.view)
+        }
+        player.play()
     }
 
     @IBAction func uploadExisting(_ sender: Any) {
