@@ -21,4 +21,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.vendored_frameworks = 'Output/ZiggeoSwiftFramework.xcframework'
 
+  s.dependency 'GoogleAds-IMA-iOS-SDK', '3.11.3'
+
 end
