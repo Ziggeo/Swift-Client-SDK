@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,85 +19,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMC-En-5zh">
-                                <rect key="frame" x="16" y="0.0" width="288" height="87"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-dh-bSV">
-                                        <rect key="frame" x="9" y="0.0" width="37" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Index"/>
-                                        <connections>
-                                            <action selector="index:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEe-Dw-9ss"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-Ih-Kst">
-                                        <rect key="frame" x="181" y="0.0" width="107" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Play embedded"/>
-                                        <connections>
-                                            <action selector="playEmbedded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mq8-Oy-Ggy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-GU-LjL">
-                                        <rect key="frame" x="67" y="26" width="106" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Upload existing"/>
-                                        <connections>
-                                            <action selector="uploadExisting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Wx-9x-lHA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxg-vW-DsS">
-                                        <rect key="frame" x="181" y="26" width="101" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Customized UI"/>
-                                        <connections>
-                                            <action selector="recordCustomUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFQ-0R-8fr"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-RA-skS">
-                                        <rect key="frame" x="-3" y="56" width="121" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Record Screen"/>
-                                        <connections>
-                                            <action selector="didTapRecordScreenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ose-B4-EyV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-mK-muB">
-                                        <rect key="frame" x="67" y="0.0" width="100" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Play fullscreen"/>
-                                        <connections>
-                                            <action selector="playFullScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AFT-Gg-XRw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNV-Cv-vqn">
-                                        <rect key="frame" x="8" y="26" width="49" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Record"/>
-                                        <connections>
-                                            <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jLq-6K-mnv"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="87" id="W9s-NL-iB6"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="vDh-7z-aT3">
-                                <rect key="frame" x="-4" y="87" width="328" height="481"/>
+                                <rect key="frame" x="-4" y="92" width="328" height="476"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="K0v-vG-tWp">
+                                <rect key="frame" x="8" y="0.0" width="304" height="92"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="tN4-eG-pvk">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-Ih-Kst">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                <state key="normal" title="Play"/>
+                                                <connections>
+                                                    <action selector="playEmbedded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mq8-Oy-Ggy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5b-TB-nmc">
+                                                <rect key="frame" x="40" y="0.0" width="126.5" height="30"/>
+                                                <state key="normal" title="Play With Ads"/>
+                                                <connections>
+                                                    <action selector="playWithAds:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ea9-Hy-R9e"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-mK-muB">
+                                                <rect key="frame" x="166.5" y="0.0" width="137.5" height="30"/>
+                                                <state key="normal" title="Play Fullscreen"/>
+                                                <connections>
+                                                    <action selector="playFullScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AFT-Gg-XRw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="GA5-g9-xtR">
+                                        <rect key="frame" x="0.0" y="31" width="304" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-dh-bSV">
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="30"/>
+                                                <state key="normal" title="Uploaded Videos"/>
+                                                <connections>
+                                                    <action selector="index:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEe-Dw-9ss"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-GU-LjL">
+                                                <rect key="frame" x="134" y="0.0" width="170" height="30"/>
+                                                <state key="normal" title="Upload Existing Video"/>
+                                                <connections>
+                                                    <action selector="uploadExisting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Wx-9x-lHA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="wOB-T5-ZWO">
+                                        <rect key="frame" x="0.0" y="62" width="304" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNV-Cv-vqn">
+                                                <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
+                                                <state key="normal" title="Record"/>
+                                                <connections>
+                                                    <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jLq-6K-mnv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxg-vW-DsS">
+                                                <rect key="frame" x="52" y="0.0" width="144.5" height="30"/>
+                                                <state key="normal" title="Record (Custom UI)"/>
+                                                <connections>
+                                                    <action selector="recordCustomUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFQ-0R-8fr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-RA-skS">
+                                                <rect key="frame" x="196.5" y="0.0" width="107.5" height="30"/>
+                                                <state key="normal" title="Record Screen"/>
+                                                <connections>
+                                                    <action selector="didTapRecordScreenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ose-B4-EyV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kMC-En-5zh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GeW-GL-W6m"/>
+                            <constraint firstItem="K0v-vG-tWp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="4PK-1k-JlH"/>
+                            <constraint firstItem="vDh-7z-aT3" firstAttribute="top" secondItem="K0v-vG-tWp" secondAttribute="bottom" id="7w4-gb-Dh4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vDh-7z-aT3" secondAttribute="bottom" id="H5O-OB-7cm"/>
-                            <constraint firstItem="kMC-En-5zh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="J9w-9A-OMB"/>
+                            <constraint firstAttribute="trailing" secondItem="K0v-vG-tWp" secondAttribute="trailing" constant="8" id="Mlt-K3-tzH"/>
+                            <constraint firstItem="K0v-vG-tWp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UMN-dw-lbv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vDh-7z-aT3" secondAttribute="trailing" constant="-20" id="eFb-Ny-iet"/>
                             <constraint firstItem="vDh-7z-aT3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="fD0-gJ-ePg"/>
-                            <constraint firstItem="vDh-7z-aT3" firstAttribute="top" secondItem="kMC-En-5zh" secondAttribute="bottom" id="h3D-nF-AIV"/>
-                            <constraint firstItem="kMC-En-5zh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="raH-jw-wle"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,9 +120,4 @@
             <point key="canvasLocation" x="281.25" y="275.7042253521127"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

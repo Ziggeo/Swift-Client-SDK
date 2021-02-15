@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     let appGroup = "group.Ziggeo.TestApplication.Group"
 
-    let adsUrl: String? = nil
+    let adsUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="
 
     var m_ziggeo: Ziggeo {
         AppDelegate.ziggeo.videos.delegate = self
@@ -68,9 +68,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
                 DispatchQueue.main.async {
                     if let player = player {
-                        if let adsUrl = self.adsUrl {
-                            player.requestAds(adTagURLString: self.adsUrl, adContainer: playerController.view)
-                        }
                         player.play()
                     }
                 }
@@ -78,6 +75,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    
     @IBAction func playEmbedded(_ sender: AnyObject) {
         let playerController: AVPlayerViewController = AVPlayerViewController();
         let player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/)
@@ -86,10 +84,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         videoViewPlaceholder.addSubview(playerController.view);
         playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
 
-        if let adsUrl = adsUrl {
-            player.requestAds(adTagURLString: self.adsUrl, adContainer: playerController.view)
-        }
         player.play()
+    }
+
+    @IBAction func playWithAds(_ sender: AnyObject) {
+        let playerController: AVPlayerViewController = AVPlayerViewController();
+        let player = ZiggeoPlayer(application: m_ziggeo, videoToken: lastRecordedToken/*"VIDEO_TOKEN"*/)
+        playerController.player = player
+        addChild(playerController)
+        videoViewPlaceholder.addSubview(playerController.view);
+        playerController.view.frame = CGRect(x:0,y:0,width:videoViewPlaceholder.frame.width, height:videoViewPlaceholder.frame.height);
+
+        player.playWithAds(adTagURL: adsUrl, playerContainer: videoViewPlaceholder, playerViewController: playerController)
     }
 
     @IBAction func uploadExisting(_ sender: Any) {
