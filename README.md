@@ -5,6 +5,9 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 
 Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
 
+## Upgrading from v 1.1.26 to v.1.1.27
+Implemented support for pre-roll ads using the VAST specification. See the new method `playWithAds` in the `ZiggeoPlayer` class
+
 ## Upgrading from v 1.1.25 to v.1.1.26
 Fixed the issue when authentication with server or client tokens did not work  
 
