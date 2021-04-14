@@ -8,21 +8,6 @@ target 'TestApplication' do
   # Pods for TestApplication
 
   pod 'GoogleAds-IMA-iOS-SDK', '3.11.3'
-  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK'
-end
+  pod 'ZiggeoSwiftSDK', :path => '../..'
 
-target 'TestApplicationBroadcastUploadExtension' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for TestApplicationBroadcastUploadExtension
-
-  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK'
-end
-
-target 'TestApplicationBroadcastUploadExtensionSetupUI' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK'
 end
