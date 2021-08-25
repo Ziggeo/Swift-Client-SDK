@@ -1,22 +1,16 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
-// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZiggeoSwiftFramework
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZiggeoSwiftFramework
 import AVFoundation
+import Accelerate
 import Foundation
 import GoogleInteractiveMediaAds
+import MobileCoreServices
 import Photos
 import ReplayKit
 import Swift
 import UIKit
 @_exported import ZiggeoSwiftFramework
-@objc @_inheritsConvenienceInitializers open class CapturePreviewView : UIKit.UIView {
-  @objc override dynamic open class var layerClass: Swift.AnyClass {
-    @objc get
-  }
-  @objc deinit
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
-}
 @objc public protocol ZiggeoVideosDelegate {
   @objc optional func videoPreparingToUpload(_ sourcePath: Swift.String)
   @objc optional func videoPreparingToUpload(_ sourcePath: Swift.String, token: Swift.String)
@@ -47,12 +41,166 @@ import UIKit
   @objc deinit
   @objc override dynamic public init()
 }
+@objc public protocol ZiggeoAudioPlayerDelegate {
+  @objc optional func audioPlayerDidLoadedItem(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer)
+  @objc optional func audioPlayerPlayWith(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer, _ progress: Swift.Float)
+  @objc optional func audioPlayerDidFinishItem(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer)
+}
+@objc open class ZiggeoAudioPlayer : ObjectiveC.NSObject {
+  open var _isPlaying: Swift.Bool
+  open var _player: AVFoundation.AVPlayer?
+  open var delegate: ZiggeoSwiftFramework.ZiggeoAudioPlayerDelegate?
+  open var player: AVFoundation.AVPlayer {
+    get
+  }
+  public init(frame: CoreGraphics.CGRect)
+  public convenience init(ziggeo: ZiggeoSwiftFramework.Ziggeo)
+  public init(ziggeo: ZiggeoSwiftFramework.Ziggeo, audioToken: Swift.String!)
+  open func play()
+  open func pause()
+  open func seekToTime(_ time: Swift.Float)
+  open func duration() -> Swift.Double
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  open func isPlaying() -> Swift.Bool
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers public class AudioVisualizationView : ZiggeoSwiftFramework.BaseNibView {
+  @objc public enum AudioVisualizationMode : Swift.Int {
+    case read = 0
+    case write = 1
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @IBInspectable public var meteringLevelBarWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set(value)
+  }
+  @objc @IBInspectable public var meteringLevelBarInterItem: CoreGraphics.CGFloat {
+    @objc get
+    @objc set(value)
+  }
+  @objc @IBInspectable public var meteringLevelBarCornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set(value)
+  }
+  @objc @IBInspectable public var meteringLevelBarSingleStick: Swift.Bool {
+    @objc get
+    @objc set(value)
+  }
+  @objc public var audioVisualizationMode: ZiggeoSwiftFramework.AudioVisualizationView.AudioVisualizationMode
+  public var audioVisualizationTimeInterval: Swift.Double
+  public var currentGradientPercentage: Swift.Float?
+  @objc public var meteringLevels: [Swift.Float]? {
+    @objc get
+    @objc set(value)
+  }
+  @objc @IBInspectable public var gradientStartColor: UIKit.UIColor {
+    @objc get
+    @objc set(value)
+  }
+  @objc @IBInspectable public var gradientEndColor: UIKit.UIColor {
+    @objc get
+    @objc set(value)
+  }
+  @objc dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
+  @objc public func reset()
+  @objc public func add(meteringLevel: Swift.Float)
+  @objc public func scaleSoundDataToFitScreen() -> [Swift.Float]
+  @objc public func play(from url: Foundation.URL)
+  @objc public func play(for duration: Foundation.TimeInterval)
+  @objc public func pause()
+  @objc public func stop()
+  @objc deinit
+}
 @objc open class ZiggeoConfig : ObjectiveC.NSObject {
   open var serverAPIUrl: Swift.String
   open var cdnAPIUrl: Swift.String
+  open var dev_server_api_url: Swift.String
+  open var file_server_url: Swift.String
   public init(token: Swift.String)
   @objc deinit
   @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers open class CoverSelectorTableCell : UIKit.UITableViewCell {
+  @objc deinit
+  @available(iOS 3.0, *)
+  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BaseNibView : UIKit.UIView {
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func awakeFromNib()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ViewModel : ObjectiveC.NSObject {
+  @objc public var audioFilePathLocal: Foundation.URL?
+  @objc public var meteringLevels: [Swift.Float]?
+  @objc public var audioMeteringLevelUpdate: ((Swift.Float) -> ())?
+  @objc public var audioDidFinish: (() -> ())?
+  @objc override dynamic public init()
+  @objc public func askAudioRecordingPermission(completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc public func startRecording(completion: @escaping (Foundation.URL?, [Swift.Float]?, Swift.Error?) -> Swift.Void)
+  @objc public func stopRecording() throws
+  @objc public func resetRecording() throws
+  @objc public func startPlaying() -> Swift.Double
+  @objc public func setCurrentTime(_ currentTime: Foundation.TimeInterval)
+  @objc public func pausePlaying() throws
+  @objc deinit
+}
+@objc public protocol ZiggeoAudioRecorderDelegate {
+  @objc optional func ziggeoAudioRecorderReady()
+  @objc optional func ziggeoAudioRecorderCanceled()
+  @objc optional func ziggeoAudioRecorderRecoding()
+  @objc optional func ziggeoAudioRecorderCurrentRecordedDurationSeconds(_ seconds: Swift.Double)
+  @objc optional func ziggeoAudioRecorderFinished(_ seconds: Swift.Double)
+  @objc optional func ziggeoAudioRecorderPlaying()
+  @objc optional func ziggeoAudioRecorderPaused()
+}
+@objc open class ZiggeoAudioRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.ZiggeoAudioRecorderDelegate {
+  public enum AudioRecordState {
+    case ready
+    case recording
+    case recorded
+    case playing
+    case paused
+    public static func == (a: ZiggeoSwiftFramework.ZiggeoAudioRecorder.AudioRecordState, b: ZiggeoSwiftFramework.ZiggeoAudioRecorder.AudioRecordState) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  open var recorderDelegate: ZiggeoSwiftFramework.ZiggeoAudioRecorderDelegate?
+  open var apiDelegate: ZiggeoSwiftFramework.ZiggeoApiDelegate?
+  public convenience init(ziggeo: ZiggeoSwiftFramework.Ziggeo)
+  public init(ziggeo: ZiggeoSwiftFramework.Ziggeo, audioToken: Swift.String!)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func viewDidLoad()
+  @objc @IBAction open func onClose(_ sender: Swift.AnyObject)
+  @objc @IBAction open func onRerecord(_ sender: Swift.AnyObject)
+  @objc @IBAction open func onRecord(_ sender: Swift.AnyObject)
+  @objc @IBAction open func onUpload(_ sender: Swift.AnyObject)
+  @objc @IBAction open func timeChanged(_ sender: UIKit.UISlider)
+  open func setCurrentState(_ state: ZiggeoSwiftFramework.ZiggeoAudioRecorder.AudioRecordState)
+  open func stopTimer()
+  open func getTimeString(_ time: Swift.Int) -> Swift.String
+  open func updateCurrentTimeText()
+  open func getImageFromResource(_ resourceName: Swift.String) -> UIKit.UIImage
+  open func getAudioVisualizationMode() -> ZiggeoSwiftFramework.AudioVisualizationView.AudioVisualizationMode
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+public class ZiggeoRecorderInterfaceConfig {
+  public var recordButton: ZiggeoSwiftFramework.ButtonConfig
+  public var closeButton: ZiggeoSwiftFramework.ButtonConfig
+  public var cameraFlipButton: ZiggeoSwiftFramework.ButtonConfig
+  public init()
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ButtonConfig {
   public var imagePath: Swift.String?
@@ -61,12 +209,6 @@ import UIKit
   public var width: CoreGraphics.CGFloat?
   public var height: CoreGraphics.CGFloat?
   @objc deinit
-}
-@objc @_inheritsConvenienceInitializers open class CoverSelectorTableCell : UIKit.UITableViewCell {
-  @objc deinit
-  @available(iOS 3.0, *)
-  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 extension XML {
   @dynamicMemberLookup public enum Accessor : Swift.CustomStringConvertible, Swift.Sequence {
@@ -142,12 +284,51 @@ extension XML {
     @objc deinit
   }
 }
+@objc @_inheritsConvenienceInitializers open class CapturePreviewView : UIKit.UIView {
+  @objc override dynamic open class var layerClass: Swift.AnyClass {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public protocol VideoPreviewDelegate {
+  func retake(_ fileToBeRemoved: Foundation.URL!)
+  func upload(_ fileToUpload: Foundation.URL)
+}
+public protocol VideoPreviewProtocol {
+  var videoURL: Foundation.URL! { get set }
+  var previewDelegate: ZiggeoSwiftFramework.VideoPreviewDelegate! { get set }
+}
+@objc open class RecordedVideoPreview : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPreviewProtocol {
+  open var videoURL: Foundation.URL!
+  open var previewDelegate: ZiggeoSwiftFramework.VideoPreviewDelegate!
+  @objc dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open var shouldAutorotate: Swift.Bool {
+    @objc get
+  }
+  open func killPlayer()
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+@_hasMissingDesignatedInitializers final public class AudioContext {
+  final public let audioURL: Foundation.URL
+  final public let totalSamples: Swift.Int
+  final public let asset: AVFoundation.AVAsset
+  final public let assetTrack: AVFoundation.AVAssetTrack
+  public static func load(fromAudioURL audioURL: Foundation.URL, completionHandler: @escaping (ZiggeoSwiftFramework.AudioContext?) -> ())
+  final public func render(targetSamples: Swift.Int = 100) -> [Swift.Float]
+  @objc deinit
+}
 @objc open class Ziggeo : ObjectiveC.NSObject {
   public init(token: Swift.String)
   final public let token: Swift.String
   final public let config: ZiggeoSwiftFramework.ZiggeoConfig
   public var connect: ZiggeoSwiftFramework.ZiggeoConnect!
   public var videos: ZiggeoSwiftFramework.ZiggeoVideos!
+  public var apiHelper: ZiggeoSwiftFramework.ZiggeoApiHelper!
   public var enableDebugLogs: Swift.Bool
   open func log(item: Swift.String)
   open func logError(item: Swift.String)
@@ -163,6 +344,7 @@ extension XML {
   @objc open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
   open func appWakeupSignalTaskComplete(_ sessionID: Swift.String)
   open func formatURLRequest(_ request: Foundation.URLRequest) -> Swift.String
+  open func uploadFileWithPath(_ path: Swift.String, parameters: Foundation.NSDictionary?, identifier: Swift.String, filePath: Swift.String, fileName: Swift.String, mimeType: Swift.String, fileExtension: Swift.String, callback: ((Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
   open func backgroundUploadWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, identifier: Swift.String, file: Swift.String, callback: ((Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
   open func postRawDataWithPath(_ path: Swift.String, data: Foundation.Data, params: Foundation.NSDictionary?, callback: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
   open func requestWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
@@ -181,6 +363,37 @@ extension XML {
   open func getSession(callback: @escaping (Swift.String?, Swift.String?) -> Foundation.URLSessionTask) -> Foundation.URLSessionTask
   @objc override dynamic public init()
   @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @available(iOS 10.0, macCatalyst 13.0, *)
+open class ZiggeoScreenRecorderSampleHandler : ReplayKit.RPBroadcastSampleHandler {
+  open var isRecordingVideo: Swift.Bool
+  open func getApplicationGroup() -> Swift.String
+  @objc override dynamic public func broadcastStarted(withSetupInfo setupInfo: [Swift.String : ObjectiveC.NSObject]?)
+  @objc override dynamic public func broadcastPaused()
+  @objc override dynamic public func broadcastResumed()
+  @objc override dynamic public func processSampleBuffer(_ sampleBuffer: CoreMedia.CMSampleBuffer, with sampleBufferType: ReplayKit.RPSampleBufferType)
+  @objc override dynamic public func broadcastFinished()
+  @objc deinit
+  @objc override dynamic public init()
+}
+public protocol CoverSelectorDelegate {
+  func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage!)
+}
+@objc open class CoverSelector : UIKit.UIViewController, UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  open var delegate: ZiggeoSwiftFramework.CoverSelectorDelegate!
+  public init(videoPath: Swift.String)
+  @objc override dynamic open func viewDidLoad()
+  public static func getDefaultCover(_ path: Swift.String, callback: ((UIKit.UIImage?) -> Swift.Void)?)
+  @objc override dynamic open var prefersStatusBarHidden: Swift.Bool {
+    @objc get
+  }
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc open func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @objc open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
 }
 @objc public protocol ZiggeoRecorderDelegate {
   @objc optional func ziggeoRecorderDidCancel()
@@ -256,65 +469,6 @@ open class ZiggeoRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPr
   @objc deinit
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
 }
-public protocol VideoPreviewDelegate {
-  func retake(_ fileToBeRemoved: Foundation.URL!)
-  func upload(_ fileToUpload: Foundation.URL)
-}
-public protocol VideoPreviewProtocol {
-  var videoURL: Foundation.URL! { get set }
-  var previewDelegate: ZiggeoSwiftFramework.VideoPreviewDelegate! { get set }
-}
-@objc open class RecordedVideoPreview : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPreviewProtocol {
-  open var videoURL: Foundation.URL!
-  open var previewDelegate: ZiggeoSwiftFramework.VideoPreviewDelegate!
-  @objc dynamic public init()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic open var shouldAutorotate: Swift.Bool {
-    @objc get
-  }
-  open func killPlayer()
-  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @available(iOS 10.0, macCatalyst 13.0, *)
-open class ZiggeoScreenRecorderSampleHandler : ReplayKit.RPBroadcastSampleHandler {
-  open var isRecordingVideo: Swift.Bool
-  open func getApplicationGroup() -> Swift.String
-  @objc override dynamic public func broadcastStarted(withSetupInfo setupInfo: [Swift.String : ObjectiveC.NSObject]?)
-  @objc override dynamic public func broadcastPaused()
-  @objc override dynamic public func broadcastResumed()
-  @objc override dynamic public func processSampleBuffer(_ sampleBuffer: CoreMedia.CMSampleBuffer, with sampleBufferType: ReplayKit.RPSampleBufferType)
-  @objc override dynamic public func broadcastFinished()
-  @objc deinit
-  @objc override dynamic public init()
-}
-public class ZiggeoRecorderInterfaceConfig {
-  public var recordButton: ZiggeoSwiftFramework.ButtonConfig
-  public var closeButton: ZiggeoSwiftFramework.ButtonConfig
-  public var cameraFlipButton: ZiggeoSwiftFramework.ButtonConfig
-  public init()
-  @objc deinit
-}
-public protocol CoverSelectorDelegate {
-  func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage!)
-}
-@objc open class CoverSelector : UIKit.UIViewController, UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
-  open var delegate: ZiggeoSwiftFramework.CoverSelectorDelegate!
-  public init(videoPath: Swift.String)
-  @objc override dynamic open func viewDidLoad()
-  public static func getDefaultCover(_ path: Swift.String, callback: ((UIKit.UIImage?) -> Swift.Void)?)
-  @objc override dynamic open var prefersStatusBarHidden: Swift.Bool {
-    @objc get
-  }
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
-  @objc open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
-  @objc open func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
-  @objc open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
-  @objc deinit
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-}
 public protocol XMLSubscriptType {
 }
 extension Int : ZiggeoSwiftFramework.XMLSubscriptType {
@@ -332,6 +486,54 @@ public func ?<< <T>(lhs: inout [T], rhs: T?)
   open class func parse(_ str: Swift.String, trimming manner: Foundation.CharacterSet) throws -> ZiggeoSwiftFramework.XML.Accessor
   open class func document(_ accessor: ZiggeoSwiftFramework.XML.Accessor) throws -> Swift.String
   @objc deinit
+}
+@objc final public class Chronometer : ObjectiveC.NSObject {
+  final public var isPlaying: Swift.Bool
+  final public var timerCurrentValue: Swift.Double
+  final public var timerDidUpdate: ((Foundation.TimeInterval) -> ())?
+  final public var timerDidComplete: (() -> ())?
+  @objc public init(withTimeInterval timeInterval: Foundation.TimeInterval = 0.0)
+  @objc final public func start(shouldFire fire: Swift.Bool = true)
+  @objc final public func pause()
+  @objc final public func stop()
+  @objc deinit
+  @objc override dynamic public init()
+}
+public enum XMLError : Swift.Error {
+  case failToEncodeString
+  case interruptedParseError(rawError: Swift.Error)
+  case accessError(description: Swift.String)
+}
+@objc public protocol ZiggeoApiDelegate {
+  @objc optional func preparingToUpload(_ sourcePath: Swift.String)
+  @objc optional func preparingToUpload(_ sourcePath: Swift.String, token: Swift.String)
+  @objc optional func failedToUpload(_ sourcePath: Swift.String)
+  @objc optional func uploadStarted(_ sourcePath: Swift.String, token: Swift.String, backgroundTask: Foundation.URLSessionTask)
+  @objc optional func uploadProgress(_ sourcePath: Swift.String, token: Swift.String, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  @objc optional func uploadCompleted(_ sourcePath: Swift.String, token: Swift.String, response: Foundation.URLResponse?, error: Swift.Error?, json: Foundation.NSDictionary?)
+}
+@objc @_hasMissingDesignatedInitializers open class ZiggeoApiHelper : ObjectiveC.NSObject {
+  open var delegate: ZiggeoSwiftFramework.ZiggeoApiDelegate?
+  open func getZiggeoVideos(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
+  open func getZiggeoAudios(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
+  open func uploadAudioWithPath(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
+  open func getURLForAudioToken(_ audioToken: Swift.String) -> Swift.String
+  open func getZiggeoImages(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
+  open func uploadImageWithPath(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
+  open func getURLForImageToken(_ imageToken: Swift.String) -> Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension XML {
+  open class Element {
+    open var name: Swift.String
+    open var text: Swift.String?
+    open var attributes: [Swift.String : Swift.String]
+    open var childElements: [ZiggeoSwiftFramework.XML.Element]
+    weak open var parentElement: ZiggeoSwiftFramework.XML.Element?
+    public init(name: Swift.String)
+    @objc deinit
+  }
 }
 @objc @_inheritsConvenienceInitializers open class ZiggeoPlayer : AVFoundation.AVPlayer, GoogleInteractiveMediaAds.IMAAdsLoaderDelegate, GoogleInteractiveMediaAds.IMAAdsManagerDelegate {
   public init(application: ZiggeoSwiftFramework.Ziggeo, videoToken: Swift.String)
@@ -351,20 +553,4 @@ public func ?<< <T>(lhs: inout [T], rhs: T?)
   @objc public func adsManager(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager!, didReceive error: GoogleInteractiveMediaAds.IMAAdError!)
   @objc public func adsManagerDidRequestContentPause(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager!)
   @objc public func adsManagerDidRequestContentResume(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager!)
-}
-public enum XMLError : Swift.Error {
-  case failToEncodeString
-  case interruptedParseError(rawError: Swift.Error)
-  case accessError(description: Swift.String)
-}
-extension XML {
-  open class Element {
-    open var name: Swift.String
-    open var text: Swift.String?
-    open var attributes: [Swift.String : Swift.String]
-    open var childElements: [ZiggeoSwiftFramework.XML.Element]
-    weak open var parentElement: ZiggeoSwiftFramework.XML.Element?
-    public init(name: Swift.String)
-    @objc deinit
-  }
 }

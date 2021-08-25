@@ -1,0 +1,24 @@
+PODS:
+  - GoogleAds-IMA-iOS-SDK (3.11.3)
+  - ZiggeoSwiftSDK (1.1.28):
+    - GoogleAds-IMA-iOS-SDK (= 3.11.3)
+
+DEPENDENCIES:
+  - GoogleAds-IMA-iOS-SDK (= 3.11.3)
+  - ZiggeoSwiftSDK (from `../..`)
+
+SPEC REPOS:
+  trunk:
+    - GoogleAds-IMA-iOS-SDK
+
+EXTERNAL SOURCES:
+  ZiggeoSwiftSDK:
+    :path: "../.."
+
+SPEC CHECKSUMS:
+  GoogleAds-IMA-iOS-SDK: 134b35758455576aaa6b3d2d3146699dcf8af4f1
+  ZiggeoSwiftSDK: ae62764e489bec3cf7d2184947f09bc7e32082ae
+
+PODFILE CHECKSUM: 4118bbf46f912466b0110804ed4b529b8d8914f8
+
+COCOAPODS: 1.10.1

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14ABAA4C26D3FD2D007165C6 /* close_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ABAA4B26D3FD2C007165C6 /* close_black.png */; };
+		14CA9D4F26CE91DF009E7D2F /* MusicPlayingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CA9D4C26CE91DF009E7D2F /* MusicPlayingController.xib */; };
+		14CA9D5126CE91DF009E7D2F /* MusicPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CA9D4E26CE91DF009E7D2F /* MusicPlayingController.swift */; };
 		D98123EE25895F2D00108352 /* Pods_TestApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD515D85734D5D17116AE8E /* Pods_TestApplication.framework */; };
 		D98123EF25895F2D00108352 /* Pods_TestApplication.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = 7DD515D85734D5D17116AE8E /* Pods_TestApplication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */; };
@@ -32,6 +35,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14ABAA4B26D3FD2C007165C6 /* close_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_black.png; sourceTree = "<group>"; };
+		14CA9D4C26CE91DF009E7D2F /* MusicPlayingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicPlayingController.xib; sourceTree = "<group>"; };
+		14CA9D4E26CE91DF009E7D2F /* MusicPlayingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayingController.swift; sourceTree = "<group>"; };
 		2AAE330AF9A502CB5A7ADCE6 /* Pods-TestApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApplication.release.xcconfig"; path = "Target Support Files/Pods-TestApplication/Pods-TestApplication.release.xcconfig"; sourceTree = "<group>"; };
 		5D72B4E37704AB0619E464F2 /* Pods_TestApplicationBroadcastUploadExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApplicationBroadcastUploadExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD515D85734D5D17116AE8E /* Pods_TestApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,9 +133,12 @@
 		FA65B1D11D65C05100DC784F /* TestApplication */ = {
 			isa = PBXGroup;
 			children = (
+				14ABAA4B26D3FD2C007165C6 /* close_black.png */,
 				FA65B1D21D65C05100DC784F /* AppDelegate.swift */,
 				FA65B1D41D65C05100DC784F /* ViewController.swift */,
 				FA65B1D61D65C05100DC784F /* Main.storyboard */,
+				14CA9D4E26CE91DF009E7D2F /* MusicPlayingController.swift */,
+				14CA9D4C26CE91DF009E7D2F /* MusicPlayingController.xib */,
 				FA65B1D91D65C05100DC784F /* Assets.xcassets */,
 				FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */,
 				FA65B1DE1D65C05100DC784F /* Info.plist */,
@@ -174,8 +183,8 @@
 				TargetAttributes = {
 					FA65B1CE1D65C05100DC784F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = QZV8S889Y3;
-						LastSwiftMigration = 0810;
+						DevelopmentTeam = 34VS49Z26P;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -205,7 +214,9 @@
 			files = (
 				FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */,
 				FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */,
+				14CA9D4F26CE91DF009E7D2F /* MusicPlayingController.xib in Resources */,
 				FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */,
+				14ABAA4C26D3FD2D007165C6 /* close_black.png in Resources */,
 				FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CA9D5126CE91DF009E7D2F /* MusicPlayingController.swift in Sources */,
 				FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */,
 				FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */,
 			);
@@ -400,7 +412,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QZV8S889Y3;
+				DEVELOPMENT_TEAM = 34VS49Z26P;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -409,6 +421,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication98348768;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -420,7 +433,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = QZV8S889Y3;
+				DEVELOPMENT_TEAM = 34VS49Z26P;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

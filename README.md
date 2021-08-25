@@ -5,6 +5,9 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 
 Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
 
+## Upgrading from v 1.1.28 to v.1.1.29
+Added audio recording and play functions.
+
 ## Upgrading from v 1.1.27 to v.1.1.28
 Fixed Podfile in the demo app
 
