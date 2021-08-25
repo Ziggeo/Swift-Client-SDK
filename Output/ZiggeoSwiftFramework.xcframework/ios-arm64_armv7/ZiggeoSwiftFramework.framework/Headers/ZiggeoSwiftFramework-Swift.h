@@ -215,7 +215,86 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
 @class NSCoder;
+
+/// <ul>
+///   <li>
+///     Subclass this class to use
+///   </li>
+///   <li>
+///     @note
+///   </li>
+///   <li>
+///     Instructions:
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Subclass this class
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Associate it with a nib via File’s Owner (Whose name is defined by [-nibName])
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Bind contentView to the root view of the nib
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Then you can insert it either in code or in a xib/storyboard, your choice
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework11BaseNibView")
+@interface BaseNibView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)awakeFromNib;
+@end
+
+enum AudioVisualizationMode : NSInteger;
+@class UIColor;
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework22AudioVisualizationView")
+@interface AudioVisualizationView : BaseNibView
+@property (nonatomic) IBInspectable CGFloat meteringLevelBarWidth;
+@property (nonatomic) IBInspectable CGFloat meteringLevelBarInterItem;
+@property (nonatomic) IBInspectable CGFloat meteringLevelBarCornerRadius;
+@property (nonatomic) IBInspectable BOOL meteringLevelBarSingleStick;
+@property (nonatomic) enum AudioVisualizationMode audioVisualizationMode;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nullable meteringLevels;
+@property (nonatomic, strong) IBInspectable UIColor * _Nonnull gradientStartColor;
+@property (nonatomic, strong) IBInspectable UIColor * _Nonnull gradientEndColor;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)drawRect:(CGRect)rect;
+- (void)reset;
+- (void)addWithMeteringLevel:(float)meteringLevel;
+- (NSArray<NSNumber *> * _Nonnull)scaleSoundDataToFitScreen SWIFT_WARN_UNUSED_RESULT;
+- (void)playFrom:(NSURL * _Nonnull)url;
+- (void)playFor:(NSTimeInterval)duration;
+- (void)pause;
+- (void)stop;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AudioVisualizationMode, open) {
+  AudioVisualizationModeRead = 0,
+  AudioVisualizationModeWrite = 1,
+};
+
+
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework18CapturePreviewView")
 @interface CapturePreviewView : UIView
@@ -223,6 +302,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 + (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework11Chronometer")
+@interface Chronometer : NSObject
+- (nonnull instancetype)initWithTimeInterval:(NSTimeInterval)timeInterval OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithShouldFire:(BOOL)fire;
+- (void)pause;
+- (void)stop;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class UITableView;
@@ -249,6 +339,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework22CoverSelectorTableCell")
 @end
 
 
+
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework20RecordedVideoPreview")
 @interface RecordedVideoPreview : UIViewController
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -259,11 +350,97 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework20RecordedVideoPreview")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework9ViewModel")
+@interface ViewModel : NSObject
+@property (nonatomic, copy) NSURL * _Nullable audioFilePathLocal;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nullable meteringLevels;
+@property (nonatomic, copy) void (^ _Nullable audioMeteringLevelUpdate)(float);
+@property (nonatomic, copy) void (^ _Nullable audioDidFinish)(void);
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)askAudioRecordingPermissionWithCompletion:(void (^ _Nullable)(BOOL))completion;
+- (void)startRecordingWithCompletion:(void (^ _Nonnull)(NSURL * _Nullable, NSArray<NSNumber *> * _Nullable, NSError * _Nullable))completion;
+- (BOOL)stopRecordingAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (BOOL)resetRecordingAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (double)startPlaying SWIFT_WARN_UNUSED_RESULT;
+- (void)setCurrentTime:(NSTimeInterval)currentTime;
+- (BOOL)pausePlayingAndReturnError:(NSError * _Nullable * _Nullable)error;
+@end
+
+
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework6Ziggeo")
 @interface Ziggeo : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+@class NSURLSessionTask;
+@class NSURLResponse;
+@class NSDictionary;
+
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework17ZiggeoApiDelegate_")
+@protocol ZiggeoApiDelegate
+@optional
+- (void)preparingToUpload:(NSString * _Nonnull)sourcePath;
+- (void)preparingToUpload:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token;
+- (void)failedToUpload:(NSString * _Nonnull)sourcePath;
+- (void)uploadStarted:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token backgroundTask:(NSURLSessionTask * _Nonnull)backgroundTask;
+- (void)uploadProgress:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+- (void)uploadCompleted:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error json:(NSDictionary * _Nullable)json;
+@end
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework15ZiggeoApiHelper")
+@interface ZiggeoApiHelper : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework17ZiggeoAudioPlayer")
+@interface ZiggeoAudioPlayer : NSObject
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework25ZiggeoAudioPlayerDelegate_")
+@protocol ZiggeoAudioPlayerDelegate
+@optional
+- (void)audioPlayerDidLoadedItem:(ZiggeoAudioPlayer * _Nonnull)audioPlayer;
+- (void)audioPlayerPlayWith:(ZiggeoAudioPlayer * _Nonnull)audioPlayer :(float)progress;
+- (void)audioPlayerDidFinishItem:(ZiggeoAudioPlayer * _Nonnull)audioPlayer;
+@end
+
+
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework27ZiggeoAudioRecorderDelegate_")
+@protocol ZiggeoAudioRecorderDelegate
+@optional
+- (void)ziggeoAudioRecorderReady;
+- (void)ziggeoAudioRecorderCanceled;
+- (void)ziggeoAudioRecorderRecoding;
+- (void)ziggeoAudioRecorderCurrentRecordedDurationSeconds:(double)seconds;
+- (void)ziggeoAudioRecorderFinished:(double)seconds;
+- (void)ziggeoAudioRecorderPlaying;
+- (void)ziggeoAudioRecorderPaused;
+@end
+
+@class UISlider;
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework19ZiggeoAudioRecorder")
+@interface ZiggeoAudioRecorder : UIViewController <ZiggeoAudioRecorderDelegate>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (IBAction)onClose:(id _Nonnull)sender;
+- (IBAction)onRerecord:(id _Nonnull)sender;
+- (IBAction)onRecord:(id _Nonnull)sender;
+- (IBAction)onUpload:(id _Nonnull)sender;
+- (IBAction)timeChanged:(UISlider * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
 
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoConfig")
@@ -274,7 +451,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoConfig")
 
 @class NSURLSession;
 @class NSURLSessionDataTask;
-@class NSURLSessionTask;
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 @interface ZiggeoConnect : NSObject <NSURLSessionDataDelegate>
@@ -372,8 +548,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoVideos")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSURLResponse;
-@class NSDictionary;
 
 SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework20ZiggeoVideosDelegate_")
 @protocol ZiggeoVideosDelegate
@@ -608,7 +782,86 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
 @class NSCoder;
+
+/// <ul>
+///   <li>
+///     Subclass this class to use
+///   </li>
+///   <li>
+///     @note
+///   </li>
+///   <li>
+///     Instructions:
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Subclass this class
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Associate it with a nib via File’s Owner (Whose name is defined by [-nibName])
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Bind contentView to the root view of the nib
+///       </li>
+///     </ul>
+///   </li>
+///   <li>
+///     <ul>
+///       <li>
+///         Then you can insert it either in code or in a xib/storyboard, your choice
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework11BaseNibView")
+@interface BaseNibView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)awakeFromNib;
+@end
+
+enum AudioVisualizationMode : NSInteger;
+@class UIColor;
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework22AudioVisualizationView")
+@interface AudioVisualizationView : BaseNibView
+@property (nonatomic) IBInspectable CGFloat meteringLevelBarWidth;
+@property (nonatomic) IBInspectable CGFloat meteringLevelBarInterItem;
+@property (nonatomic) IBInspectable CGFloat meteringLevelBarCornerRadius;
+@property (nonatomic) IBInspectable BOOL meteringLevelBarSingleStick;
+@property (nonatomic) enum AudioVisualizationMode audioVisualizationMode;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nullable meteringLevels;
+@property (nonatomic, strong) IBInspectable UIColor * _Nonnull gradientStartColor;
+@property (nonatomic, strong) IBInspectable UIColor * _Nonnull gradientEndColor;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)drawRect:(CGRect)rect;
+- (void)reset;
+- (void)addWithMeteringLevel:(float)meteringLevel;
+- (NSArray<NSNumber *> * _Nonnull)scaleSoundDataToFitScreen SWIFT_WARN_UNUSED_RESULT;
+- (void)playFrom:(NSURL * _Nonnull)url;
+- (void)playFor:(NSTimeInterval)duration;
+- (void)pause;
+- (void)stop;
+@end
+
+typedef SWIFT_ENUM(NSInteger, AudioVisualizationMode, open) {
+  AudioVisualizationModeRead = 0,
+  AudioVisualizationModeWrite = 1,
+};
+
+
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework18CapturePreviewView")
 @interface CapturePreviewView : UIView
@@ -616,6 +869,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 + (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework11Chronometer")
+@interface Chronometer : NSObject
+- (nonnull instancetype)initWithTimeInterval:(NSTimeInterval)timeInterval OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithShouldFire:(BOOL)fire;
+- (void)pause;
+- (void)stop;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class UITableView;
@@ -642,6 +906,7 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework22CoverSelectorTableCell")
 @end
 
 
+
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework20RecordedVideoPreview")
 @interface RecordedVideoPreview : UIViewController
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -652,11 +917,97 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework20RecordedVideoPreview")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework9ViewModel")
+@interface ViewModel : NSObject
+@property (nonatomic, copy) NSURL * _Nullable audioFilePathLocal;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nullable meteringLevels;
+@property (nonatomic, copy) void (^ _Nullable audioMeteringLevelUpdate)(float);
+@property (nonatomic, copy) void (^ _Nullable audioDidFinish)(void);
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)askAudioRecordingPermissionWithCompletion:(void (^ _Nullable)(BOOL))completion;
+- (void)startRecordingWithCompletion:(void (^ _Nonnull)(NSURL * _Nullable, NSArray<NSNumber *> * _Nullable, NSError * _Nullable))completion;
+- (BOOL)stopRecordingAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (BOOL)resetRecordingAndReturnError:(NSError * _Nullable * _Nullable)error;
+- (double)startPlaying SWIFT_WARN_UNUSED_RESULT;
+- (void)setCurrentTime:(NSTimeInterval)currentTime;
+- (BOOL)pausePlayingAndReturnError:(NSError * _Nullable * _Nullable)error;
+@end
+
+
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework6Ziggeo")
 @interface Ziggeo : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+@class NSURLSessionTask;
+@class NSURLResponse;
+@class NSDictionary;
+
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework17ZiggeoApiDelegate_")
+@protocol ZiggeoApiDelegate
+@optional
+- (void)preparingToUpload:(NSString * _Nonnull)sourcePath;
+- (void)preparingToUpload:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token;
+- (void)failedToUpload:(NSString * _Nonnull)sourcePath;
+- (void)uploadStarted:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token backgroundTask:(NSURLSessionTask * _Nonnull)backgroundTask;
+- (void)uploadProgress:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+- (void)uploadCompleted:(NSString * _Nonnull)sourcePath token:(NSString * _Nonnull)token response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error json:(NSDictionary * _Nullable)json;
+@end
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework15ZiggeoApiHelper")
+@interface ZiggeoApiHelper : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework17ZiggeoAudioPlayer")
+@interface ZiggeoAudioPlayer : NSObject
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework25ZiggeoAudioPlayerDelegate_")
+@protocol ZiggeoAudioPlayerDelegate
+@optional
+- (void)audioPlayerDidLoadedItem:(ZiggeoAudioPlayer * _Nonnull)audioPlayer;
+- (void)audioPlayerPlayWith:(ZiggeoAudioPlayer * _Nonnull)audioPlayer :(float)progress;
+- (void)audioPlayerDidFinishItem:(ZiggeoAudioPlayer * _Nonnull)audioPlayer;
+@end
+
+
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework27ZiggeoAudioRecorderDelegate_")
+@protocol ZiggeoAudioRecorderDelegate
+@optional
+- (void)ziggeoAudioRecorderReady;
+- (void)ziggeoAudioRecorderCanceled;
+- (void)ziggeoAudioRecorderRecoding;
+- (void)ziggeoAudioRecorderCurrentRecordedDurationSeconds:(double)seconds;
+- (void)ziggeoAudioRecorderFinished:(double)seconds;
+- (void)ziggeoAudioRecorderPlaying;
+- (void)ziggeoAudioRecorderPaused;
+@end
+
+@class UISlider;
+
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework19ZiggeoAudioRecorder")
+@interface ZiggeoAudioRecorder : UIViewController <ZiggeoAudioRecorderDelegate>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (IBAction)onClose:(id _Nonnull)sender;
+- (IBAction)onRerecord:(id _Nonnull)sender;
+- (IBAction)onRecord:(id _Nonnull)sender;
+- (IBAction)onUpload:(id _Nonnull)sender;
+- (IBAction)timeChanged:(UISlider * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
 
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoConfig")
@@ -667,7 +1018,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoConfig")
 
 @class NSURLSession;
 @class NSURLSessionDataTask;
-@class NSURLSessionTask;
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 @interface ZiggeoConnect : NSObject <NSURLSessionDataDelegate>
@@ -765,8 +1115,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoVideos")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSURLResponse;
-@class NSDictionary;
 
 SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework20ZiggeoVideosDelegate_")
 @protocol ZiggeoVideosDelegate

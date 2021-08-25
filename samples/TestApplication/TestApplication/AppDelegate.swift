@@ -15,9 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNU
 
     var window: UIWindow?
     
+    static let ZIGGEO_APP_TOKEN = "344a71099193b17a693ab11fdd0eeb10"
+    static let ZIGGEO_SERVER_AUTH_TOKEN = "2502a8288403cec13382a6f4d8f54f64"
+    
     static var ziggeo: Ziggeo = {
-        let result = Ziggeo(token: "ZIGGEO_APP_TOKEN")
-        // result.connect.serverAuthToken = "ZIGGEO_AUTH_TOKEN"
+        let result = Ziggeo(token: ZIGGEO_APP_TOKEN)
+        // result.connect.serverAuthToken = "ZIGGEO_SERVER_AUTH_TOKEN"
         result.enableDebugLogs = true
         return result
     }()
