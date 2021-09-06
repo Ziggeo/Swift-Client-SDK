@@ -11,7 +11,7 @@ import AVFoundation
 import ZiggeoSwiftFramework
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, ZiggeoVideosDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
