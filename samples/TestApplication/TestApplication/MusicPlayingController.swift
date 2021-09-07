@@ -18,48 +18,74 @@ class MusicPlayingController: UIViewController {
     @IBOutlet weak var playOrPauseButton: UIButton!
     @IBOutlet weak var timeSlider: UISlider!
     
-    var audioPlayer: ZiggeoAudioPlayer!
+    var audioPlayer: AVAudioPlayer!
     var m_ziggeo: Ziggeo!
     var m_audioToken: String = ""
+    var timer: Timer?
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, ziggeo: Ziggeo, audioToken: String) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         self.m_ziggeo = ziggeo
         self.m_audioToken = audioToken
-        self.audioPlayer = ZiggeoAudioPlayer(ziggeo: self.m_ziggeo, audioToken: self.m_audioToken)
-        self.audioPlayer.delegate = self
+        
+        self.statusLabel.text = "Loading"
+        self.playOrPauseButton.setTitle("", for: UIControl.State.normal)
+        self.timeSlider.value = 0
+        
+        self.m_ziggeo.audios.downloadAudio(self.m_audioToken) { (filePath) in
+            DispatchQueue.main.async {
+                guard let fileUrl = URL(string: filePath) else {
+                    return
+                }
+                do {
+                    self.audioPlayer = try AVAudioPlayer(contentsOf: fileUrl)
+                    self.audioPlayer.delegate = self
+                    
+                    self.statusLabel.text = ""
+                    self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
+                    self.timeSlider.minimumValue = 0
+                    if self.audioPlayer != nil {
+                        self.timeSlider.maximumValue = Float(self.audioPlayer.duration)
+                    }
+                    self.timeSlider.value = 0
+                } catch {
+                    
+                }
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.statusLabel.text = "Loading"
-        self.playOrPauseButton.setTitle("", for: UIControl.State.normal)
-        self.timeSlider.value = 0
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.audioPlayer.pause()
+        if self.audioPlayer != nil && self.audioPlayer.isPlaying {
+            self.audioPlayer.stop()
+        }
         self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
     }
     
     @IBAction func onChangeCurrentTime(_ sender: UISlider) {
-        self.audioPlayer.seekToTime(sender.value)
+        if self.audioPlayer != nil {
+            self.audioPlayer.currentTime = TimeInterval(sender.value)
+        }
     }
     
     @IBAction func onPlayOrPause(_ sender: Any) {
-        if self.audioPlayer.isPlaying() {
+        if self.audioPlayer == nil {
+            return
+        }
+        
+        if self.audioPlayer.isPlaying {
             self.audioPlayer.pause()
             self.statusLabel.text = "Paused"
             self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
         } else {
+            self.timer =  Timer(timeInterval: 1.0, target: self, selector: #selector(playingAction), userInfo: nil, repeats: true)
             self.audioPlayer.play()
             self.statusLabel.text = "Playing"
             self.playOrPauseButton.setTitle("Pause", for: UIControl.State.normal)
@@ -67,33 +93,39 @@ class MusicPlayingController: UIViewController {
     }
     
     @IBAction func onClose(_ sender: Any) {
+        self.stopTimer()
+        if self.audioPlayer != nil && self.audioPlayer.isPlaying {
+            self.audioPlayer.stop()
+        }
         self.dismiss(animated: true, completion: nil)
     }
-}
-
-extension MusicPlayingController: ZiggeoAudioPlayerDelegate {
-    func audioPlayerDidLoadedItem(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer) {
-        self.statusLabel.text = ""
-        self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
-        self.timeSlider.minimumValue = 0
-        self.timeSlider.maximumValue = Float(audioPlayer.duration())
-        self.timeSlider.value = 0
-        print ("Duration : \(audioPlayer.duration())")
-        
+    
+    func stopTimer() {
+        if self.timer != nil {
+            self.timer?.invalidate()
+            self.timer = nil
+        }
     }
-
-    func audioPlayerPlayWith(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer, _ progress: Float) {
+    
+    @objc func playingAction() {
+        let progress = self.audioPlayer.currentTime
         let hours = Int(progress) / 3600
         let minutes = (Int(progress) % 3600) / 60
         let seconds = Int(progress) % 60
         self.currentTimeLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        self.timeSlider.value = progress
-        print ("\(progress)")
+        self.timeSlider.value = Float(progress)
     }
+}
 
-    func audioPlayerDidFinishItem(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer) {
-        self.statusLabel.text = ""
-        self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
+extension MusicPlayingController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if (flag == true) {
+            self.statusLabel.text = ""
+            self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
+            self.currentTimeLabel.text = "00:00:00";
+            self.timeSlider.value = 0
+            self.stopTimer()
+        }
     }
 }
 

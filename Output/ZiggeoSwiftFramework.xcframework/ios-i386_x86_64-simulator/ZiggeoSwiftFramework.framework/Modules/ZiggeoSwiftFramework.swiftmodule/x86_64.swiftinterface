@@ -11,61 +11,7 @@ import ReplayKit
 import Swift
 import UIKit
 @_exported import ZiggeoSwiftFramework
-@objc public protocol ZiggeoVideosDelegate {
-  @objc optional func videoPreparingToUpload(_ sourcePath: Swift.String)
-  @objc optional func videoPreparingToUpload(_ sourcePath: Swift.String, token: Swift.String)
-  @objc optional func videoFailedToUpload(_ sourcePath: Swift.String)
-  @objc optional func videoUploadStarted(_ sourcePath: Swift.String, token: Swift.String, backgroundTask: Foundation.URLSessionTask)
-  @objc optional func videoUploadComplete(_ sourcePath: Swift.String, token: Swift.String, response: Foundation.URLResponse?, error: Foundation.NSError?, json: Foundation.NSDictionary?)
-  @objc optional func videoUploadProgress(_ sourcePath: Swift.String, token: Swift.String, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
-}
-@objc @_hasMissingDesignatedInitializers open class ZiggeoVideos : ObjectiveC.NSObject {
-  open var delegate: ZiggeoSwiftFramework.ZiggeoVideosDelegate?
-  open func index(_ data: Foundation.NSDictionary?, callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func attachVideo(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, file: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Foundation.NSError?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func createVideo(_ data: Foundation.NSDictionary?, file inputFilePath: Swift.String, cover: UIKit.UIImage? = nil, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)? = nil, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)? = nil) -> Foundation.URLSessionTask?
-  open func reRecordVideo(_ token: Swift.String, file: Swift.String, data: Foundation.NSDictionary?, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func getImageForVideo(_ token: Swift.String, callback: @escaping (UIKit.UIImage?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask?
-  open func getImageForLocalVideo(_ path: Swift.String, callback: @escaping (UIKit.UIImage?, Foundation.NSError?) -> Swift.Void)
-  @available(iOS 12.0, *)
-  open func startScreenRecording(addRecordingButtonToView view: UIKit.UIView, frame: CoreGraphics.CGRect, appGroup: Swift.String)
-  open func getURLForVideo(_ token: Swift.String) -> Swift.String
-  open func deleteVideo(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func getDefaultStream(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((Swift.String?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func getOriginalStreamDescriptionForVideo(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func createStream(_ token: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func createEmptyVideo(_ data: Foundation.NSDictionary?, callback: @escaping (Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func recorderSubmit(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func enforceImageForVideo(_ path: Swift.String, image: UIKit.UIImage)
-  open func attachCover(_ token: Swift.String, streamToken: Swift.String, cover: UIKit.UIImage?, data: Foundation.NSDictionary?, callback: ((Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask?
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc public protocol ZiggeoAudioPlayerDelegate {
-  @objc optional func audioPlayerDidLoadedItem(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer)
-  @objc optional func audioPlayerPlayWith(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer, _ progress: Swift.Float)
-  @objc optional func audioPlayerDidFinishItem(_ audioPlayer: ZiggeoSwiftFramework.ZiggeoAudioPlayer)
-}
-@objc open class ZiggeoAudioPlayer : ObjectiveC.NSObject {
-  open var _isPlaying: Swift.Bool
-  open var _player: AVFoundation.AVPlayer?
-  open var delegate: ZiggeoSwiftFramework.ZiggeoAudioPlayerDelegate?
-  open var player: AVFoundation.AVPlayer {
-    get
-  }
-  public init(frame: CoreGraphics.CGRect)
-  public convenience init(ziggeo: ZiggeoSwiftFramework.Ziggeo)
-  public init(ziggeo: ZiggeoSwiftFramework.Ziggeo, audioToken: Swift.String!)
-  open func play()
-  open func pause()
-  open func seekToTime(_ time: Swift.Float)
-  open func duration() -> Swift.Double
-  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
-  open func isPlaying() -> Swift.Bool
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc @_inheritsConvenienceInitializers public class AudioVisualizationView : ZiggeoSwiftFramework.BaseNibView {
+@objc @_hasMissingDesignatedInitializers public class AudioVisualizationView : ZiggeoSwiftFramework.BaseNibView {
   @objc public enum AudioVisualizationMode : Swift.Int {
     case read = 0
     case write = 1
@@ -106,7 +52,6 @@ import UIKit
     @objc get
     @objc set(value)
   }
-  @objc dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
   @objc public func reset()
@@ -121,9 +66,21 @@ import UIKit
 @objc open class ZiggeoConfig : ObjectiveC.NSObject {
   open var serverAPIUrl: Swift.String
   open var cdnAPIUrl: Swift.String
-  open var dev_server_api_url: Swift.String
-  open var file_server_url: Swift.String
+  open var devServerApiUrl: Swift.String
+  open var fileServerUrl: Swift.String
   public init(token: Swift.String)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers open class ZiggeoAudios : ObjectiveC.NSObject {
+  open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
+  open func getAudioUrl(_ audioToken: Swift.String) -> Swift.String
+  open func getAudios(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void)
+  open func uploadAudio(_ path: Swift.String)
+  open func uploadAudio(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func updateAudio(_ path: Swift.String, audioToken: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func deleteAudio(_ audioToken: Swift.String, callback: @escaping (Foundation.NSDictionary?, Swift.Error?) -> Swift.Void)
+  open func downloadAudio(_ audioToken: Swift.String, callback: @escaping (Swift.String) -> Swift.Void)
   @objc deinit
   @objc override dynamic public init()
 }
@@ -153,6 +110,19 @@ import UIKit
   @objc public func pausePlaying() throws
   @objc deinit
 }
+@objc @_hasMissingDesignatedInitializers open class ZiggeoImages : ObjectiveC.NSObject {
+  open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
+  open func getImageUrl(_ imageToken: Swift.String) -> Swift.String
+  open func getImages(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void)
+  open func uploadImage(_ imageFile: UIKit.UIImage)
+  open func uploadImage(_ imageFile: UIKit.UIImage, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func uploadImage(_ path: Swift.String)
+  open func uploadImage(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func deleteImage(_ imageToken: Swift.String, callback: @escaping (Foundation.NSDictionary?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
+  open func downloadImage(_ imageToken: Swift.String, callback: @escaping (Swift.String) -> Swift.Void)
+  @objc deinit
+  @objc override dynamic public init()
+}
 @objc public protocol ZiggeoAudioRecorderDelegate {
   @objc optional func ziggeoAudioRecorderReady()
   @objc optional func ziggeoAudioRecorderCanceled()
@@ -176,7 +146,7 @@ import UIKit
     public func hash(into hasher: inout Swift.Hasher)
   }
   open var recorderDelegate: ZiggeoSwiftFramework.ZiggeoAudioRecorderDelegate?
-  open var apiDelegate: ZiggeoSwiftFramework.ZiggeoApiDelegate?
+  open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
   public convenience init(ziggeo: ZiggeoSwiftFramework.Ziggeo)
   public init(ziggeo: ZiggeoSwiftFramework.Ziggeo, audioToken: Swift.String!)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
@@ -294,7 +264,7 @@ extension XML {
 }
 public protocol VideoPreviewDelegate {
   func retake(_ fileToBeRemoved: Foundation.URL!)
-  func upload(_ fileToUpload: Foundation.URL)
+  func uploadVideo(_ filePath: Foundation.URL)
 }
 public protocol VideoPreviewProtocol {
   var videoURL: Foundation.URL! { get set }
@@ -328,7 +298,9 @@ public protocol VideoPreviewProtocol {
   final public let config: ZiggeoSwiftFramework.ZiggeoConfig
   public var connect: ZiggeoSwiftFramework.ZiggeoConnect!
   public var videos: ZiggeoSwiftFramework.ZiggeoVideos!
-  public var apiHelper: ZiggeoSwiftFramework.ZiggeoApiHelper!
+  public var audios: ZiggeoSwiftFramework.ZiggeoAudios!
+  public var images: ZiggeoSwiftFramework.ZiggeoImages!
+  public var cacheManager: ZiggeoSwiftFramework.ZiggeoCacheManager!
   public var enableDebugLogs: Swift.Bool
   open func log(item: Swift.String)
   open func logError(item: Swift.String)
@@ -345,7 +317,6 @@ public protocol VideoPreviewProtocol {
   open func appWakeupSignalTaskComplete(_ sessionID: Swift.String)
   open func formatURLRequest(_ request: Foundation.URLRequest) -> Swift.String
   open func uploadFileWithPath(_ path: Swift.String, parameters: Foundation.NSDictionary?, identifier: Swift.String, filePath: Swift.String, fileName: Swift.String, mimeType: Swift.String, fileExtension: Swift.String, callback: ((Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func backgroundUploadWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, identifier: Swift.String, file: Swift.String, callback: ((Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
   open func postRawDataWithPath(_ path: Swift.String, data: Foundation.Data, params: Foundation.NSDictionary?, callback: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
   open func requestWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
   open func requestStringWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (Swift.String?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
@@ -375,6 +346,26 @@ open class ZiggeoScreenRecorderSampleHandler : ReplayKit.RPBroadcastSampleHandle
   @objc override dynamic public func broadcastFinished()
   @objc deinit
   @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers open class ZiggeoCacheManager : ObjectiveC.NSObject {
+  open func getVideoCacheDirectory() -> Swift.String
+  open func getVideoCacheFileName(_ token: Swift.String) -> Swift.String
+  open func getVideoCacheFilePath(_ token: Swift.String) -> Swift.String
+  open func trimVideoCache()
+  open func getAudioCacheDirectory() -> Swift.String
+  open func getAudioCacheFileName(_ token: Swift.String) -> Swift.String
+  open func getAudioCacheFilePath(_ token: Swift.String) -> Swift.String
+  open func trimAudioCache()
+  open func getImageCacheDirectory() -> Swift.String
+  open func getImageCacheFileName(_ token: Swift.String) -> Swift.String
+  open func getImageCacheFilePath(_ token: Swift.String) -> Swift.String
+  open func trimImageCache()
+  open func fileExists(_ filePath: Swift.String) -> Swift.Bool
+  open func removeFile(_ filePath: Swift.String)
+  open func getFileCreationDateWithDefaultDate(_ filePath: Swift.String) -> Foundation.Date?
+  open func getFileSize(_ filePath: Swift.String) -> Swift.UInt64?
+  @objc override dynamic public init()
+  @objc deinit
 }
 public protocol CoverSelectorDelegate {
   func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage!)
@@ -411,13 +402,14 @@ public protocol CoverSelectorDelegate {
   @objc optional func ziggeoRecorderFaceDetected(_ faceID: Swift.Int, rect: CoreGraphics.CGRect)
 }
 @objc @available(macCatalyst 13.0, *)
-open class ZiggeoRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPreviewDelegate, ZiggeoSwiftFramework.CoverSelectorDelegate, AVFoundation.AVCaptureAudioDataOutputSampleBufferDelegate, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate, AVFoundation.AVCaptureMetadataOutputObjectsDelegate {
+open class ZiggeoRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPreviewDelegate, AVFoundation.AVCaptureAudioDataOutputSampleBufferDelegate, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate, AVFoundation.AVCaptureMetadataOutputObjectsDelegate {
   open var coverSelectorEnabled: Swift.Bool
   open var recordedVideoPreviewEnabled: Swift.Bool
   open var cameraFlipButtonVisible: Swift.Bool
   open var cameraDevice: UIKit.UIImagePickerController.CameraDevice
   open var videoPreview: ZiggeoSwiftFramework.VideoPreviewProtocol!
   open var recorderDelegate: ZiggeoSwiftFramework.ZiggeoRecorderDelegate!
+  open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
   open var maxRecordedDurationSeconds: Swift.Double
   open var extraArgsForCreateVideo: Foundation.NSDictionary?
   open var duration: Swift.Double
@@ -444,8 +436,7 @@ open class ZiggeoRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPr
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override dynamic open func viewDidLoad()
   open func retake(_ fileToBeRemoved: Foundation.URL!)
-  open func upload(_ fileToUpload: Foundation.URL)
-  open func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage!)
+  open func uploadVideo(_ filePath: Foundation.URL)
   @objc @IBAction open func onCloseButtonTap(_ sender: Swift.AnyObject)
   @objc override dynamic open var shouldAutorotate: Swift.Bool {
     @objc get
@@ -504,23 +495,29 @@ public enum XMLError : Swift.Error {
   case interruptedParseError(rawError: Swift.Error)
   case accessError(description: Swift.String)
 }
-@objc public protocol ZiggeoApiDelegate {
+@objc public protocol ZiggeoUploadDelegate {
   @objc optional func preparingToUpload(_ sourcePath: Swift.String)
-  @objc optional func preparingToUpload(_ sourcePath: Swift.String, token: Swift.String)
+  @objc optional func preparingToUpload(_ sourcePath: Swift.String, token: Swift.String, streamToken: Swift.String)
   @objc optional func failedToUpload(_ sourcePath: Swift.String)
-  @objc optional func uploadStarted(_ sourcePath: Swift.String, token: Swift.String, backgroundTask: Foundation.URLSessionTask)
-  @objc optional func uploadProgress(_ sourcePath: Swift.String, token: Swift.String, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
-  @objc optional func uploadCompleted(_ sourcePath: Swift.String, token: Swift.String, response: Foundation.URLResponse?, error: Swift.Error?, json: Foundation.NSDictionary?)
+  @objc optional func uploadStarted(_ sourcePath: Swift.String, token: Swift.String, streamToken: Swift.String, backgroundTask: Foundation.URLSessionTask)
+  @objc optional func uploadProgress(_ sourcePath: Swift.String, token: Swift.String, streamToken: Swift.String, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  @objc optional func uploadCompleted(_ sourcePath: Swift.String, token: Swift.String, streamToken: Swift.String, response: Foundation.URLResponse?, error: Swift.Error?, json: Foundation.NSDictionary?)
+  @objc optional func delete(_ token: Swift.String, streamToken: Swift.String, response: Foundation.URLResponse?, error: Swift.Error?, json: Foundation.NSDictionary?)
 }
-@objc @_hasMissingDesignatedInitializers open class ZiggeoApiHelper : ObjectiveC.NSObject {
-  open var delegate: ZiggeoSwiftFramework.ZiggeoApiDelegate?
-  open func getZiggeoVideos(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func getZiggeoAudios(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func uploadAudioWithPath(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func getURLForAudioToken(_ audioToken: Swift.String) -> Swift.String
-  open func getZiggeoImages(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func uploadImageWithPath(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func getURLForImageToken(_ imageToken: Swift.String) -> Swift.String
+@objc @_hasMissingDesignatedInitializers open class ZiggeoVideos : ObjectiveC.NSObject {
+  open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
+  open func getVideoUrl(_ videoToken: Swift.String) -> Swift.String
+  open func getVideos(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void)
+  open func uploadVideo(_ path: Swift.String)
+  open func uploadVideo(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func updateVideo(_ path: Swift.String, videoToken: Swift.String, streamToken: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func deleteVideo(_ videoToken: Swift.String, streamToken: Swift.String, callback: @escaping (Foundation.NSDictionary?, Swift.Error?) -> Swift.Void)
+  open func getOriginalStreamDescriptionForVideo(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
+  @available(iOS 12.0, *)
+  open func startScreenRecording(addRecordingButtonToView view: UIKit.UIView, frame: CoreGraphics.CGRect, appGroup: Swift.String)
+  open func downloadVideo(_ videoToken: Swift.String, callback: @escaping (Swift.String) -> Swift.Void)
+  open func getImageForVideo(_ videoToken: Swift.String, params: Foundation.NSDictionary, callback: @escaping (UIKit.UIImage?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)
+  open func getImageForVideo(_ path: Swift.String, callback: @escaping (UIKit.UIImage?, Swift.Error?) -> Swift.Void)
   @objc deinit
   @objc override dynamic public init()
 }
