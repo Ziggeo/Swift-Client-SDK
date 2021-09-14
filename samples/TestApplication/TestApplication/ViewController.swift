@@ -324,11 +324,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 //MARK: - ZiggeoRecorderDelegate
 extension ViewController: ZiggeoRecorderDelegate {
     public func ziggeoRecorderDidCancel() {
-        NSLog("cancellation")
+        print ("cancellation")
     }
 
     public func ziggeoRecorderRetake(_ oldFile: URL!) {
-        NSLog("file \(oldFile) removed, recording restarted")
+        print ("file \(oldFile) removed, recording restarted")
     }
     
     public func ziggeoRecorderDidStartRecording() {
@@ -348,50 +348,58 @@ extension ViewController: ZiggeoRecorderDelegate {
     }
 
     public func ziggeoRecorderCurrentRecordedDuration(_ seconds: Double) {
-        NSLog("recording duration: \(seconds)")
+        print ("recording duration: \(seconds)")
     }
 
     public func ziggeoRecorderLuxMeter(_ luminousity: Double) {
-        //NSLog("luminousity: \(luminousity)")
+        //print ("luminousity: \(luminousity)")
     }
 
     public func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
-        //NSLog("audio level: \(audioLevel)")
+        //print ("audio level: \(audioLevel)")
     }
 
     public func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
-        //NSLog("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
+        //print ("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
     }
 }
 
 //MARK: - ZiggeoAudioRecorderDelegate
 extension ViewController: ZiggeoAudioRecorderDelegate {
     func ziggeoAudioRecorderReady() {
-        print ("ziggeoAudioRecorderReady")
+//        print ("ziggeoAudioRecorderReady")
     }
     
     func ziggeoAudioRecorderCanceled() {
-        print ("ziggeoAudioRecorderCanceled")
+//        print ("ziggeoAudioRecorderCanceled")
     }
     
     func ziggeoAudioRecorderRecoding() {
-        print ("ziggeoAudioRecorderRecoding")
+//        print ("ziggeoAudioRecorderRecoding")
     }
     
     func ziggeoAudioRecorderCurrentRecordedDurationSeconds(_ seconds: Double) {
-        print ("ziggeoAudioRecorderCurrentRecordedDurationSeconds : \(seconds)")
+//        print ("ziggeoAudioRecorderCurrentRecordedDurationSeconds : \(seconds)")
     }
     
-    func ziggeoAudioRecorderFinished(_ seconds: Double) {
-        print ("ziggeoAudioRecorderFinished : \(seconds)")
+    func ziggeoAudioRecorderFinished(_ path: String) {
+//        print ("ziggeoAudioRecorderFinished : \(path)")
     }
     
     func ziggeoAudioRecorderPlaying() {
-        print ("ziggeoAudioRecorderPlaying")
+//        print ("ziggeoAudioRecorderPlaying")
     }
     
     func ziggeoAudioRecorderPaused() {
-        print ("ziggeoAudioRecorderPaused")
+//        print ("ziggeoAudioRecorderPaused")
+    }
+    
+    func ziggeoAudioRecorderRerecord() {
+//        print ("ziggeoAudioRecorderRerecord")
+    }
+    
+    func ziggeoAudioRecorderManuallySubmitted() {
+//        print ("ziggeoAudioRecorderManuallySubmitted")
     }
 }
 

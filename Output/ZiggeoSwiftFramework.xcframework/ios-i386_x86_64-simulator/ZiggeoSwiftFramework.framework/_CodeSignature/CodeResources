@@ -6,23 +6,23 @@
 	<dict>
 		<key>AudioLevelView.nib</key>
 		<data>
-		YvGMrPZq2ICQbNtahB8ThAMKRG8=
+		DOLshxyhPVGGdqsXIR6bXeEkrew=
 		</data>
 		<key>AudioVisualizationView.nib</key>
 		<data>
-		sL3SyqDaV3KB56NkeR8fFh/XS1c=
+		WDaXYRtSPUQQJoZ87arthFTX6yk=
 		</data>
 		<key>CoverSelectorController.nib</key>
 		<data>
-		ZsyfC7g75tomQS1EHmpMItu1/2c=
+		us/LwN2YiGO4QKAWvtaf5d0Nw3Y=
 		</data>
 		<key>CoverSelectorTableCell.nib</key>
 		<data>
-		WlPypkEh2TUaGTYuibjmCqBPS1M=
+		TuVeXNQFi+KFh8Q8erR1aw5cq2w=
 		</data>
 		<key>Headers/ZiggeoSwiftFramework-Swift.h</key>
 		<data>
-		u2BnaMrWLo+OH+Td1GzHtnHYL6U=
+		Vk3S0pSlUNxDdsRdB6CxHkAXsGA=
 		</data>
 		<key>Headers/ZiggeoSwiftFramework.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>LuxMeterView.nib</key>
 		<data>
-		JtqUyH3g8bU9vBnhWTnLadno9J0=
+		nSycfinQsJhBc9FRzqYYyQ2zevk=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Ytvx8+oFQyPQTh68/zl+LtgmfdE=
+		hw/Y+OPtpbBuah+HouHX6U+qBIc=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		H/87q+o8+Oj71SX/wMAUjtrVTBg=
+		Pgpldv3s4YLLFU/yyFKc6FnEh+k=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftinterface</key>
 		<data>
-		Ytvx8+oFQyPQTh68/zl+LtgmfdE=
+		hw/Y+OPtpbBuah+HouHX6U+qBIc=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftmodule</key>
 		<data>
-		H/87q+o8+Oj71SX/wMAUjtrVTBg=
+		Pgpldv3s4YLLFU/yyFKc6FnEh+k=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -70,11 +70,11 @@
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		07mq6r7TJwAAZJzb1+yAHrJjwSY=
+		AxRz7Yd+EMnb5jQCulpLS+ELvSg=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		F+ckpgPwhdO6N5619uMonCC/60g=
+		7trxY+Y0Amsu90jLt9MN4RtsIGk=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -82,11 +82,11 @@
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		07mq6r7TJwAAZJzb1+yAHrJjwSY=
+		AxRz7Yd+EMnb5jQCulpLS+ELvSg=
 		</data>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		F+ckpgPwhdO6N5619uMonCC/60g=
+		7trxY+Y0Amsu90jLt9MN4RtsIGk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -94,15 +94,15 @@
 		</data>
 		<key>RecordedVideoPreview.nib</key>
 		<data>
-		N8l9oyRlIlS4/ZMsHMexMqdCkAY=
+		pSsuhdlZi5U71h6T3I6FKTifGFA=
 		</data>
 		<key>ZiggeoAudioRecorder.nib</key>
 		<data>
-		YGNOEZRak2CEI4W3HdzlEqCEjWs=
+		NhSb4gEnYuM2R2LxbD/ijw+YF6c=
 		</data>
 		<key>ZiggeoRecorder.nib</key>
 		<data>
-		nJGG61UHAPtSSNXdTsjWv95zTro=
+		XxdSrSF+w+RxL0w/xVQ5I7IZ7HE=
 		</data>
 		<key>audio-record-start-black.png</key>
 		<data>
@@ -239,55 +239,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YvGMrPZq2ICQbNtahB8ThAMKRG8=
+			DOLshxyhPVGGdqsXIR6bXeEkrew=
 			</data>
 			<key>hash2</key>
 			<data>
-			l5Q9TaNYThOYK7Z46V6Gj7mWKSXQuMw2cQb2lE9DcUs=
+			ldw3ZuWj9UgKyuGCVkZl/pygWQVDINKmGsiiv6PGC7g=
 			</data>
 		</dict>
 		<key>AudioVisualizationView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sL3SyqDaV3KB56NkeR8fFh/XS1c=
+			WDaXYRtSPUQQJoZ87arthFTX6yk=
 			</data>
 			<key>hash2</key>
 			<data>
-			1zfVwyUzwY1792RUJtO94Ca63ghsKrXZyoUonrT4JEo=
+			C56hcOwOHEibFLe3VDgyQAmHciCxpYbl/BmmxoEUjhA=
 			</data>
 		</dict>
 		<key>CoverSelectorController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZsyfC7g75tomQS1EHmpMItu1/2c=
+			us/LwN2YiGO4QKAWvtaf5d0Nw3Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q6BDNHkD0TppcfnrD+D7DkXOeuelVSRpcDG6kxjtwpY=
+			4ttrR+Edo1V69r6TaJfNt9DbZD+SQTXTL/uLcxbQh9U=
 			</data>
 		</dict>
 		<key>CoverSelectorTableCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WlPypkEh2TUaGTYuibjmCqBPS1M=
+			TuVeXNQFi+KFh8Q8erR1aw5cq2w=
 			</data>
 			<key>hash2</key>
 			<data>
-			YAgfYkcJNs/QNM4e88gpHtLswBhL8GVT+3rdR91gopI=
+			jcUSOdD4HhtNYKlwHRXjVwx5PGpWVBWQfuUIN2qtpBI=
 			</data>
 		</dict>
 		<key>Headers/ZiggeoSwiftFramework-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			u2BnaMrWLo+OH+Td1GzHtnHYL6U=
+			Vk3S0pSlUNxDdsRdB6CxHkAXsGA=
 			</data>
 			<key>hash2</key>
 			<data>
-			DrWJVWrZmXjcpw1RLyS8pez5GbYe6h85Z6A8qg62Zmw=
+			9iDxhF4QBzrZGsjYbSZv/dYUV8TJhSXFC6V6SufUDPM=
 			</data>
 		</dict>
 		<key>Headers/ZiggeoSwiftFramework.h</key>
@@ -316,11 +316,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JtqUyH3g8bU9vBnhWTnLadno9J0=
+			nSycfinQsJhBc9FRzqYYyQ2zevk=
 			</data>
 			<key>hash2</key>
 			<data>
-			NjghGdqJ4xI4z9M8ihksspXxXG5HXUtlwT0pY4SF2GI=
+			EiKehSpPIyPYN0V6OKf3PgZVLsC3FqglYucHDFw2P3I=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
@@ -338,22 +338,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ytvx8+oFQyPQTh68/zl+LtgmfdE=
+			hw/Y+OPtpbBuah+HouHX6U+qBIc=
 			</data>
 			<key>hash2</key>
 			<data>
-			HXP4b27a+OrZy9X6eL+iLMJd5e8a9uetYkkQR+TBF7Q=
+			K1GUBZ/iFt1jJvCHMFM9otI+nFrX+is1dyD+mbQKjtE=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H/87q+o8+Oj71SX/wMAUjtrVTBg=
+			Pgpldv3s4YLLFU/yyFKc6FnEh+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			G4ce97CI/iTxohld8Ea8imKT+9LfUl/6q6/+ioxL1gY=
+			fTwdYio3fgcEnH1qG/+Nbp+qoTtYUG4Rg25l2ahjrsk=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftdoc</key>
@@ -371,22 +371,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ytvx8+oFQyPQTh68/zl+LtgmfdE=
+			hw/Y+OPtpbBuah+HouHX6U+qBIc=
 			</data>
 			<key>hash2</key>
 			<data>
-			HXP4b27a+OrZy9X6eL+iLMJd5e8a9uetYkkQR+TBF7Q=
+			K1GUBZ/iFt1jJvCHMFM9otI+nFrX+is1dyD+mbQKjtE=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H/87q+o8+Oj71SX/wMAUjtrVTBg=
+			Pgpldv3s4YLLFU/yyFKc6FnEh+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			G4ce97CI/iTxohld8Ea8imKT+9LfUl/6q6/+ioxL1gY=
+			fTwdYio3fgcEnH1qG/+Nbp+qoTtYUG4Rg25l2ahjrsk=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -404,22 +404,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			07mq6r7TJwAAZJzb1+yAHrJjwSY=
+			AxRz7Yd+EMnb5jQCulpLS+ELvSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			wXVGdAm9pKhJy3vfxhtHUmJPC3c18OUZIxobAR7M0FE=
+			9LxAvaQ0k8mJoQWBldFtmVhIEhrcmKYT4IOGYXsXzAg=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			F+ckpgPwhdO6N5619uMonCC/60g=
+			7trxY+Y0Amsu90jLt9MN4RtsIGk=
 			</data>
 			<key>hash2</key>
 			<data>
-			iC3mWbuGOcP5QBR2vPEz5qGV1HUC1u9bSablzcCa3io=
+			Eruqm66X0EcPzwDc0k/kD6AKLxnnnG/zyg8rdV0j4Mc=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftdoc</key>
@@ -437,22 +437,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			07mq6r7TJwAAZJzb1+yAHrJjwSY=
+			AxRz7Yd+EMnb5jQCulpLS+ELvSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			wXVGdAm9pKhJy3vfxhtHUmJPC3c18OUZIxobAR7M0FE=
+			9LxAvaQ0k8mJoQWBldFtmVhIEhrcmKYT4IOGYXsXzAg=
 			</data>
 		</dict>
 		<key>Modules/ZiggeoSwiftFramework.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			F+ckpgPwhdO6N5619uMonCC/60g=
+			7trxY+Y0Amsu90jLt9MN4RtsIGk=
 			</data>
 			<key>hash2</key>
 			<data>
-			iC3mWbuGOcP5QBR2vPEz5qGV1HUC1u9bSablzcCa3io=
+			Eruqm66X0EcPzwDc0k/kD6AKLxnnnG/zyg8rdV0j4Mc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -470,33 +470,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N8l9oyRlIlS4/ZMsHMexMqdCkAY=
+			pSsuhdlZi5U71h6T3I6FKTifGFA=
 			</data>
 			<key>hash2</key>
 			<data>
-			68M3sy3D5xoa1L/5WEEUPYwbW4JoykOBdX0B9BO3cDE=
+			5uHaqgbJ3gQJ9Tm5mJu06WCElJj+0u9maT+dCYAAdns=
 			</data>
 		</dict>
 		<key>ZiggeoAudioRecorder.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YGNOEZRak2CEI4W3HdzlEqCEjWs=
+			NhSb4gEnYuM2R2LxbD/ijw+YF6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			3cBoe9990JON/S48FdtGWUqi8E2O122ZY/Eo0W26N0c=
+			SeSX3T7SapNPPRBcuud4jogL4ilwiJ9mfgxMCCMqpyc=
 			</data>
 		</dict>
 		<key>ZiggeoRecorder.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nJGG61UHAPtSSNXdTsjWv95zTro=
+			XxdSrSF+w+RxL0w/xVQ5I7IZ7HE=
 			</data>
 			<key>hash2</key>
 			<data>
-			BFJZo15s/oGNu0idPV5+ySyXELDmAqtnz+kPpk5Z4Lw=
+			1FLo6ChJMQBH9ANPPwXB4b+o671f8F48nZWlaT3vEE8=
 			</data>
 		</dict>
 		<key>audio-record-start-black.png</key>

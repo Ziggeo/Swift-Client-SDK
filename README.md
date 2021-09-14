@@ -367,7 +367,7 @@ You can use ZiggeoAudioRecorderDelegate in your app to be notified about audio r
     // this method will be called while audio recorder is recording
 }
 
-- (void)ziggeoAudioRecorderFinished:(double)seconds {
+- (void)ziggeoAudioRecorderFinished:(NSString *)path {
     // this method will be called when audio recorder is finished
 }
 

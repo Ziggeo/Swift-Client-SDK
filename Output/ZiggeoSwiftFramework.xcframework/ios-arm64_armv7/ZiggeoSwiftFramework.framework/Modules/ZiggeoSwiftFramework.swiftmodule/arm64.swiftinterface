@@ -128,9 +128,11 @@ import UIKit
   @objc optional func ziggeoAudioRecorderCanceled()
   @objc optional func ziggeoAudioRecorderRecoding()
   @objc optional func ziggeoAudioRecorderCurrentRecordedDurationSeconds(_ seconds: Swift.Double)
-  @objc optional func ziggeoAudioRecorderFinished(_ seconds: Swift.Double)
+  @objc optional func ziggeoAudioRecorderFinished(_ path: Swift.String)
   @objc optional func ziggeoAudioRecorderPlaying()
   @objc optional func ziggeoAudioRecorderPaused()
+  @objc optional func ziggeoAudioRecorderRerecord()
+  @objc optional func ziggeoAudioRecorderManuallySubmitted()
 }
 @objc open class ZiggeoAudioRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.ZiggeoAudioRecorderDelegate {
   public enum AudioRecordState {
