@@ -382,9 +382,11 @@ SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework27ZiggeoAudioRecorderDelegate_")
 - (void)ziggeoAudioRecorderCanceled;
 - (void)ziggeoAudioRecorderRecoding;
 - (void)ziggeoAudioRecorderCurrentRecordedDurationSeconds:(double)seconds;
-- (void)ziggeoAudioRecorderFinished:(double)seconds;
+- (void)ziggeoAudioRecorderFinished:(NSString * _Nonnull)path;
 - (void)ziggeoAudioRecorderPlaying;
 - (void)ziggeoAudioRecorderPaused;
+- (void)ziggeoAudioRecorderRerecord;
+- (void)ziggeoAudioRecorderManuallySubmitted;
 @end
 
 @class UISlider;
@@ -934,9 +936,11 @@ SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework27ZiggeoAudioRecorderDelegate_")
 - (void)ziggeoAudioRecorderCanceled;
 - (void)ziggeoAudioRecorderRecoding;
 - (void)ziggeoAudioRecorderCurrentRecordedDurationSeconds:(double)seconds;
-- (void)ziggeoAudioRecorderFinished:(double)seconds;
+- (void)ziggeoAudioRecorderFinished:(NSString * _Nonnull)path;
 - (void)ziggeoAudioRecorderPlaying;
 - (void)ziggeoAudioRecorderPaused;
+- (void)ziggeoAudioRecorderRerecord;
+- (void)ziggeoAudioRecorderManuallySubmitted;
 @end
 
 @class UISlider;
