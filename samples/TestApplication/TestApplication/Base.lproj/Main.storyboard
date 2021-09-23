@@ -33,18 +33,18 @@
                                                     <action selector="onVideoRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jP4-kQ-gUA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-mK-muB">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-XF-rOw">
                                                 <rect key="frame" x="132.66666666666669" y="0.0" width="132.66666666666669" height="40"/>
+                                                <state key="normal" title="Choose Video"/>
+                                                <connections>
+                                                    <action selector="onChooseVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ctY-bw-U97"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-mK-muB">
+                                                <rect key="frame" x="265.33333333333331" y="0.0" width="132.66666666666669" height="40"/>
                                                 <state key="normal" title="Play full screen"/>
                                                 <connections>
                                                     <action selector="onVideoPlayFullScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hbb-xP-rmX"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-Ih-Kst">
-                                                <rect key="frame" x="265.33333333333331" y="0.0" width="132.66666666666669" height="40"/>
-                                                <state key="normal" title="Play embedded"/>
-                                                <connections>
-                                                    <action selector="onVideoPlayEmbedded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U7C-L6-VtE"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -55,15 +55,22 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pnk-FC-fys">
                                         <rect key="frame" x="0.0" y="41" width="398" height="40"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-Ih-Kst">
+                                                <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="40"/>
+                                                <state key="normal" title="Play embedded"/>
+                                                <connections>
+                                                    <action selector="onVideoPlayEmbedded:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U7C-L6-VtE"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQa-el-NX9">
-                                                <rect key="frame" x="0.0" y="0.0" width="199" height="40"/>
+                                                <rect key="frame" x="132.66666666666669" y="0.0" width="132.66666666666669" height="40"/>
                                                 <state key="normal" title="Audio Record"/>
                                                 <connections>
                                                     <action selector="onAudioRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lDX-cy-E0N"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qa-iP-5ez">
-                                                <rect key="frame" x="199" y="0.0" width="199" height="40"/>
+                                                <rect key="frame" x="265.33333333333331" y="0.0" width="132.66666666666669" height="40"/>
                                                 <state key="normal" title="Audio Play"/>
                                                 <connections>
                                                     <action selector="onAudioPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Jf-qD-35E"/>

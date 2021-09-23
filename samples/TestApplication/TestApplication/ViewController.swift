@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     var m_recorder: ZiggeoRecorder! = nil
     
     let CLIENT_AUTH_TOKEN = "15901364881299187057"
+    
     var LAST_VIDEO_TOKEN = "4eaea7e4d3792a6d1b8dc4f2caeea319"
     var LAST_AUDIO_TOKEN = "zawimvpc7pbivcfgjjspvxfk34p6icnf"
     var LAST_IMAGE_TOKEN = "xzg4saj6u3ojm47los1kzaztju2cl3on"
@@ -58,6 +59,8 @@ class ViewController: UIViewController {
         self.updateStateLabel("")
         self.previewVideoView.isHidden = true
         self.previewImageView.isHidden = true
+        
+        m_ziggeo.config.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -199,11 +202,17 @@ class ViewController: UIViewController {
         
         self.m_ziggeo.images.downloadImage(LAST_IMAGE_TOKEN) { (filePath) in
             DispatchQueue.main.async {
-                guard let url = URL(string: filePath) else {
+                var url: URL?
+                if filePath.contains("http://") || filePath.contains("https://") {
+                    url = URL(string: filePath)
+                } else {
+                    url = URL(fileURLWithPath: filePath)
+                }
+                if url == nil {
                     return
                 }
                 do {
-                    let data = try Data(contentsOf: url)
+                    let data = try Data(contentsOf: url!)
                     self.previewImageView.image = UIImage(data: data)
                 } catch {
                 }
@@ -323,90 +332,74 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
 //MARK: - ZiggeoRecorderDelegate
 extension ViewController: ZiggeoRecorderDelegate {
-    public func ziggeoRecorderDidCancel() {
-        print ("cancellation")
-    }
-
-    public func ziggeoRecorderRetake(_ oldFile: URL!) {
-        print ("file \(oldFile) removed, recording restarted")
-    }
-    
-    public func ziggeoRecorderDidStartRecording() {
-        toggleRecordingButton?.title = "stop"
-        switchCameraButton?.isEnabled = false
-    }
-
-    public func ziggeoRecorderDidFinishRecording() {
-        toggleRecordingButton?.title = "record"
-        switchCameraButton?.isEnabled = true
-    }
-
-    //enable camera control buttons after capture session initialization
-    public func ziggeoRecorderCaptureSessionStateChanged(_ runningNow: Bool) {
-        toggleRecordingButton?.isEnabled = true
-        switchCameraButton?.isEnabled = true
-    }
-
-    public func ziggeoRecorderCurrentRecordedDuration(_ seconds: Double) {
-        print ("recording duration: \(seconds)")
-    }
-
-    public func ziggeoRecorderLuxMeter(_ luminousity: Double) {
+    func ziggeoRecorderLuxMeter(_ luminousity: Double) {
         //print ("luminousity: \(luminousity)")
     }
 
-    public func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
+    func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
         //print ("audio level: \(audioLevel)")
     }
 
-    public func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
+    func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
         //print ("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
     }
+    
+    func ziggeoRecorderReady() {
+        print ("Ziggeo Recorder Ready")
+    }
+    
+    func ziggeoRecorderCanceled() {
+        print ("Ziggeo Recorder Canceled")
+    }
+    
+    func ziggeoRecorderStarted() {
+        print ("Ziggeo Recorder Started")
+        toggleRecordingButton?.title = "stop"
+        switchCameraButton?.isEnabled = false
+    }
+    
+    func ziggeoRecorderStopped(_ path: String) {
+        print ("Ziggeo Recorder Stopped")
+        toggleRecordingButton?.title = "record"
+        switchCameraButton?.isEnabled = true
+    }
+    
+    func ziggeoRecorderCurrentRecordedDurationSeconds(_ seconds: Double) {
+        print ("Ziggeo Recorder Recording Duration: \(seconds)")
+    }
+    
+    func ziggeoRecorderPlaying() {
+        print ("Ziggeo Recorder Playing")
+    }
+    
+    func ziggeoRecorderPaused() {
+        print ("Ziggeo Recorder Paused")
+    }
+    
+    func ziggeoRecorderRerecord() {
+        print ("Ziggeo Recorder Rerecord")
+    }
+    
+    func ziggeoRecorderManuallySubmitted() {
+        print ("Ziggeo Recorder Manually Submitted")
+    }
+    
+    
+    func ziggeoStreamingStarted() {
+        print ("Ziggeo Streaming Started")
+    }
+    
+    func ziggeoStreamingStopped() {
+        print ("Ziggeo Streaming Stopped")
+    }
 }
 
-//MARK: - ZiggeoAudioRecorderDelegate
-extension ViewController: ZiggeoAudioRecorderDelegate {
-    func ziggeoAudioRecorderReady() {
-//        print ("ziggeoAudioRecorderReady")
-    }
-    
-    func ziggeoAudioRecorderCanceled() {
-//        print ("ziggeoAudioRecorderCanceled")
-    }
-    
-    func ziggeoAudioRecorderRecoding() {
-//        print ("ziggeoAudioRecorderRecoding")
-    }
-    
-    func ziggeoAudioRecorderCurrentRecordedDurationSeconds(_ seconds: Double) {
-//        print ("ziggeoAudioRecorderCurrentRecordedDurationSeconds : \(seconds)")
-    }
-    
-    func ziggeoAudioRecorderFinished(_ path: String) {
-//        print ("ziggeoAudioRecorderFinished : \(path)")
-    }
-    
-    func ziggeoAudioRecorderPlaying() {
-//        print ("ziggeoAudioRecorderPlaying")
-    }
-    
-    func ziggeoAudioRecorderPaused() {
-//        print ("ziggeoAudioRecorderPaused")
-    }
-    
-    func ziggeoAudioRecorderRerecord() {
-//        print ("ziggeoAudioRecorderRerecord")
-    }
-    
-    func ziggeoAudioRecorderManuallySubmitted() {
-//        print ("ziggeoAudioRecorderManuallySubmitted")
-    }
-}
 
 //MARK: - ZiggeoUploadDelegate
+
 extension ViewController: ZiggeoUploadDelegate {
-    func preparingToUpload(_ sourcePath: String) {
-//        print ("preparingToUpload : \(sourcePath)")
+    func preparingToUpload(_ path: String) {
+        print ("Preparing To Upload : \(path)")
         if (currentType == CurrentType.Video) {
             self.updateStateLabel("Video Upload Started")
         } else if (currentType == CurrentType.Audio) {
@@ -416,20 +409,16 @@ extension ViewController: ZiggeoUploadDelegate {
         }
     }
 
-    func preparingToUpload(_ sourcePath: String, token: String, streamToken: String) {
-//        print ("preparingToUpload : \(sourcePath) - \(token)")
+    func failedToUpload(_ path: String) {
+        print ("Failed To Upload : \(path)")
     }
 
-    func failedToUpload(_ sourcePath: String) {
-//        print ("failedToUpload : \(sourcePath)")
+    func uploadStarted(_ path: String, token: String, streamToken: String, backgroundTask: URLSessionTask) {
+        print ("Upload Started : \(token) - \(streamToken)")
     }
 
-    func uploadStarted(_ sourcePath: String, token: String, streamToken: String, backgroundTask: URLSessionTask) {
-//        print ("uploadStarted : \(sourcePath) - \(token)")
-    }
-
-    func uploadProgress(_ sourcePath: String, token: String, streamToken: String, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-//        print ("uploadProgress : \(totalBytesSent) - \(totalBytesExpectedToSend)")
+    func uploadProgress(_ path: String, token: String, streamToken: String, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        print ("Upload Progress : \(totalBytesSent) - \(totalBytesExpectedToSend)")
         if (currentType == CurrentType.Video) {
             self.updateStateLabel("Video Uploading : \(totalBytesSent) / \(totalBytesExpectedToSend)")
         } else if (currentType == CurrentType.Audio) {
@@ -438,9 +427,13 @@ extension ViewController: ZiggeoUploadDelegate {
             self.updateStateLabel("Image Uploading : \(totalBytesSent) / \(totalBytesExpectedToSend)")
         }
     }
-
-    func uploadCompleted(_ sourcePath: String, token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
-//        print ("uploadCompleted : \(sourcePath) - \(token)")
+    
+    func uploadFinished(_ path:String, token: String, streamToken: String) {
+        
+    }
+    
+    func uploadVerified(_ path:String, token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
+        print ("Upload Verified : \(token) - \(streamToken)")
         if (currentType == CurrentType.Video) {
             LAST_VIDEO_TOKEN = token
             self.updateStateLabel("Video Upload Completed")
@@ -452,8 +445,66 @@ extension ViewController: ZiggeoUploadDelegate {
             self.updateStateLabel("Image Upload Completed")
         }
     }
+    
+    func uploadProcessing(_ path: String, token: String, streamToken: String) {
+        print ("Upload Processing : \(token) - \(streamToken)")
+    }
+    
+    func uploadProcessed(_ path: String, token: String, streamToken: String) {
+        print ("Upload Processed : \(token) - \(streamToken)")
+    }
 
     func delete(_ token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
-//        print ("delete : \(token)")
+        print ("delete : \(token) - \(streamToken)")
+    }
+}
+
+
+//MARK: - ZiggeoHardwarePermissionCheckDelegate
+
+extension ViewController: ZiggeoHardwarePermissionCheckDelegate {
+    func checkCameraPermission(_ granted: Bool) {
+        print ("CheckCameraPermission : \(granted)")
+    }
+    
+    func checkMicrophonePermission(_ granted: Bool) {
+        print ("CheckMicrophonePermission : \(granted)")
+    }
+    
+    func checkPhotoLibraryPermission(_ granted: Bool) {
+        print ("CheckPhotoLibraryPermission : \(granted)")
+    }
+    
+    func checkHasCamera(_ hasCamera: Bool) {
+        print ("CheckHasCamera : \(hasCamera)")
+    }
+    
+    func checkHasMicrophone(_ hasMicrophone: Bool) {
+        print ("CheckHasMicrophone : \(hasMicrophone)")
+    }
+}
+
+
+//MARK: - ZiggeoPlayerDelegate
+
+extension ViewController: ZiggeoPlayerDelegate {
+    func ziggeoPlayerPlaying() {
+        print ("ziggeo Player Playing")
+    }
+    
+    func ziggeoPlayerPaused() {
+        print ("ziggeo Player Paused")
+    }
+    
+    func ziggeoPlayerEnded() {
+        print ("ziggeo Player Ended")
+    }
+    
+    func ziggeoPlayerSeek(_ positionMillis: Double) {
+        print ("ziggeo Player Seek : \(positionMillis)")
+    }
+    
+    func ziggeoPlayerReadyToPlay() {
+        print ("Ziggeo Player Ready To Play")
     }
 }

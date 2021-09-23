@@ -28,6 +28,23 @@ class MusicPlayingController: UIViewController {
         
         self.m_ziggeo = ziggeo
         self.m_audioToken = audioToken
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.audioPlayer != nil && self.audioPlayer.isPlaying {
+            self.audioPlayer.stop()
+        }
+        self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.statusLabel.text = "Loading"
         self.playOrPauseButton.setTitle("", for: UIControl.State.normal)
@@ -56,19 +73,6 @@ class MusicPlayingController: UIViewController {
         }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if self.audioPlayer != nil && self.audioPlayer.isPlaying {
-            self.audioPlayer.stop()
-        }
-        self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
-    }
-    
     @IBAction func onChangeCurrentTime(_ sender: UISlider) {
         if self.audioPlayer != nil {
             self.audioPlayer.currentTime = TimeInterval(sender.value)
@@ -85,7 +89,7 @@ class MusicPlayingController: UIViewController {
             self.statusLabel.text = "Paused"
             self.playOrPauseButton.setTitle("Play", for: UIControl.State.normal)
         } else {
-            self.timer =  Timer(timeInterval: 1.0, target: self, selector: #selector(playingAction), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(playingAction), userInfo: nil, repeats: true)
             self.audioPlayer.play()
             self.statusLabel.text = "Playing"
             self.playOrPauseButton.setTitle("Pause", for: UIControl.State.normal)
@@ -112,8 +116,10 @@ class MusicPlayingController: UIViewController {
         let hours = Int(progress) / 3600
         let minutes = (Int(progress) % 3600) / 60
         let seconds = Int(progress) % 60
-        self.currentTimeLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        self.timeSlider.value = Float(progress)
+        DispatchQueue.main.async {
+            self.currentTimeLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+            self.timeSlider.value = Float(progress)
+        }
     }
 }
 
