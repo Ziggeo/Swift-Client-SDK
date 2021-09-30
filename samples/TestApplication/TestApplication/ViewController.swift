@@ -32,11 +32,15 @@ class ViewController: UIViewController {
 
     var m_recorder: ZiggeoRecorder! = nil
     
-    let CLIENT_AUTH_TOKEN = "15901364881299187057"
+//    let CLIENT_AUTH_TOKEN = "15901364881299187057"
+//    var LAST_VIDEO_TOKEN = "4eaea7e4d3792a6d1b8dc4f2caeea319"
+//    var LAST_AUDIO_TOKEN = "zawimvpc7pbivcfgjjspvxfk34p6icnf"
+//    var LAST_IMAGE_TOKEN = "xzg4saj6u3ojm47los1kzaztju2cl3on"
     
-    var LAST_VIDEO_TOKEN = "4eaea7e4d3792a6d1b8dc4f2caeea319"
-    var LAST_AUDIO_TOKEN = "zawimvpc7pbivcfgjjspvxfk34p6icnf"
-    var LAST_IMAGE_TOKEN = "xzg4saj6u3ojm47los1kzaztju2cl3on"
+    let CLIENT_AUTH_TOKEN = "CLIENT_AUTH_TOKEN"
+    var LAST_VIDEO_TOKEN = "Video_Token"
+    var LAST_AUDIO_TOKEN = "Audio_Token"
+    var LAST_IMAGE_TOKEN = "Image_Token"
     
     var uploaderTask: URLSessionTask! = nil
     var queuePlayer: AVQueuePlayer! = nil
@@ -60,7 +64,7 @@ class ViewController: UIViewController {
         self.previewVideoView.isHidden = true
         self.previewImageView.isHidden = true
         
-        m_ziggeo.config.delegate = self
+        m_ziggeo.checkHardwarePermission(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -317,7 +321,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
                 try FileManager.default.copyItem(atPath: videoURL!.path!, toPath: newFilePath)
             
                 self.m_ziggeo.videos.uploadDelegate = self
-                self.m_ziggeo.videos.uploadVideo(newFilePath)
+                self.m_ziggeo.videos.uploadVideo(newFilePath, data: ["tags": "TEST_TAG"])
                 self.dismiss(animated:true, completion: nil)
             } catch {
                 self.dismiss(animated:true, completion: nil)
