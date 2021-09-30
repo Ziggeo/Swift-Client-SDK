@@ -110,10 +110,6 @@ import UIKit
   open var cdnAPIUrl: Swift.String
   open var devServerApiUrl: Swift.String
   open var fileServerUrl: Swift.String
-  open var delegate: ZiggeoSwiftFramework.ZiggeoHardwarePermissionCheckDelegate? {
-    get
-    set(value)
-  }
   public init(token: Swift.String)
   @objc deinit
   @objc override dynamic public init()
@@ -127,6 +123,7 @@ import UIKit
   open func updateAudio(_ path: Swift.String, audioToken: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
   open func deleteAudio(_ audioToken: Swift.String, callback: @escaping (Foundation.NSDictionary?, Swift.Error?) -> Swift.Void)
   open func downloadAudio(_ audioToken: Swift.String, callback: @escaping (Swift.String) -> Swift.Void)
+  open func cancelRequest()
   @objc deinit
   @objc override dynamic public init()
 }
@@ -166,6 +163,7 @@ import UIKit
   open func uploadImage(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
   open func deleteImage(_ imageToken: Swift.String, callback: @escaping (Foundation.NSDictionary?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionTask
   open func downloadImage(_ imageToken: Swift.String, callback: @escaping (Swift.String) -> Swift.Void)
+  open func cancelRequest()
   @objc deinit
   @objc override dynamic public init()
 }
@@ -341,6 +339,7 @@ public protocol VideoPreviewProtocol {
   public var enableDebugLogs: Swift.Bool
   open func log(item: Swift.String)
   open func logError(item: Swift.String)
+  open func checkHardwarePermission(_ delegate: ZiggeoSwiftFramework.ZiggeoHardwarePermissionCheckDelegate)
   @objc deinit
   @objc override dynamic public init()
 }
@@ -433,7 +432,7 @@ open class ZiggeoRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPr
   open var recorderDelegate: ZiggeoSwiftFramework.ZiggeoRecorderDelegate!
   open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
   open var maxRecordedDurationSeconds: Swift.Double
-  open var extraArgsForCreateVideo: Foundation.NSDictionary?
+  open var extraArgsForCreateVideo: [Swift.AnyHashable : Any]?
   open var duration: Swift.Double
   open var recorderUIConfig: ZiggeoSwiftFramework.ZiggeoRecorderInterfaceConfig
   open var showFaceOutline: Swift.Bool {
@@ -521,9 +520,9 @@ public enum XMLError : Swift.Error {
   open var uploadDelegate: ZiggeoSwiftFramework.ZiggeoUploadDelegate?
   open func getVideoUrl(_ videoToken: Swift.String) -> Swift.String
   open func getVideos(_ callback: @escaping (Foundation.NSArray?, Swift.Error?) -> Swift.Void)
-  open func uploadVideo(_ path: Swift.String)
-  open func uploadVideo(_ path: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
-  open func updateVideo(_ path: Swift.String, videoToken: Swift.String, streamToken: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func uploadVideo(_ path: Swift.String, data: [Swift.AnyHashable : Any]?)
+  open func uploadVideo(_ path: Swift.String, data: [Swift.AnyHashable : Any]?, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
+  open func updateVideo(_ path: Swift.String, data: [Swift.AnyHashable : Any]?, videoToken: Swift.String, streamToken: Swift.String, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?, progress: ((Swift.Int64, Swift.Int64) -> Swift.Void)?, confirmCallback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?)
   open func deleteVideo(_ videoToken: Swift.String, streamToken: Swift.String, callback: @escaping (Foundation.NSDictionary?, Swift.Error?) -> Swift.Void)
   open func getOriginalStreamDescriptionForVideo(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)?) -> Foundation.URLSessionTask
   @available(iOS 12.0, *)
@@ -531,6 +530,7 @@ public enum XMLError : Swift.Error {
   open func downloadVideo(_ videoToken: Swift.String, callback: @escaping (Swift.String) -> Swift.Void)
   open func getImageForVideo(_ videoToken: Swift.String, params: Foundation.NSDictionary, callback: @escaping (UIKit.UIImage?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void)
   open func getImageForVideo(_ path: Swift.String, callback: @escaping (UIKit.UIImage?, Swift.Error?) -> Swift.Void)
+  open func cancelRequest()
   @objc deinit
   @objc override dynamic public init()
 }
