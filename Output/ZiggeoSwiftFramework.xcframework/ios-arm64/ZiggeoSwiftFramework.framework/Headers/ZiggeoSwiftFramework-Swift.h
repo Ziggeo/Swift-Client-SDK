@@ -372,30 +372,17 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework6Ziggeo")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class UIImagePickerController;
 
-SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework22ZiggeoRecorderDelegate_")
-@protocol ZiggeoRecorderDelegate
-@optional
-- (void)ziggeoRecorderLuxMeter:(double)luminousity;
-- (void)ziggeoRecorderAudioMeter:(double)audioLevel;
-- (void)ziggeoRecorderFaceDetected:(NSInteger)faceID rect:(CGRect)rect;
-- (void)ziggeoRecorderReady;
-- (void)ziggeoRecorderCanceled;
-- (void)ziggeoRecorderStarted;
-- (void)ziggeoRecorderStopped:(NSString * _Nonnull)path;
-- (void)ziggeoRecorderCurrentRecordedDurationSeconds:(double)seconds;
-- (void)ziggeoRecorderPlaying;
-- (void)ziggeoRecorderPaused;
-- (void)ziggeoRecorderRerecord;
-- (void)ziggeoRecorderManuallySubmitted;
-- (void)ziggeoStreamingStarted;
-- (void)ziggeoStreamingStopped;
+@interface Ziggeo (SWIFT_EXTENSION(ZiggeoSwiftFramework)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> * _Nonnull)info;
+- (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
 @end
 
 @class UISlider;
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework19ZiggeoAudioRecorder")
-@interface ZiggeoAudioRecorder : UIViewController <ZiggeoRecorderDelegate>
+@interface ZiggeoAudioRecorder : UIViewController
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (IBAction)onClose:(id _Nonnull)sender;
@@ -404,13 +391,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework19ZiggeoAudioRecorder")
 - (IBAction)onUpload:(id _Nonnull)sender;
 - (IBAction)timeChanged:(UISlider * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoAudios")
-@interface ZiggeoAudios : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -440,22 +420,45 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework13ZiggeoConnect")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSURLResponse;
+@class NSDictionary;
 
-SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework37ZiggeoHardwarePermissionCheckDelegate_")
-@protocol ZiggeoHardwarePermissionCheckDelegate
+SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework14ZiggeoDelegate_")
+@protocol ZiggeoDelegate
 @optional
+- (void)ziggeoRecorderLuxMeter:(double)luminousity;
+- (void)ziggeoRecorderAudioMeter:(double)audioLevel;
+- (void)ziggeoRecorderFaceDetected:(NSInteger)faceID rect:(CGRect)rect;
+- (void)ziggeoRecorderReady;
+- (void)ziggeoRecorderCanceled;
+- (void)ziggeoRecorderStarted;
+- (void)ziggeoRecorderStopped:(NSString * _Nonnull)path;
+- (void)ziggeoRecorderCurrentRecordedDurationSeconds:(double)seconds;
+- (void)ziggeoRecorderPlaying;
+- (void)ziggeoRecorderPaused;
+- (void)ziggeoRecorderRerecord;
+- (void)ziggeoRecorderManuallySubmitted;
+- (void)ziggeoStreamingStarted;
+- (void)ziggeoStreamingStopped;
+- (void)preparingToUpload:(NSString * _Nonnull)path;
+- (void)failedToUpload:(NSString * _Nonnull)path;
+- (void)uploadStarted:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken backgroundTask:(NSURLSessionTask * _Nonnull)backgroundTask;
+- (void)uploadProgress:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+- (void)uploadFinished:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken;
+- (void)uploadVerified:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error json:(NSDictionary * _Nullable)json;
+- (void)uploadProcessing:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken;
+- (void)uploadProcessed:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken;
+- (void)delete:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error json:(NSDictionary * _Nullable)json;
 - (void)checkCameraPermission:(BOOL)granted;
 - (void)checkMicrophonePermission:(BOOL)granted;
 - (void)checkPhotoLibraryPermission:(BOOL)granted;
 - (void)checkHasCamera:(BOOL)hasCamera;
 - (void)checkHasMicrophone:(BOOL)hasMicrophone;
-@end
-
-
-SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoImages")
-@interface ZiggeoImages : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)ziggeoPlayerPlaying;
+- (void)ziggeoPlayerPaused;
+- (void)ziggeoPlayerEnded;
+- (void)ziggeoPlayerSeek:(double)positionMillis;
+- (void)ziggeoPlayerReadyToPlay;
 @end
 
 @class AVPlayerItem;
@@ -477,17 +480,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 - (void)adsManager:(IMAAdsManager * _Null_unspecified)adsManager didReceiveAdError:(IMAAdError * _Null_unspecified)error;
 - (void)adsManagerDidRequestContentPause:(IMAAdsManager * _Null_unspecified)adsManager;
 - (void)adsManagerDidRequestContentResume:(IMAAdsManager * _Null_unspecified)adsManager;
-@end
-
-
-SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework20ZiggeoPlayerDelegate_")
-@protocol ZiggeoPlayerDelegate
-@optional
-- (void)ziggeoPlayerPlaying;
-- (void)ziggeoPlayerPaused;
-- (void)ziggeoPlayerEnded;
-- (void)ziggeoPlayerSeek:(double)positionMillis;
-- (void)ziggeoPlayerReadyToPlay;
 @end
 
 @protocol UIViewControllerTransitionCoordinator;
@@ -519,7 +511,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder") SWIFT_AVAILABILITY(mac
 @end
 
 
-
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework33ZiggeoScreenRecorderSampleHandler") SWIFT_AVAILABILITY(maccatalyst,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=10.0)
 @interface ZiggeoScreenRecorderSampleHandler : RPBroadcastSampleHandler
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *, NSObject *> * _Nullable)setupInfo;
@@ -530,26 +521,9 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework33ZiggeoScreenRecorderSampleHandler") SWI
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSURLResponse;
-@class NSDictionary;
 
-SWIFT_PROTOCOL("_TtP20ZiggeoSwiftFramework20ZiggeoUploadDelegate_")
-@protocol ZiggeoUploadDelegate
-@optional
-- (void)preparingToUpload:(NSString * _Nonnull)path;
-- (void)failedToUpload:(NSString * _Nonnull)path;
-- (void)uploadStarted:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken backgroundTask:(NSURLSessionTask * _Nonnull)backgroundTask;
-- (void)uploadProgress:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
-- (void)uploadFinished:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken;
-- (void)uploadVerified:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error json:(NSDictionary * _Nullable)json;
-- (void)uploadProcessing:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken;
-- (void)uploadProcessed:(NSString * _Nonnull)path token:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken;
-- (void)delete:(NSString * _Nonnull)token streamToken:(NSString * _Nonnull)streamToken response:(NSURLResponse * _Nullable)response error:(NSError * _Nullable)error json:(NSDictionary * _Nullable)json;
-@end
-
-
-SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoVideos")
-@interface ZiggeoVideos : NSObject
+SWIFT_CLASS("_TtC20ZiggeoSwiftFramework22ZiggeoUploadingHandler")
+@interface ZiggeoUploadingHandler : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

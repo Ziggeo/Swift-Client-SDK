@@ -8,6 +8,7 @@ target 'TestApplication' do
   # Pods for TestApplication
 
   pod 'GoogleAds-IMA-iOS-SDK', '3.11.3'
-  pod 'ZiggeoSwiftSDK', :path => '../..'
+#  pod 'ZiggeoSwiftSDK', :path => '../..'
+  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 
 end

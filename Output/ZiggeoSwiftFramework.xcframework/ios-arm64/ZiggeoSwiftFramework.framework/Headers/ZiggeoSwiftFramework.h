@@ -15,6 +15,7 @@ FOUNDATION_EXPORT double ZiggeoSwiftFrameworkVersionNumber;
 FOUNDATION_EXPORT const unsigned char ZiggeoSwiftFrameworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ZiggeoSwiftFramework/PublicHeader.h>
+#import <ZiggeoSwiftFramework/BFRImageViewController.h>
 
 
 

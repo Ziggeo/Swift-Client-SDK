@@ -14,16 +14,7 @@ import ZiggeoSwiftFramework
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    
-    static let ZIGGEO_APP_TOKEN = "344a71099193b17a693ab11fdd0eeb10"
-    static let ZIGGEO_SERVER_AUTH_TOKEN = "2502a8288403cec13382a6f4d8f54f64"
-    
-    static var ziggeo: Ziggeo = {
-        let result = Ziggeo(token: ZIGGEO_APP_TOKEN)
-        // result.connect.serverAuthToken = "ZIGGEO_SERVER_AUTH_TOKEN"
-        result.enableDebugLogs = true
-        return result
-    }()
+
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -57,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        Self.ziggeo.connect.applicationDidEnterBackground()
+//        Self.ziggeo.connect.applicationDidEnterBackground()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -73,9 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-        Self.ziggeo.connect.postWithPath(identifier, data: nil) { (data, response, error) in
-            completionHandler();
-        }
+//        Self.ziggeo.connect.postWithPath(identifier, data: nil) { (data, response, error) in
+//            completionHandler();
+//        }
     }
 
 }
