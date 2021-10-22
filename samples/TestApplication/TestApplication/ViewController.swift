@@ -15,327 +15,118 @@ import MobileCoreServices
 
 
 class ViewController: UIViewController {
+
+    let ZIGGEO_APP_TOKEN  = "ZIGGEO_APP_TOKEN" // "344a71099193b17a693ab11fdd0eeb10"
+    let SERVER_AUTH_TOKEN = "SERVER_AUTH_TOKEN" // "2502a8288403cec13382a6f4d8f54f64"
+    let CLIENT_AUTH_TOKEN = "CLIENT_AUTH_TOKEN" // "15901364881299187057"
+    
+    var LAST_VIDEO_TOKEN = "LAST_VIDEO_TOKEN" // "4eaea7e4d3792a6d1b8dc4f2caeea319"
+    var LAST_AUDIO_TOKEN = "LAST_AUDIO_TOKEN" // "9jpb9zdlm4m8e9gng1bftpfyiy0azy9l"
+    var LAST_IMAGE_TOKEN = "LAST_IMAGE_TOKEN" // "xzg4saj6u3ojm47los1kzaztju2cl3on"
+    
+    let appGroup = "group.Ziggeo.TestApplication.Group"
+
+    let adsUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="
+    
+    var m_ziggeo: Ziggeo!
     
     enum CurrentType {
         case Video
         case Audio
         case Image
+        case Unknown
     }
-
-    let appGroup = "group.Ziggeo.TestApplication.Group"
-
-    let adsUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="
-
-    var m_ziggeo: Ziggeo {
-        return AppDelegate.ziggeo
-    }
-
-    var m_recorder: ZiggeoRecorder! = nil
     
-//    let CLIENT_AUTH_TOKEN = "15901364881299187057"
-//    var LAST_VIDEO_TOKEN = "4eaea7e4d3792a6d1b8dc4f2caeea319"
-//    var LAST_AUDIO_TOKEN = "zawimvpc7pbivcfgjjspvxfk34p6icnf"
-//    var LAST_IMAGE_TOKEN = "xzg4saj6u3ojm47los1kzaztju2cl3on"
-    
-    let CLIENT_AUTH_TOKEN = "CLIENT_AUTH_TOKEN"
-    var LAST_VIDEO_TOKEN = "Video_Token"
-    var LAST_AUDIO_TOKEN = "Audio_Token"
-    var LAST_IMAGE_TOKEN = "Image_Token"
-    
-    var uploaderTask: URLSessionTask! = nil
-    var queuePlayer: AVQueuePlayer! = nil
-    var playerLayer: AVPlayerLayer! = nil
-    var currentType = CurrentType.Video
-    
-
-    //custom UI
-    @IBOutlet var overlayView: UIView!
-    @IBOutlet weak var toggleRecordingButton: UIBarButtonItem!
-    @IBOutlet weak var switchCameraButton: UIBarButtonItem!
-    @IBOutlet weak var currentStateLabel: UILabel!
-    @IBOutlet weak var previewVideoView: UIView!
-    @IBOutlet weak var previewImageView: UIImageView!
+    fileprivate var currentType = CurrentType.Unknown
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.updateStateLabel("")
-        self.previewVideoView.isHidden = true
-        self.previewImageView.isHidden = true
-        
-        m_ziggeo.checkHardwarePermission(self)
+        self.m_ziggeo = Ziggeo(token: ZIGGEO_APP_TOKEN, delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func updateStateLabel(_ text: String) {
-        DispatchQueue.main.async {
-            self.currentStateLabel.text = text
-        }
-    }
 
+    
     //MARK: Button Click Action
-    @IBAction func onVideoRecord(_ sender: AnyObject) {
+    @IBAction func onRecordVideo(_ sender: AnyObject) {
         currentType = CurrentType.Video
-        self.updateStateLabel("")
+
+        var config: [String: Any] = [:]
+        config["tags"] = "iOS_Video_Record"
+        self.m_ziggeo.setUploadingConfig(config)
         
-        let recorder = ZiggeoRecorder(application: m_ziggeo)
-        recorder.coverSelectorEnabled = true
-        recorder.recordedVideoPreviewEnabled = true
-        recorder.cameraFlipButtonVisible = true
-        recorder.cameraDevice = UIImagePickerController.CameraDevice.front
-        recorder.showSoundIndicator = true
-        recorder.showLightIndicator = true
-        recorder.showFaceOutline = true
-        recorder.recorderDelegate = self
-        recorder.uploadDelegate = self
+        var themeMap: [String: Any] = [:]
+//        themeMap["blur_effect"] = "false"
+        self.m_ziggeo.setThemeArgsForRecorder(themeMap)
+        
+        var map: [String: Any] = [:]
+//        map["effect_profile"] = "12345"
+//        map["data"] = [:]
+//        map["client_auth"] = "CLIENT_AUTH_TOKEN"
+//        map["server_auth"] = "SERVER_AUTH_TOKEN"
+        self.m_ziggeo.setExtraArgsForRecorder(map)
 
-        recorder.maxRecordedDurationSeconds = 0 //infinite
-        //recorder.extraArgsForCreateVideo = ["data":"{\"foo\":\"bar\"}"] //pass custom data
-        //recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"]
-        //recorder.extraArgsForCreateVideo = ["client_auth":"CLIENT_AUTH_TOKEN"] //recorder-level auth token
-        //m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN" //global auth token
-
-        let customizeButtons = false
-        if customizeButtons {
-            let recorderUIConfig = ZiggeoRecorderInterfaceConfig()
-            recorderUIConfig.recordButton.scale = 0.75
-            recorderUIConfig.closeButton.scale = 0.5
-            recorderUIConfig.cameraFlipButton.scale = 0.5
-            if let flipCameraPath = Bundle.main.url(forResource: "FlipCamera", withExtension: "png")?.path {
-                recorderUIConfig.cameraFlipButton.imagePath = flipCameraPath
-            }
-            recorder.recorderUIConfig = recorderUIConfig
-        }
-
-        self.present(recorder, animated: true, completion: nil)
+        self.m_ziggeo.record()
     }
-    
-    @IBAction func onChooseVideo(_ sender: Any) {
+
+    @IBAction func onPlayVideo(_ sender: AnyObject) {
+        var map: [String: Any] = [:]
+        map["hidePlayerControls"] = "false"
+        self.m_ziggeo.setThemeArgsForPlayer(map)
+
+        self.m_ziggeo.playVideo(LAST_VIDEO_TOKEN)
+    }
+
+    @IBAction func onChooseMedia(_ sender: Any) {
         currentType = CurrentType.Video
-        self.updateStateLabel("")
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        imagePicker.delegate = self
-        imagePicker.mediaTypes = ["public.movie"]
-        imagePicker.allowsEditing = false
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func onVideoPlayFullScreen(_ sender: AnyObject) {
-        self.updateStateLabel("")
-        
-        ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: LAST_VIDEO_TOKEN, params: ["client_auth": CLIENT_AUTH_TOKEN]) { (player:ZiggeoPlayer?) in
-            DispatchQueue.main.async {
-                let playerController: AVPlayerViewController = AVPlayerViewController()
-                playerController.player = player
-                self.present(playerController, animated: true, completion: nil)
 
-                DispatchQueue.main.async {
-                    if let player = player {
-                        player.play()
-                    }
-                }
-            }
-        }
+        var config: [String: Any] = [:]
+        config["tags"] = "iOS_Choose_Media"
+        self.m_ziggeo.setUploadingConfig(config)
+        
+        var data: [String: Any] = [:]
+//        data["media_types"] = ["video", "audio", "image"]
+        self.m_ziggeo.uploadFromFileSelector(data)
     }
 
-    @IBAction func onVideoPlayEmbedded(_ sender: AnyObject) {
-        self.updateStateLabel("")
-        self.previewVideoView.isHidden = false
-        self.previewImageView.isHidden = true
-        
-        let playerController: AVPlayerViewController = AVPlayerViewController()
-        let player = ZiggeoPlayer(application: m_ziggeo, videoToken: LAST_VIDEO_TOKEN)
-        playerController.player = player
-        addChild(playerController)
-        self.previewVideoView.addSubview(playerController.view)
-        playerController.view.frame = CGRect(x:0,y:0,width:self.previewVideoView.frame.width, height:self.previewVideoView.frame.height)
-        player.play()
-    }
-    
-    @IBAction func onAudioRecord(_ sender: Any) {
+    @IBAction func onRecordAudio(_ sender: Any) {
         currentType = CurrentType.Audio
-        self.updateStateLabel("")
-        
-        let audioRecorder = ZiggeoAudioRecorder(ziggeo: m_ziggeo)
-        audioRecorder.recorderDelegate = self
-        audioRecorder.uploadDelegate = self
-        self.present(audioRecorder, animated: true, completion: nil)
+
+        var config: [String: Any] = [:]
+        config["tags"] = "iOS_Audio_Record"
+        self.m_ziggeo.setUploadingConfig(config)
+        self.m_ziggeo.startAudioRecorder()
     }
-    
-    @IBAction func onAudioPlay(_ sender: Any) {
-        self.updateStateLabel("")
-        
-        let audioPlayerVC = MusicPlayingController(nibName: "MusicPlayingController", bundle: nil, ziggeo: m_ziggeo, audioToken: LAST_AUDIO_TOKEN)
-        self.present(audioPlayerVC, animated: true, completion: nil)
+
+    @IBAction func onPlayAudio(_ sender: Any) {
+        self.m_ziggeo.startAudioPlayer(LAST_AUDIO_TOKEN)
     }
-    
+
     @IBAction func onTakePhoto(_ sender: Any) {
         currentType = CurrentType.Image
-        self.updateStateLabel("")
         
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerController.SourceType.camera
-        imagePicker.delegate = self
-        imagePicker.mediaTypes = ["public.image"]
-        imagePicker.allowsEditing = false
-        self.present(imagePicker, animated: true, completion: nil)
+        var config: [String: Any] = [:]
+        config["tags"] = "iOS_Take_Photo"
+        self.m_ziggeo.setUploadingConfig(config)
+        self.m_ziggeo.startImageRecorder()
     }
-    
-    @IBAction func onChooseImage(_ sender: Any) {
-        currentType = CurrentType.Image
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        imagePicker.delegate = self
-        imagePicker.mediaTypes = ["public.image"]
-        imagePicker.allowsEditing = false
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
+
     @IBAction func onShowImage(_ sender: Any) {
-        self.updateStateLabel("")
-        self.previewVideoView.isHidden = true
-        self.previewImageView.isHidden = false
-        
-        self.m_ziggeo.images.downloadImage(LAST_IMAGE_TOKEN) { (filePath) in
-            DispatchQueue.main.async {
-                var url: URL?
-                if filePath.contains("http://") || filePath.contains("https://") {
-                    url = URL(string: filePath)
-                } else {
-                    url = URL(fileURLWithPath: filePath)
-                }
-                if url == nil {
-                    return
-                }
-                do {
-                    let data = try Data(contentsOf: url!)
-                    self.previewImageView.image = UIImage(data: data)
-                } catch {
-                }
-            }
-        }
-    }
-    
-    
-    
-    @IBAction func index(_ sender: AnyObject) {
-        m_ziggeo.videos.getVideos { (array, error) in
-        }
-    }
-
-    @IBAction func playWithAds(_ sender: AnyObject) {
-        let playerController: AVPlayerViewController = AVPlayerViewController()
-        let player = ZiggeoPlayer(application: m_ziggeo, videoToken: LAST_VIDEO_TOKEN)
-        playerController.player = player
-        addChild(playerController)
-     self.previewVideoView.addSubview(playerController.view)
-        playerController.view.frame = CGRect(x:0,y:0,width:self.previewVideoView.frame.width, height:self.previewVideoView.frame.height)
-
-        player.playWithAds(adTagURL: adsUrl, playerContainer: self.previewVideoView, playerViewController: playerController)
-    }
-
-    @IBAction func uploadExisting(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        imagePickerController.mediaTypes = ["public.movie"]
-        present(imagePickerController, animated: true, completion: nil)
-    }
-
-    @IBAction func playSequenceOfVideos(_ sender: Any) {
-        ZiggeoPlayer.createPlayerForMultipleVideos(application: m_ziggeo, videoTokens: ["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", "VIDEO_TOKEN_N"], params: nil) { (player) in
-            DispatchQueue.main.async {
-                self.queuePlayer = player
-                self.playerLayer = AVPlayerLayer(player: player)
-
-                self.playerLayer.frame = self.self.previewVideoView.layer.bounds
-                self.self.previewVideoView.layer.addSublayer(self.playerLayer)
-                player?.play()
-            }
-        }
-
-    }
-    
-    @IBAction func recordCustomUI(_ sender: Any) {
-        m_recorder = ZiggeoRecorder(application: m_ziggeo)
-        m_recorder.coverSelectorEnabled = true
-        m_recorder.recordedVideoPreviewEnabled = true
-        m_recorder.cameraFlipButtonVisible = true
-        m_recorder.cameraDevice = UIImagePickerController.CameraDevice.front
-        m_recorder.recorderDelegate = self
-        m_recorder.showControls = false
-        m_recorder.extraArgsForCreateVideo = ["effect_profile": "EFFECT_ID"]
-        Bundle.main.loadNibNamed("CustomRecorderControls", owner: self, options: nil)
-        m_recorder.overlayView = self.overlayView
-        self.present(m_recorder, animated: true, completion: nil)
-    }
-
-    @IBAction func closeButtonCustomUI(_ sender: Any) {
-        m_recorder?.dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func toggleRecordingCustomUI(_ sender: Any) {
-        m_recorder?.toggleMovieRecording(self)
-    }
-
-    @IBAction func switchCameraCustomUI(_ sender: Any) {
-        m_recorder?.changeCamera(self)
-    }
-
-    @IBAction func didTapRecordScreenButton(_ sender: Any) {
-        let rect = CGRect(x: 20, y: 100, width: 50, height: 50)
-        m_ziggeo.videos.startScreenRecording(addRecordingButtonToView: view, frame: rect, appGroup: appGroup)
+        self.m_ziggeo.showImage(LAST_IMAGE_TOKEN)
     }
 }
 
 
-//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! CFString
-        if mediaType == kUTTypeImage {
-            let imageFile = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            self.m_ziggeo.images.uploadDelegate = self
-            self.m_ziggeo.images.uploadImage(imageFile)
-            self.dismiss(animated:true, completion: nil)
-        } else if mediaType == kUTTypeMovie {
-            let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? NSURL
-            
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).map(\.path)
-            let newFilePath = URL(fileURLWithPath: paths[0]).appendingPathComponent("video.mp4").path
-            
-            do {
-                if FileManager.default.fileExists(atPath: newFilePath) {
-                    try FileManager.default.removeItem(atPath: newFilePath)
-                }
-                
-                try FileManager.default.copyItem(atPath: videoURL!.path!, toPath: newFilePath)
-            
-                self.m_ziggeo.videos.uploadDelegate = self
-                self.m_ziggeo.videos.uploadVideo(newFilePath, data: ["tags": "TEST_TAG"])
-                self.dismiss(animated:true, completion: nil)
-            } catch {
-                self.dismiss(animated:true, completion: nil)
-            }
-        }
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated:true, completion: nil)
-    }
-}
 
-//MARK: - ZiggeoRecorderDelegate
-extension ViewController: ZiggeoRecorderDelegate {
+//MARK: - ZiggeoDelegate
+extension ViewController: ZiggeoDelegate {
+    // ZiggeoRecorderDelegate
     func ziggeoRecorderLuxMeter(_ luminousity: Double) {
         //print ("luminousity: \(luminousity)")
     }
@@ -358,14 +149,10 @@ extension ViewController: ZiggeoRecorderDelegate {
     
     func ziggeoRecorderStarted() {
         print ("Ziggeo Recorder Started")
-        toggleRecordingButton?.title = "stop"
-        switchCameraButton?.isEnabled = false
     }
     
     func ziggeoRecorderStopped(_ path: String) {
         print ("Ziggeo Recorder Stopped")
-        toggleRecordingButton?.title = "record"
-        switchCameraButton?.isEnabled = true
     }
     
     func ziggeoRecorderCurrentRecordedDurationSeconds(_ seconds: Double) {
@@ -396,21 +183,11 @@ extension ViewController: ZiggeoRecorderDelegate {
     func ziggeoStreamingStopped() {
         print ("Ziggeo Streaming Stopped")
     }
-}
 
 
-//MARK: - ZiggeoUploadDelegate
-
-extension ViewController: ZiggeoUploadDelegate {
+    // ZiggeoUploadDelegate
     func preparingToUpload(_ path: String) {
         print ("Preparing To Upload : \(path)")
-        if (currentType == CurrentType.Video) {
-            self.updateStateLabel("Video Upload Started")
-        } else if (currentType == CurrentType.Audio) {
-            self.updateStateLabel("Audio Upload Started")
-        } else if (currentType == CurrentType.Image) {
-            self.updateStateLabel("Image Upload Started")
-        }
     }
 
     func failedToUpload(_ path: String) {
@@ -423,13 +200,6 @@ extension ViewController: ZiggeoUploadDelegate {
 
     func uploadProgress(_ path: String, token: String, streamToken: String, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
         print ("Upload Progress : \(totalBytesSent) - \(totalBytesExpectedToSend)")
-        if (currentType == CurrentType.Video) {
-            self.updateStateLabel("Video Uploading : \(totalBytesSent) / \(totalBytesExpectedToSend)")
-        } else if (currentType == CurrentType.Audio) {
-            self.updateStateLabel("Audio Uploading : \(totalBytesSent) / \(totalBytesExpectedToSend)")
-        } else if (currentType == CurrentType.Image) {
-            self.updateStateLabel("Image Uploading : \(totalBytesSent) / \(totalBytesExpectedToSend)")
-        }
     }
     
     func uploadFinished(_ path:String, token: String, streamToken: String) {
@@ -440,13 +210,10 @@ extension ViewController: ZiggeoUploadDelegate {
         print ("Upload Verified : \(token) - \(streamToken)")
         if (currentType == CurrentType.Video) {
             LAST_VIDEO_TOKEN = token
-            self.updateStateLabel("Video Upload Completed")
         } else if (currentType == CurrentType.Audio) {
             LAST_AUDIO_TOKEN = token
-            self.updateStateLabel("Audio Upload Completed")
         } else if (currentType == CurrentType.Image) {
             LAST_IMAGE_TOKEN = token
-            self.updateStateLabel("Image Upload Completed")
         }
     }
     
@@ -461,12 +228,9 @@ extension ViewController: ZiggeoUploadDelegate {
     func delete(_ token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
         print ("delete : \(token) - \(streamToken)")
     }
-}
 
-
-//MARK: - ZiggeoHardwarePermissionCheckDelegate
-
-extension ViewController: ZiggeoHardwarePermissionCheckDelegate {
+    
+    // ZiggeoHardwarePermissionCheckDelegate
     func checkCameraPermission(_ granted: Bool) {
         print ("CheckCameraPermission : \(granted)")
     }
@@ -486,12 +250,9 @@ extension ViewController: ZiggeoHardwarePermissionCheckDelegate {
     func checkHasMicrophone(_ hasMicrophone: Bool) {
         print ("CheckHasMicrophone : \(hasMicrophone)")
     }
-}
 
 
-//MARK: - ZiggeoPlayerDelegate
-
-extension ViewController: ZiggeoPlayerDelegate {
+    // ZiggeoPlayerDelegate
     func ziggeoPlayerPlaying() {
         print ("ziggeo Player Playing")
     }

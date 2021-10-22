@@ -5,6 +5,9 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 
 Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
 
+## Upgrading from v 1.1.32 to v.1.1.33
+Merged several apis for videos, audios and images.
+
 ## Upgrading from v 1.1.31 to v.1.1.32
 Fixed several issues when playing and uploading files.
 
@@ -158,10 +161,6 @@ Added feature:
 - Add framework to Podfile
   ```
   pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
-
-    or
-
-  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => '1.1.32'
   ```
 - Install framework
   ```
@@ -174,156 +173,206 @@ Added feature:
 
 # Basic Usage
 ## Initialize Application
-
 ```
 import ZiggeoSwiftFramework
 
-var m_ziggeo: Ziggeo! = nil
-m_ziggeo = Ziggeo(token: "YOUR_APP_TOKEN_HERE")
+var m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN", delegate: self)
 ```
 
-## Video Player
-
-### Initialization
+## Usage
+### Record Video
 ```
-func createPlayer()->AVPlayer {
-   let player = ZiggeoPlayer(application: m_ziggeo, videoToken: "ZIGGEO_VIDEO_TOKEN")
-   return player
-}
+    m_ziggeo.record()
 ```
 
-### Initialization with optional authorization token
+### Play Video With Token
 ```
-ZiggeoPlayer.createPlayerWithAdditionalParams(application: m_ziggeo, videoToken: "VIDEO_TOKEN", params: ["client_auth":"CLIENT_AUTH_TOKEN"]) { (player:ZiggeoPlayer?) in
-    DispatchQueue.main.async {
-        let playerController: AVPlayerViewController = AVPlayerViewController()
-        playerController.player = player
-        self.present(playerController, animated: true, completion: nil)
-        playerController.player?.play()
-    }
-}
+m_ziggeo.playVideo(VIDEO_TOKEN)
 ```
 
-### Fullscreen Playback
+### Play Video With Url
 ```
-@IBAction func playFullScreen(sender: AnyObject) {
-    let playerController: AVPlayerViewController = AVPlayerViewController()
-    playerController.player = createPlayer()
-    self.presentViewController(playerController, animated: true, completion: nil)
-    playerController.player?.play()
-}
+m_ziggeo.playFromUri(Video_Url)
 ```
 
-### Embedded Playback
+### Record Audio
 ```
-@IBAction func playEmbedded(sender: AnyObject) {
-    //cleanup
-    if m_embeddedPlayer != nil {
-        m_embeddedPlayer.pause()
-        m_embeddedPlayerLayer.removeFromSuperlayer()
-        m_embeddedPlayer = nil
-        m_embeddedPlayerLayer = nil
-    }
-    m_embeddedPlayer = createPlayer()
-    m_embeddedPlayerLayer = AVPlayerLayer(player: m_embeddedPlayer)
-    m_embeddedPlayerLayer.frame = videoViewPlaceholder.frame
-    videoViewPlaceholder.layer.addSublayer(m_embeddedPlayerLayer)
-    m_embeddedPlayer.play()
-}
+m_ziggeo.startAudioRecorder()
 ```
 
-### Sequence of Videos Playback
+### Play Audio
 ```
-@IBAction func playSequenceOfVideos(_ sender: Any) {
-    ZiggeoPlayer.createPlayerForMultipleVideos(application: m_ziggeo, videoTokens: ["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", "VIDEO_TOKEN_N"], params: nil) { (player) in
-        DispatchQueue.main.async {
-            self.queuePlayer = player
-            self.playerLayer = AVPlayerLayer(player: player)
-            self.playerLayer.frame = self.videoViewPlaceholder.layer.bounds
-            self.videoViewPlaceholder.layer.addSublayer(self.playerLayer)
-            player?.play()
-        }
-    }
-}
+m_ziggeo.startAudioPlayer("AUDIO_TOKEN")
 ```
 
-## Video Recorder
-
+### Record Image
 ```
-@IBAction func record(sender: AnyObject) {
-    let recorder = ZiggeoRecorder(application: m_ziggeo)
-    self.presentViewController(recorder, animated: true, completion: nil)
-}
+m_ziggeo.startImageRecorder()
+```
+
+### Show Image
+```
+m_ziggeo.showImage("IMAGE_TOKEN")
+```
+
+### Start Screen Recorder
+```
+m_ziggeo.startScreenRecorder()
+```
+
+### Upload From Path
+```
+m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
+```
+
+### Upload From File Selector
+```
+var data: [String: Any] = [:]
+// data["media_types"] = ["video", "audio", "image"]
+self.m_ziggeo.uploadFromFileSelector(data)
+```
+
+### Cancel Request
+```
+m_ziggeo.cancelRequest()
+```
+
+### Start QR Scanner
+```
+m_ziggeo.startQrScanner([:])
+```
+
+## Config
+### Uploading Config
+```
+var config: [String: Any] = [:]
+config["tags"] = "iOS_Choose_Media"
+self.m_ziggeo.setUploadingConfig(config)
+```
+
+### Streaming Recording
+```
+m_ziggeo.setLiveStreamingEnabled(true)
+```
+Streaming recording mode will upload the video stream during the recording without caching to local file first. Video preview and video re-record are not available in this mode.
+
+### Autostart Recording After
+```
+m_ziggeo.setAutostartRecordingAfter(0)
+```
+
+### Start Delay
+```
+m_ziggeo.setStartDelay(0)
+```
+
+### Extra Argment For Recorder
+```
+var map: [String: Any] = [:]
+map["effect_profile"] = "12345"
+map["data"] = [:]
+map["client_auth"] = "CLIENT_AUTH_TOKEN"
+map["server_auth"] = "SERVER_AUTH_TOKEN"
+self.m_ziggeo.setExtraArgsForRecorder(map)
+```
+
+### Extra Argment For Recorder
+```
+var themeMap: [String: Any] = [:]
+themeMap["blur_effect"] = "false"
+themeMap["hideRecorderControls"] = "false"
+self.m_ziggeo.setThemeArgsForRecorder(themeMap)
 ```
 
 ### Enable Cover Selector Dialog
 ```
-recorder.coverSelectorEnabled = true
+m_ziggeo.setCoverSelectorEnabled(true)
 ```
 
-### Enable Recorded Video Preview Dialog
+### Capture Duration Limit
 ```
-recorder.recordedVideoPreviewEnabled = true
-```
-
-### Disable Camera Flip Button
-
-```
-recorder.cameraFlipButtonVisible = false
+m_ziggeo.setMaxRecordingDuration(600)
 ```
 
-### Set Active Camera Device
-
+### Set Video Width
 ```
-recorder.cameraDevice = UIImagePickerControllerCameraDevice.Rear
-```
-
-### Enable Face Outlining
-```
-recorder.showFaceOutline = true
+m_ziggeo.setVideoWidth(1920)
 ```
 
-### Enable Light Meter Indicator
+### Set Video Height
 ```
-recorder.showLightIndicator = true
-```
-
-### Enable Audio Level Indicator
-```
-recorder.showSoundIndicator = true
+m_ziggeo.setVideoHeight(1080)
 ```
 
-### Additional Video Parameters (effects, profiles, etc)
+### Set Video Bitrate
 ```
-recorder.extraArgsForCreateVideo = ["effect_profile": "12345"]
-```
-
-### Authorization tokens
-
-Recorder-level auth tokens:
-```
-    recorder.extraArgsForCreateVideo = ["client_auth" : "CLIENT_AUTH_TOKEN"]
+m_ziggeo.setVideoBitrate(1024 * 1024 * 2)
 ```
 
-Global (application-level) auth tokens:
+### Set Audio Sample Rate
 ```
-    m_ziggeo.connect.clientAuthToken = "CLIENT_AUTH_TOKEN"
+m_ziggeo.setAudioSampleRate(44100)
 ```
 
-## Delegate
-#### ZiggeoRecorderDelegate
-You can use ZiggeoRecorderDelegate in your app to be notified about video recording events.
+### Set Audio Bitrate
 ```
-extension ViewController: ZiggeoRecorderDelegate {
+m_ziggeo.setAudioBitrate(128 * 1024)
+```
 
-...
+### Set CAmera Switch Enabled
+```
+m_ziggeo.setCameraSwitchEnabled(true)
+```
 
-{
-	...
-	m_ziggeo.videos.recorderDelegate = self
+### Set Send Immediately
+```
+m_ziggeo.setSendImmediately(true)
+```
+
+### Set Recording Quality
+```
+//m_ziggeo.setQuality(RecordingQuality.LowQuality)
+m_ziggeo.setQuality(RecordingQuality.MediumQuality)
+//m_ziggeo.setQuality(RecordingQuality.HighestQuality)
+```
+
+### Set Camera
+```
+m_ziggeo.setCamera(0)
+```
+
+### Set Extra Argument For Player
+```
+m_ziggeo.setExtraArgsForPlayer([:])
+```
+
+### Set Theme Argument For Player 
+```
+var map: [String: Any] = [:]
+map["hidePlayerControls"] = "false"
+m_ziggeo.setThemeArgsForPlayer(map)
+```
+
+### Set Player Cache Config
+```
+m_ziggeo.setPlayerCacheConfig([:])
+```
+
+### Set Ads Url
+```
+m_ziggeo.setAdsURL("ADS_URL")
+```
+
+### Delegate
+#### ZiggeoDelegate
+```
+extension ViewController: ZiggeoDelegate {
+    ...
 }
+```
 
-
+You can use ZiggeoDelegate in your app to be notified about video recording events.
+```
 func ziggeoRecorderLuxMeter(_ luminousity: Double) {
     //
 }
@@ -381,21 +430,8 @@ func ziggeoStreamingStopped() {
 }
 ```
 
-
-#### ZiggeoUploadDelegate
-You can use ZiggeoUploadDelegate in your app to be notified about file(video, audio, image) uploading events.
+You can use ZiggeoDelegate in your app to be notified about file(video, audio, image) uploading events.
 ```
-extension ViewController: ZiggeoUploadDelegate {
-
-...
-
-{
-	...
-	m_ziggeo.videos.uploadDelegate = self
-    m_ziggeo.audios.uploadDelegate = self
-    m_ziggeo.images.uploadDelegate = self
-}
-
 func preparingToUpload(_ path: String) {
     // this method will be called first before any Ziggeo API interaction
 }
@@ -433,20 +469,8 @@ func delete(_ token: String, streamToken: String, response: URLResponse?, error:
 }
 ```
 
-
-#### ZiggeoPlayerDelegate
-You can use ZiggeoPlayerDelegate in your app to be notified about file(video, audio) playing events.
+You can use ZiggeoDelegate in your app to be notified about file(video, audio) playing events.
 ```
-extension ViewController: ZiggeoPlayerDelegate {
-
-...
-
-{
-	...
-	let player = ZiggeoPlayer(m_ziggeo, videoToken:videoToken)
-    player.playerDelegate = self
-}
-
 func ziggeoPlayerPlaying() {
     // Fires any time a playback is started
 }
@@ -468,19 +492,8 @@ func ziggeoPlayerReadyToPlay() {
 }
 ```
 
-
-#### ZiggeoHardwarePermissionCheckDelegate
-You can use ZiggeoHardwarePermissionCheckDelegate in your app to be notified about hardware and permission.
+You can use ZiggeoDelegate in your app to be notified about hardware and permission.
 ```
-extension ViewController: ZiggeoHardwarePermissionCheckDelegate {
-
-...
-
-{
-	...
-	m_ziggeo.checkHardwarePermission(self)
-}
-
 func checkCameraPermission(_ granted: Bool) {
     // this method will return when camera access permission is granted or denied.
 }
@@ -501,152 +514,6 @@ func checkHasMicrophone(_ hasMicrophone: Bool) {
     // this method will return whether microphone hardware is detected or not.
 }
 ```
-
-
-# Advanced SDK Usage
-
-# Ziggeo API Access
-You can use the SDK to access Ziggeo Server API methods in the async manner. The SDK provides the following functionality:
-- Create/remove/index videos
-- Custom Ziggeo Embedded Server API requests 
-
-All API methods work asynchronously and never block the calling thread. As an option, you may use custom callbacks (completion blocks) to receive results.
-
-## Videos API
-
-### Get Video Accessor Object
-```
-    let videos = m_ziggeo.videos
-```
-
-### Get All Videos
-```
-    videos?.getVideos() { (jsonArray, error) in
-        NSLog("index error: \(error), response: \(jsonArray)")
-    }
-```
-
-### Create New Video
-#### Basic
-```
-    videos.createVideo(nil, file: fileToUpload.path!, cover: nil, callback: nil, progress: nil)
-```
-
-#### Advanced
-Add custom completion/progress callbacks here to make the SDK inform your app about uploading progress and response. Cover image is optional -- Ziggeo can generate default video cover shot.
-```
-    videos?.uploadVideo(videoPath, callback: { (jsonObject, response, error) in
-                
-    }, progress: { (totalBytesSent, totalBytesExpectedToSend) in
-        
-    }, confirmCallback: { (jsonObject, response, error) in
-        
-    })
-```
-
-### Delete video
-```
-    videos?.deleteVideo(videoToken, streamToken: streamToken, callback: { (jsonObject, error) in
-                
-    })
-```
-
-### Retrieve Video URL to Use in Custom Player
-```
-    let url = videos?.getVideoUrl("YOUR_VIDEO_TOKEN_HERE"))
-```
-
-### Get Remote Video Thumb asynchronously
-Remote video thumbs are cached on client side, so you can call the method as frequently as you wish without the performance or network load impact
-```
-    videos?.getImageForVideo("YOUR_VIDEO_TOKEN_HERE", params: nil, callback: { (image, response, error) in
-        //update UI with the received image
-    })
-```
-
-### Generate Local Video Thumb asynchronously
-Local video thumbs are cached on client side, so you can call the method as frequently as you wish without the performance impact
-```
-    videos?.getImageForVideo("LOCAL_VIDEO_PATH", callback: { (image, error) in
-        //update UI with the received image
-    })
-```
-
-
-## Audios API
-
-### Get Audio Accessor Object
-```
-    let audios = m_ziggeo.audios
-```
-
-### Get All Audios
-```
-    audios?.getAudios() { (jsonArray, error) in
-       // the completion block will be executed asynchronously on the response received
-    }
-```
-
-### Upload Audio
-```
-    audios?.uploadAudio(audioPath, callback: { (jsonObject, response, error) in
-                
-    }, progress: { (totalBytesSent, totalBytesExpectedToSend) in
-        
-    }, confirmCallback: { (jsonObject, response, error) in
-        
-    })
-```
-
-### Delete Video
-```
-	audios?.deleteAudio(audioToken, streamToken: streamToken, callback: { (jsonObject, error) in
-                
-    })
-```
-
-
-## Image API
-
-### Get Image Accessor Object
-```
-    let images = m_ziggeo.images
-```
-
-### Get All Images
-```
-    images?.getImages() { (jsonArray, error) in
-       // the completion block will be executed asynchronously on the response received
-    }
-```
-
-### Upload Image
-```
-    images?.uploadImage(imagePath, callback: { (jsonObject, response, error) in
-                
-    }, progress: { (totalBytesSent, totalBytesExpectedToSend) in
-        
-    }, confirmCallback: { (jsonObject, response, error) in
-        
-    })
-
-or
-    images?.uploadImage(imageFile, callback: { (jsonObject, response, error) in
-                
-    }, progress: { (totalBytesSent, totalBytesExpectedToSend) in
-        
-    }, confirmCallback: { (jsonObject, response, error) in
-        
-    })
-```
-
-### Delete Image
-```
-	images?.deleteImage(imageToken, streamToken: streamToken, callback: { (jsonObject, error) in 
-    })
-```
-
-
 
 ## Custom Ziggeo API Requests
 The SDK provides an opportunity to make custom requests to Ziggeo Embedded Server API. You can make POST/GET/custom_method requests and receive RAW data, json-dictionary or string as the result.
