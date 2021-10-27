@@ -232,9 +232,9 @@ var data: [String: Any] = [:]
 self.m_ziggeo.uploadFromFileSelector(data)
 ```
 
-### Cancel Request
+### Cancel Upload
 ```
-m_ziggeo.cancelRequest()
+m_ziggeo.cancelUpload(path, delete_file)
 ```
 
 ### Start QR Scanner
