@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'Confidential', :file => 'LICENSE' }
   s.author           = { 'Ziggeo Inc' => 'support@ziggeo.com' }
   s.source           = { :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :tag => s.version.to_s }
-  s.swift_version    = "5.3.1"
+  s.swift_version    = "5.0.0"
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
   s.vendored_frameworks = 'Output/ZiggeoSwiftFramework.xcframework'
 
   s.dependency 'GoogleAds-IMA-iOS-SDK', '3.11.3'
