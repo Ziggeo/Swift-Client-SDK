@@ -491,7 +491,6 @@ SWIFT_CLASS("_TtC20ZiggeoSwiftFramework12ZiggeoPlayer")
 
 SWIFT_CLASS("_TtC20ZiggeoSwiftFramework14ZiggeoRecorder") SWIFT_AVAILABILITY(maccatalyst,introduced=13.0)
 @interface ZiggeoRecorder : UIViewController <AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
-@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified overlayView;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (IBAction)onCloseButtonTap:(id _Nonnull)sender;
