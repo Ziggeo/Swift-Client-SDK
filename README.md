@@ -5,6 +5,9 @@ Ziggeo API (http://ziggeo.com) allows you to integrate video recording and playb
 
 Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
 
+## Upgrading from v 1.1.33 to v.1.1.34
+Implemented `getVideoUrl` function.
+
 ## Upgrading from v 1.1.32 to v.1.1.33
 Merged several apis for videos, audios and images.
 
@@ -282,6 +285,13 @@ var themeMap: [String: Any] = [:]
 themeMap["blur_effect"] = "false"
 themeMap["hideRecorderControls"] = "false"
 self.m_ziggeo.setThemeArgsForRecorder(themeMap)
+```
+
+### Set Blurring Effect
+```
+self.m_ziggeo.setBlurringEffect(true)
+self.m_ziggeo.setBlurringMaskColor(UIColor.white)
+self.m_ziggeo.setBlurringMaskAlpha(0.7)
 ```
 
 ### Enable Cover Selector Dialog

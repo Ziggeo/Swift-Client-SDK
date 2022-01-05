@@ -247,6 +247,11 @@ public enum Ziggeo_Theme_Key_Type : Swift.String {
   open func setSendImmediately(_ sendImmediately: Swift.Bool)
   open func setQuality(_ quality: Swift.Int)
   open func setCamera(_ facing: Swift.Int)
+  open func setUseFrontCamera(_ enabled: Swift.Bool)
+  open func setBlurringEffect(_ enabled: Swift.Bool)
+  open func setBlurringMaskColor(_ color: UIKit.UIColor)
+  open func setBlurringMaskAlpha(_ alpha: CoreGraphics.CGFloat)
+  open func setBlurringMaskImage(_ image: UIKit.UIImage?)
   open func record()
   open func startImageRecorder()
   open func startAudioRecorder()
@@ -397,7 +402,11 @@ open class ZiggeoRecorder : UIKit.UIViewController, ZiggeoSwiftFramework.VideoPr
     get
     set(value)
   }
-  @objc @IBOutlet weak open var overlayView: UIKit.UIView!
+  open var useFrontCamera: Swift.Bool
+  open var useBlurringEffect: Swift.Bool
+  open var blurringMaskColor: UIKit.UIColor
+  open var blurringMaskAlpha: CoreGraphics.CGFloat
+  open var blurringMaskImage: UIKit.UIImage?
   open var showControls: Swift.Bool {
     get
     set(newValue)

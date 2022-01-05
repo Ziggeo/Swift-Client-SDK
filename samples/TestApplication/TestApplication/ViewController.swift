@@ -7,22 +7,22 @@
 //
 
 import UIKit
-import ZiggeoSwiftFramework
 import AVKit
 import AVFoundation
 import ReplayKit
 import MobileCoreServices
+import ZiggeoSwiftFramework
 
 
 class ViewController: UIViewController {
 
-    let ZIGGEO_APP_TOKEN  = "ZIGGEO_APP_TOKEN" // "344a71099193b17a693ab11fdd0eeb10"
-    let SERVER_AUTH_TOKEN = "SERVER_AUTH_TOKEN" // "2502a8288403cec13382a6f4d8f54f64"
-    let CLIENT_AUTH_TOKEN = "CLIENT_AUTH_TOKEN" // "15901364881299187057"
-    
-    var LAST_VIDEO_TOKEN = "LAST_VIDEO_TOKEN" // "4eaea7e4d3792a6d1b8dc4f2caeea319"
-    var LAST_AUDIO_TOKEN = "LAST_AUDIO_TOKEN" // "9jpb9zdlm4m8e9gng1bftpfyiy0azy9l"
-    var LAST_IMAGE_TOKEN = "LAST_IMAGE_TOKEN" // "xzg4saj6u3ojm47los1kzaztju2cl3on"
+    let ZIGGEO_APP_TOKEN  = "ZIGGEO_APP_TOKEN"
+    let SERVER_AUTH_TOKEN = "SERVER_AUTH_TOKEN"
+    let CLIENT_AUTH_TOKEN = "CLIENT_AUTH_TOKEN"
+
+    var LAST_VIDEO_TOKEN = "LAST_VIDEO_TOKEN"
+    var LAST_AUDIO_TOKEN = "LAST_AUDIO_TOKEN"
+    var LAST_IMAGE_TOKEN = "LAST_IMAGE_TOKEN"
     
     let appGroup = "group.Ziggeo.TestApplication.Group"
 
@@ -61,8 +61,11 @@ class ViewController: UIViewController {
         self.m_ziggeo.setUploadingConfig(config)
         
         var themeMap: [String: Any] = [:]
-//        themeMap["blur_effect"] = "false"
         self.m_ziggeo.setThemeArgsForRecorder(themeMap)
+        
+        self.m_ziggeo.setBlurringEffect(true)
+        self.m_ziggeo.setBlurringMaskColor(UIColor.white)
+        self.m_ziggeo.setBlurringMaskAlpha(0.7)
         
         var map: [String: Any] = [:]
 //        map["effect_profile"] = "12345"
