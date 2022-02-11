@@ -63,9 +63,8 @@ class ViewController: UIViewController {
         var themeMap: [String: Any] = [:]
         self.m_ziggeo.setThemeArgsForRecorder(themeMap)
         
-        self.m_ziggeo.setBlurringEffect(true)
-        self.m_ziggeo.setBlurringMaskColor(UIColor.white)
-        self.m_ziggeo.setBlurringMaskAlpha(0.7)
+        self.m_ziggeo.setBlurMode(true)
+        self.m_ziggeo.setCamera(REAR_CAMERA)
         
         var map: [String: Any] = [:]
 //        map["effect_profile"] = "12345"
