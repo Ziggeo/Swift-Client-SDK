@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		14ABAA4C26D3FD2D007165C6 /* close_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ABAA4B26D3FD2C007165C6 /* close_black.png */; };
-		B7069127E3FD3300F1B6CF4C /* Pods_TestApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE07D9B1D65B26E4614548E /* Pods_TestApplication.framework */; };
-		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B9B7C81FB3DAFFFD63DE9A22 /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5BF7829CBFC4B738222171 /* libPods-TestApplication.a */; };
+		D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */,
+				D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		14ABAA4B26D3FD2C007165C6 /* close_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_black.png; sourceTree = "<group>"; };
-		4DE07D9B1D65B26E4614548E /* Pods_TestApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E3AEB8A7B838370EC10FD6 /* Pods-TestApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApplication.release.xcconfig"; path = "Target Support Files/Pods-TestApplication/Pods-TestApplication.release.xcconfig"; sourceTree = "<group>"; };
 		842910E425012C4400FAAEE1 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		842910E725012C4400FAAEE1 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		842910F025012C4500FAAEE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		842910F325012C4500FAAEE1 /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
 		842910F525012C4500FAAEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A5BF7829CBFC4B738222171 /* libPods-TestApplication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestApplication.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A06EADF8157F854BCCB4DB /* Pods-TestApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApplication.debug.xcconfig"; path = "Target Support Files/Pods-TestApplication/Pods-TestApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRecorderControls.xib; sourceTree = "<group>"; };
 		FA65B1CF1D65C05100DC784F /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7069127E3FD3300F1B6CF4C /* Pods_TestApplication.framework in Frameworks */,
+				B9B7C81FB3DAFFFD63DE9A22 /* libPods-TestApplication.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 			children = (
 				842910E425012C4400FAAEE1 /* ReplayKit.framework */,
 				842910F025012C4500FAAEE1 /* UIKit.framework */,
-				4DE07D9B1D65B26E4614548E /* Pods_TestApplication.framework */,
+				8A5BF7829CBFC4B738222171 /* libPods-TestApplication.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,7 +151,6 @@
 				FAD26D781E4231720034B66F /* Embed Frameworks (1 item) */,
 				FA9BE02C1E86DB620000170A /* ShellScript */,
 				D01A29ED25B10C948AC00ED5 /* [CP] Embed Pods Frameworks */,
-				8D0686FF5E1D4C6A1A5B5B51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,28 +213,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8D0686FF5E1D4C6A1A5B5B51 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitSegmentationCommon/MLKitSegmentationCommonResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitSegmentationSelfie/MLKitSegmentationSelfieResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitXenoCommon/MLKitXenoResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitSegmentationCommonResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitSegmentationSelfieResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitXenoResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		992C6017406411B105C954DE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,30 +242,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${PODS_ROOT}/GoogleAds-IMA-iOS-SDK/GoogleInteractiveMediaAds.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
-				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ZiggeoSwiftSDK/ZiggeoSwiftFramework.framework/ZiggeoSwiftFramework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleInteractiveMediaAds.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZiggeoSwiftFramework.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 34VS49Z26P;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -463,6 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 34VS49Z26P;
+				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
