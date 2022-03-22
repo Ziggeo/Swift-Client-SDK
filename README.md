@@ -890,21 +890,21 @@ You will first need to get API Accessor Object
 let connection = self.application.connect
 ```
 
-### Make POST Request and Parse JSON Response
+#### Make POST Request and Parse JSON Response
 ```
 connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, response, error) in
 	//jsonObject contains parsed json response received from Ziggeo API Server
 })
 ```
 
-### Make POST Request and Get RAW Data Response
+#### Make POST Request and Get RAW Data Response
 ```
 connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, response, error) in
 	//data contains RAW data received from Ziggeo API Server
 })
 ```
 
-### Make GET Request and Get String Response
+#### Make GET Request and Get String Response
 ```
 connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (string, response, error) in
 	//the string contains stringified response received from Ziggeo API Server
@@ -913,7 +913,7 @@ connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (str
 
 #### Request Cancellation<a name="api-cancel"></a>
 
-* This is not available in our iOS SDK at this time
+* This is not available in our Swift SDK at this time
 
 ### Authentication<a name="authentication"></a>
 
