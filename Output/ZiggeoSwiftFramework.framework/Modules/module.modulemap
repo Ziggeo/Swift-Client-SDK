@@ -1,0 +1,4 @@
+framework module ZiggeoSwiftFramework {
+  header "ZiggeoSwiftFramework-Swift.h"
+  requires objc
+}

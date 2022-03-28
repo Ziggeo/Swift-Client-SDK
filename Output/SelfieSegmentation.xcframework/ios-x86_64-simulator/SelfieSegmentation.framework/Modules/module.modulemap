@@ -1,6 +1,0 @@
-framework module SelfieSegmentation {
-  umbrella header "SelfieSegmentation.h"
-
-  export *
-  module * { export * }
-}

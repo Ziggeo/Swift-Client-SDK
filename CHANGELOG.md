@@ -4,6 +4,7 @@ Version 1.1.36 *(2022-03-28)*
 -----------------------------
 * The update removes GoogleAds.
 * The update fixes black button problem of audio recording and playing screen on the dark mode.
+* The update does not use `ZiggeoSwiftFramework.xcframework`, and use `ZiggeoSwiftFramework.framework`.
 
 Version 1.1.35 *(2022-02-18)*
 -----------------------------
