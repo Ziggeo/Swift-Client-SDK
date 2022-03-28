@@ -1,3 +1,10 @@
+# Changelog
+
+Version 1.1.36 *(2022-03-28)*
+-----------------------------
+* The update removes GoogleAds.
+* The update fixes black button problem of audio recording and playing screen on the dark mode.
+
 Version 1.1.35 *(2022-02-18)*
 -----------------------------
 * The update adds the blurring effect using mediapipe selfiesegmentation.
