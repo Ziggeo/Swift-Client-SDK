@@ -107,7 +107,7 @@ if #available(iOS 10.0, *) {
 
 ### Install<a name="install"></a>
 
-iOS Objective-C SDK offers you several ways to add Ziggeo to your project. The recommended is through CocoaPods
+iOS Swift SDK offers you several ways to add Ziggeo to your project. The recommended is through CocoaPods
 
 #### CocoaPods Support (optional)
 
@@ -186,6 +186,7 @@ m_ziggeo.startAudioRecorder()
 ```
 
 #### Image Capture<a name="image-capture"></a>
+
 ```
 m_ziggeo.startImageRecorder()
 ```
@@ -195,6 +196,7 @@ m_ziggeo.startImageRecorder()
 Sometimes you might want to upload something instead of showing the recorder. With the above, you can do the same.
 
 **Upload From Path**
+
 ```
 m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
 ```
@@ -884,6 +886,7 @@ let connection = self.application.connect
 ```
 
 #### Make POST Request and Parse JSON Response
+
 ```
 connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, response, error) in
 	//jsonObject contains parsed json response received from Ziggeo API Server
@@ -891,6 +894,7 @@ connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, 
 ```
 
 #### Make POST Request and Get RAW Data Response
+
 ```
 connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, response, error) in
 	//data contains RAW data received from Ziggeo API Server
@@ -898,6 +902,7 @@ connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, re
 ```
 
 #### Make GET Request and Get String Response
+
 ```
 connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (string, response, error) in
 	//the string contains stringified response received from Ziggeo API Server
