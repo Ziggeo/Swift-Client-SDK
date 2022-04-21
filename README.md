@@ -72,18 +72,11 @@ You will want to either download the SDK zip file or to pull it in as git reposi
 ### Dependencies<a name="dependencies"></a>
 
 Please use latest build tools and sdk version when compiling.
-
-- Add the following frameworks
-	- Add ZiggeoSwiftFramework.framework
-	- Add SelfieSegmentation.framework
-	- Add bridging header in case of mixed objective-C/Swift project
+- Add NSPhotoLibraryUsageDescription, NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
 ```
 #import <ZiggeoSwiftFramework/ZiggeoSwiftFramework.h>
 ```
-
-- Make sure `ZiggeoSwiftFramework.framework` is added to Embedded Binaries and Linked Framework sections in your app target settings
-- Add NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
 #### Notification when uploading videos in background
 
