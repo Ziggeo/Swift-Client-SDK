@@ -126,6 +126,12 @@ $ pod init
 ```
 pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 ```
+
+If you are going to add the framework without MediaPipe Selfie Segmentation, please below command.
+```
+pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'no-blurring'
+```
+
 - Install framework
 ```
 $ pod install
