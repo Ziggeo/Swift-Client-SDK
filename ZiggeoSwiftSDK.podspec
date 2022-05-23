@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'ZiggeoSwiftSDK'
-  s.version          = '1.1.36-no-blurring'
+  s.version          = '1.1.37-blurring'
   s.summary          = 'Ziggeo Swift Client SDK'
   s.description      = 'Ziggeo Swift recording and playback SDK'
 
@@ -19,9 +19,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :tag => s.version.to_s }
 
   s.swift_version    = "5.0.0"
-  s.platform         = :ios, "10.0"
+  s.platform         = :ios, "11.0"
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.vendored_frameworks = 'Output/SelfieSegmentation.framework', 'Output/ZiggeoSwiftFramework.framework'
 
 end

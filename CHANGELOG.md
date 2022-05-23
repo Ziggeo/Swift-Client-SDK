@@ -1,5 +1,9 @@
 # Changelog
 
+Version 1.1.37-blurring *(2022-05-23)*
+-----------------------------
+* The update adds Mediapipe SelfieSegmentation.
+
 Version 1.1.36 *(2022-03-28)*
 -----------------------------
 * The update removes GoogleAds.
