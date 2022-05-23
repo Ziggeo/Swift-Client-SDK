@@ -196,10 +196,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import ReplayKit;
+@import SelfieSegmentation;
 @import UIKit;
 #endif
-
-#import "/Volumes/Data/Working/Ziggeo/iOS/Ziggeo-Swift-SDK/ZiggeoSwiftFramework-Bridging-Header.h"
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"

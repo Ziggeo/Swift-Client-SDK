@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         var themeMap: [String: Any] = [:]
         self.m_ziggeo.setThemeArgsForRecorder(themeMap)
         
-        self.m_ziggeo.setBlurMode(true)
+        self.m_ziggeo.setBlurMode(false)
         self.m_ziggeo.setCamera(REAR_CAMERA)
         
         var map: [String: Any] = [:]
