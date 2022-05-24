@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14ABAA4C26D3FD2D007165C6 /* close_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ABAA4B26D3FD2C007165C6 /* close_black.png */; };
-		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA55A2E71EDB7E8500F54F2A /* CustomRecorderControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55A2E61EDB7E8500F54F2A /* CustomRecorderControls.xib */; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */,
+				D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;

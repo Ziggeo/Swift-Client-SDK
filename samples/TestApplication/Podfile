@@ -4,6 +4,6 @@ platform :ios, '10.0'
 target 'TestApplication' do
 
   # Pods for TestApplication
-  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'no-blurring'
+  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 
 end
