@@ -122,12 +122,17 @@ $ sudo gem install cocoapods
 ```
 $ pod init
 ```
+
 - Add framework to Podfile
+If you are going to be using the SDK flavor with background blurring, you need to set the `ENABLED_BITCODE` option to `No`, otherwise you will not be able to compile your app.
+So if your app needs to set the `ENABLED_BITCODE` option to `Yes`, you can not use the SDK flavor with background blurring.
+In this ase, use
 ```
 pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 ```
 
-If you are going to add the framework including MediaPipe Selfie Segmentation, please below command.
+If your app does not need to set the `ENABLED_BITCODE` option to `Yes`, you can use the SDK flavor with background blurring.
+In this ase, use
 ```
 pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'blurring'
 ```
@@ -136,7 +141,10 @@ pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', 
 ```
 $ pod install
 ```
+
 - Reopen the project using the .xcworkspace
+- If you use the SDK flavor with background blurring, set `ENABLED_BITCODE` to `No`"** on the *Build Settings* of the project.
+![bitcode.png](docs/images/bitcode.png)
 
 ## Demo<a name="demo"></a>
 
