@@ -1,0 +1,15 @@
+platform :ios, '10.0'
+
+use_frameworks!
+
+target 'ZiggeoDemoSwift' do
+
+#  pod 'ZiggeoSwiftSDK', :path => '../../'
+  pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
+  pod 'ActiveLabel'
+  pod 'SideMenu'
+  pod 'SVProgressHUD'
+  pod 'PINRemoteImage'
+  pod 'IQKeyboardManagerSwift'
+
+end

@@ -31,6 +31,8 @@
 		4. [Sensor Callbacks](#callbacks-sensor)
 	7. [API](#api)
 		1. [Request Cancellation](#api-cancel)
+		2. [Videos API](#api-videos)
+		3. [Video Streams API](#api-video-streams)
 	8. [Authentication](#authentication)
 5. [Compiling and Publishing App](#compile)
 6. [Update Information](#update)
@@ -143,7 +145,7 @@ $ pod install
 ```
 
 - Reopen the project using the .xcworkspace
-- If you use the SDK flavor with background blurring, set `ENABLED_BITCODE` to `No`"** on the *Build Settings* of the project.
+- If you use the SDK flavor with background blurring, set `ENABLED_BITCODE` to `No` on the *Build Settings* of the project.
 ![bitcode.png](docs/images/bitcode.png)
 
 ## Demo<a name="demo"></a>
@@ -163,13 +165,26 @@ var m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN", delegate: self)
 ```
 - You can grab your appToken by logging [into your](https://ziggeo.com/signin) account and under application you will use > Overview you will see the app token.
 
+### Send Email To Support<a name="send-email-to-support"></a>
+
+```
+m_ziggeo.sendEmailToSupport()
+```
+
+### Send Email To Support<a name="send-email-to-support"></a>
+
+```
+m_ziggeo.sendReport(["LOG_1", "LOG_2", ...])
+```
+
 ### Recorder<a name="recorder"></a>
 
 Ziggeo supports different media formats and offers multiple recorder options for you.
 1. Video Camera Recorder
 2. Video Screen Recorder
-3. Audio Recorder
-4. Image Capture (Snapshot Recorder)
+3. Video Trim
+4. Audio Recorder
+5. Image Capture (Snapshot Recorder)
 
 Each will be showcased within its own section bellow.
 
@@ -180,7 +195,7 @@ Each will be showcased within its own section bellow.
 To have your app capture video content from the camera, all you need is to use the following
 
 ```
-	m_ziggeo.record()
+m_ziggeo.record()
 ```
 
 #### Video (Screen) Recorder<a name="screen-recorder"></a>
@@ -189,6 +204,16 @@ By utilizing the following you will be creating a foreground service for screen 
 
 ```
 m_ziggeo.startScreenRecorder()
+```
+
+#### Video Trim<a name="video-trim"></a>
+
+You can trim video from path.
+
+**Trim Video From Path**
+
+```
+m_ziggeo.trimVideo("FILE_PATH")
 ```
 
 #### Audio Recorder<a name="audio-recorder"></a>
@@ -213,6 +238,12 @@ Sometimes you might want to upload something instead of showing the recorder. Wi
 
 ```
 m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
+```
+
+**Upload From Multiple Path**
+
+```
+m_ziggeo.uploadFromPaths(["FILE_PATH_1", "FILE_PATH_2", ...], data: [:])
 ```
 
 **Upload using File Selector**
@@ -240,19 +271,45 @@ Player can be used to play local videos, videos from other services and of cours
 **Standard Playback**
 
 ```
-m_ziggeo.playVideo(VIDEO_TOKEN)
+m_ziggeo.playVideo("VIDEO_TOKEN")
+```
+
+**Play Mutliple Videos using Tokens**
+
+```
+m_ziggeo.playVideos(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
 ```
 
 **Playback from third-party source**
 
 ```
-m_ziggeo.playFromUri(Video_Url)
+m_ziggeo.playFromUrl("VIDEO_URL")
+```
+
+**Play Mutliple Videos using urls**
+
+```
+m_ziggeo.playFromUrls(["VIDEO_URL_1", "VIDEO_URL_2", ...])
 ```
 
 #### Audio Player<a name="audio-player"></a>
 
 ```
 m_ziggeo.startAudioPlayer("AUDIO_TOKEN")
+```
+or
+```
+m_ziggeo.playAudio("AUDIO_TOKEN")
+```
+
+**Play Mutliple Audios**
+
+```
+m_ziggeo.startAudiosPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
+```
+or
+```
+m_ziggeo.playAudios(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
 ```
 
 #### Image Preview<a name="image-preview"></a>
@@ -261,12 +318,19 @@ m_ziggeo.startAudioPlayer("AUDIO_TOKEN")
 m_ziggeo.showImage("IMAGE_TOKEN")
 ```
 
+**Show Mutliple Images**
+
+```
+m_ziggeo.showImages(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
+```
+
+
 ### QR Scanner<a name="qr-scanner"></a>
 
 QR Scanner makes it easy for your code to retrieve data from the captured QR code.
 
 ```
-m_ziggeo.startQrScanner([:])
+m_ziggeo.startQrScanner()
 ```
 
 ### Configs<a name="configs"></a>
@@ -442,9 +506,7 @@ m_ziggeo.setAudioSampleRate(44100)
 Sets the blur mode for the recorder, blurring out the background behind the person recording themselves.
 
 ```
-m_ziggeo.setBlurringEffect(true)
-m_ziggeo.setBlurringMaskColor(UIColor.white)
-m_ziggeo.setBlurringMaskAlpha(0.7)
+m_ziggeo.setBlurMode(true)
 ```
 
 **Set Extra Arguments**
@@ -664,7 +726,6 @@ func ziggeoRecorderCanceled() {
 **Recording Finished**
 
 This event will be raised when recording had just finished. It will happen in cases when the end user clicks on Stop button as well as if there was duration or size limit that was reached.
-
 
 Standard recording
 
@@ -902,7 +963,7 @@ let connection = self.application.connect
 #### Make POST Request and Parse JSON Response
 
 ```
-connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, response, error) in
+connection.postJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, response, error) in
 	//jsonObject contains parsed json response received from Ziggeo API Server
 })
 ```
@@ -910,7 +971,7 @@ connection.PostJsonWithPath(path, data: NSDictionary?, callback: { (jsonObject, 
 #### Make POST Request and Get RAW Data Response
 
 ```
-connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, response, error) in
+connection.postWithPath(path: String, data: NSDictionary?, callback: { (data, response, error) in
 	//data contains RAW data received from Ziggeo API Server
 })
 ```
@@ -918,7 +979,7 @@ connection.PostWithPath(path: String, data: NSDictionary?, callback: { (data, re
 #### Make GET Request and Get String Response
 
 ```
-connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (string, response, error) in
+connection.getStringWithPath(path: String, data: NSDictionary?, callback: { (string, response, error) in
 	//the string contains stringified response received from Ziggeo API Server
 })
 ```
@@ -926,6 +987,14 @@ connection.GetStringWithPath(path: String, data: NSDictionary?, callback: { (str
 #### Request Cancellation<a name="api-cancel"></a>
 
 * This is not available in our Swift SDK at this time
+
+#### Videos API<a name="api-videos"></a>
+
+* This is not available in our iOS SDK at this time
+
+#### Video Streams API<a name="api-video-streams"></a>
+
+* This is not available in our iOS SDK at this time
 
 ### Authentication<a name="authentication"></a>
 
@@ -964,10 +1033,10 @@ m_ziggeo.setExtraArgsForRecorder(map)
 ### Building/Packaging App
 
 - Grab framework from Swift-Client-SDK/Output/ directory. Use Swift 3.2 version for Xcode 9.0+, Swift 3.1 version for Xcode 8.3+ and Swift 3 for older Xcode versions
-- Add framework into "linked frameworks" and "embedded binaries" at the project build settings
 - Clean and rebuild the application
 
 ### Preparing App for submission to App Store
+
 - Create "new run script phase" at the application target build settings to strip the unused architectures. Use the script provided with the Swift-Client-SDK/TestApplication example (TestApplication target settings -> Build phases -> Run script section)
 
 ## Update Information<a name="update"></a>
