@@ -271,7 +271,7 @@ extension HomeViewController: MenuActionDelegate {
     }
     
     func didSelectPlayVideoFromUrlMenu() {
-        Common.ziggeo?.playFromUrl("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        Common.ziggeo?.playFromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
     }
     
     func didSelectPlayLocalVideoMenu() {
@@ -289,7 +289,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: false) {
             let videoUrl = (info[.mediaURL] as! URL).path
-            Common.ziggeo?.playFromUrl(videoUrl)
+            Common.ziggeo?.playFromUri(videoUrl)
         }
     }
 }
