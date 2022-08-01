@@ -283,13 +283,13 @@ m_ziggeo.playVideos(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
 **Playback from third-party source**
 
 ```
-m_ziggeo.playFromUrl("VIDEO_URL")
+m_ziggeo.playFromUri("VIDEO_URL")
 ```
 
 **Play Mutliple Videos using urls**
 
 ```
-m_ziggeo.playFromUrls(["VIDEO_URL_1", "VIDEO_URL_2", ...])
+m_ziggeo.playFromUris(["VIDEO_URL_1", "VIDEO_URL_2", ...])
 ```
 
 #### Audio Player<a name="audio-player"></a>
