@@ -3,25 +3,29 @@
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
+# To learn more about a Podspec see http://guidespec.cocoapodspec.org/syntax/podspec.html
 #
 
-Pod::Spec.new do |s|
+Pod::Spec.new do |spec|
 
-  s.name             = 'ZiggeoSwiftSDK'
-  s.version          = '1.1.37-blurring'
-  s.summary          = 'Ziggeo Swift Client SDK'
-  s.description      = 'Ziggeo Swift recording and playback SDK'
+  spec.name             = 'ZiggeoSwiftSDK'
+  spec.version          = '1.1.38-blurring'
+  spec.summary          = 'Ziggeo Swift Client SDK'
+  spec.description      = 'Ziggeo Swift recording and playback SDK'
 
-  s.homepage         = 'http://ziggeo.com'
-  s.license          = { :type => 'Confidential', :file => 'LICENSE' }
-  s.author           = { 'Ziggeo Inc' => 'support@ziggeo.com' }
-  s.source           = { :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :tag => s.version.to_s }
+  spec.homepage         = 'http://ziggeo.com'
+  spec.license          = { :type => 'Confidential', :file => 'LICENSE' }
+  spec.author           = { 'Ziggeo Inc' => 'support@ziggeo.com' }
+  spec.source           = { :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :tag => spec.version.to_s }
 
-  s.swift_version    = "5.0.0"
-  s.platform         = :ios, "11.0"
+  spec.swift_version    = '5.0'
+  spec.platform         = :ios, '11.0'
 
-  s.ios.deployment_target = '11.0'
-  s.vendored_frameworks = 'Output/SelfieSegmentation.framework', 'Output/ZiggeoSwiftFramework.framework'
+  spec.dependency 'PINRemoteImage'
+  spec.dependency 'ImageSlideshow'
+  spec.dependency 'ImageSlideshow/Alamofire'
+
+  spec.ios.deployment_target = '11.0'
+  spec.vendored_frameworks = 'ZiggeoSwiftSDK/SelfieSegmentation.framework', 'ZiggeoSwiftSDK/ZiggeoSwiftFramework.framework'
 
 end
