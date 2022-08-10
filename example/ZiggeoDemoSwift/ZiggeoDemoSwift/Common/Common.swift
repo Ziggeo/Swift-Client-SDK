@@ -68,13 +68,7 @@ class Common: NSObject {
     static var recordingVideosController: RecordingVideosViewController?
     static var recordingAudiosController: RecordingAudiosViewController?
     static var recordingImagesController: RecordingImagesViewController?
-    static var isNeedReloadVideos = false
-    static var isNeedReloadAudios = false
-    static var isNeedReloadImages = false
     static var currentTab = Media_Type.Video
-    static var videoTokens: [String] = []
-    static var audioTokens: [String] = []
-    static var imageTokens: [String] = []
 }
 
 extension Common {

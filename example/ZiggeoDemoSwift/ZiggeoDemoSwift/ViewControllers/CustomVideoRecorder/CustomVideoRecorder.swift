@@ -57,7 +57,6 @@ open class CustomVideoRecorder: UIViewController {
     var durationExceeded: Bool = false
     var audioDataOutput: AVCaptureAudioDataOutput? = nil
     var videoDataOutput: AVCaptureVideoDataOutput? = nil
-    var metadataOutput: AVCaptureMetadataOutput? = nil
     
     var setupResult: AVCamSetupResult = AVCamSetupResult.none
     var backgroundRecordingID: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
@@ -98,7 +97,6 @@ open class CustomVideoRecorder: UIViewController {
         }
     }
 
-    
     
     // MARK: - System Functions
     init() {
@@ -339,7 +337,6 @@ open class CustomVideoRecorder: UIViewController {
 
             let movieFileOutput = AVCaptureMovieFileOutput()
             if (self.session.canAddOutput(movieFileOutput)) {
-                self.setupMetadataOutput()
                 self.setupDataOutputs()
             } else {
                 self.setupResult = AVCamSetupResult.sessionConfigurationFailed
@@ -517,16 +514,6 @@ open class CustomVideoRecorder: UIViewController {
         }
     }
 
-    func setupMetadataOutput() {
-        self.metadataOutput = AVCaptureMetadataOutput()
-        if (self.session.canAddOutput(self.metadataOutput!)) {
-            self.metadataOutput?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            self.session.addOutput(self.metadataOutput!)
-            self.metadataOutput?.metadataObjectTypes = [AVMetadataObject.ObjectType.face]
-            NSLog("metadata detector added")
-        }
-    }
-    
     func setupDataOutputs() {
         self.audioDataOutput = AVCaptureAudioDataOutput()
         self.audioDataOutput?.setSampleBufferDelegate(self, queue: self.sessionQueue)
@@ -618,8 +605,6 @@ open class CustomVideoRecorder: UIViewController {
             self.recordButton.isSelected = false
         }
     }
-    
-    
     
     @objc func updateDuration() {
         DispatchQueue.main.async {
@@ -807,13 +792,11 @@ extension CustomVideoRecorder: VideoPreviewDelegate {
             newFileToUpload = filePath // try to use original file, maybe it will not be removed before it will be uploaded
         }
 
-        DispatchQueue.main.async {
-            let realFilePath = filePath.absoluteString.replacingOccurrences(of: "file://", with: "")
-            Common.ziggeo?.uploadFromPath(realFilePath, data: [:], callback: { jsonObject, response, error in
-            }, progress: { totalBytesSent, totalBytesExpectedToSend in
-            }, confirmCallback: { jsonObject, response, error in
-            })
-        }
+        Common.ziggeo?.uploadFromPath(filePath.absoluteString, data: [:], callback: { jsonObject, response, error in
+        }, progress: { totalBytesSent, totalBytesExpectedToSend in
+        }, confirmCallback: { jsonObject, response, error in
+        })
+        self.dismiss(animated: false, completion: nil)
     }
 }
 
@@ -853,14 +836,5 @@ extension CustomVideoRecorder: AVCaptureAudioDataOutputSampleBufferDelegate, AVC
             } else if (output == self.audioDataOutput) {
             }
         }
-    }
-
-}
-
-// MARK: - AVCaptureMetadataOutputObjectsDelegate
-extension CustomVideoRecorder: AVCaptureMetadataOutputObjectsDelegate {
-    
-    open func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        let previewLayer = self.previewView.layer as? AVCaptureVideoPreviewLayer
     }
 }

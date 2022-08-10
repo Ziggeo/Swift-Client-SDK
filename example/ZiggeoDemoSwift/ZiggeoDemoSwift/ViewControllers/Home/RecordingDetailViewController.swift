@@ -10,6 +10,10 @@ import AVKit
 import ZiggeoSwiftFramework
 import SVProgressHUD
 
+@objc public protocol RecordingDelegate: AnyObject {
+    func recordingDeleted(_ token: String)
+}
+
 class RecordingDetailViewController: UIViewController {
     
     // MARK: - Outlets
@@ -27,6 +31,7 @@ class RecordingDetailViewController: UIViewController {
     // MARK: - Public variables
     var mediaType = Media_Type.Video
     var recording: ContentModel?
+    var recordingDelegate: RecordingDelegate?
     
     // MARK: - Private variables
     private var isEditMode = false
@@ -82,36 +87,27 @@ class RecordingDetailViewController: UIViewController {
             if (self.recording != nil) {
                 SVProgressHUD.show()
                 if (self.mediaType == Media_Type.Video) {
-                    Common.ziggeo?.videos.destroy(self.recording!.token, callback: { jsonObject, error in
-                        DispatchQueue.main.async {
-                            SVProgressHUD.dismiss()
-                            
-                            self.isEditMode = false
-                            Common.isNeedReloadVideos = true
-                            self.navigationController?.popViewController(animated: true)
-                        }
+                    Common.ziggeo?.videos.destroy(self.recording!.token, callback: { jsonObject, response, error in
+                        SVProgressHUD.dismiss()
+                        self.isEditMode = false
+                        self.recordingDelegate?.recordingDeleted(self.recording!.token)
+                        self.navigationController?.popViewController(animated: true)
                     })
                     
                 } else if (self.mediaType == Media_Type.Audio) {
-                    Common.ziggeo?.audios.destroy(self.recording!.token, callback: { jsonObject, error in
-                        DispatchQueue.main.async {
-                            SVProgressHUD.dismiss()
-                            
-                            self.isEditMode = false
-                            Common.isNeedReloadAudios = true
-                            self.navigationController?.popViewController(animated: true)
-                        }
+                    Common.ziggeo?.audios.destroy(self.recording!.token, callback: { jsonObject, response, error in
+                        SVProgressHUD.dismiss()
+                        self.isEditMode = false
+                        self.recordingDelegate?.recordingDeleted(self.recording!.token)
+                        self.navigationController?.popViewController(animated: true)
                     })
 
                 } else {
-                    Common.ziggeo?.images.destroy(self.recording!.token, callback: { jsonObject, error in
-                        DispatchQueue.main.async {
-                            SVProgressHUD.dismiss()
-                            
-                            self.isEditMode = false
-                            Common.isNeedReloadImages = true
-                            self.navigationController?.popViewController(animated: true)
-                        }
+                    Common.ziggeo?.images.destroy(self.recording!.token, callback: { jsonObject, response, error in
+                        SVProgressHUD.dismiss()
+                        self.isEditMode = false
+                        self.recordingDelegate?.recordingDeleted(self.recording!.token)
+                        self.navigationController?.popViewController(animated: true)
                     })
                 }
             }
@@ -126,36 +122,27 @@ class RecordingDetailViewController: UIViewController {
                         "description": descriptionTextField.text]
             
             if (self.mediaType == Media_Type.Video) {
-                Common.ziggeo?.videos.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, error in
-                    DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
-                        
-                        self.isEditMode = false
-                        Common.isNeedReloadVideos = true
-                        self.refreshButtons()
-                    }
+                Common.ziggeo?.videos.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, response, error in
+                    SVProgressHUD.dismiss()
+                    
+                    self.isEditMode = false
+                    self.refreshButtons()
                 })
                 
             } else if (self.mediaType == Media_Type.Audio) {
-                Common.ziggeo?.videos.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, error in
-                    DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
-                        
-                        self.isEditMode = false
-                        Common.isNeedReloadAudios = true
-                        self.refreshButtons()
-                    }
+                Common.ziggeo?.audios.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, response, error in
+                    SVProgressHUD.dismiss()
+                    
+                    self.isEditMode = false
+                    self.refreshButtons()
                 })
                 
             } else {
-                Common.ziggeo?.videos.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, error in
-                    DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
-                        
-                        self.isEditMode = false
-                        Common.isNeedReloadImages = true
-                        self.refreshButtons()
-                    }
+                Common.ziggeo?.images.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, response, error in
+                    SVProgressHUD.dismiss()
+                    
+                    self.isEditMode = false
+                    self.refreshButtons()
                 })
             }
         }

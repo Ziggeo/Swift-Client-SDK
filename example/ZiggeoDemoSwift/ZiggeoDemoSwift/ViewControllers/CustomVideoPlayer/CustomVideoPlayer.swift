@@ -105,17 +105,13 @@ class CustomVideoPlayer : UIViewController, VideoPreviewProtocol {
             newFileToUpload = filePath // try to use original file, maybe it will not be removed before it will be uploaded
         }
         
-        let realFilePath = filePath.absoluteString.replacingOccurrences(of: "file://", with: "")
-        Common.ziggeo?.uploadFromPath(realFilePath, data: [:], callback: { jsonObject, response, error in
+        Common.ziggeo?.uploadFromPath(filePath.absoluteString, data: [:], callback: { jsonObject, response, error in
         }, progress: { totalBytesSent, totalBytesExpectedToSend in
         }, confirmCallback: { jsonObject, response, error in
-            DispatchQueue.main.async {
-                self.dismiss(animated: false) {
-                    Common.isNeedReloadVideos = true
-                    self.videoRecorder?.dismiss(animated: false, completion: nil)
-                }
-            }
         })
+        self.dismiss(animated: false) {
+            self.videoRecorder?.dismiss(animated: false, completion: nil)
+        }
     }
     
     @IBAction func retake(_ sender: AnyObject) {
