@@ -1,8 +1,15 @@
 # Changelog
 
+Version 1.1.38 *(2022-08-10)*
+-----------------------------
+* The update adds multiple file uploads, multiple video plays, multiple audio plays and multiple image views.
+* The update adds QR code reader, video trim, sending email to support and sending report.
+* The update fixes the problem of playing video from url.
+* The update updates some screens.
+
 Version 1.1.37 *(2022-05-23)*
 -----------------------------
-* The update removes Mediapipe SelfieSegmentation.
+* The update adds Mediapipe SelfieSegmentation.
 
 Version 1.1.36 *(2022-03-28)*
 -----------------------------
