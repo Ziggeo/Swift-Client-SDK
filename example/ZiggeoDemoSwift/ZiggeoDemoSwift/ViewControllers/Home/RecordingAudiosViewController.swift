@@ -15,8 +15,8 @@ class RecordingAudiosViewController: UIViewController {
     @IBOutlet weak var recordingsTableView: UITableView!
     
     // MARK: - Private variables
+    var recordings: [ContentModel] = []
     private let refreshControl = UIRefreshControl()
-    private var recordings: [ContentModel] = []
     private let reuseIdentifier = "RecordingTableViewCell"
     
     // MARK: - Lifecycle
@@ -41,11 +41,6 @@ class RecordingAudiosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (Common.isNeedReloadAudios) {
-            Common.isNeedReloadAudios = false
-            getRecordings()
-        }
-        
         Common.currentTab = Media_Type.Audio
     }
     
@@ -57,25 +52,16 @@ class RecordingAudiosViewController: UIViewController {
     func getRecordings() {
         SVProgressHUD.show()
         Common.ziggeo?.audios.index([:], callback: { array, error in
+            SVProgressHUD.dismiss()
+            self.refreshControl.endRefreshing()
+            
             self.recordings.removeAll()
             for item in array {
                 if item.stateString != Ziggeo_Status_Type.STATUS_EMPTY.rawValue && item.stateString != Ziggeo_Status_Type.STATUS_DELETED.rawValue {
                     self.recordings.append(item)
                 }
             }
-            
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-                self.refreshControl.endRefreshing()
-                self.recordingsTableView.reloadData()
-                
-                var tokens: [String] = []
-                for recording in self.recordings {
-                    tokens.append(recording.token)
-                }
-                Common.audioTokens.removeAll()
-                Common.audioTokens.append(contentsOf: tokens)
-            }
+            self.recordingsTableView.reloadData()
         })
     }
 }
@@ -97,10 +83,25 @@ extension RecordingAudiosViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let vc = Common.getStoryboardViewController("RecordingDetailViewController") as? RecordingDetailViewController {
-            vc.mediaType = Media_Type.Audio
-            vc.recording = recordings[indexPath.row]
-            Common.mainNavigationController?.pushViewController(vc, animated: true)
-        }
+        SVProgressHUD.show()
+        Common.ziggeo?.audios.get(recordings[indexPath.row].token, data: [:], callback: { content, response, error in
+            SVProgressHUD.dismiss()
+            if let vc = Common.getStoryboardViewController("RecordingDetailViewController") as? RecordingDetailViewController {
+                vc.mediaType = Media_Type.Audio
+                vc.recording = content
+                vc.recordingDelegate = self
+                Common.mainNavigationController?.pushViewController(vc, animated: true)
+            }
+        })
+    }
+}
+
+// MARK: - RecordingDelegate
+extension RecordingAudiosViewController: RecordingDelegate {
+    func recordingDeleted(_ token: String) {
+        self.recordings = self.recordings.filter({ recording in
+            return recording.token != token
+        })
+        self.recordingsTableView.reloadData()
     }
 }

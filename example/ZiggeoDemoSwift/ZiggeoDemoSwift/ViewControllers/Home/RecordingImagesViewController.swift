@@ -15,8 +15,8 @@ class RecordingImagesViewController: UIViewController {
     @IBOutlet weak var recordingsTableView: UITableView!
     
     // MARK: - Private variables
+    var recordings: [ContentModel] = []
     private let refreshControl = UIRefreshControl()
-    private var recordings: [ContentModel] = []
     private let reuseIdentifier = "RecordingTableViewCell"
     
     // MARK: - Lifecycle
@@ -41,11 +41,6 @@ class RecordingImagesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (Common.isNeedReloadImages) {
-            Common.isNeedReloadImages = false
-            getRecordings()
-        }
-        
         Common.currentTab = Media_Type.Image
     }
     
@@ -57,29 +52,18 @@ class RecordingImagesViewController: UIViewController {
     func getRecordings() {
         SVProgressHUD.show()
         Common.ziggeo?.images.index([:], callback: { array, error in
+            SVProgressHUD.dismiss()
+            self.refreshControl.endRefreshing()
+            
             self.recordings.removeAll()
             for item in array {
                 if item.stateString != Ziggeo_Status_Type.STATUS_EMPTY.rawValue && item.stateString != Ziggeo_Status_Type.STATUS_DELETED.rawValue {
                     self.recordings.append(item)
                 }
             }
-            
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-                self.refreshControl.endRefreshing()
-                self.recordingsTableView.reloadData()
-                
-                var tokens: [String] = []
-                for recording in self.recordings {
-                    tokens.append(recording.token)
-                }
-                Common.imageTokens.removeAll()
-                Common.imageTokens.append(contentsOf: tokens)
-            }
+            self.recordingsTableView.reloadData()
         })
-    }
-    
-    
+    }    
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -99,10 +83,25 @@ extension RecordingImagesViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let vc = Common.getStoryboardViewController("RecordingDetailViewController") as? RecordingDetailViewController {
-            vc.mediaType = Media_Type.Image
-            vc.recording = recordings[indexPath.row]
-            Common.mainNavigationController?.pushViewController(vc, animated: true)
-        }
+        SVProgressHUD.show()
+        Common.ziggeo?.images.get(recordings[indexPath.row].token, data: [:], callback: { content, response, error in
+            SVProgressHUD.dismiss()
+            if let vc = Common.getStoryboardViewController("RecordingDetailViewController") as? RecordingDetailViewController {
+                vc.mediaType = Media_Type.Image
+                vc.recording = content
+                vc.recordingDelegate = self
+                Common.mainNavigationController?.pushViewController(vc, animated: true)
+            }
+        })
+    }
+}
+
+// MARK: - RecordingDelegate
+extension RecordingImagesViewController: RecordingDelegate {
+    func recordingDeleted(_ token: String) {
+        self.recordings = self.recordings.filter({ recording in
+            return recording.token != token
+        })
+        self.recordingsTableView.reloadData()
     }
 }

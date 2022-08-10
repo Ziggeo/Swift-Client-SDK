@@ -115,6 +115,11 @@ class HomeViewController: UIViewController {
             map["data"] = [:]
             Common.ziggeo?.setExtraArgsForRecorder(map)
             
+//            var map1: [String: Any] = [:]
+//            map1["blur_effect"] = "true"
+//            Common.ziggeo?.setThemeArgsForRecorder(map1)
+
+            
             Common.ziggeo?.setCamera(REAR_CAMERA)
             
             if (UserDefaults.standard.bool(forKey: Common.Blur_Mode_Key) == true) {
@@ -129,22 +134,43 @@ class HomeViewController: UIViewController {
     
     @IBAction func onPlayAll(_ sender: Any) {
         if (Common.currentTab == Media_Type.Video) {
-            if (Common.videoTokens.count > 0) {
-                Common.ziggeo?.playVideos(Common.videoTokens)
+            var tokens: [String] = []
+            if (Common.recordingVideosController != nil) {
+                for recording in Common.recordingVideosController!.recordings {
+                    tokens.append(recording.token)
+                }
+            }
+                       
+            if (tokens.count > 0) {
+                Common.ziggeo?.playVideos(tokens)
             } else {
                 Common.showAlertView("Video recordings are empty.")
             }
             
         } else if (Common.currentTab == Media_Type.Audio) {
-            if (Common.audioTokens.count > 0) {
-                Common.ziggeo?.playAudios(Common.audioTokens)
+            var tokens: [String] = []
+            if (Common.recordingAudiosController != nil) {
+                for recording in Common.recordingAudiosController!.recordings {
+                    tokens.append(recording.token)
+                }
+            }
+            
+            if (tokens.count > 0) {
+                Common.ziggeo?.playAudios(tokens)
             } else {
                 Common.showAlertView("Audio recordings are empty.")
             }
             
         } else {
-            if (Common.imageTokens.count > 0) {
-                Common.ziggeo?.showImages(Common.imageTokens)
+            var tokens: [String] = []
+            if (Common.recordingImagesController != nil) {
+                for recording in Common.recordingImagesController!.recordings {
+                    tokens.append(recording.token)
+                }
+            }
+            
+            if (tokens.count > 0) {
+                Common.ziggeo?.showImages(tokens)
             } else {
                 Common.showAlertView("Image recordings are empty.")
             }

@@ -1,6 +1,6 @@
 # Changelog
 
-Version 1.1.38-blurring *(2022-07-25)*
+Version 1.1.38-blurring *(2022-08-10)*
 -----------------------------
 * The update adds multiple file uploads, multiple video plays, multiple audio plays and multiple image views.
 * The update adds QR code reader, video trim, sending email to support and sending report.
