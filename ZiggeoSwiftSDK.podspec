@@ -21,10 +21,6 @@ Pod::Spec.new do |spec|
   spec.swift_version    = '5.0'
   spec.platform         = :ios, '11.0'
 
-  spec.dependency 'PINRemoteImage'
-  spec.dependency 'ImageSlideshow'
-  spec.dependency 'ImageSlideshow/Alamofire'
-
   spec.ios.deployment_target = '11.0'
   spec.vendored_frameworks = 'ZiggeoSwiftSDK/SelfieSegmentation.framework', 'ZiggeoSwiftSDK/ZiggeoSwiftFramework.framework'
 
