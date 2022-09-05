@@ -21,3 +21,5 @@ Pods
 Podfile.lock
 example/ZiggeoDemoSwift/Pods
 example/ZiggeoDemoSwift/Podfile.lock
+example/TestApplication/Pods
+example/TestApplication/Podfile.lock
