@@ -1,5 +1,9 @@
 # Changelog
 
+Version 1.1.39-blurring *(2022-09-06)*
+-----------------------------
+* The update does not use `ZiggeoSwiftSDK.framework`, and use `ZiggeoSwift.framework`.
+
 Version 1.1.38-blurring *(2022-08-10)*
 -----------------------------
 * The update adds multiple file uploads, multiple video plays, multiple audio plays and multiple image views.
@@ -15,7 +19,7 @@ Version 1.1.36 *(2022-03-28)*
 -----------------------------
 * The update removes GoogleAds.
 * The update fixes black button problem of audio recording and playing screen on the dark mode.
-* The update does not use `ZiggeoSwiftFramework.xcframework`, and use `ZiggeoSwiftFramework.framework`.
+* The update does not use `ZiggeoSwiftSDK.xcframework`, and use `ZiggeoSwiftSDK.framework`.
 
 Version 1.1.35 *(2022-02-18)*
 -----------------------------
