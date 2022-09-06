@@ -77,7 +77,7 @@ Please use latest build tools and sdk version when compiling.
 - Add NSPhotoLibraryUsageDescription, NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
 ```
-#import <ZiggeoSwiftFramework/ZiggeoSwiftFramework.h>
+#import <ZiggeoSwift/ZiggeoSwift.h>
 ```
 
 #### Notification when uploading videos in background
@@ -130,13 +130,13 @@ If you are going to be using the SDK flavor with background blurring, you need t
 So if your app needs to set the `ENABLED_BITCODE` option to `Yes`, you can not use the SDK flavor with background blurring.
 In this ase, use
 ```
-pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
+pod 'ZiggeoSwift', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 ```
 
 If your app does not need to set the `ENABLED_BITCODE` option to `Yes`, you can use the SDK flavor with background blurring.
 In this ase, use
 ```
-pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'blurring'
+pod 'ZiggeoSwift', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'blurring'
 ```
 
 - Install framework
@@ -146,7 +146,7 @@ $ pod install
 
 - Reopen the project using the .xcworkspace
 - If you use the SDK flavor with background blurring, set `ENABLED_BITCODE` to `No` on the *Build Settings* of the project.
-![bitcode.png](docs/images/bitcode.png)
+![bitcode.png](Images/bitcode.png)
 
 ## Demo<a name="demo"></a>
 
@@ -159,7 +159,7 @@ This section will introduce you to the most common ways you would integrate our 
 ### Init<a name="init"></a>
 
 ```
-import ZiggeoSwiftFramework
+import ZiggeoSwift
 
 var m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN", delegate: self)
 ```
@@ -1041,7 +1041,7 @@ m_ziggeo.setExtraArgsForRecorder(map)
 
 ## Update Information<a name="update"></a>
 
-Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
+Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwift 1.1.21 or older.
 
 ## Changelog<a name="Changelog"></a>
 
