@@ -1,9 +1,10 @@
 # Changelog
 
-Version 1.1.39 *(2022-09-23)*
+Version 1.1.39 *(2022-09-26)*
 -----------------------------
 * The update changes the pod name to `ZiggeoMediaSwiftSDK`.
 * The update does not use `ZiggeoSwiftSDK.framework`, and use `ZiggeoMediaSwiftSDK.framework`.
+* The update changes `playVideo`, `showImage`, `startAudioPlayer` and `playFromUrl` functions to support multiple items.
 
 Version 1.1.38 *(2022-08-10)*
 -----------------------------

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		344AFABA3651D4E432FE7497 /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7FFF10608AE7AA018A7B00 /* libPods-TestApplication.a */; };
-		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */,
+				D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +210,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-frameworks.sh",
-				"${PODS_ROOT}/../../../Frameworks/ZiggeoMediaSwiftSDK.framework",
+				"${PODS_ROOT}/ZiggeoMediaSwiftSDK/Frameworks/ZiggeoMediaSwiftSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

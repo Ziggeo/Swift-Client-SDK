@@ -161,14 +161,14 @@ class RecordingDetailViewController: UIViewController {
                     present(vc, animated: true, completion: nil)
                     
                 } else {
-                    Common.ziggeo?.playVideo(recording!.token)
+                    Common.ziggeo?.playVideo([recording!.token!])
                 }
                 
             } else if (mediaType == Media_Type.Audio) {
-                Common.ziggeo?.playAudio(recording!.token)
+                Common.ziggeo?.startAudioPlayer([recording!.token!])
                 
             } else {
-                Common.ziggeo?.showImage(recording!.token)
+                Common.ziggeo?.showImage([recording!.token!])
             }
         }
     }

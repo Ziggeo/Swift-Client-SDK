@@ -240,12 +240,6 @@ Sometimes you might want to upload something instead of showing the recorder. Wi
 m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
 ```
 
-**Upload From Multiple Path**
-
-```
-m_ziggeo.uploadFromPaths(["FILE_PATH_1", "FILE_PATH_2", ...], data: [:])
-```
-
 **Upload using File Selector**
 
 ```
@@ -271,57 +265,25 @@ Player can be used to play local videos, videos from other services and of cours
 **Standard Playback**
 
 ```
-m_ziggeo.playVideo("VIDEO_TOKEN")
-```
-
-**Play Mutliple Videos using Tokens**
-
-```
-m_ziggeo.playVideos(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
+m_ziggeo.playVideo(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
 ```
 
 **Playback from third-party source**
 
 ```
-m_ziggeo.playFromUri("VIDEO_URL")
-```
-
-**Play Mutliple Videos using urls**
-
-```
-m_ziggeo.playFromUris(["VIDEO_URL_1", "VIDEO_URL_2", ...])
+m_ziggeo.playFromUri(["VIDEO_URL_1", "VIDEO_URL_2", ...])
 ```
 
 #### Audio Player<a name="audio-player"></a>
 
 ```
-m_ziggeo.startAudioPlayer("AUDIO_TOKEN")
-```
-or
-```
-m_ziggeo.playAudio("AUDIO_TOKEN")
-```
-
-**Play Mutliple Audios**
-
-```
-m_ziggeo.startAudiosPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
-```
-or
-```
-m_ziggeo.playAudios(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
+m_ziggeo.startAudioPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
 ```
 
 #### Image Preview<a name="image-preview"></a>
 
 ```
-m_ziggeo.showImage("IMAGE_TOKEN")
-```
-
-**Show Mutliple Images**
-
-```
-m_ziggeo.showImages(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
+m_ziggeo.showImage(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
 ```
 
 
