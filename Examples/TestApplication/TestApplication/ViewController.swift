@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         map["hidePlayerControls"] = "false"
         self.m_ziggeo.setThemeArgsForPlayer(map)
 
-        self.m_ziggeo.playVideo(LAST_VIDEO_TOKEN)
+        self.m_ziggeo.playVideo([LAST_VIDEO_TOKEN])
     }
 
     @IBAction func onChooseMedia(_ sender: Any) {
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onPlayAudio(_ sender: Any) {
-        self.m_ziggeo.startAudioPlayer(LAST_AUDIO_TOKEN)
+        self.m_ziggeo.startAudioPlayer([LAST_AUDIO_TOKEN])
     }
 
     @IBAction func onTakePhoto(_ sender: Any) {
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onShowImage(_ sender: Any) {
-        self.m_ziggeo.showImage(LAST_IMAGE_TOKEN)
+        self.m_ziggeo.showImage([LAST_IMAGE_TOKEN])
     }
 }
 

@@ -142,7 +142,7 @@ class HomeViewController: UIViewController {
             }
                        
             if (tokens.count > 0) {
-                Common.ziggeo?.playVideos(tokens)
+                Common.ziggeo?.playVideo(tokens)
             } else {
                 Common.showAlertView("Video recordings are empty.")
             }
@@ -156,7 +156,7 @@ class HomeViewController: UIViewController {
             }
             
             if (tokens.count > 0) {
-                Common.ziggeo?.playAudios(tokens)
+                Common.ziggeo?.startAudioPlayer(tokens)
             } else {
                 Common.showAlertView("Audio recordings are empty.")
             }
@@ -170,7 +170,7 @@ class HomeViewController: UIViewController {
             }
             
             if (tokens.count > 0) {
-                Common.ziggeo?.showImages(tokens)
+                Common.ziggeo?.showImage(tokens)
             } else {
                 Common.showAlertView("Image recordings are empty.")
             }
@@ -297,7 +297,7 @@ extension HomeViewController: MenuActionDelegate {
     }
     
     func didSelectPlayVideoFromUrlMenu() {
-        Common.ziggeo?.playFromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        Common.ziggeo?.playFromUri(["http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"])
     }
     
     func didSelectPlayLocalVideoMenu() {
@@ -315,7 +315,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: false) {
             let videoUrl = (info[.mediaURL] as! URL).path
-            Common.ziggeo?.playFromUri(videoUrl)
+            Common.ziggeo?.playFromUri([videoUrl])
         }
     }
 }
