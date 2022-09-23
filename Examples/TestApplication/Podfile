@@ -4,7 +4,6 @@ platform :ios, '11.0'
 target 'TestApplication' do
 
   # Pods for TestApplication
-  pod 'ZiggeoSwift', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
-#  pod 'ZiggeoSwift', :path => '../../'
+   pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 
 end

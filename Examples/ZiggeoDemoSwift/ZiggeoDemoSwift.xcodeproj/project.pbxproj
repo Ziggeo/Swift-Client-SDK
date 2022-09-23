@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3355B97F1DA22D2E1FC21B8 /* Pods_ZiggeoDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFC85F58BA9ED50724520F8 /* Pods_ZiggeoDemoSwift.framework */; };
 		D809C67D287D223300FA6B3D /* UIImageView+Expansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D809C67C287D223300FA6B3D /* UIImageView+Expansion.swift */; };
 		D80E8F7628730D3F007804C6 /* UIView+Expansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E8F7428730D3F007804C6 /* UIView+Expansion.swift */; };
 		D810B310286AFC890063C877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D810B30F286AFC890063C877 /* AppDelegate.swift */; };
@@ -45,12 +46,10 @@
 		D8F055892874700800020AA5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557C2874700800020AA5 /* SideMenuViewController.swift */; };
 		D8F0558A2874700800020AA5 /* TopClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557D2874700800020AA5 /* TopClientsViewController.swift */; };
 		D8F0558C2874708200020AA5 /* VideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */; };
-		EAA48FFF1DC03F4323E84207 /* Pods_ZiggeoDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB54BA004B79C7B801BE6E5 /* Pods_ZiggeoDemoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7DB54BA004B79C7B801BE6E5 /* Pods_ZiggeoDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZiggeoDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1DA7940729B768C6E1A042B /* Pods-ZiggeoDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZiggeoDemoSwift.release.xcconfig"; path = "Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
+		280B0F0481BA0CEA4721AFBC /* Pods-ZiggeoDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZiggeoDemoSwift.release.xcconfig"; path = "Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		D809C67C287D223300FA6B3D /* UIImageView+Expansion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Expansion.swift"; sourceTree = "<group>"; };
 		D80E8F7428730D3F007804C6 /* UIView+Expansion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Expansion.swift"; sourceTree = "<group>"; };
 		D810B30C286AFC890063C877 /* ZiggeoDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZiggeoDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +90,8 @@
 		D8F0557C2874700800020AA5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D8F0557D2874700800020AA5 /* TopClientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopClientsViewController.swift; sourceTree = "<group>"; };
 		D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditorViewController.swift; sourceTree = "<group>"; };
-		DBF9B7094266CA3D0BD17477 /* Pods-ZiggeoDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZiggeoDemoSwift.debug.xcconfig"; path = "Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		F119F2818DF698FD9C15E550 /* Pods-ZiggeoDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZiggeoDemoSwift.debug.xcconfig"; path = "Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		FEFC85F58BA9ED50724520F8 /* Pods_ZiggeoDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZiggeoDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,26 +99,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAA48FFF1DC03F4323E84207 /* Pods_ZiggeoDemoSwift.framework in Frameworks */,
+				A3355B97F1DA22D2E1FC21B8 /* Pods_ZiggeoDemoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3ED170E911D654F5D10786E4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7DB54BA004B79C7B801BE6E5 /* Pods_ZiggeoDemoSwift.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AFF4E530D6ED36FB473ED267 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DBF9B7094266CA3D0BD17477 /* Pods-ZiggeoDemoSwift.debug.xcconfig */,
-				A1DA7940729B768C6E1A042B /* Pods-ZiggeoDemoSwift.release.xcconfig */,
+				F119F2818DF698FD9C15E550 /* Pods-ZiggeoDemoSwift.debug.xcconfig */,
+				280B0F0481BA0CEA4721AFBC /* Pods-ZiggeoDemoSwift.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -140,7 +132,7 @@
 				D810B30E286AFC890063C877 /* ZiggeoDemoSwift */,
 				D810B30D286AFC890063C877 /* Products */,
 				AFF4E530D6ED36FB473ED267 /* Pods */,
-				3ED170E911D654F5D10786E4 /* Frameworks */,
+				FDD96E0AAB1D969A4D3CC51B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,6 +283,14 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		FDD96E0AAB1D969A4D3CC51B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEFC85F58BA9ED50724520F8 /* Pods_ZiggeoDemoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,11 +298,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D810B320286AFC8C0063C877 /* Build configuration list for PBXNativeTarget "ZiggeoDemoSwift" */;
 			buildPhases = (
-				18AE03F1FA61543CE1BE18F9 /* [CP] Check Pods Manifest.lock */,
+				C22C9DE83C05D380AC4B90B8 /* [CP] Check Pods Manifest.lock */,
 				D810B308286AFC890063C877 /* Sources */,
 				D810B309286AFC890063C877 /* Frameworks */,
 				D810B30A286AFC890063C877 /* Resources */,
-				5EBC2A1D0258569852BEFDD9 /* [CP] Embed Pods Frameworks */,
+				72F8E653F4BE33FEC7270221 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,7 +367,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18AE03F1FA61543CE1BE18F9 /* [CP] Check Pods Manifest.lock */ = {
+		72F8E653F4BE33FEC7270221 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C22C9DE83C05D380AC4B90B8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,23 +404,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5EBC2A1D0258569852BEFDD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -584,7 +584,7 @@
 		};
 		D810B321286AFC8C0063C877 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBF9B7094266CA3D0BD17477 /* Pods-ZiggeoDemoSwift.debug.xcconfig */;
+			baseConfigurationReference = F119F2818DF698FD9C15E550 /* Pods-ZiggeoDemoSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -621,7 +621,7 @@
 		};
 		D810B322286AFC8C0063C877 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1DA7940729B768C6E1A042B /* Pods-ZiggeoDemoSwift.release.xcconfig */;
+			baseConfigurationReference = 280B0F0481BA0CEA4721AFBC /* Pods-ZiggeoDemoSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

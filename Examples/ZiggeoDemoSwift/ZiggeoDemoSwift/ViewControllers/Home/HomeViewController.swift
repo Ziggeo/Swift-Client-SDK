@@ -8,11 +8,10 @@
 import UIKit
 import ActiveLabel
 import SideMenu
-import ZiggeoSwift
+import ZiggeoMediaSwiftSDK
 import AVKit
 import AVFoundation
 import MobileCoreServices
-
 
 class HomeViewController: UIViewController {
 

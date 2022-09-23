@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import ReplayKit
 import MobileCoreServices
-import ZiggeoSwift
+import ZiggeoMediaSwiftSDK
 
 
 class ViewController: UIViewController {
