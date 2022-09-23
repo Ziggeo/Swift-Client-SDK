@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ZiggeoSwift
+import ZiggeoMediaSwiftSDK
 import SVProgressHUD
 
 class RecordingAudiosViewController: UIViewController {

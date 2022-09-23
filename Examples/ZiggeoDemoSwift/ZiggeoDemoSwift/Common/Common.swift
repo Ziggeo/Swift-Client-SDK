@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-import ZiggeoSwift
+import ZiggeoMediaSwiftSDK
 
 // MARK AlertDelegate
 public protocol AlertButtonClickDelegate : NSObjectProtocol {

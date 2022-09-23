@@ -7,7 +7,7 @@
 
 import UIKit
 import ActiveLabel
-import ZiggeoSwift
+import ZiggeoMediaSwiftSDK
 
 
 class AuthViewController: UIViewController {

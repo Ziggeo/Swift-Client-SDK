@@ -7,7 +7,7 @@
 
 import UIKit
 import AVKit
-import ZiggeoSwift
+import ZiggeoMediaSwiftSDK
 import SVProgressHUD
 
 @objc public protocol RecordingDelegate: AnyObject {

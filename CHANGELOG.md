@@ -1,8 +1,9 @@
 # Changelog
 
-Version 1.1.39-blurring *(2022-09-06)*
+Version 1.1.39-blurring *(2022-09-23)*
 -----------------------------
-* The update does not use `ZiggeoSwiftSDK.framework`, and use `ZiggeoSwift.framework`.
+* The update changes the pod name to `ZiggeoMediaSwiftSDK`.
+* The update does not use `ZiggeoSwiftSDK.framework`, and use `ZiggeoMediaSwiftSDK.framework`.
 
 Version 1.1.38-blurring *(2022-08-10)*
 -----------------------------
