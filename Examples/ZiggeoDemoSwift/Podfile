@@ -4,8 +4,7 @@ use_frameworks!
 
 target 'ZiggeoDemoSwift' do
 
-  # pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
-  pod 'ZiggeoMediaSwiftSDK', :path => '../..'
+  pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 
   pod 'ActiveLabel'
   pod 'SideMenu'
