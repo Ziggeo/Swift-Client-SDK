@@ -1,0 +1,4 @@
+framework module ZiggeoMediaSwiftSDK {
+  header "ZiggeoMediaSwiftSDK-Swift.h"
+  requires objc
+}
