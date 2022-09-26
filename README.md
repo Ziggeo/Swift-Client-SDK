@@ -77,7 +77,7 @@ Please use latest build tools and sdk version when compiling.
 - Add NSPhotoLibraryUsageDescription, NSCameraUsageDescription and NSMicrophoneUsageDescription sections into the info.plist file
 
 ```
-#import <ZiggeoSwiftFramework/ZiggeoSwiftFramework.h>
+#import <ZiggeoMediaSwiftSDK/ZiggeoMediaSwiftSDK.h>
 ```
 
 #### Notification when uploading videos in background
@@ -130,13 +130,13 @@ If you are going to be using the SDK flavor with background blurring, you need t
 So if your app needs to set the `ENABLED_BITCODE` option to `Yes`, you can not use the SDK flavor with background blurring.
 In this ase, use
 ```
-pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
+pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 ```
 
 If your app does not need to set the `ENABLED_BITCODE` option to `Yes`, you can use the SDK flavor with background blurring.
 In this ase, use
 ```
-pod 'ZiggeoSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'blurring'
+pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'blurring'
 ```
 
 - Install framework
@@ -146,7 +146,7 @@ $ pod install
 
 - Reopen the project using the .xcworkspace
 - If you use the SDK flavor with background blurring, set `ENABLED_BITCODE` to `No` on the *Build Settings* of the project.
-![bitcode.png](docs/images/bitcode.png)
+![bitcode.png](Images/bitcode.png)
 
 ## Demo<a name="demo"></a>
 
@@ -159,7 +159,7 @@ This section will introduce you to the most common ways you would integrate our 
 ### Init<a name="init"></a>
 
 ```
-import ZiggeoSwiftFramework
+import ZiggeoMediaSwiftSDK
 
 var m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN", delegate: self)
 ```
@@ -240,12 +240,6 @@ Sometimes you might want to upload something instead of showing the recorder. Wi
 m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
 ```
 
-**Upload From Multiple Path**
-
-```
-m_ziggeo.uploadFromPaths(["FILE_PATH_1", "FILE_PATH_2", ...], data: [:])
-```
-
 **Upload using File Selector**
 
 ```
@@ -271,57 +265,25 @@ Player can be used to play local videos, videos from other services and of cours
 **Standard Playback**
 
 ```
-m_ziggeo.playVideo("VIDEO_TOKEN")
-```
-
-**Play Mutliple Videos using Tokens**
-
-```
-m_ziggeo.playVideos(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
+m_ziggeo.playVideo(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
 ```
 
 **Playback from third-party source**
 
 ```
-m_ziggeo.playFromUri("VIDEO_URL")
-```
-
-**Play Mutliple Videos using urls**
-
-```
-m_ziggeo.playFromUris(["VIDEO_URL_1", "VIDEO_URL_2", ...])
+m_ziggeo.playFromUri(["VIDEO_URL_1", "VIDEO_URL_2", ...])
 ```
 
 #### Audio Player<a name="audio-player"></a>
 
 ```
-m_ziggeo.startAudioPlayer("AUDIO_TOKEN")
-```
-or
-```
-m_ziggeo.playAudio("AUDIO_TOKEN")
-```
-
-**Play Mutliple Audios**
-
-```
-m_ziggeo.startAudiosPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
-```
-or
-```
-m_ziggeo.playAudios(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
+m_ziggeo.startAudioPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
 ```
 
 #### Image Preview<a name="image-preview"></a>
 
 ```
-m_ziggeo.showImage("IMAGE_TOKEN")
-```
-
-**Show Mutliple Images**
-
-```
-m_ziggeo.showImages(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
+m_ziggeo.showImage(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
 ```
 
 
@@ -1041,7 +1003,7 @@ m_ziggeo.setExtraArgsForRecorder(map)
 
 ## Update Information<a name="update"></a>
 
-Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoSwiftSDK 1.1.21 or older.
+Note: Starting with 1.1.22 this SDK requires Swift 5.3.1 compiler due to Swift compiler limitation. If you want to use Swift 5.3 or below you should use ZiggeoMediaSwiftSDK 1.1.21 or older.
 
 ## Changelog<a name="Changelog"></a>
 
