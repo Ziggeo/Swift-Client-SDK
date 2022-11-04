@@ -1289,6 +1289,7 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK26ZiggeoRecordedVideoPreview")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
+@class UISwitch;
 @protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
@@ -1300,6 +1301,7 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified recordButton;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified cameraButton;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified closeButton;
+@property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified blurringSwitch;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified controlsView;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified blurringPreviewView;
 @property (nonatomic, weak) IBOutlet LuxMeterView * _Null_unspecified luxMeterView;
@@ -1318,6 +1320,7 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (IBAction)onCloseButtonTap:(id _Nonnull)sender;
 - (IBAction)changeCamera:(id _Nonnull)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer * _Nonnull)gestureRecognizer;
+- (IBAction)onChangeBlurMode:(id _Nonnull)sender;
 - (IBAction)toggleMovieRecording:(id _Nonnull)sender;
 - (void)updateStartDelay;
 - (void)updateDuration;
