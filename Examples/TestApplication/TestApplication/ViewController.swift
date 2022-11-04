@@ -58,7 +58,6 @@ class ViewController: UIViewController {
         
         var themeMap: [String: Any] = [:]
         self.m_ziggeo.setThemeArgsForRecorder(themeMap)
-        self.m_ziggeo.setCamera(REAR_CAMERA)
         
         var map: [String: Any] = [:]
 //        map["effect_profile"] = "12345"
@@ -66,6 +65,9 @@ class ViewController: UIViewController {
 //        map["client_auth"] = "CLIENT_AUTH_TOKEN"
 //        map["server_auth"] = "SERVER_AUTH_TOKEN"
         self.m_ziggeo.setExtraArgsForRecorder(map)
+        
+        self.m_ziggeo.setCamera(REAR_CAMERA)
+//        self.m_ziggeo.setMaxRecordingDuration(30)
 
         self.m_ziggeo.record()
     }
@@ -86,7 +88,8 @@ class ViewController: UIViewController {
         self.m_ziggeo.setUploadingConfig(config)
         
         var data: [String: Any] = [:]
-//        data["media_types"] = ["video", "audio", "image"]
+        // data[ARG_MEDIA_TYPE] = ["video", "image"]
+        // data[ARG_DURATION] = "20"
         self.m_ziggeo.uploadFromFileSelector(data)
     }
 
@@ -117,30 +120,19 @@ class ViewController: UIViewController {
     }
 }
 
-
-
-
-//MARK: - ZiggeoDelegate
+// MARK: - ZiggeoDelegate
 extension ViewController: ZiggeoDelegate {
     // ZiggeoRecorderDelegate
-    func ziggeoRecorderLuxMeter(_ luminousity: Double) {
-        //print ("luminousity: \(luminousity)")
-    }
-
-    func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
-        //print ("audio level: \(audioLevel)")
-    }
-
-    func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
-        //print ("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
-    }
-    
     func ziggeoRecorderReady() {
         print ("Ziggeo Recorder Ready")
     }
     
     func ziggeoRecorderCanceled() {
         print ("Ziggeo Recorder Canceled")
+    }
+    
+    func ziggeoRecorderCountdown(_ secondsLeft: Int) {
+        print ("Ziggeo Recorder Countdown left: \(secondsLeft)")
     }
     
     func ziggeoRecorderStarted() {
@@ -171,7 +163,6 @@ extension ViewController: ZiggeoDelegate {
         print ("Ziggeo Recorder Manually Submitted")
     }
     
-    
     func ziggeoStreamingStarted() {
         print ("Ziggeo Streaming Started")
     }
@@ -179,9 +170,28 @@ extension ViewController: ZiggeoDelegate {
     func ziggeoStreamingStopped() {
         print ("Ziggeo Streaming Stopped")
     }
+    
+    func ziggeoRecorderLuxMeter(_ luminousity: Double) {
+        //print ("luminousity: \(luminousity)")
+    }
 
+    func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
+        //print ("audio level: \(audioLevel)")
+    }
+
+    func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
+        //print ("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
+    }
 
     // ZiggeoUploadDelegate
+    func ziggeoUploadCancelledByUser() {
+        print ("Upload cancelled by User")
+    }
+    
+    func ziggeoUploadSelected(_ paths: [String]) {
+        print ("Upload Selected: \(paths)")
+    }
+    
     func preparingToUpload(_ path: String) {
         print ("Preparing To Upload : \(path)")
     }
@@ -225,7 +235,6 @@ extension ViewController: ZiggeoDelegate {
         print ("delete : \(token) - \(streamToken)")
     }
 
-    
     // ZiggeoHardwarePermissionCheckDelegate
     func checkCameraPermission(_ granted: Bool) {
         print ("CheckCameraPermission : \(granted)")
@@ -247,7 +256,6 @@ extension ViewController: ZiggeoDelegate {
         print ("CheckHasMicrophone : \(hasMicrophone)")
     }
 
-
     // ZiggeoPlayerDelegate
     func ziggeoPlayerPlaying() {
         print ("ziggeo Player Playing")
@@ -267,5 +275,9 @@ extension ViewController: ZiggeoDelegate {
     
     func ziggeoPlayerReadyToPlay() {
         print ("Ziggeo Player Ready To Play")
+    }
+    
+    func ziggeoPlayerCancelledByUser() {
+        print ("Ziggeo Player Cancelled By User")
     }
 }

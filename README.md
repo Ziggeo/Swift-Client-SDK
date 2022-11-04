@@ -244,7 +244,8 @@ m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
 
 ```
 var data: [String: Any] = [:]
-// data["media_types"] = ["video", "audio", "image"]
+//data[ARG_MEDIA_TYPE] = ["video", "image"]
+//data[ARG_DURATION] = "20"
 self.m_ziggeo.uploadFromFileSelector(data)
 ```
 
@@ -280,10 +281,22 @@ m_ziggeo.playFromUri(["VIDEO_URL_1", "VIDEO_URL_2", ...])
 m_ziggeo.startAudioPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
 ```
 
+#### Audio Player From Paths<a name="audio-player"></a>
+
+```
+m_ziggeo.startAudioPlayer(paths: ["AUDIO_PATH_1", "AUDIO_PATH_2", ...])
+```
+
 #### Image Preview<a name="image-preview"></a>
 
 ```
 m_ziggeo.showImage(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
+```
+
+#### Image Preview From Paths<a name="image-preview"></a>
+
+```
+m_ziggeo.showImage(paths: ["IMAGE_PATH_1", "IMAGE_PATH_2", ...])
 ```
 
 
@@ -729,6 +742,22 @@ func ziggeoRecorderRerecord() {
 }
 ```
 
+**Uploading cancelled**
+
+```
+func ziggeoUploadCancelledByUser() {
+	// this method will be called when user call the cancelUpload function.    
+}
+```
+
+**Uploading selected**
+
+```
+func ziggeoUploadSelected(_ paths: [String]) {
+    // this method will be called when user select the files for uploading.
+}
+```
+
 **Uploading started**
 
 Want to know when upload starts? In that case you will want to listen to this event. It will be raised every time uploads start to happen.
@@ -873,6 +902,16 @@ Want to know when the media playback ends? This event will be raised any time th
 ```
 func ziggeoPlayerEnded() {
 	// Fires when a video playback has ended (reaches the end)
+}
+```
+
+**Playback Cancelled**
+
+This method will be called when user touch close button.
+
+```
+func ziggeoPlayerCancelledByUser() {
+	// Fires when user close player
 }
 ```
 
