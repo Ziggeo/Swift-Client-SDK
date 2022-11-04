@@ -70,7 +70,8 @@ class HomeViewController: UIViewController {
         Common.ziggeo?.setUploadingConfig(config)
         
         var data: [String: Any] = [:]
-//        data["media_types"] = ["video", "audio", "image"]
+        // data[ARG_MEDIA_TYPE] = ["video", "image"]
+        // data[ARG_DURATION] = "20"
         Common.ziggeo?.uploadFromFileSelector(data)
     }
     
@@ -118,15 +119,15 @@ class HomeViewController: UIViewController {
 //            var map1: [String: Any] = [:]
 //            map1["blur_effect"] = "true"
 //            Common.ziggeo?.setThemeArgsForRecorder(map1)
-
-            
-            Common.ziggeo?.setCamera(REAR_CAMERA)
             
             if (UserDefaults.standard.bool(forKey: Common.Blur_Mode_Key) == true) {
                 Common.ziggeo?.setBlurMode(true)
             } else {
                 Common.ziggeo?.setBlurMode(false)
             }
+            
+            Common.ziggeo?.setCamera(REAR_CAMERA)
+//            Common.ziggeo?.setMaxRecordingDuration(30)
 
             Common.ziggeo?.record()
         }
@@ -323,21 +324,16 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
 // MARK: - ZiggeoDelegate
 extension HomeViewController: ZiggeoDelegate {
     // ZiggeoRecorderDelegate
-    func ziggeoRecorderLuxMeter(_ luminousity: Double) {
-    }
-
-    func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
-    }
-
-    func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
-    }
-    
     func ziggeoRecorderReady() {
         Common.addLog("Recorder Ready")
     }
     
     func ziggeoRecorderCanceled() {
         Common.addLog("Recorder Canceled")
+    }
+    
+    func ziggeoRecorderCountdown(_ secondsLeft: Int) {
+        Common.addLog("Ziggeo Recorder Countdown left: \(secondsLeft)")
     }
     
     func ziggeoRecorderStarted() {
@@ -368,7 +364,6 @@ extension HomeViewController: ZiggeoDelegate {
         Common.addLog("Recorder Manually Submitted")
     }
     
-    
     func ziggeoStreamingStarted() {
         Common.addLog("Streaming Started")
     }
@@ -377,8 +372,27 @@ extension HomeViewController: ZiggeoDelegate {
         Common.addLog("Streaming Stopped")
     }
 
+    func ziggeoRecorderLuxMeter(_ luminousity: Double) {
+        
+    }
 
+    func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
+        
+    }
+
+    func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
+        
+    }
+    
     // ZiggeoUploadDelegate
+    func ziggeoUploadCancelledByUser() {
+        Common.addLog("Upload cancelled by User")
+    }
+    
+    func ziggeoUploadSelected(_ paths: [String]) {
+        Common.addLog("Upload Selected: \(paths)")
+    }
+    
     func preparingToUpload(_ path: String) {
         Common.addLog("Preparing To Upload: \(path)")
     }
@@ -419,23 +433,26 @@ extension HomeViewController: ZiggeoDelegate {
         Common.addLog("delete: \(token) - \(streamToken)")
     }
 
-    
     // ZiggeoHardwarePermissionCheckDelegate
     func checkCameraPermission(_ granted: Bool) {
+        
     }
     
     func checkMicrophonePermission(_ granted: Bool) {
+        
     }
     
     func checkPhotoLibraryPermission(_ granted: Bool) {
+        
     }
     
     func checkHasCamera(_ hasCamera: Bool) {
+        
     }
     
     func checkHasMicrophone(_ hasMicrophone: Bool) {
+        
     }
-
 
     // ZiggeoPlayerDelegate
     func ziggeoPlayerPlaying() {
@@ -456,5 +473,9 @@ extension HomeViewController: ZiggeoDelegate {
     
     func ziggeoPlayerReadyToPlay() {
         Common.addLog("Player Ready To Play")
+    }
+    
+    func ziggeoPlayerCancelledByUser() {
+        Common.addLog("Ziggeo Player Cancelled By User")
     }
 }
