@@ -210,10 +210,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-frameworks.sh",
-				"${PODS_ROOT}/ZiggeoMediaSwiftSDK/Frameworks/ZiggeoMediaSwiftSDK.framework",
+				"${PODS_ROOT}/GoogleAds-IMA-iOS-SDK/GoogleInteractiveMediaAds.framework",
+				"${PODS_ROOT}/../../../Frameworks/ZiggeoMediaSwiftSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleInteractiveMediaAds.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZiggeoMediaSwiftSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

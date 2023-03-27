@@ -26,9 +26,14 @@
 		2. [Recorder Configs](#recorder-config)
 	6. [Events / Callbacks](#events)
 		1. [Global Callbacks](#callbacks-global)
-		2. [Recorder Callbacks](#callbacks-recorder)
-		3. [Player Callbacks](#callbacks-player)
-		4. [Sensor Callbacks](#callbacks-sensor)
+		2. [Hardware Permission Callbacks](#callbacks-hardware-permission)
+		3. [Uploading Callbacks](#callbacks-uploading)
+		4. [File Selector Callbacks](#callbacks-file-selector)
+		5. [Recorder Callbacks](#callbacks-recorder)
+		6. [Sensor Callbacks](#callbacks-sensor)
+		7. [Player Callbacks](#callbacks-player)
+		8. [Screen Recorder Callbacks](#callbacks-screen-recorder)
+		9. [QR Scanner Callbacks](#callbacks-qr-scanner)
 	7. [API](#api)
 		1. [Request Cancellation](#api-cancel)
 		2. [Videos API](#api-videos)
@@ -161,7 +166,15 @@ This section will introduce you to the most common ways you would integrate our 
 ```
 import ZiggeoMediaSwiftSDK
 
-var m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN", delegate: self)
+var m_ziggeo = Ziggeo(token: "ZIGGEO_APP_TOKEN")
+m_ziggeo.qrScannerDelegate = self
+m_ziggeo.hardwarePermissionDelegate = self
+m_ziggeo.uploadingDelegate = self
+m_ziggeo.fileSelectorDelegate = self
+m_ziggeo.recorderDelegate = self
+m_ziggeo.sensorDelegate = self
+m_ziggeo.playerDelegate = self
+m_ziggeo.screenRecorderDelegate = self
 ```
 - You can grab your appToken by logging [into your](https://ziggeo.com/signin) account and under application you will use > Overview you will see the app token.
 
@@ -203,7 +216,7 @@ m_ziggeo.record()
 By utilizing the following you will be creating a foreground service for screen recording
 
 ```
-m_ziggeo.startScreenRecorder()
+m_ziggeo.startScreenRecorder(appGroup: "YOUR_APP_GROUP_NAME", preferredExtension: "Preferred_Extension_Name")
 ```
 
 #### Video Trim<a name="video-trim"></a>
@@ -567,10 +580,10 @@ Callbacks allow you to know when something happens. They fire in case of some ev
 
 We have separated the events that are available to you into several different categories.
 
-Before doing that, you will need to register a callback and this is done with the `ZiggeoDelegate`.
+Before doing that, you will need to register a callback and this is done with the `ZiggeoHardwarePermissionDelegate`, `ZiggeoUploadingDelegate`, `ZiggeoFileSelectorDelegate`, `ZiggeoRecorderDelegate`, `ZiggeoSensorDelegate`, `ZiggeoPlayerDelegate`, `ZiggeoScreenRecorderDelegate`, `ZiggeoQRScannerDelegate`.
 
 ```
-extension ViewController: ZiggeoDelegate {
+extension ViewController: ZiggeoHardwarePermissionDelegate, ZiggeoUploadingDelegate, ZiggeoFileSelectorDelegate, ZiggeoRecorderDelegate, ZiggeoSensorDelegate, ZiggeoPlayerDelegate, ZiggeoScreenRecorderDelegate, ZiggeoQRScannerDelegate {
     ...
 }
 ```
@@ -579,13 +592,7 @@ extension ViewController: ZiggeoDelegate {
 
 * No global callbacks are available at this time
 
-#### Recorder Callbacks<a name="callbacks-recorder"></a>
-
-The callbacks in this section are specific to recorder only. This means that they will not fire at all for the player embeds.
-
-The callbacks are listed in the order that they should appear in within your code.
-
-- Note: Some callbacks might not be called. For example if video is uploaded and not recorded, recording specific callbacks will never fire.
+#### Hardware Permission Callbacks<a name="callbacks-hardware-permission"></a>
 
 **Permissions**
 
@@ -630,133 +637,7 @@ func checkHasMicrophone(_ hasMicrophone: Bool) {
 }
 ```
 
-**Ready to record**
-
-In most cases, once permissions are given, the recording can start and as such this callback will fire. It means that camera is ready and that all permissions are granted. All that is left is to start recording.
-
-```
-func ziggeoRecorderReady() {
-	// this method will be called when recorder is ready to recorder
-}
-```
-
-**Recording has started**
-
-This event fires once recording has just started. This is useful if you want to know that the video was recording and not upload since upload events will fire for all.
-
-It can also be useful if you are using embedded recorder and you want to stop all other activities and bring more focus to the capture.
-
-Standard Recording
-
-```
-func ziggeoRecorderStarted() {
-	// this method will be called when recorder is started
-}
-```
-
-Streaming Recording
-
-```
-func ziggeoStreamingStarted() {
-	// Triggered when a streaming process has started (Press on the Record button if countdown 0 or after the countdown goes to 0)
-}
-```
-
-- Note: Streaming is when recording is sent to Ziggeo servers as soon as recording happens. You need to turn this feature on to be utilized.
-
-**Recording in progress**
-
-This event is raised when recording is in process. This is a continuous update notification that will fire through entire duration of recording process.
-
-- Note: `seconds` parameter will let you know how much time has passed since the recording had started.
-
-```
-func ziggeoRecorderCurrentRecordedDurationSeconds(_ seconds: Double) {
-	// this method will be called while recording
-}
-```
-
-**Face Detected**
-
-When face is detected on the video and if you are listening to the callback you will get information about the face. Please note that the face detection will not recognize who someone is, rather just a simple way of knowing that there is a face over the video.
-
-- Note: If the same person leaves the video and comes back, they will have a different face ID even if it is the same person.
-
-```
-func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
-	// this method will be called when face is detected
-}
-```
-
-**Recording cancelled**
-
-Want to detect if someone cancels the recording? Use this event to know when someone cancelled the recording and closed the screen.
-
-```
-func ziggeoRecorderCanceled() {
-	// this method will be called when video recorder is canceled
-}
-```
-
-**Recording Finished**
-
-This event will be raised when recording had just finished. It will happen in cases when the end user clicks on Stop button as well as if there was duration or size limit that was reached.
-
-Standard recording
-
-```
-func ziggeoRecorderStopped(_ path: String) {
-	// this method will be called when recorder is stopped
-}
-```
-
-Streaming Recording
-
-```
-func ziggeoStreamingStopped() {
-	// Triggered when a streaming process has stopped (automatically after reaching the maximum duration or manually.)
-}
-```
-
-**Confirm Recording**
-
-Need to make sure someone confirms the video submission? Use this callback and record its action on your side as you like.
-
-As this might be a requirement in some countries you are utilizing your app, you can easily use this for any sort of confirmation of captured video.
-
-- Note: Our code only fires this event. It is up to you to then use this event to capture and save that someone confirmed the use of the video and in what way. This is done so as it offers you most flexibility in what you want to do and how.
-
-```
-func ziggeoRecorderManuallySubmitted() {
-	// this method will be called when recorded file(video or audio) is uploaded by the user
-}
-```
-
-**Re-Recording**
-
-Rerecording is a common way to provide the end user of capturing multiple samples before they have one that they are satisfied with to submit.
-
-```
-func ziggeoRecorderRerecord() {
-	// this method will be called when recorder is rerecorded
-}
-```
-
-**Uploading cancelled**
-
-```
-func ziggeoUploadCancelledByUser() {
-	// this method will be called when user call the cancelUpload function.    
-}
-```
-
-**Uploading selected**
-
-```
-func ziggeoUploadSelected(_ paths: [String]) {
-    // this method will be called when user select the files for uploading.
-}
-```
+#### Uploading Callbacks<a name="callbacks-uploading"></a>
 
 **Uploading started**
 
@@ -841,6 +722,197 @@ func uploadProcessed(_ path: String, token: String, streamToken: String) {
 }
 ```
 
+**Processing Cancelled**
+```
+func cancelUpload(_ path: String, deleteFile: Bool) {
+   // this method will be called when uploading the file(video, audio, image) was cancelled
+}
+```
+
+```
+func cancelCurrentUpload(_ deleteFile: Bool) {
+	// this method will be called when uploading current file(video, audio, image) was cancelled
+}
+```
+
+#### File Selector Callbacks<a name="callbacks-file-selector"></a>
+
+**Uploading cancelled**
+
+```
+func uploadCancelledByUser() {
+	// this method will be called when user call the cancelUpload function.    
+}
+```
+
+**Uploading selected**
+
+```
+func uploadSelected(_ paths: [String]) {
+    // this method will be called when user select the files for uploading.
+}
+```
+
+#### Recorder Callbacks<a name="callbacks-recorder"></a>
+
+The callbacks in this section are specific to recorder only. This means that they will not fire at all for the player embeds.
+
+The callbacks are listed in the order that they should appear in within your code.
+
+- Note: Some callbacks might not be called. For example if video is uploaded and not recorded, recording specific callbacks will never fire.
+
+**Ready to record**
+
+In most cases, once permissions are given, the recording can start and as such this callback will fire. It means that camera is ready and that all permissions are granted. All that is left is to start recording.
+
+```
+func recorderReady() {
+	// this method will be called when recorder is ready to recorder
+}
+```
+
+**Recording has started**
+
+This event fires once recording has just started. This is useful if you want to know that the video was recording and not upload since upload events will fire for all.
+
+It can also be useful if you are using embedded recorder and you want to stop all other activities and bring more focus to the capture.
+
+Standard Recording
+
+```
+func recorderStarted() {
+	// this method will be called when recorder is started
+}
+```
+
+Streaming Recording
+
+```
+func streamingStarted() {
+	// Triggered when a streaming process has started (Press on the Record button if countdown 0 or after the countdown goes to 0)
+}
+```
+
+- Note: Streaming is when recording is sent to Ziggeo servers as soon as recording happens. You need to turn this feature on to be utilized.
+
+**Recording in progress**
+
+This event is raised when recording is in process. This is a continuous update notification that will fire through entire duration of recording process.
+
+- Note: `seconds` parameter will let you know how much time has passed since the recording had started.
+
+```
+func recorderCurrentRecordedDurationSeconds(_ seconds: Double) {
+	// this method will be called while recording
+}
+```
+
+**Recording cancelled**
+
+Want to detect if someone cancels the recording? Use this event to know when someone cancelled the recording and closed the screen.
+
+```
+func recorderCancelledByUser() {
+	// this method will be called when video recorder is canceled
+}
+```
+
+**Recording Finished**
+
+This event will be raised when recording had just finished. It will happen in cases when the end user clicks on Stop button as well as if there was duration or size limit that was reached.
+
+Standard recording
+
+```
+func recorderStopped(_ path: String) {
+	// this method will be called when recorder is stopped
+}
+```
+
+Streaming Recording
+
+```
+func streamingStopped() {
+	// Triggered when a streaming process has stopped (automatically after reaching the maximum duration or manually.)
+}
+```
+
+**Confirm Recording**
+
+Need to make sure someone confirms the video submission? Use this callback and record its action on your side as you like.
+
+As this might be a requirement in some countries you are utilizing your app, you can easily use this for any sort of confirmation of captured video.
+
+- Note: Our code only fires this event. It is up to you to then use this event to capture and save that someone confirmed the use of the video and in what way. This is done so as it offers you most flexibility in what you want to do and how.
+
+```
+func recorderManuallySubmitted() {
+	// this method will be called when recorded file(video or audio) is uploaded by the user
+}
+```
+
+**Re-Recording**
+
+Rerecording is a common way to provide the end user of capturing multiple samples before they have one that they are satisfied with to submit.
+
+```
+func recorderRerecord() {
+	// this method will be called when recorder is rerecorded
+}
+```
+
+**Play Recorded Video**
+
+```
+func recorderPlaying() {
+	// this method will be called when recorder plays the recorded media
+}
+```
+
+**Pause Recorded Video**
+
+```
+func recorderPaused() {
+	// this method will be called when recorder pauses the playback of recorded media
+}
+```
+
+#### Sensor Callbacks<a name="callbacks-sensor"></a>
+
+**Face Detected**
+
+When face is detected on the video and if you are listening to the callback you will get information about the face. Please note that the face detection will not recognize who someone is, rather just a simple way of knowing that there is a face over the video.
+
+- Note: If the same person leaves the video and comes back, they will have a different face ID even if it is the same person.
+
+```
+func faceDetected(_ faceID: Int, rect: CGRect) {
+	// this method will be called when face is detected
+}
+```
+
+**Lightning conditions**
+
+Want to know lightning conditions? Our light sensor even will be raised every second to provide you with a value of how light / dark the environment seems.
+
+- Note: Our SDK is checking {@link Sensor.TYPE_LIGHT} value
+
+```
+func recorderLuxMeter(_ luminousity: Double) {
+	//
+}
+```
+
+**Microphone levels**
+
+Are you interested in knowing microphone health status? This event will be raised every second with the information about the recorder amplitude.
+
+```
+func audioMeter(_ audioLevel: Double) {
+	//Your code goes here
+}
+```
+
 #### Player Callbacks<a name="callbacks-player"></a>
 
 We differentiate between player and the player shown automatically immediately after recording. You will find events for both types here.
@@ -850,7 +922,7 @@ We differentiate between player and the player shown automatically immediately a
 Want to know once the player can play the video? This event will let you know once the media is available for playback. By listening to it, you can avoid listening to progress events as it will fire once the media is ready regardless if it has to be processed first, or if it is waiting to download the media to make it available for playback
 
 ```
-func ziggeoPlayerReadyToPlay() {
+func playerReadyToPlay() {
 	// Triggered when a video player is ready to play a video
 }
 ```
@@ -859,19 +931,9 @@ func ziggeoPlayerReadyToPlay() {
 
 Want to react when playback is started? This event will be raised every time the playback is started.
 
-Standard player
-
 ```
-func ziggeoPlayerPlaying() {
+func playerPlaying() {
 	// Fires any time a playback is started
-}
-```
-
-Player after recording
-
-```
-func ziggeoRecorderPlaying() {
-	// this method will be called when recorder plays the recorded media
 }
 ```
 
@@ -882,16 +944,8 @@ What to react when someone pause's the video?. This event will be raised when th
 - Note: It will also fire at the end of the video
 
 ```
-func ziggeoPlayerPaused() {
+func playerPaused() {
 	// Fires when the pause button is clicked (and at the end of the video)
-}
-```
-
-Player after recording
-
-```
-func ziggeoRecorderPaused() {
-	// this method will be called when recorder pauses the playback of recorded media
 }
 ```
 
@@ -900,7 +954,7 @@ func ziggeoRecorderPaused() {
 Want to know when the media playback ends? This event will be raised any time the playback reaches the end of media length.
 
 ```
-func ziggeoPlayerEnded() {
+func playerEnded() {
 	// Fires when a video playback has ended (reaches the end)
 }
 ```
@@ -910,7 +964,7 @@ func ziggeoPlayerEnded() {
 This method will be called when user touch close button.
 
 ```
-func ziggeoPlayerCancelledByUser() {
+func playerCancelledByUser() {
 	// Fires when user close player
 }
 ```
@@ -922,32 +976,29 @@ Want to know if and where to someone changes the point of playback (seeks the me
 - Note: The value returned will be milliseconds of time when seek operation was set to, looking from the start.
 
 ```
-func ziggeoPlayerSeek(_ positionMillis: Double) {
+func playerSeek(_ positionMillis: Double) {
 	// Triggered when the user moves the progress indicator to continue video playback from a different position
 }
 ```
 
-#### Sensor Callbacks<a name="callbacks-sensor"></a>
+#### Screen Recorder Callbacks<a name="callbacks-screen-recorder"></a>
 
-**Lightning conditions**
 
-Want to know lightning conditions? Our light sensor even will be raised every second to provide you with a value of how light / dark the environment seems.
+#### QR Scanner Callbacks<a name="callbacks-qr-scanner"></a>
 
-- Note: Our SDK is checking {@link Sensor.TYPE_LIGHT} value
+**QR Code Scan scanned**
 
 ```
-func ziggeoRecorderLuxMeter(_ luminousity: Double) {
-	//
+func qrCodeScaned(_ qrCode: String) {
+	// this method will ba called when qr code was detected. 
 }
 ```
 
-**Microphone levels**
-
-Are you interested in knowing microphone health status? This event will be raised every second with the information about the recorder amplitude.
+**QR Code Scan cancelled**
 
 ```
-func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
-	//Your code goes here
+func qrCodeScanCancelledByUser() {
+	// this method will be called when qr code Scan is canceled
 }
 ```
 
