@@ -1,5 +1,11 @@
 # Changelog
 
+Version 1.1.40-blurring *(2023-03-27)*
+-----------------------------
+* The update adds pausable audio recording function.
+* The update does not use `ZiggeoDelegate`, and use separated delegate(`ZiggeoHardwarePermissionDelegate`, `ZiggeoUploadingDelegate`, `ZiggeoFileSelectorDelegate`, `ZiggeoRecorderDelegate`, `ZiggeoSensorDelegate`, `ZiggeoPlayerDelegate`, `ZiggeoScreenRecorderDelegate`, `ZiggeoQRScannerDelegate`).
+* The update changes some delegate functions.
+
 Version 1.1.39-blurring *(2022-09-26)*
 -----------------------------
 * The update changes the pod name to `ZiggeoMediaSwiftSDK`.

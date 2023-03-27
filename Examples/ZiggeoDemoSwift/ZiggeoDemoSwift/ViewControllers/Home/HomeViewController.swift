@@ -46,6 +46,14 @@ class HomeViewController: UIViewController {
         
         Common.mainNavigationController = self.navigationController
         Common.homeViewController = self
+        
+        Common.ziggeo?.hardwarePermissionDelegate = self
+        Common.ziggeo?.uploadingDelegate = self
+        Common.ziggeo?.fileSelectorDelegate = self
+        Common.ziggeo?.recorderDelegate = self
+        Common.ziggeo?.sensorDelegate = self
+        Common.ziggeo?.playerDelegate = self
+        Common.ziggeo?.screenRecorderDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +81,8 @@ class HomeViewController: UIViewController {
         // data[ARG_MEDIA_TYPE] = ["video", "image"]
         // data[ARG_DURATION] = "20"
         Common.ziggeo?.uploadFromFileSelector(data)
+        
+        self.hideMenu()
     }
     
     @IBAction func onCameraImage(_ sender: Any) {
@@ -81,18 +91,27 @@ class HomeViewController: UIViewController {
         Common.ziggeo?.setUploadingConfig(config)
         
         Common.ziggeo?.startImageRecorder()
+        
+        self.hideMenu()
     }
     
     @IBAction func onVocieRecord(_ sender: Any) {
         var config: [String: Any] = [:]
         config["tags"] = "iOS_Audio_Record"
-        Common.ziggeo?.setUploadingConfig(config)
+        Common.ziggeo?.setExtraArgsForRecorder(config)
         
         Common.ziggeo?.startAudioRecorder()
+        
+        self.hideMenu()
     }
     
+    @available(iOS 12.0, *)
     @IBAction func onScreenRecord(_ sender: Any) {
-        Common.ziggeo?.startScreenRecorder(addRecordingButtonToView: sender as! UIView, frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height), appGroup: "com.ziggeo.sdk")
+        let button = sender as! UIButton
+        Common.ziggeo?.startScreenRecorder(appGroup: "group.com.ziggeo.demo",
+                                           preferredExtension: "com.ziggeo.demo.BroadcastExtension")
+        
+        self.hideMenu()
     }
     
     @IBAction func onVideoRecord(_ sender: Any) {
@@ -101,24 +120,18 @@ class HomeViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
             
         } else {
-            var config: [String: Any] = [:]
-            config["tags"] = "iOS_Video_Record"
-            Common.ziggeo?.setUploadingConfig(config)
-            
             let startDelayString = UserDefaults.standard.string(forKey: Common.Start_Delay_Key)
             if (startDelayString != nil && startDelayString != "") {
                 let startDelay = Int(startDelayString!) ?? 0
                 Common.ziggeo?.setStartDelay(startDelay)
             }
 
-            var map: [String: Any] = [:]
-            map["effect_profile"] = "12345"
-            map["data"] = [:]
-            Common.ziggeo?.setExtraArgsForRecorder(map)
-            
-//            var map1: [String: Any] = [:]
-//            map1["blur_effect"] = "true"
-//            Common.ziggeo?.setThemeArgsForRecorder(map1)
+            var config: [String: Any] = [:]
+            config["effect_profile"] = "12345"
+            config["data"] = ["source":"app"]
+            config["tags"] = "iOS_Video_Record"
+            config["expiration_days"] = 1
+            Common.ziggeo?.setExtraArgsForRecorder(config)
             
             if (UserDefaults.standard.bool(forKey: Common.Blur_Mode_Key) == true) {
                 Common.ziggeo?.setBlurMode(true)
@@ -131,6 +144,8 @@ class HomeViewController: UIViewController {
 
             Common.ziggeo?.record()
         }
+        
+        self.hideMenu()
     }
     
     @IBAction func onPlayAll(_ sender: Any) {
@@ -187,6 +202,11 @@ class HomeViewController: UIViewController {
             popupMenuView.isHidden = true
             popupMenuImageView.image = UIImage(named: "ic_plus")
         }
+    }
+    
+    private func hideMenu() {
+        isShowPopupMenu = false
+        self.refreshPopupMenu()
     }
     
     private func makeSettings() -> SideMenuSettings {
@@ -321,78 +341,26 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 }
 
-// MARK: - ZiggeoDelegate
-extension HomeViewController: ZiggeoDelegate {
-    // ZiggeoRecorderDelegate
-    func ziggeoRecorderReady() {
-        Common.addLog("Recorder Ready")
+// MARK: - ZiggeoHardwarePermissionDelegate
+extension HomeViewController: ZiggeoHardwarePermissionDelegate {
+    func checkCameraPermission(_ granted: Bool) {
     }
     
-    func ziggeoRecorderCanceled() {
-        Common.addLog("Recorder Canceled")
+    func checkMicrophonePermission(_ granted: Bool) {
     }
     
-    func ziggeoRecorderCountdown(_ secondsLeft: Int) {
-        Common.addLog("Ziggeo Recorder Countdown left: \(secondsLeft)")
+    func checkPhotoLibraryPermission(_ granted: Bool) {
     }
     
-    func ziggeoRecorderStarted() {
-        Common.addLog("Recorder Started")
+    func checkHasCamera(_ hasCamera: Bool) {
     }
     
-    func ziggeoRecorderStopped(_ path: String) {
-        Common.addLog("Recorder Stopped")
+    func checkHasMicrophone(_ hasMicrophone: Bool) {
     }
-    
-    func ziggeoRecorderCurrentRecordedDurationSeconds(_ seconds: Double) {
-        Common.addLog("Recorder Recording Duration: \(seconds)")
-    }
-    
-    func ziggeoRecorderPlaying() {
-        Common.addLog("Recorder Playing")
-    }
-    
-    func ziggeoRecorderPaused() {
-        Common.addLog("Recorder Paused")
-    }
-    
-    func ziggeoRecorderRerecord() {
-        Common.addLog("Recorder Rerecord")
-    }
-    
-    func ziggeoRecorderManuallySubmitted() {
-        Common.addLog("Recorder Manually Submitted")
-    }
-    
-    func ziggeoStreamingStarted() {
-        Common.addLog("Streaming Started")
-    }
-    
-    func ziggeoStreamingStopped() {
-        Common.addLog("Streaming Stopped")
-    }
+}
 
-    func ziggeoRecorderLuxMeter(_ luminousity: Double) {
-        
-    }
-
-    func ziggeoRecorderAudioMeter(_ audioLevel: Double) {
-        
-    }
-
-    func ziggeoRecorderFaceDetected(_ faceID: Int, rect: CGRect) {
-        
-    }
-    
-    // ZiggeoUploadDelegate
-    func ziggeoUploadCancelledByUser() {
-        Common.addLog("Upload cancelled by User")
-    }
-    
-    func ziggeoUploadSelected(_ paths: [String]) {
-        Common.addLog("Upload Selected: \(paths)")
-    }
-    
+// MARK: - ZiggeoUploadingDelegate
+extension HomeViewController: ZiggeoUploadingDelegate {
     func preparingToUpload(_ path: String) {
         Common.addLog("Preparing To Upload: \(path)")
     }
@@ -432,50 +400,115 @@ extension HomeViewController: ZiggeoDelegate {
     func delete(_ token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
         Common.addLog("delete: \(token) - \(streamToken)")
     }
+    
+    func cancelUpload(_ path: String, deleteFile: Bool) {
+    }
+    
+    func cancelCurrentUpload(_ deleteFile: Bool) {
+    }
+}
 
-    // ZiggeoHardwarePermissionCheckDelegate
-    func checkCameraPermission(_ granted: Bool) {
-        
+// MARK: - ZiggeoFileSelectorDelegate
+extension HomeViewController: ZiggeoFileSelectorDelegate {
+    func uploadSelected(_ paths: [String]) {
+        Common.addLog("Upload Selected: \(paths)")
     }
     
-    func checkMicrophonePermission(_ granted: Bool) {
-        
+    func uploadCancelledByUser() {
+        Common.addLog("Upload cancelled by User")
+    }
+}
+
+// MARK: - ZiggeoRecorderDelegate
+extension HomeViewController: ZiggeoRecorderDelegate {
+    func recorderReady() {
+        Common.addLog("Recorder Ready")
     }
     
-    func checkPhotoLibraryPermission(_ granted: Bool) {
-        
+    func recorderCancelledByUser() {
+        Common.addLog("Recorder Canceled")
     }
     
-    func checkHasCamera(_ hasCamera: Bool) {
-        
+    func recorderCountdown(_ secondsLeft: Int) {
+        Common.addLog("Recorder Countdown left: \(secondsLeft)")
     }
     
-    func checkHasMicrophone(_ hasMicrophone: Bool) {
-        
+    func recorderStarted() {
+        Common.addLog("Recorder Started")
+    }
+    
+    func recorderStopped(_ path: String) {
+        Common.addLog("Recorder Stopped")
+    }
+    
+    func recorderCurrentRecordedDurationSeconds(_ seconds: Double) {
+        Common.addLog("Recorder Recording Duration: \(seconds)")
+    }
+    
+    func recorderPlaying() {
+        Common.addLog("Recorder Playing")
+    }
+    
+    func recorderPaused() {
+        Common.addLog("Recorder Paused")
+    }
+    
+    func recorderRerecord() {
+        Common.addLog("Recorder Rerecord")
+    }
+    
+    func recorderManuallySubmitted() {
+        Common.addLog("Recorder Manually Submitted")
+    }
+    
+    func streamingStarted() {
+        Common.addLog("Streaming Started")
+    }
+    
+    func streamingStopped() {
+        Common.addLog("Streaming Stopped")
+    }
+}
+
+// MARK: - ZiggeoSensorDelegate
+extension HomeViewController: ZiggeoSensorDelegate {
+    func luxMeter(_ luminousity: Double) {
     }
 
-    // ZiggeoPlayerDelegate
-    func ziggeoPlayerPlaying() {
+    func audioMeter(_ audioLevel: Double) {
+    }
+
+    func faceDetected(_ faceID: Int, rect: CGRect) {
+    }
+}
+
+// MARK: - ZiggeoPlayerDelegate
+extension HomeViewController: ZiggeoPlayerDelegate {
+    func playerPlaying() {
         Common.addLog("Player Playing")
     }
     
-    func ziggeoPlayerPaused() {
+    func playerPaused() {
         Common.addLog("Player Paused")
     }
     
-    func ziggeoPlayerEnded() {
+    func playerEnded() {
         Common.addLog("Player Ended")
     }
     
-    func ziggeoPlayerSeek(_ positionMillis: Double) {
+    func playerSeek(_ positionMillis: Double) {
         Common.addLog("Player Seek: \(positionMillis)")
     }
     
-    func ziggeoPlayerReadyToPlay() {
+    func playerReadyToPlay() {
         Common.addLog("Player Ready To Play")
     }
     
-    func ziggeoPlayerCancelledByUser() {
-        Common.addLog("Ziggeo Player Cancelled By User")
+    func playerCancelledByUser() {
+        Common.addLog("Player Cancelled By User")
     }
+}
+
+// MARK: - ZiggeoScreenRecorderDelegate
+extension HomeViewController: ZiggeoScreenRecorderDelegate {
 }
