@@ -89,22 +89,26 @@ class AuthViewController: UIViewController {
     }
     
     private func scanQRCode() {
-        let ziggeo = Ziggeo(qrCodeReaderDelegate: self)
+        let ziggeo = Ziggeo()
+        ziggeo.qrScannerDelegate = self
         ziggeo.startQrScanner()
     }
     
     private func login(_ applicationToken: String) {
         UserDefaults.standard.setValue(applicationToken, forKey: Common.Application_Token_Key)
         if let vc = Common.getStoryboardViewController("HomeViewController") as? HomeViewController {
-            Common.ziggeo = Ziggeo(token: applicationToken, delegate: vc)
+            Common.ziggeo = Ziggeo(token: applicationToken)
             self.navigationController?.setViewControllers([vc], animated: true)
         }
     }
 }
 
-// MARK: - ZiggeoQRCodeReaderDelegate
-extension AuthViewController: ZiggeoQRCodeReaderDelegate {
-    func ziggeoQRCodeScaned(_ qrCode: String) {
+// MARK: - ZiggeoQRScannerDelegate
+extension AuthViewController: ZiggeoQRScannerDelegate {
+    func qrCodeScaned(_ qrCode: String) {
         self.login(qrCode)
+    }
+    
+    func qrCodeScanCancelledByUser() {
     }
 }

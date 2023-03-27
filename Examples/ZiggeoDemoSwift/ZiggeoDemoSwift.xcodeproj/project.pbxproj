@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5CEA73D8EA45B8D323D877 /* Pods_BroadcastExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8B1163AEC0DE1516757D04 /* Pods_BroadcastExtension.framework */; };
 		8F63778B63DA31EB3F95AE26 /* Pods_ZiggeoDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BCFFFBA92BF5EA3D0F5F72 /* Pods_ZiggeoDemoSwift.framework */; };
 		D809C67D287D223300FA6B3D /* UIImageView+Expansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D809C67C287D223300FA6B3D /* UIImageView+Expansion.swift */; };
 		D80E8F7628730D3F007804C6 /* UIView+Expansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E8F7428730D3F007804C6 /* UIView+Expansion.swift */; };
@@ -30,6 +31,9 @@
 		D8D2A3DC2873D65B004A83FE /* Double+Expansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D2A3DB2873D65B004A83FE /* Double+Expansion.swift */; };
 		D8D2A3E02873D88D004A83FE /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D2A3DE2873D88D004A83FE /* RecordingTableViewCell.swift */; };
 		D8D2A3E12873D88D004A83FE /* RecordingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D2A3DF2873D88D004A83FE /* RecordingTableViewCell.xib */; };
+		D8DB969B29A644D7003A46F2 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DB969A29A644D7003A46F2 /* ReplayKit.framework */; };
+		D8DB969E29A644D7003A46F2 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB969D29A644D7003A46F2 /* SampleHandler.swift */; };
+		D8DB96A229A644D7003A46F2 /* BroadcastExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8DB969929A644D7003A46F2 /* BroadcastExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D8F05516287444E500020AA5 /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F05514287444E400020AA5 /* LogoCollectionViewCell.xib */; };
 		D8F05517287444E500020AA5 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F05515287444E500020AA5 /* LogoCollectionViewCell.swift */; };
 		D8F0557E2874700800020AA5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0556F2874700800020AA5 /* AuthViewController.swift */; };
@@ -48,10 +52,37 @@
 		D8F0558C2874708200020AA5 /* VideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D8DB96A029A644D7003A46F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D810B304286AFC890063C877 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8DB969829A644D7003A46F2;
+			remoteInfo = BroadcastExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8DB96A629A644D7003A46F2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D8DB96A229A644D7003A46F2 /* BroadcastExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3A8B1163AEC0DE1516757D04 /* Pods_BroadcastExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BroadcastExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6552EAAABC4A71BFFC43B0EA /* Pods-BroadcastExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastExtension.release.xcconfig"; path = "Target Support Files/Pods-BroadcastExtension/Pods-BroadcastExtension.release.xcconfig"; sourceTree = "<group>"; };
 		71A0621B0310520C870080C7 /* Pods-ZiggeoDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZiggeoDemoSwift.release.xcconfig"; path = "Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		772DA717731DCC0EA7ABEF8D /* Pods-ZiggeoDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZiggeoDemoSwift.debug.xcconfig"; path = "Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		A5BCFFFBA92BF5EA3D0F5F72 /* Pods_ZiggeoDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZiggeoDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85CE0804CEF5E745B3F39D0 /* Pods-BroadcastExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastExtension.debug.xcconfig"; path = "Target Support Files/Pods-BroadcastExtension/Pods-BroadcastExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D809C67C287D223300FA6B3D /* UIImageView+Expansion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Expansion.swift"; sourceTree = "<group>"; };
 		D80E8F7428730D3F007804C6 /* UIView+Expansion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Expansion.swift"; sourceTree = "<group>"; };
 		D810B30C286AFC890063C877 /* ZiggeoDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZiggeoDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +107,12 @@
 		D8D2A3DB2873D65B004A83FE /* Double+Expansion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Expansion.swift"; sourceTree = "<group>"; };
 		D8D2A3DE2873D88D004A83FE /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		D8D2A3DF2873D88D004A83FE /* RecordingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingTableViewCell.xib; sourceTree = "<group>"; };
+		D8DB969429A644B3003A46F2 /* ZiggeoDemoSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZiggeoDemoSwift.entitlements; sourceTree = "<group>"; };
+		D8DB969929A644D7003A46F2 /* BroadcastExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BroadcastExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8DB969A29A644D7003A46F2 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		D8DB969D29A644D7003A46F2 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		D8DB969F29A644D7003A46F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8DB96A729A644E9003A46F2 /* BroadcastExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastExtension.entitlements; sourceTree = "<group>"; };
 		D8F05514287444E400020AA5 /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D8F05515287444E500020AA5 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8F0556F2874700800020AA5 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +140,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8DB969629A644D7003A46F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8DB969B29A644D7003A46F2 /* ReplayKit.framework in Frameworks */,
+				1E5CEA73D8EA45B8D323D877 /* Pods_BroadcastExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +157,8 @@
 			children = (
 				772DA717731DCC0EA7ABEF8D /* Pods-ZiggeoDemoSwift.debug.xcconfig */,
 				71A0621B0310520C870080C7 /* Pods-ZiggeoDemoSwift.release.xcconfig */,
+				A85CE0804CEF5E745B3F39D0 /* Pods-BroadcastExtension.debug.xcconfig */,
+				6552EAAABC4A71BFFC43B0EA /* Pods-BroadcastExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -119,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				A5BCFFFBA92BF5EA3D0F5F72 /* Pods_ZiggeoDemoSwift.framework */,
+				D8DB969A29A644D7003A46F2 /* ReplayKit.framework */,
+				3A8B1163AEC0DE1516757D04 /* Pods_BroadcastExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				D810B30E286AFC890063C877 /* ZiggeoDemoSwift */,
+				D8DB969C29A644D7003A46F2 /* BroadcastExtension */,
 				D810B30D286AFC890063C877 /* Products */,
 				AFF4E530D6ED36FB473ED267 /* Pods */,
 				C7569AFCCA4B331A8574E0CE /* Frameworks */,
@@ -148,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				D810B30C286AFC890063C877 /* ZiggeoDemoSwift.app */,
+				D8DB969929A644D7003A46F2 /* BroadcastExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +207,7 @@
 		D810B30E286AFC890063C877 /* ZiggeoDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D8DB969429A644B3003A46F2 /* ZiggeoDemoSwift.entitlements */,
 				D8B86203287734ED0011D142 /* Resources */,
 				D832A36328751D630042BCC8 /* Models */,
 				D8D2A3DD2873D88D004A83FE /* ViewCells */,
@@ -255,6 +308,16 @@
 			path = ViewCells;
 			sourceTree = "<group>";
 		};
+		D8DB969C29A644D7003A46F2 /* BroadcastExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D8DB96A729A644E9003A46F2 /* BroadcastExtension.entitlements */,
+				D8DB969D29A644D7003A46F2 /* SampleHandler.swift */,
+				D8DB969F29A644D7003A46F2 /* Info.plist */,
+			);
+			path = BroadcastExtension;
+			sourceTree = "<group>";
+		};
 		D8F0556E2874700800020AA5 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,15 +366,35 @@
 				D810B309286AFC890063C877 /* Frameworks */,
 				D810B30A286AFC890063C877 /* Resources */,
 				20FDD88B00AB32EE9781AE58 /* [CP] Embed Pods Frameworks */,
+				D8DB96A629A644D7003A46F2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D8DB96A129A644D7003A46F2 /* PBXTargetDependency */,
 			);
 			name = ZiggeoDemoSwift;
 			productName = ZiggeoDemoSwift;
 			productReference = D810B30C286AFC890063C877 /* ZiggeoDemoSwift.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D8DB969829A644D7003A46F2 /* BroadcastExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8DB96A329A644D7003A46F2 /* Build configuration list for PBXNativeTarget "BroadcastExtension" */;
+			buildPhases = (
+				6FE09979EBE89597B2102786 /* [CP] Check Pods Manifest.lock */,
+				D8DB969529A644D7003A46F2 /* Sources */,
+				D8DB969629A644D7003A46F2 /* Frameworks */,
+				D8DB969729A644D7003A46F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BroadcastExtension;
+			productName = BroadcastExtension;
+			productReference = D8DB969929A644D7003A46F2 /* BroadcastExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -324,6 +407,9 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					D810B30B286AFC890063C877 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D8DB969829A644D7003A46F2 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -342,6 +428,7 @@
 			projectRoot = "";
 			targets = (
 				D810B30B286AFC890063C877 /* ZiggeoDemoSwift */,
+				D8DB969829A644D7003A46F2 /* BroadcastExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -361,6 +448,13 @@
 				D8F05516287444E500020AA5 /* LogoCollectionViewCell.xib in Resources */,
 				D872B6922880633900FAEE20 /* CustomVideoRecorder.xib in Resources */,
 				D8B86206287734ED0011D142 /* about.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8DB969729A644D7003A46F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +500,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6FE09979EBE89597B2102786 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BroadcastExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -444,7 +560,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8DB969529A644D7003A46F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8DB969E29A644D7003A46F2 /* SampleHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8DB96A129A644D7003A46F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8DB969829A644D7003A46F2 /* BroadcastExtension */;
+			targetProxy = D8DB96A029A644D7003A46F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D810B315286AFC890063C877 /* Main.storyboard */ = {
@@ -586,11 +718,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 772DA717731DCC0EA7ABEF8D /* Pods-ZiggeoDemoSwift.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZiggeoDemoSwift/ZiggeoDemoSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MD9AQL359V;
+				DEVELOPMENT_TEAM = 7C9963Q3QW;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -611,7 +745,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.ZiggeoDemoSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -623,11 +757,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 71A0621B0310520C870080C7 /* Pods-ZiggeoDemoSwift.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZiggeoDemoSwift/ZiggeoDemoSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MD9AQL359V;
+				DEVELOPMENT_TEAM = 7C9963Q3QW;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -648,8 +784,66 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.ZiggeoDemoSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D8DB96A429A644D7003A46F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A85CE0804CEF5E745B3F39D0 /* Pods-BroadcastExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BroadcastExtension/BroadcastExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7C9963Q3QW;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BroadcastExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BroadcastExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo.BroadcastExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8DB96A529A644D7003A46F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6552EAAABC4A71BFFC43B0EA /* Pods-BroadcastExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BroadcastExtension/BroadcastExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7C9963Q3QW;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BroadcastExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BroadcastExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo.BroadcastExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,6 +867,15 @@
 			buildConfigurations = (
 				D810B321286AFC8C0063C877 /* Debug */,
 				D810B322286AFC8C0063C877 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8DB96A329A644D7003A46F2 /* Build configuration list for PBXNativeTarget "BroadcastExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8DB96A429A644D7003A46F2 /* Debug */,
+				D8DB96A529A644D7003A46F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
