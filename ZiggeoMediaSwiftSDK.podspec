@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = 'ZiggeoMediaSwiftSDK'
-  spec.version          = '1.1.40'
+  spec.version          = '1.1.41'
   spec.summary          = 'Ziggeo Swift Client SDK'
   spec.description      = 'Ziggeo Swift recording and playback SDK'
 
@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
 
   spec.swift_version    = '5.0'
   spec.platform         = :ios, '11.0'
-  spec.dependency       'GoogleAds-IMA-iOS-SDK', '3.14.5'
+  spec.dependency       'GoogleAds-IMA-iOS-SDK', '3.13.0'
 
   spec.ios.deployment_target  = '11.0'
   spec.vendored_frameworks    = 'Frameworks/ZiggeoMediaSwiftSDK.framework'

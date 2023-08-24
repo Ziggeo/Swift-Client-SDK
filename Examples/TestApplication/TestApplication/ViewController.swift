@@ -25,15 +25,7 @@ class ViewController: UIViewController {
     var LAST_IMAGE_TOKEN = "LAST_IMAGE_TOKEN"
     
     var m_ziggeo: Ziggeo!
-    
-    enum CurrentType {
-        case Video
-        case Audio
-        case Image
-        case Unknown
-    }
-    
-    fileprivate var currentType = CurrentType.Unknown
+    fileprivate var currentType = 0
     
 
     override func viewDidLoad() {
@@ -57,74 +49,79 @@ class ViewController: UIViewController {
     
     //MARK: Button Click Action
     @IBAction func onRecordVideo(_ sender: AnyObject) {
-        currentType = CurrentType.Video
+        currentType = VIDEO
         
-        var themeMap: [String: Any] = [:]
-        self.m_ziggeo.setThemeArgsForRecorder(themeMap)
+        let recorderConfig = RecorderConfig()
+        recorderConfig.setShouldAutoStartRecording(true)
+        recorderConfig.setStartDelay(DEFAULT_START_DELAY)
+        recorderConfig.setShouldDisableCameraSwitch(false)
+        recorderConfig.setVideoQuality(QUALITY_HIGH)
+        recorderConfig.setFacing(FACING_BACK)
+        recorderConfig.setMaxDuration(0)
+        recorderConfig.setShouldSendImmediately(false)
+        recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
+        recorderConfig.setBlurMode(true)
+        recorderConfig.setExtraArgs(["tags": "iOS,Video,Record",
+                                       "client_auth" : "CLIENT_AUTH_TOKEN",
+                                       "server_auth" : "SERVER_AUTH_TOKEN",
+                                       "data" : ["foo": "bar"],
+                                       "effect_profile" : "1234,5678"])
+        self.m_ziggeo.setRecorderConfig(recorderConfig)
         
-        var config: [String: Any] = [:]
-//        config["effect_profile"] = "12345"
-//        config["data"] = [:]
-//        config["client_auth"] = "CLIENT_AUTH_TOKEN"
-//        config["server_auth"] = "SERVER_AUTH_TOKEN"
-        config["tags"] = "iOS_Video_Record"
-        self.m_ziggeo.setExtraArgsForRecorder(config)
-        
-        self.m_ziggeo.setCamera(REAR_CAMERA)
-//        self.m_ziggeo.setMaxRecordingDuration(30)
-
         self.m_ziggeo.record()
     }
 
     @IBAction func onPlayVideo(_ sender: AnyObject) {
-        var config: [String: Any] = [:]
-        config["hidePlayerControls"] = "false"
-        self.m_ziggeo.setThemeArgsForPlayer(config)
+        let playerConfig = PlayerConfig()
+        playerConfig.setAdsUri("https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/single_ad_samples&sz=640x480&cust_params=sample_ct%3Dlinear&ciu_szs=300x250%2C728x90&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=")
+        self.m_ziggeo.setPlayerConfig(playerConfig)
 
-        self.m_ziggeo.playVideo([LAST_VIDEO_TOKEN])
+        self.m_ziggeo.playVideo(LAST_VIDEO_TOKEN)
     }
 
     @IBAction func onChooseMedia(_ sender: Any) {
-        currentType = CurrentType.Video
+        currentType = 0
 
-        var config: [String: Any] = [:]
-        config["tags"] = "iOS_Choose_Media"
-        self.m_ziggeo.setUploadingConfig(config)
+        let fileSelectorConfig = FileSelectorConfig()
+        fileSelectorConfig.setMaxDuration(0)
+        fileSelectorConfig.setMinDuration(0)
+        fileSelectorConfig.setShouldAllowMultipleSelection(true)
+        fileSelectorConfig.setMediaType(VIDEO | AUDIO | IMAGE)
+        fileSelectorConfig.setExtraArgs(["tags" : "iOS,Choose,Media"])
+        self.m_ziggeo.setFileSelectorConfig(fileSelectorConfig)
         
-        var data: [String: Any] = [:]
-        // data[ARG_MEDIA_TYPE] = ["video", "image"]
-        // data[ARG_DURATION] = "20"
-        self.m_ziggeo.uploadFromFileSelector(data)
+        self.m_ziggeo.startFileSelector()
     }
 
     @IBAction func onRecordAudio(_ sender: Any) {
-        currentType = CurrentType.Audio
+        currentType = AUDIO
 
-        var config: [String: Any] = [:]
-        config["tags"] = "iOS_Audio_Record"
-        self.m_ziggeo.setExtraArgsForRecorder(config)
+        let recorderConfig = RecorderConfig()
+        recorderConfig.setIsPausedMode(true)
+        recorderConfig.setExtraArgs(["tags": "iOS,Audio,Record"])
+        self.m_ziggeo.setRecorderConfig(recorderConfig)
         
         self.m_ziggeo.startAudioRecorder()
     }
 
     @IBAction func onPlayAudio(_ sender: Any) {
-        self.m_ziggeo.startAudioPlayer([LAST_AUDIO_TOKEN])
+        self.m_ziggeo.startAudioPlayer(LAST_AUDIO_TOKEN)
     }
 
     @IBAction func onTakePhoto(_ sender: Any) {
-        currentType = CurrentType.Image
+        currentType = IMAGE
         
-        var config: [String: Any] = [:]
-        config["tags"] = "iOS_Take_Photo"
-        self.m_ziggeo.setUploadingConfig(config)
+        let uploadingConfig = UploadingConfig()
+        uploadingConfig.setExtraArgs(["tags": "iOS,Take,Photo"])
+        self.m_ziggeo.setUploadingConfig(uploadingConfig)
+        
         self.m_ziggeo.startImageRecorder()
     }
 
     @IBAction func onShowImage(_ sender: Any) {
-        self.m_ziggeo.showImage([LAST_IMAGE_TOKEN])
+        self.m_ziggeo.showImage(LAST_IMAGE_TOKEN)
     }
 }
-
 
 // MARK: - ZiggeoHardwarePermissionDelegate
 extension ViewController: ZiggeoHardwarePermissionDelegate {
@@ -155,8 +152,8 @@ extension ViewController: ZiggeoUploadingDelegate {
         print ("Preparing To Upload : \(path)")
     }
 
-    func failedToUpload(_ path: String) {
-        print ("Failed To Upload : \(path)")
+    func error(_ info: RecordingInfo?, _ error: Error, _ lostConnectionAction: Int) {
+        print ("Failed To Upload : \(info?.getToken() ?? "")")
     }
 
     func uploadStarted(_ path: String, token: String, streamToken: String, backgroundTask: URLSessionTask) {
@@ -173,11 +170,11 @@ extension ViewController: ZiggeoUploadingDelegate {
     
     func uploadVerified(_ path:String, token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
         print ("Upload Verified : \(token) - \(streamToken)")
-        if (currentType == CurrentType.Video) {
+        if (currentType == VIDEO) {
             LAST_VIDEO_TOKEN = token
-        } else if (currentType == CurrentType.Audio) {
+        } else if (currentType == AUDIO) {
             LAST_AUDIO_TOKEN = token
-        } else if (currentType == CurrentType.Image) {
+        } else if (currentType == IMAGE) {
             LAST_IMAGE_TOKEN = token
         }
     }
@@ -263,6 +260,7 @@ extension ViewController: ZiggeoRecorderDelegate {
     func recorderCancelledByUser() {
         print ("Recorder Canceled")
     }
+    
 }
 
 // MARK: - ZiggeoSensorDelegate
