@@ -41,7 +41,7 @@ class RecordingAudiosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Common.currentTab = Media_Type.Audio
+        Common.currentTab = AUDIO
     }
     
     // MARK: - Functions
@@ -57,7 +57,7 @@ class RecordingAudiosViewController: UIViewController {
             
             self.recordings.removeAll()
             for item in array {
-                if item.stateString != Ziggeo_Status_Type.STATUS_EMPTY.rawValue && item.stateString != Ziggeo_Status_Type.STATUS_DELETED.rawValue {
+                if item.stateString != STATUS_EMPTY && item.stateString != STATUS_DELETED {
                     self.recordings.append(item)
                 }
             }
@@ -87,7 +87,7 @@ extension RecordingAudiosViewController: UITableViewDelegate, UITableViewDataSou
         Common.ziggeo?.audios.get(recordings[indexPath.row].token, data: [:], callback: { content, response, error in
             SVProgressHUD.dismiss()
             if let vc = Common.getStoryboardViewController("RecordingDetailViewController") as? RecordingDetailViewController {
-                vc.mediaType = Media_Type.Audio
+                vc.mediaType = AUDIO
                 vc.recording = content
                 vc.recordingDelegate = self
                 Common.mainNavigationController?.pushViewController(vc, animated: true)

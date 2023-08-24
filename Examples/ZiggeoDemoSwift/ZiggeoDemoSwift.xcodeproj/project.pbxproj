@@ -727,6 +727,7 @@
 				DEVELOPMENT_TEAM = 7C9963Q3QW;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZiggeoDemoSwift/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Application will be able to record video";
@@ -766,6 +767,7 @@
 				DEVELOPMENT_TEAM = 7C9963Q3QW;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZiggeoDemoSwift/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Application will be able to record video";

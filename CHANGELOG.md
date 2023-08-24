@@ -1,5 +1,13 @@
 # Changelog
 
+Version 1.1.41-blurring *(2023-08-24)*
+* The update changes `playVideo`, `showImage` and `playAudio` functions to use only a item.
+* The update adds `playVideos`, `showImages` and `playAudios` functions to support multiple items.
+* The update adds `playFromUri`, `playFromUris`, `showImageFromUri`, `showImageFromUris`, `playAudioWithPath` and `playAudioWithPaths`  functions to play from uri.
+* The update changes `uploadFromFileSelector` to `startFileSelector`.
+* The update creates getters and setters for `AppToken`, `ServerAuthToken` and `ClientAuthToken`.
+* The update add configs for `FileSelectorConfig`, `RecorderConfig`, `UploadingConfig`, `PlayerConfig` and `QrScannerConfig`.
+
 Version 1.1.40-blurring *(2023-03-27)*
 -----------------------------
 * The update adds pausable audio recording function.
