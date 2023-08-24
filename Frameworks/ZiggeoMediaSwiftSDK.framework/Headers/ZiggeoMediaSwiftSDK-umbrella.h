@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char ZiggeoMediaSwiftSDKVersionString[];
 
 
 // In this header, you should import all the public headers of your framework using statements like #import 
+#import <SelfieSegmentation/SelfieSegmentation.h>
 #import <ZiggeoMediaSwiftSDK/ZiggeoBFRImageViewController.h>

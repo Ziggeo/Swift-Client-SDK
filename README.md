@@ -14,16 +14,21 @@
 	2. [Recorder](#recorder)
 		1. [Video Camera Recorder](#video-recorder)
 		2. [Video Screen Recorder](#screen-recorder)
-		3. [Audio Recorder](#audio-recorder)
-		4. [Image Capture (Snapshot Recorder)](#image-capture)
-		5. [Uploading](#upload-recorder)
+		3. [Video Trim](#video-trim)
+		4. [Audio Recorder](#audio-recorder)
+		5. [Image Capture (Snapshot Recorder)](#image-capture)
+		6. [Uploading](#upload-recorder)
 	3. [Player](#player)
 		1. [Video Player](#video-player)
 		2. [Audio Player](#audio-player)
+		3. [Image Preview](#image-preview)
 	4. [QR Scanner](#qr-scanner)
 	5. [Configs](#configs)
-		1. [Theming](#theming)
-		2. [Recorder Configs](#recorder-config)
+		1. [Recorder Config](#recorder-config)
+		2. [Player Config](#player-config)
+		3. [File Selector Config](#file-selector-config)
+		4. [Uploading Config](#uploading-config)
+		5. [QR Scanner Config](#qr-scanner-config)
 	6. [Events / Callbacks](#events)
 		1. [Global Callbacks](#callbacks-global)
 		2. [Hardware Permission Callbacks](#callbacks-hardware-permission)
@@ -38,7 +43,6 @@
 		1. [Request Cancellation](#api-cancel)
 		2. [Videos API](#api-videos)
 		3. [Video Streams API](#api-video-streams)
-	8. [Authentication](#authentication)
 5. [Compiling and Publishing App](#compile)
 6. [Update Information](#update)
 7. [Changelog](#changelog)
@@ -133,15 +137,27 @@ $ pod init
 - Add framework to Podfile
 If you are going to be using the SDK flavor with background blurring, you need to set the `ENABLED_BITCODE` option to `No`, otherwise you will not be able to compile your app.
 So if your app needs to set the `ENABLED_BITCODE` option to `Yes`, you can not use the SDK flavor with background blurring.
-In this ase, use
+If you don't need to use background blurring, use
 ```
 pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git'
 ```
 
-If your app does not need to set the `ENABLED_BITCODE` option to `Yes`, you can use the SDK flavor with background blurring.
-In this ase, use
+If your app does not need to set the `ENABLED_BITCODE` option to `No`, you can use the SDK flavor with background blurring.
+If you want to use background blurring, use
 ```
 pod 'ZiggeoMediaSwiftSDK', :git => 'https://github.com/Ziggeo/Swift-Client-SDK.git', :branch => 'blurring'
+```
+
+- `ZiggeoMediaSwiftSDK` uses `GoogleAds-IMA-iOS-SDK` for ads. You need to add below commands to `Podfile` for building this sdk.
+```
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+    end
+  end
+end
 ```
 
 - Install framework
@@ -152,6 +168,8 @@ $ pod install
 - Reopen the project using the .xcworkspace
 - If you use the SDK flavor with background blurring, set `ENABLED_BITCODE` to `No` on the *Build Settings* of the project.
 ![bitcode.png](Images/bitcode.png)
+- Navigate to `Build Settings` of your project and add `Any iOS Simulator SDK` with value `arm64` inside `Excluded Architectures`.
+![excluded_architectures.png](Images/excluded_architectures.png)
 
 ## Demo<a name="demo"></a>
 
@@ -184,7 +202,7 @@ m_ziggeo.screenRecorderDelegate = self
 m_ziggeo.sendEmailToSupport()
 ```
 
-### Send Email To Support<a name="send-email-to-support"></a>
+### Send Support<a name="send-support"></a>
 
 ```
 m_ziggeo.sendReport(["LOG_1", "LOG_2", ...])
@@ -198,6 +216,7 @@ Ziggeo supports different media formats and offers multiple recorder options for
 3. Video Trim
 4. Audio Recorder
 5. Image Capture (Snapshot Recorder)
+6. Uploading
 
 Each will be showcased within its own section bellow.
 
@@ -250,16 +269,13 @@ Sometimes you might want to upload something instead of showing the recorder. Wi
 **Upload From Path**
 
 ```
-m_ziggeo.uploadFromPath("FILE_PATH", data: [:])
+m_ziggeo.uploadFromPath("FILE_PATH", data:[:])
 ```
 
 **Upload using File Selector**
 
 ```
-var data: [String: Any] = [:]
-//data[ARG_MEDIA_TYPE] = ["video", "image"]
-//data[ARG_DURATION] = "20"
-self.m_ziggeo.uploadFromFileSelector(data)
+self.m_ziggeo.startFileSelector()
 ```
 
 ### Player<a name="player"></a>
@@ -269,6 +285,7 @@ Capturing different types of media expects support for playback of the same. As 
 Ziggeo provides to following player:
 1. Video Player
 2. Audio Player
+3. Image Preview
 
 Each will be showcased within its own section bellow.
 
@@ -279,37 +296,55 @@ Player can be used to play local videos, videos from other services and of cours
 **Standard Playback**
 
 ```
-m_ziggeo.playVideo(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
+m_ziggeo.playVideo("VIDEO_TOKEN")
+```
+```
+m_ziggeo.playVideos(["VIDEO_TOKEN_1", "VIDEO_TOKEN_2", ...])
 ```
 
 **Playback from third-party source**
 
 ```
-m_ziggeo.playFromUri(["VIDEO_URL_1", "VIDEO_URL_2", ...])
+m_ziggeo.playFromUri("VIDEO_URL")
+```
+```
+m_ziggeo.playFromUris(["VIDEO_URL_1", "VIDEO_URL_2", ...])
 ```
 
 #### Audio Player<a name="audio-player"></a>
 
 ```
-m_ziggeo.startAudioPlayer(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
+m_ziggeo.playAudio("AUDIO_TOKEN")
+```
+```
+m_ziggeo.playAudios(["AUDIO_TOKEN_1", "AUDIO_TOKEN_2", ...])
 ```
 
-#### Audio Player From Paths<a name="audio-player"></a>
+#### Audio Player from third-party source<a name="audio-player"></a>
 
 ```
-m_ziggeo.startAudioPlayer(paths: ["AUDIO_PATH_1", "AUDIO_PATH_2", ...])
+m_ziggeo.playAudioFromUri("AUDIO_URL")
+```
+```
+m_ziggeo.playAudioFromUris(["AUDIO_URL_1", "AUDIO_URL_2", ...])
 ```
 
 #### Image Preview<a name="image-preview"></a>
 
 ```
-m_ziggeo.showImage(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
+m_ziggeo.showImage("IMAGE_TOKEN")
+```
+```
+m_ziggeo.showImages(["IMAGE_TOKEN_1", "IMAGE_TOKEN_2", ...])
 ```
 
-#### Image Preview From Paths<a name="image-preview"></a>
+#### Image Preview from third-party source<a name="image-preview"></a>
 
 ```
-m_ziggeo.showImage(paths: ["IMAGE_PATH_1", "IMAGE_PATH_2", ...])
+m_ziggeo.showImageFromUri("IMAGE_URL")
+```
+```
+m_ziggeo.showImageFromUris(["IMAGE_URL_1", "IMAGE_URL_2", ...])
 ```
 
 
@@ -327,35 +362,14 @@ Each embeddings (players and recorders) has default config and often a config yo
 
 This section will show you various options at your disposal.
 
-#### Theming<a name="theming"></a>
-
-Similar calls would be made for player as well as for the recorder. You can see available options bellow.
-
-**Recorder**
-
-```
-var themeMap: [String: Any] = [:]
-themeMap["blur_effect"] = "false"
-themeMap["hideRecorderControls"] = "false"
-self.m_ziggeo.setThemeArgsForRecorder(themeMap)
-```
-
-**Player**
-
-```
-var map: [String: Any] = [:]
-map["hidePlayerControls"] = "false"
-m_ziggeo.setThemeArgsForPlayer(map)
-```
-
 #### Recorder Config<a name="recorder-config"></a>
 
 For uploading we are utilizing a helper config, while other parameters can be set up as they are needed.
 
 ```
-var config: [String: Any] = [:]
-config["tags"] = "iOS_Choose_Media"
-self.m_ziggeo.setUploadingConfig(config)
+let recorderConfig = RecorderConfig()
+...
+m_ziggeo.setRecorderConfig(recorderConfig)
 ```
 
 **Set max duration**
@@ -368,7 +382,7 @@ If you set it up with 30 this would be equal to 30 seconds of recording, after w
 - Note: Duration is in seconds.
 
 ```
-m_ziggeo.setMaxRecordingDuration(30)
+recorderConfigsetMaxDuration(0)
 ```
 
 **Set countdown time**
@@ -378,45 +392,53 @@ When camera capture is started, the person might not be ready or might need to a
 - Note: If you set it to 0, the person recording themselves might need to turn their phone, flip camera, or to align themselves first before they would actually start so we suggest keeping it somewhere within 2-5 seconds.
 
 ```
-m_ziggeo.setStartDelay(3)
+recorderConfig.setStartDelay(DEFAULT_START_DELAY)
 ```
 
 **Auto start recorder**
 
-By default the recorder will show an option to start recording process. This is usually the preferred way for most use cases. In some use cases you might prefer that the recorder starts as soon as it is loaded up within the app. In such cases you can set the the following as true.
+By default the recorder will show an option to start recording process. This is usually the preferred way for most use cases. In some use cases you might prefer that the recorder starts as soon as it is loaded up within the app. In such cases you can set the the following as (true).
 
 - Note: You might also want to check out `setStartDelay` as well.
 
 ```
-m_ziggeo.setAutostartRecordingAfter(0)
+recorderConfig.setShouldAutoStartRecording(true)
+```
+
+**Set Pause Mode**
+
+This options allows you to pause and resume audio recording. By default pause mode is false.
+
+```
+recorderConfig.setIsPausedMode(true)
 ```
 
 **Set which camera you prefer**
 
 This option allows you to select which camera should be used for recording. By default the back camera is used, however you can change it with this option.
 
-- Note: You can choose `FRONT_CAMERA` or `REAR_CAMERA`
+- Note: You can choose `FACING_BACK` or `FACING_FRONT`
 
 ```
-m_ziggeo.setCamera(REAR_CAMERA)
+recorderConfig.setFacing(FACING_BACK)
 ```
 
 **Set the quality of recording**
 
 Set the quality that you want to use for your video recording. Usually the higher the quality, the better, however in some specific usecases where quality is not as important you could use this option to change it.
 
-- Note: You can choose `RecordingQuality.HighestQuality`, `RecordingQuality.MediumQuality` and `RecordingQuality.LowQuality`.
+- Note: You can choose `QUALITY_HIGH`, `QUALITY_MEDIUM` and `QUALITY_LOW`.
 
 ```
-m_ziggeo.setQuality(RecordingQuality.MediumQuality)
+recorderConfig.setVideoQuality(QUALITY_HIGH)
 ```
 
 **Forbid camera switch during recording**
 
-By default we allow the camera to be switched within the recorder. Sometimes this might not be desirable, and if so you can forbid the ability to switch by setting this to true.
+By default we allow the camera to be switched within the recorder. Sometimes this might not be desirable, and if so you can forbid the ability to switch by setting this to false.
 
 ```
-m_ziggeo.setCameraSwitchEnabled(true)
+recorderConfig.setShouldDisableCameraSwitch(false)
 ```
 
 **Submit videos immediately**
@@ -425,7 +447,7 @@ By default all videos are immediately sent to our servers. This allows them to b
 In some cases, you might want to show you button to confirm the video before it is sent or any other action you prefer, in which case you can delay this action.
 
 ```
-m_ziggeo.setSendImmediately(true)
+recorderConfig.setShouldSendImmediately(true)
 ```
 
 **Streaming Recording**
@@ -433,7 +455,7 @@ m_ziggeo.setSendImmediately(true)
 Streaming recording mode will upload the video stream during the recording without caching to local file first. Video preview and video re-record are not available in this mode.
 
 ```
-m_ziggeo.setLiveStreamingEnabled(true)
+recorderConfig.setLiveStreaming(true)
 ```
 
 **Enable Cover Selector Dialog**
@@ -441,23 +463,32 @@ m_ziggeo.setLiveStreamingEnabled(true)
 This will allow you to change if the cover (Snapshot / Image / Poster) selection is shown or not.
 
 ```
-m_ziggeo.setCoverSelectorEnabled(true)
+recorderConfig.setShouldEnableCoverShot(true)
 ```
 
 **Set Video Width**
 
-If you want to set the resolution of the video, you would need to specify the width and height of the video. This will help you set the width. Please check `setVideoHeight` as well.
+If you want to set the resolution of the video, you would need to specify the aspect ratio of the video. This will help you set the aspect ratio.
+- Note: You can choose `DEFAULT_ASPECT_RATIO`, `FALLBACK_ASPECT_RATIO`, `RATIO_16_9`, `RATIO_4_3` and `RATIO_1_1`.
 
 ```
-m_ziggeo.setVideoWidth(1920)
+recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
+```
+
+**Set Video Width**
+
+If you want to set the resolution of the video, you would need to specify the width and height of the video. This will help you set the width. Please check `setWidth` as well.
+
+```
+recorderConfig.resolution.setWidth(1920)
 ```
 
 **Set Video Height**
 
-If you want to set the resolution of the video, you would need to specify the width and height of the video. This will help you set the height. Please check `setVideoWidth` as well.
+If you want to set the resolution of the video, you would need to specify the width and height of the video. This will help you set the height. Please check `setHeight` as well.
 
 ```
-m_ziggeo.setVideoHeight(1080)
+recorderConfig.resolution.setHeight(1080)
 ```
 
 **Set Video Bitrate**
@@ -468,7 +499,7 @@ Setting video bitrate allows you to set specific bitrate that you want to have o
 - Note: bitrate is expressed in bytes
 
 ```
-m_ziggeo.setVideoBitrate(1024 * 1024 * 2)
+recorderConfig.setVideoBitrate(1024 * 1024 * 2)
 ```
 
 **Set Audio Bitrate**
@@ -478,7 +509,7 @@ Setting audio bitrate allows you to set up the quality of the audio captured. Hi
 - Note: bitrate is expressed in bytes
 
 ```
-m_ziggeo.setAudioBitrate(128 * 1024)
+recorderConfig.setAudioBitrate(128 * 1024)
 ```
 
 **Set Audio Sample Rate**
@@ -486,36 +517,64 @@ m_ziggeo.setAudioBitrate(128 * 1024)
 Setting sample rate allows you to fine tune how many times per second we sample the mic information and save it as audio capture. We suggest leaving at 44100 for audio and 48000 for video if you want to set this manually.
 
 ```
-m_ziggeo.setAudioSampleRate(44100)
+recorderConfig.setAudioSampleRate(44100)
 ```
 
 **Set Blur Mode**
 
-Sets the blur mode for the recorder, blurring out the background behind the person recording themselves.
+Sets the blur mode for the recorder, blurring out the background behind the person recording themselves. Defalut value is (false).
 
 ```
-m_ziggeo.setBlurMode(true)
+recorderConfig.setBlurMode(true)
 ```
 
 **Set Extra Arguments**
+
 This can be used to specify effect profiles, video profiles, custom data, tags, etc.
 
 ```
-var map: [String: Any] = [:]
-self.m_ziggeo.setExtraArgsForRecorder(map)
+recorderConfig.setExtraArgs(["tags": "iOS,Video,Record",
+							"client_auth" : "CLIENT_AUTH_TOKEN",
+                            "server_auth" : "SERVER_AUTH_TOKEN",
+                            "data" : ["foo": "bar"],
+                            "effect_profile" : "1234,5678"])
+							   
 ```
 
 ##### Extra arguments examples
+
+**Authentication**
+
+Our API is utilizing patent pending authorization token system. It allows you to secure and fine tune what someone can do and for how long.
+
+The following will be needed if you have enabled the authorization tokens in your app.
+
+- Note: This shows you how to add and utilize auth tokens. On client side, the auth tokens should never be created, nor stored permanently. Ideally, you will create the auth tokens within your server and then if you decide, pass that token to the specific client to allow them to do something within certain timeframe. Hardcoding permanent auth tokens would make it possible for anyone to find them and use, regardless of your desired workflow just by inspecting your app code.
+
+Both client and server side auth tokens have equal say in what one can do. The difference is in how they are created.
+
+**Client Auth**
+
+This section helps you set up a client auth token to be used in the requests you send to our servers. The client auth is created on your server without reaching to our servers first. This is ideal for high speed communication.
+
+```
+recorderConfig.addExtraArgs(["client_auth" : "CLIENT_AUTH_TOKEN"])
+```
+
+**Server Auth**
+
+The following will help you utilize the server side auth tokens. The server side auth tokens are created on your server as well, however they are created by passing the grants object to our server. Our server then sends you a short token that you can use in any of the calls you make, per the grants you specified.
+
+```
+recorderConfig.addExtraArgs(["server_auth" : "SERVER_AUTH_TOKEN"])
+```
 
 **Working with Custom Data**
 
 Custom data is set with extraArgs and represents a JSON Object as string. This custom-data can be anything that you want to attach to the media you are recording or uploading.
 
 ```
-var map: [String: Any] = [:]
-map["data"] = [:]
-
-m_ziggeo.setExtraArgsForRecorder(map)
+recorderConfig.addExtraArgs(["data" : ["foo": @"bar"]])
 ```
 
 **Applying Effect Profile**
@@ -525,10 +584,7 @@ If you would like to add your logo or apply some effect to every video that you 
 - Note: If you are using effect profile key, please add `_` (underscore) before the name, even if the name has underscore within it (the first underscore is removed to match the key you are specifying).
 
 ```
-var map: [String: Any] = [:]
-map["effect_profile"] = "12345"
-
-m_ziggeo.setExtraArgsForRecorder(map)
+recorderConfig.addExtraArgs(["effect_profile" : "1234,5678"])
 ```
 
 **Set Video Profile**
@@ -540,10 +596,7 @@ You can add the video profile token by adding video profile token or video profi
 - Note: If you are using video profile key, please add `_` (underscore) before the name, even if the name has underscore within it (the first underscore is removed to match the key you are specifying).
 
 ```
-var map: [String: Any] = [:]
-map["video_profile"] = "12345"
-
-self.m_ziggeo.setExtraArgsForRecorder(map)
+recorderConfig.addExtraArgs(["video_profile" : "12345"])
 ```
 
 - Note: All recorders are using the same config class described above.
@@ -555,7 +608,9 @@ self.m_ziggeo.setExtraArgsForRecorder(map)
 This can be used to specify effect profiles, video profiles, custom data, tags, etc.
 
 ```
-m_ziggeo.setExtraArgsForPlayer([:])
+let playerConfig = PlayerConfig()
+playerConfig.setExtraArgs([:])
+m_ziggeo.setPlayerConfig(playerConfig)
 ```
 
 **Set Player Cache Config**
@@ -563,7 +618,7 @@ m_ziggeo.setExtraArgsForPlayer([:])
 If you want to modify the caching config, you should use the PlayerCacheConfig
 
 ```
-m_ziggeo.setPlayerCacheConfig([:])
+playerConfig.setIsCachingEnabled(true)
 ```
 
 **Set Ads Url**
@@ -571,7 +626,105 @@ m_ziggeo.setPlayerCacheConfig([:])
 If you want to have the player show adds utilizing VAST, you can specify the link to your VAST manifest here. 
 
 ```
-m_ziggeo.setAdsURL("ADS_URL")
+playerConfig.setAdsUri("ADS_URL")
+```
+
+#### File Selector Config<a name="file-selector-config"></a>
+
+**Set Extra Arguments**
+
+This can be used to specify custom data, tags, etc.
+
+```
+let fileSelectorConfig = FileSelectorConfig()
+fileSelectorConfig.setExtraArgs(["tags" : "iOS,Choose,Media"])
+m_ziggeo.setFileSelectorConfig(fileSelectorConfig)
+```
+
+**Set Max Duration**
+
+This value allows you to set the maximum duration of the video to be selected. Setting the value to 0 does not limit the maximum duration. Default value is 0.
+
+- Note: Duration is in seconds.
+
+```
+fileSelectorConfig.setMaxDuration(0)
+```
+
+**Set Min Duration**
+
+This value allows you to set the minimum duration of the video to be selected. Setting the value to 0 does not limit the minimum duration. Default value is 0.
+
+- Note: Duration is in seconds.
+
+```
+fileSelectorConfig.setMinDuration(0)
+```
+
+**Enable Multiple Selection**
+
+This value allows you to enable or disable mutliple selection. Default value is (true).
+
+```
+fileSelectorConfig.setShouldAllowMultipleSelection(true)
+```
+
+**Set Media Type**
+
+You can set this value to display only certain types of media. If you do not set this value, all types of media are displayed.
+
+- Note: You can set `VIDEO`, `AUDIO` and `IMAGE`.
+
+```
+fileSelectorConfig.setMediaType(VIDEO | AUDIO | IMAGE)
+```
+
+#### Uploading Config<a name="uploading-config"></a>
+
+**Set Extra Arguments**
+
+This can be used to specify custom data, tags, etc.
+
+```
+let uploadingConfig = UploadingConfig()
+uploadingConfig.setExtraArgs(["tags": "iOS,Take,Photo"])
+m_ziggeo.setUploadingConfig(uploadingConfig)
+```
+
+**Enable Use Only Wifi**
+
+If you set this value to (true), you can only use Wi-Fi.
+
+```
+uploadingConfig.setShouldUseWifiOnly(true)
+```
+
+**Set Start As Foreground**
+
+If you set this value to (true), you can upload without starting a background service (will start only when the app goes foreground).
+
+```
+uploadingConfig.setShouldStartAsForeground(true)
+```
+
+**Turn Off Upload**
+
+If you set this value to (true), you can turn off upload.
+
+```
+uploadingConfig.setShouldTurnOffUploader(true)
+```
+
+#### QR Scanner Config<a name="qr-scanner-config"></a>
+
+**Close After Successful Scan**
+
+Setting this value to (true) allows you to close the QR scanner after a successful scan.
+
+```
+let qrScannerConfig = QrScannerConfig()
+qrScannerConfig.setShouldCloseAfterSuccessfulScan(true)
+m_ziggeo.setQrScannerConfig(qrScannerConfig)
 ```
 
 ### Events / Callbacks<a name="events"></a>
@@ -1048,37 +1201,6 @@ connection.getStringWithPath(path: String, data: NSDictionary?, callback: { (str
 
 * This is not available in our iOS SDK at this time
 
-### Authentication<a name="authentication"></a>
-
-Our API is utilizing patent pending authorization token system. It allows you to secure and fine tune what someone can do and for how long.
-
-The following will be needed if you have enabled the authorization tokens in your app.
-
-- Note: This shows you how to add and utilize auth tokens. On client side, the auth tokens should never be created, nor stored permanently. Ideally, you will create the auth tokens within your server and then if you decide, pass that token to the specific client to allow them to do something within certain timeframe. Hardcoding permanent auth tokens would make it possible for anyone to find them and use, regardless of your desired workflow just by inspecting your app code.
-
-Both client and server side auth tokens have equal say in what one can do. The difference is in how they are created.
-
-#### Client Auth<a name="authentication-client"></a>
-
-This section helps you set up a client auth token to be used in the requests you send to our servers. The client auth is created on your server without reaching to our servers first. This is ideal for high speed communication.
-
-```
-var map: [String: Any] = [:]
-map["client_auth"] = "CLIENT_AUTH_TOKEN"
-
-m_ziggeo.setExtraArgsForRecorder(map)
-```
-
-#### Server Auth<a name="authentication-server"></a>
-
-The following will help you utilize the server side auth tokens. The server side auth tokens are created on your server as well, however they are created by passing the grants object to our server. Our server then sends you a short token that you can use in any of the calls you make, per the grants you specified.
-
-```
-var map: [String: Any] = [:]
-map["server_auth"] = "SERVER_AUTH_TOKEN"
-
-m_ziggeo.setExtraArgsForRecorder(map)
-```
 
 ## Compiling and Publishing App<a name="compile"></a>
 
