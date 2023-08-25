@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="K0v-vG-tWp">
-                                <rect key="frame" x="8" y="225" width="398" height="286"/>
+                                <rect key="frame" x="8" y="204.66666666666663" width="398" height="327"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNV-Cv-vqn">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
@@ -40,28 +40,28 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-XF-rOw">
-                                        <rect key="frame" x="0.0" y="82" width="398" height="40"/>
+                                        <rect key="frame" x="0.0" y="82.000000000000028" width="398" height="40"/>
                                         <state key="normal" title="Choose Media"/>
                                         <connections>
                                             <action selector="onChooseMedia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lde-vb-LwV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQa-el-NX9">
-                                        <rect key="frame" x="0.0" y="123" width="398" height="40"/>
+                                        <rect key="frame" x="0.0" y="123.00000000000003" width="398" height="40"/>
                                         <state key="normal" title="Record Audio"/>
                                         <connections>
                                             <action selector="onRecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCw-P5-G0e"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qa-iP-5ez">
-                                        <rect key="frame" x="0.0" y="164" width="398" height="40"/>
+                                        <rect key="frame" x="0.0" y="164.00000000000003" width="398" height="40"/>
                                         <state key="normal" title="Play Audio"/>
                                         <connections>
                                             <action selector="onPlayAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="npU-cA-I4u"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hce-9Q-Ltf">
-                                        <rect key="frame" x="0.0" y="205" width="398" height="40"/>
+                                        <rect key="frame" x="0.0" y="205.00000000000003" width="398" height="40"/>
                                         <state key="normal" title="Take Photo"/>
                                         <connections>
                                             <action selector="onTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ug0-M2-O5d"/>
@@ -72,6 +72,13 @@
                                         <state key="normal" title="Show Image"/>
                                         <connections>
                                             <action selector="onShowImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Zy-lW-r6q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH3-dn-AOg">
+                                        <rect key="frame" x="0.0" y="287" width="398" height="40"/>
+                                        <state key="normal" title="Custom UI Record"/>
+                                        <connections>
+                                            <action selector="onCustomUIRecorder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JDL-K1-DRp"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -23,6 +23,8 @@ target 'ZiggeoDemoSwift' do
         config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
         config.build_settings['BITCODE_GENERATION_MODE'] = 'bitcode'
         config.build_settings['ENABLE_BITCODE'] = 'YES'
+      end
     end
   end
+  
 end
