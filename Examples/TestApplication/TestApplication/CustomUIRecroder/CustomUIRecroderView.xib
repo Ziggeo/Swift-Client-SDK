@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomUIRecroderViewController">
+            <connections>
+                <outlet property="recordButton" destination="mJT-X2-g8d" id="1s9-eu-bfU"/>
+                <outlet property="stopAndUploadButton" destination="oZ6-6F-cnf" id="nKO-oT-bdc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="IyU-wG-vm3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ov-Yy-e7y">
+                    <rect key="frame" x="0.0" y="847" width="414" height="49"/>
+                    <items>
+                        <barButtonItem title="Close" id="Kl7-L6-XQ1">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="-1" id="bUo-tb-LDf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="2bF-fB-rnm"/>
+                        <barButtonItem title="Record" id="mJT-X2-g8d">
+                            <connections>
+                                <action selector="recordButtonPressed:" destination="-1" id="a2a-lA-oB4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Stop and upload" id="oZ6-6F-cnf">
+                            <connections>
+                                <action selector="stopButtonPressed:" destination="-1" id="ZMW-jc-y17"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4ov-Yy-e7y" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="ElF-7Z-y1F"/>
+                <constraint firstItem="4ov-Yy-e7y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a6c-Cg-9hY"/>
+                <constraint firstItem="4ov-Yy-e7y" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="tee-Jt-Bzn"/>
+            </constraints>
+            <point key="canvasLocation" x="82" y="-21"/>
+        </view>
+    </objects>
+</document>

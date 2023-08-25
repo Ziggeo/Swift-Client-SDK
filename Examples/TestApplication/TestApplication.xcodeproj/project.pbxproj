@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A176931E056F09D77DD11F03 /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 763C52E27D81F9DF4B1E3809 /* libPods-TestApplication.a */; };
-		D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8CE76042A97D26A00A57F3B /* CustomUIRecroderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CE76022A97D26A00A57F3B /* CustomUIRecroderView.xib */; };
+		D8CE76052A97D26A00A57F3B /* CustomUIRecroderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE76032A97D26A00A57F3B /* CustomUIRecroderViewController.swift */; };
+		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
@@ -23,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */,
+				D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,6 +38,8 @@
 		763C52E27D81F9DF4B1E3809 /* libPods-TestApplication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestApplication.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		842910E425012C4400FAAEE1 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		842910F025012C4500FAAEE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D8CE76022A97D26A00A57F3B /* CustomUIRecroderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomUIRecroderView.xib; sourceTree = "<group>"; };
+		D8CE76032A97D26A00A57F3B /* CustomUIRecroderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIRecroderViewController.swift; sourceTree = "<group>"; };
 		FA65B1CF1D65C05100DC784F /* TestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA65B1D21D65C05100DC784F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA65B1D41D65C05100DC784F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D8CE76012A97D26A00A57F3B /* CustomUIRecroder */ = {
+			isa = PBXGroup;
+			children = (
+				D8CE76022A97D26A00A57F3B /* CustomUIRecroderView.xib */,
+				D8CE76032A97D26A00A57F3B /* CustomUIRecroderViewController.swift */,
+			);
+			path = CustomUIRecroder;
+			sourceTree = "<group>";
+		};
 		FA65B1C61D65C05100DC784F = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +112,7 @@
 			children = (
 				FA65B1D21D65C05100DC784F /* AppDelegate.swift */,
 				FA65B1D41D65C05100DC784F /* ViewController.swift */,
+				D8CE76012A97D26A00A57F3B /* CustomUIRecroder */,
 				FA65B1D61D65C05100DC784F /* Main.storyboard */,
 				FA65B1D91D65C05100DC784F /* Assets.xcassets */,
 				FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */,
@@ -175,6 +189,7 @@
 				FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */,
 				FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */,
 				FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */,
+				D8CE76042A97D26A00A57F3B /* CustomUIRecroderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CE76052A97D26A00A57F3B /* CustomUIRecroderViewController.swift in Sources */,
 				FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */,
 				FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */,
 			);
