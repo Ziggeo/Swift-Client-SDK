@@ -121,6 +121,34 @@ class ViewController: UIViewController {
     @IBAction func onShowImage(_ sender: Any) {
         self.m_ziggeo.showImage(LAST_IMAGE_TOKEN)
     }
+    
+    @IBAction func onCustomUIRecorder(_ sender: Any) {
+        let recorderConfig = RecorderConfig()
+        recorderConfig.setShouldAutoStartRecording(false)
+        recorderConfig.setVideoQuality(QUALITY_HIGH)
+        recorderConfig.setFacing(FACING_BACK)
+        recorderConfig.setMaxDuration(0)
+        recorderConfig.setShouldSendImmediately(true)
+        recorderConfig.style.setHideControls(true)
+        recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
+        recorderConfig.setExtraArgs(["tags": "iOS,Video,Custom UI Record",
+                                       "client_auth" : "CLIENT_AUTH_TOKEN",
+                                       "server_auth" : "SERVER_AUTH_TOKEN",
+                                       "data" : ["foo": "bar"],
+                                       "effect_profile" : "1234,5678"])
+        self.m_ziggeo.setRecorderConfig(recorderConfig)
+        
+        let m_recorder = ZiggeoRecorder(application: m_ziggeo)
+        
+        let customUIRecroderVC = CustomUIRecroderViewController(nibName: "CustomUIRecroderView", bundle: nil)
+        customUIRecroderVC.m_recorder = m_recorder
+        customUIRecroderVC.view.frame = CGRect(x: 0, y: 0, width: m_recorder.view.bounds.size.width, height: m_recorder.view.bounds.size.height)
+        m_recorder.view.addSubview(customUIRecroderVC.view)
+        self.addChild(customUIRecroderVC)
+        
+        m_recorder.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(m_recorder, animated: true, completion: nil)
+    }
 }
 
 // MARK: - ZiggeoHardwarePermissionDelegate
