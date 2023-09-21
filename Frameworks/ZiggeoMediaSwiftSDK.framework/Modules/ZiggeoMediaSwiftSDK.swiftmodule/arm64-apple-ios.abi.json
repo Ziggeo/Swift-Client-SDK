@@ -3030,92 +3030,6 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "showControls",
-            "printedName": "showControls",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvp",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvg",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "isOpen": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvs",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "isOpen": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC12showControlsSbvM",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "isOpen": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(application:)",
@@ -3770,6 +3684,50 @@
           },
           {
             "kind": "Function",
+            "name": "startRecording",
+            "printedName": "startRecording()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC14startRecordingyyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC14startRecordingyyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopRecording",
+            "printedName": "stopRecording()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC13stopRecordingyyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC13stopRecordingyyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "processRecordedVideo",
             "printedName": "processRecordedVideo(outputFileURL:error:)",
             "children": [
@@ -4021,6 +3979,49 @@
           },
           {
             "kind": "Function",
+            "name": "coverSelected",
+            "printedName": "coverSelected(_:image:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC13coverSelected_5imageySS_So7UIImageCSgtF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC13coverSelected_5imageySS_So7UIImageCSgtF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "captureOutput",
             "printedName": "captureOutput(_:didOutput:from:)",
             "children": [
@@ -4138,6 +4139,13 @@
             "printedName": "VideoPreviewDelegate",
             "usr": "s:19ZiggeoMediaSwiftSDK20VideoPreviewDelegateP",
             "mangledName": "$s19ZiggeoMediaSwiftSDK20VideoPreviewDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CoverSelectorDelegate",
+            "printedName": "CoverSelectorDelegate",
+            "usr": "s:19ZiggeoMediaSwiftSDK21CoverSelectorDelegateP",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK21CoverSelectorDelegateP"
           },
           {
             "kind": "Conformance",
@@ -8796,6 +8804,499 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC11getImageUrlyS2SF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC11getImageUrlyS2SF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "attachVideo",
+            "printedName": "attachVideo(_:streamToken:data:file:callback:progress:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URLSessionTask",
+                "printedName": "Foundation.URLSessionTask",
+                "usr": "c:objc(cs)NSURLSessionTask"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Foundation.NSDictionary?, Foundation.URLResponse?, Foundation.NSError?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.NSDictionary?, Foundation.URLResponse?, Foundation.NSError?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Foundation.NSDictionary?, Foundation.URLResponse?, Foundation.NSError?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.NSDictionary?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "NSDictionary",
+                                "printedName": "Foundation.NSDictionary",
+                                "usr": "c:objc(cs)NSDictionary"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.URLResponse?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "URLResponse",
+                                "printedName": "Foundation.URLResponse",
+                                "usr": "c:objc(cs)NSURLResponse"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.NSError?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "NSError",
+                                "printedName": "Foundation.NSError",
+                                "usr": "c:objc(cs)NSError"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Int64, Swift.Int64) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Int64, Swift.Int64) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Int64, Swift.Int64)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC11attachVideo_11streamToken4data4file8callback8progressSo16NSURLSessionTaskCSS_SSSo12NSDictionaryCSgSSyAN_So13NSURLResponseCSgSo7NSErrorCSgtcSgys5Int64V_AWtcSgtF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC11attachVideo_11streamToken4data4file8callback8progressSo16NSURLSessionTaskCSS_SSSo12NSDictionaryCSgSSyAN_So13NSURLResponseCSgSo7NSErrorCSgtcSgys5Int64V_AWtcSgtF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "createVideo",
+            "printedName": "createVideo(_:file:cover:callback:progress:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URLSessionTask?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URLSessionTask",
+                    "printedName": "Foundation.URLSessionTask",
+                    "usr": "c:objc(cs)NSURLSessionTask"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.NSDictionary?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "NSDictionary",
+                                "printedName": "Foundation.NSDictionary",
+                                "usr": "c:objc(cs)NSDictionary"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.URLResponse?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "URLResponse",
+                                "printedName": "Foundation.URLResponse",
+                                "usr": "c:objc(cs)NSURLResponse"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.Error?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Int64, Swift.Int64) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Int64, Swift.Int64) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Int64, Swift.Int64)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC11createVideo_4file5cover8callback8progressSo16NSURLSessionTaskCSgSo12NSDictionaryCSg_SSSo7UIImageCSgyAN_So13NSURLResponseCSgs5Error_pSgtcSgys5Int64V_AYtcSgtF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC11createVideo_4file5cover8callback8progressSo16NSURLSessionTaskCSgSo12NSDictionaryCSg_SSSo7UIImageCSgyAN_So13NSURLResponseCSgs5Error_pSgtcSgys5Int64V_AYtcSgtF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reRecordVideo",
+            "printedName": "reRecordVideo(_:file:data:callback:progress:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URLSessionTask",
+                "printedName": "Foundation.URLSessionTask",
+                "usr": "c:objc(cs)NSURLSessionTask"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Foundation.NSDictionary?, Foundation.URLResponse?, Swift.Error?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.NSDictionary?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "NSDictionary",
+                                "printedName": "Foundation.NSDictionary",
+                                "usr": "c:objc(cs)NSDictionary"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.URLResponse?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "URLResponse",
+                                "printedName": "Foundation.URLResponse",
+                                "usr": "c:objc(cs)NSURLResponse"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.Error?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Int64, Swift.Int64) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Int64, Swift.Int64) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Int64, Swift.Int64)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC13reRecordVideo_4file4data8callback8progressSo16NSURLSessionTaskCSS_SSSo12NSDictionaryCSgyAM_So13NSURLResponseCSgs5Error_pSgtcSgys5Int64V_AUtcSgtF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC13reRecordVideo_4file4data8callback8progressSo16NSURLSessionTaskCSS_SSSo12NSDictionaryCSgyAM_So13NSURLResponseCSgs5Error_pSgtcSgys5Int64V_AUtcSgtF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -15013,6 +15514,168 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK0A7ConnectC18uploadFileWithPath_10parameters10identifier04fileI00L4Name8mimeType0L9Extension8callback8progressSo16NSURLSessionTaskCSS_So12NSDictionaryCSgS5Sy10Foundation4DataVSg_So13NSURLResponseCSgSo7NSErrorCSgtcSgys5Int64V_A2_tcSgtF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK0A7ConnectC18uploadFileWithPath_10parameters10identifier04fileI00L4Name8mimeType0L9Extension8callback8progressSo16NSURLSessionTaskCSS_So12NSDictionaryCSgS5Sy10Foundation4DataVSg_So13NSURLResponseCSgSo7NSErrorCSgtcSgys5Int64V_A2_tcSgtF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "backgroundUploadWithPath",
+            "printedName": "backgroundUploadWithPath(_:data:identifier:file:callback:progress:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "URLSessionTask",
+                "printedName": "Foundation.URLSessionTask",
+                "usr": "c:objc(cs)NSURLSessionTask"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Foundation.Data?, Foundation.URLResponse?, Foundation.NSError?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.Data?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Data",
+                                "printedName": "Foundation.Data",
+                                "usr": "s:10Foundation4DataV"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.URLResponse?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "URLResponse",
+                                "printedName": "Foundation.URLResponse",
+                                "usr": "c:objc(cs)NSURLResponse"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.NSError?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "NSError",
+                                "printedName": "Foundation.NSError",
+                                "usr": "c:objc(cs)NSError"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Int64, Swift.Int64) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Int64, Swift.Int64) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Int64, Swift.Int64)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int64",
+                            "printedName": "Swift.Int64",
+                            "usr": "s:s5Int64V"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A7ConnectC24backgroundUploadWithPath_4data10identifier4file8callback8progressSo16NSURLSessionTaskCSS_So12NSDictionaryCSgS2Sy10Foundation4DataVSg_So13NSURLResponseCSgSo7NSErrorCSgtcSgys5Int64V_A_tcSgtF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A7ConnectC24backgroundUploadWithPath_4data10identifier4file8callback8progressSo16NSURLSessionTaskCSS_So12NSDictionaryCSgS2Sy10Foundation4DataVSg_So13NSURLResponseCSgSo7NSErrorCSgtcSgys5Int64V_A_tcSgtF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -25511,6 +26174,33 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reachabilityChanged",
+            "printedName": "reachabilityChanged(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Reachability",
+                "printedName": "ZiggeoMediaSwiftSDK.Reachability",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ReachabilityC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A0C19reachabilityChangedyyAA12ReachabilityCF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C19reachabilityChangedyyAA12ReachabilityCF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -25528,6 +26218,13 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "ReachabilityChangeDelegate",
+            "printedName": "ReachabilityChangeDelegate",
+            "usr": "s:19ZiggeoMediaSwiftSDK26ReachabilityChangeDelegateP",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK26ReachabilityChangeDelegateP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -25963,152 +26660,6 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "reachabilityCallback",
-            "printedName": "reachabilityCallback",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((ZiggeoMediaSwiftSDK.Reachability) -> ())?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(ZiggeoMediaSwiftSDK.Reachability) -> ()",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Void",
-                        "printedName": "()"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Reachability",
-                        "printedName": "ZiggeoMediaSwiftSDK.Reachability",
-                        "usr": "s:19ZiggeoMediaSwiftSDK12ReachabilityC"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvp",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "((ZiggeoMediaSwiftSDK.Reachability) -> ())?",
-                    "children": [
-                      {
-                        "kind": "TypeFunc",
-                        "name": "Function",
-                        "printedName": "(ZiggeoMediaSwiftSDK.Reachability) -> ()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Reachability",
-                            "printedName": "ZiggeoMediaSwiftSDK.Reachability",
-                            "usr": "s:19ZiggeoMediaSwiftSDK12ReachabilityC"
-                          }
-                        ]
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvg",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "((ZiggeoMediaSwiftSDK.Reachability) -> ())?",
-                    "children": [
-                      {
-                        "kind": "TypeFunc",
-                        "name": "Function",
-                        "printedName": "(ZiggeoMediaSwiftSDK.Reachability) -> ()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Reachability",
-                            "printedName": "ZiggeoMediaSwiftSDK.Reachability",
-                            "usr": "s:19ZiggeoMediaSwiftSDK12ReachabilityC"
-                          }
-                        ]
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvs",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK19ReachabilityManagerC20reachabilityCallbackyAA0E0CcSgvM",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
             "kind": "Function",
             "name": "startMonitoring",
             "printedName": "startMonitoring()",
@@ -26193,44 +26744,6 @@
             "funcSelfKind": "NonMutating"
           },
           {
-            "kind": "Function",
-            "name": "startConnectionListener",
-            "printedName": "startConnectionListener(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.Reachability) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Reachability",
-                    "printedName": "ZiggeoMediaSwiftSDK.Reachability",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ReachabilityC"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK19ReachabilityManagerC23startConnectionListeneryyyAA0E0CcF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK19ReachabilityManagerC23startConnectionListeneryyyAA0E0CcF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -26255,33 +26768,6 @@
               "Override"
             ],
             "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "reachabilityChanged",
-            "printedName": "reachabilityChanged(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Reachability",
-                "printedName": "ZiggeoMediaSwiftSDK.Reachability",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ReachabilityC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK19ReachabilityManagerC19reachabilityChangedyyAA0E0CF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK19ReachabilityManagerC19reachabilityChangedyyAA0E0CF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -26298,13 +26784,6 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "ReachabilityChangeDelegate",
-            "printedName": "ReachabilityChangeDelegate",
-            "usr": "s:19ZiggeoMediaSwiftSDK26ReachabilityChangeDelegateP",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK26ReachabilityChangeDelegateP"
-          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -31643,6 +32122,92 @@
           },
           {
             "kind": "Var",
+            "name": "shouldDeleteFailedFile",
+            "printedName": "shouldDeleteFailedFile",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "lostConnectionAction",
             "printedName": "lostConnectionAction",
             "children": [
@@ -32060,6 +32625,53 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC26setShouldStartAsForegroundyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC26setShouldStartAsForegroundyySbF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getShouldDeleteFailedFile",
+            "printedName": "getShouldDeleteFailedFile()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC25getShouldDeleteFailedFileSbyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC25getShouldDeleteFailedFileSbyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setShouldDeleteFailedFile",
+            "printedName": "setShouldDeleteFailedFile(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC25setShouldDeleteFailedFileyySbF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC25setShouldDeleteFailedFileyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "declAttributes": [
               "AccessControl"
@@ -49261,57 +49873,50 @@
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2466,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 2503,
+      "offset": 2461,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3300,
+      "offset": 2907,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3345,
+      "offset": 2952,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3380,
+      "offset": 2987,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3719,
+      "offset": 3326,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3753,
+      "offset": 3360,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3948,
+      "offset": 3555,
       "length": 1,
       "value": "0"
     },
@@ -49829,21 +50434,21 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "StringLiteral",
-      "offset": 8363,
+      "offset": 9282,
       "length": 27,
       "value": "\"com.gcd.ziggeoUploadQueue\""
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "IntegerLiteral",
-      "offset": 8468,
+      "offset": 9387,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "IntegerLiteral",
-      "offset": 8507,
+      "offset": 9426,
       "length": 1,
       "value": "0"
     },
@@ -49857,7 +50462,7 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "BooleanLiteral",
-      "offset": 22811,
+      "offset": 27341,
       "length": 4,
       "value": "true"
     },
@@ -50585,21 +51190,21 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
       "kind": "FloatLiteral",
-      "offset": 1823,
+      "offset": 1819,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
       "kind": "FloatLiteral",
-      "offset": 1849,
+      "offset": 1845,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
       "kind": "BooleanLiteral",
-      "offset": 1871,
+      "offset": 1867,
       "length": 4,
       "value": "true"
     },
@@ -50724,8 +51329,15 @@
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 626,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
       "kind": "Dictionary",
-      "offset": 723,
+      "offset": 775,
       "length": 3,
       "value": "[]"
     },
@@ -50935,84 +51547,84 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
-      "offset": 7589,
+      "offset": 7590,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
-      "offset": 7609,
+      "offset": 7610,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
-      "offset": 7670,
+      "offset": 7671,
       "length": 53,
       "value": "\"mediaType = %d OR mediaType = %d AND duration <= %f\""
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
-      "offset": 7919,
+      "offset": 7921,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
-      "offset": 7938,
+      "offset": 7940,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
-      "offset": 7999,
+      "offset": 8001,
       "length": 53,
       "value": "\"mediaType = %d OR mediaType = %d AND duration >= %f\""
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
-      "offset": 8287,
+      "offset": 8290,
       "length": 17,
       "value": "\"mediaType IN %@\""
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
-      "offset": 8671,
+      "offset": 8674,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
-      "offset": 8908,
+      "offset": 8911,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
-      "offset": 9132,
+      "offset": 9135,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
-      "offset": 9579,
+      "offset": 9582,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
-      "offset": 9693,
+      "offset": 9696,
       "length": 5,
       "value": "false"
     },
