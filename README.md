@@ -715,6 +715,14 @@ If you set this value to (true), you can turn off upload.
 uploadingConfig.setShouldTurnOffUploader(true)
 ```
 
+**Delete the file failed uploading**
+
+If you set this value to (true), you can delete the file failed uploading.
+
+```
+uploadingConfig.setShouldDeleteFailedFile(true)
+```
+
 #### QR Scanner Config<a name="qr-scanner-config"></a>
 
 **Close After Successful Scan**

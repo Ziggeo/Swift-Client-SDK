@@ -553,7 +553,6 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK19ReachabilityManager")
 @end
 
 
-
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14RecorderConfig")
 @interface RecorderConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -764,6 +763,7 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK6Ziggeo")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
 @class MFMailComposeViewController;
 
 @interface Ziggeo (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <MFMailComposeViewControllerDelegate>
@@ -937,18 +937,19 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
-@class SelfieSegmentation;
-
-@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <SelfieSegmentationDelegate>
-- (void)selfieSegmentation:(SelfieSegmentation * _Null_unspecified)selfieSegmentation didOutputPixelBuffer:(CVPixelBufferRef _Null_unspecified)pixelBuffer;
-@end
-
 @class AVCaptureMetadataOutput;
 @class AVMetadataObject;
 @class AVCaptureConnection;
 
 @interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <AVCaptureMetadataOutputObjectsDelegate>
 - (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
+@end
+
+
+@class SelfieSegmentation;
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <SelfieSegmentationDelegate>
+- (void)selfieSegmentation:(SelfieSegmentation * _Null_unspecified)selfieSegmentation didOutputPixelBuffer:(CVPixelBufferRef _Null_unspecified)pixelBuffer;
 @end
 
 @class AVCaptureOutput;
