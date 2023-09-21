@@ -550,7 +550,6 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK19ReachabilityManager")
 @end
 
 
-
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14RecorderConfig")
 @interface RecorderConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -767,6 +766,7 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK6Ziggeo")
 - (void)mailComposeController:(MFMailComposeViewController * _Nonnull)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError * _Nullable)error;
 @end
 
+
 @class UIImagePickerController;
 
 @interface Ziggeo (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -933,6 +933,7 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (IBAction)toggleMovieRecording:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
 
 @class AVCaptureMetadataOutput;
 @class AVMetadataObject;
