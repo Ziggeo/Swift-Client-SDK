@@ -1,5 +1,12 @@
 # Changelog
 
+Version 1.1.42-blurring *(2023-09-21)*
+-----------------------------
+* The update adds ability to remove the video from uploading when connection is lost.
+* The update adds method select the way to handle the video that failed.
+* The update adds callback for the network connection status.
+* The update adds custom recorder view.
+
 Version 1.1.41-blurring *(2023-08-24)*
 * The update changes `playVideo`, `showImage` and `playAudio` functions to use only a item.
 * The update adds `playVideos`, `showImages` and `playAudios` functions to support multiple items.
