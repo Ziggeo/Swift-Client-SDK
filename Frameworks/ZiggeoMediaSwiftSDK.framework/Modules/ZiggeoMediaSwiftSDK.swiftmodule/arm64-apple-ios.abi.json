@@ -24394,6 +24394,33 @@
           },
           {
             "kind": "Function",
+            "name": "sendLocalNotification",
+            "printedName": "sendLocalNotification(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A0C21sendLocalNotificationyySSF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C21sendLocalNotificationyySSF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getAppToken",
             "printedName": "getAppToken()",
             "children": [
@@ -32122,92 +32149,6 @@
           },
           {
             "kind": "Var",
-            "name": "shouldDeleteFailedFile",
-            "printedName": "shouldDeleteFailedFile",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvp",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvg",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvs",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC22shouldDeleteFailedFileSbvM",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "lostConnectionAction",
             "printedName": "lostConnectionAction",
             "children": [
@@ -32625,53 +32566,6 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC26setShouldStartAsForegroundyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC26setShouldStartAsForegroundyySbF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getShouldDeleteFailedFile",
-            "printedName": "getShouldDeleteFailedFile()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC25getShouldDeleteFailedFileSbyF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC25getShouldDeleteFailedFileSbyF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setShouldDeleteFailedFile",
-            "printedName": "setShouldDeleteFailedFile(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK15UploadingConfigC25setShouldDeleteFailedFileyySbF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK15UploadingConfigC25setShouldDeleteFailedFileyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "declAttributes": [
               "AccessControl"
@@ -51329,15 +51223,8 @@
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
-      "kind": "BooleanLiteral",
-      "offset": 626,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
       "kind": "Dictionary",
-      "offset": 775,
+      "offset": 723,
       "length": 3,
       "value": "[]"
     },
