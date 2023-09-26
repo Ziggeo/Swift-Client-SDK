@@ -548,6 +548,7 @@ public let ARG_DATA: Swift.String
   public var recorderConfig: ZiggeoMediaSwiftSDK.RecorderConfig
   @objc override dynamic public init()
   public init(token: Swift.String)
+  open func sendLocalNotification(_ message: Swift.String)
   public func getAppToken() -> Swift.String
   public func getServerAuthToken() -> Swift.String
   public func getClientAuthToken() -> Swift.String
@@ -767,7 +768,6 @@ extension Foundation.NSNotification.Name {
   public var shouldTurnOffUploader: Swift.Bool
   public var shouldUseWifiOnly: Swift.Bool
   public var shouldStartAsForeground: Swift.Bool
-  public var shouldDeleteFailedFile: Swift.Bool
   public var lostConnectionAction: Swift.Int
   public var extraArgs: [Swift.String : Any]
   @objc override dynamic public init()
@@ -779,8 +779,6 @@ extension Foundation.NSNotification.Name {
   open func setShouldUseWifiOnly(_ shouldUseWifiOnly: Swift.Bool)
   open func getShouldStartAsForeground() -> Swift.Bool
   open func setShouldStartAsForeground(_ shouldStartAsForeground: Swift.Bool)
-  open func getShouldDeleteFailedFile() -> Swift.Bool
-  open func setShouldDeleteFailedFile(_ shouldDeleteFailedFile: Swift.Bool)
   open func getLostConnectionAction() -> Swift.Int
   open func setLostConnectionAction(_ lostConnectionAction: Swift.Int)
   open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
