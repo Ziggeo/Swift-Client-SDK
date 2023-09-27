@@ -388,6 +388,12 @@ typedef SWIFT_ENUM(NSInteger, AudioVisualizationMode, open) {
 
 
 
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK11CacheConfig")
+@interface CacheConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK19CameraRecorderStyle")
 @interface CameraRecorderStyle : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
