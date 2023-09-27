@@ -153,6 +153,18 @@ import os
   open func setStreamToken(_ streamToken: Swift.String)
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers public class CacheConfig : ObjectiveC.NSObject {
+  public var maxCacheSize: Swift.Int
+  public var cacheRoot: Swift.String
+  @objc override dynamic public init()
+  open func getMaxCacheSize() -> Swift.Int
+  open func setMaxCacheSize(_ maxCacheSize: Swift.Int)
+  open func getCacheRoot() -> Swift.String
+  open func setCacheRoot(_ cacheRoot: Swift.String)
+  open func toString() -> Swift.String
+  open func stringValueConfig() -> Swift.String
+  @objc deinit
+}
 @objc final public class Chronometer : ObjectiveC.NSObject {
   final public var isPlaying: Swift.Bool
   final public var timerCurrentValue: Swift.Double
@@ -306,22 +318,21 @@ public let ARG_DATA: Swift.String
   public var playerConfig: ZiggeoMediaSwiftSDK.PlayerConfig
   public var qrScannerConfig: ZiggeoMediaSwiftSDK.QrScannerConfig
   public var recorderConfig: ZiggeoMediaSwiftSDK.RecorderConfig
+  public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
   @objc override dynamic public init()
   public init(token: Swift.String)
   open func sendLocalNotification(_ message: Swift.String)
   public func getAppToken() -> Swift.String
   public func getServerAuthToken() -> Swift.String
   public func getClientAuthToken() -> Swift.String
-  public func recorderCacheConfig() -> [Swift.String : Any]
   public func recorderInterfaceConfig() -> [Swift.String : Any]
-  public func playerCacheConfig() -> [Swift.String : Any]
-  open func setRecorderCacheConfig(_ config: [Swift.String : Any])
   open func setRecorderInterfaceConfig(_ config: [Swift.String : Any])
   open func setFileSelectorConfig(_ config: ZiggeoMediaSwiftSDK.FileSelectorConfig)
   open func setUploadingConfig(_ config: ZiggeoMediaSwiftSDK.UploadingConfig)
   open func setPlayerConfig(_ config: ZiggeoMediaSwiftSDK.PlayerConfig)
   open func setQrScannerConfig(_ config: ZiggeoMediaSwiftSDK.QrScannerConfig)
   open func setRecorderConfig(_ config: ZiggeoMediaSwiftSDK.RecorderConfig)
+  open func setCacheConfig(_ config: ZiggeoMediaSwiftSDK.CacheConfig)
   open func sendReport(_ array: [Swift.String])
   open func sendEmailToSupport()
   open func sendEmailToSupport(subject: Swift.String, messageBody: Swift.String, file: ZiggeoMediaSwiftSDK.FileInfoData?)
@@ -419,7 +430,7 @@ extension ZiggeoMediaSwiftSDK.Ziggeo : ZiggeoMediaSwiftSDK.ReachabilityChangeDel
 }
 @objc @_Concurrency.MainActor(unsafe) open class ZiggeoRecorder : UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) open var videoPreview: (any ZiggeoMediaSwiftSDK.VideoPreviewProtocol)!
-  @_Concurrency.MainActor(unsafe) open var recorderUIConfig: ZiggeoMediaSwiftSDK.ZiggeoRecorderInterfaceConfig
+  @_Concurrency.MainActor(unsafe) open var recorderUIConfig: ZiggeoMediaSwiftSDK.RecorderInterfaceConfig
   @_Concurrency.MainActor(unsafe) open var videoGravity: AVFoundation.AVLayerVideoGravity
   @_Concurrency.MainActor(unsafe) open var showLightIndicator: Swift.Bool {
     get
@@ -859,6 +870,13 @@ public protocol VideoPreviewProtocol {
   public var duration: Swift.Double!
   @objc deinit
 }
+public class RecorderInterfaceConfig {
+  public var recordButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  public var closeButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  public var cameraFlipButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class BaseNibView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
@@ -1221,13 +1239,6 @@ public protocol ReachabilityChangeDelegate {
   @objc @_Concurrency.MainActor(unsafe) public func pause()
   @objc @_Concurrency.MainActor(unsafe) public func resume()
   @objc @_Concurrency.MainActor(unsafe) public func stop()
-  @objc deinit
-}
-public class ZiggeoRecorderInterfaceConfig {
-  public var recordButton: ZiggeoMediaSwiftSDK.ButtonConfig
-  public var closeButton: ZiggeoMediaSwiftSDK.ButtonConfig
-  public var cameraFlipButton: ZiggeoMediaSwiftSDK.ButtonConfig
-  public init()
   @objc deinit
 }
 public protocol ImagePickerControllerDelegate : AnyObject {
