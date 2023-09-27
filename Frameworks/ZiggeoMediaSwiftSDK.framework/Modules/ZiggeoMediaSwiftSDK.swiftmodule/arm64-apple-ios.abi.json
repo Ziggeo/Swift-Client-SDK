@@ -6674,6 +6674,428 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ZiggeoMediaSwiftSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CacheConfig",
+        "printedName": "CacheConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "maxCacheSize",
+            "printedName": "maxCacheSize",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC03maxE4SizeSivM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cacheRoot",
+            "printedName": "cacheRoot",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC9cacheRootSSvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CacheConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig(im)init",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigCACycfc",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getMaxCacheSize",
+            "printedName": "getMaxCacheSize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC06getMaxE4SizeSiyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC06getMaxE4SizeSiyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setMaxCacheSize",
+            "printedName": "setMaxCacheSize(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC06setMaxE4SizeyySiF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC06setMaxE4SizeyySiF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getCacheRoot",
+            "printedName": "getCacheRoot()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC03getE4RootSSyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC03getE4RootSSyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setCacheRoot",
+            "printedName": "setCacheRoot(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC03setE4RootyySSF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC03setE4RootyySSF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "toString",
+            "printedName": "toString()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC8toStringSSyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC8toStringSSyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stringValueConfig",
+            "printedName": "stringValueConfig()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11CacheConfigC011stringValueF0SSyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC011stringValueF0SSyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK11CacheConfigC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Chronometer",
         "printedName": "Chronometer",
@@ -13761,6 +14183,92 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "cacheConfig",
+            "printedName": "cacheConfig",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CacheConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CacheConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                    "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CacheConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                    "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0CvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0CvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -13907,41 +14415,6 @@
           },
           {
             "kind": "Function",
-            "name": "recorderCacheConfig",
-            "printedName": "recorderCacheConfig()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A0C19recorderCacheConfigSDySSypGyF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C19recorderCacheConfigSDySSypGyF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "recorderInterfaceConfig",
             "printedName": "recorderInterfaceConfig()",
             "children": [
@@ -13970,81 +14443,8 @@
             "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C23recorderInterfaceConfigSDySSypGyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "playerCacheConfig",
-            "printedName": "playerCacheConfig()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A0C17playerCacheConfigSDySSypGyF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C17playerCacheConfigSDySSypGyF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setRecorderCacheConfig",
-            "printedName": "setRecorderCacheConfig(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : Any]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A0C22setRecorderCacheConfigyySDySSypGF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C22setRecorderCacheConfigyySDySSypGF",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
-            "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -14216,6 +14616,33 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK0A0C17setRecorderConfigyyAA0fG0CF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C17setRecorderConfigyyAA0fG0CF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setCacheConfig",
+            "printedName": "setCacheConfig(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CacheConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A0C14setCacheConfigyyAA0fG0CF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C14setCacheConfigyyAA0fG0CF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -17993,14 +18420,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "ZiggeoRecorderInterfaceConfig",
-                "printedName": "ZiggeoMediaSwiftSDK.ZiggeoRecorderInterfaceConfig",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC"
+                "name": "RecorderInterfaceConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.RecorderInterfaceConfig",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC"
               }
             ],
             "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvp",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvp",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -18018,14 +18445,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "ZiggeoRecorderInterfaceConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ZiggeoRecorderInterfaceConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC"
+                    "name": "RecorderInterfaceConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.RecorderInterfaceConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvg",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvg",
                 "moduleName": "ZiggeoMediaSwiftSDK",
                 "implicit": true,
                 "isOpen": true,
@@ -18043,14 +18470,14 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "ZiggeoRecorderInterfaceConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ZiggeoRecorderInterfaceConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC"
+                    "name": "RecorderInterfaceConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.RecorderInterfaceConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvs",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvs",
                 "moduleName": "ZiggeoMediaSwiftSDK",
                 "implicit": true,
                 "isOpen": true,
@@ -18068,8 +18495,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0aE15InterfaceConfigCvM",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A8RecorderC16recorderUIConfigAA0E15InterfaceConfigCvM",
                 "moduleName": "ZiggeoMediaSwiftSDK",
                 "implicit": true,
                 "isOpen": true,
@@ -34222,6 +34649,309 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "RecorderInterfaceConfig",
+        "printedName": "RecorderInterfaceConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "recordButton",
+            "printedName": "recordButton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ButtonConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0Cvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0Cvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0Cvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0Cvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0Cvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0Cvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0CvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC12recordButtonAA0iG0CvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "closeButton",
+            "printedName": "closeButton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ButtonConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0Cvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0Cvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0Cvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0Cvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0Cvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0Cvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0CvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC11closeButtonAA0iG0CvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cameraFlipButton",
+            "printedName": "cameraFlipButton",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ButtonConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ButtonConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
+                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0CvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0CvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RecorderInterfaceConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.RecorderInterfaceConfig",
+                "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigCACycfc",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigCACycfc",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK23RecorderInterfaceConfigC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -44642,309 +45372,6 @@
         ]
       },
       {
-        "kind": "TypeDecl",
-        "name": "ZiggeoRecorderInterfaceConfig",
-        "printedName": "ZiggeoRecorderInterfaceConfig",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "recordButton",
-            "printedName": "recordButton",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ButtonConfig",
-                "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0Cvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0Cvp",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ButtonConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0Cvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0Cvg",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ButtonConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0Cvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0Cvs",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0CvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC12recordButtonAA0iG0CvM",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "closeButton",
-            "printedName": "closeButton",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ButtonConfig",
-                "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0Cvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0Cvp",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ButtonConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0Cvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0Cvg",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ButtonConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0Cvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0Cvs",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0CvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC11closeButtonAA0iG0CvM",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "cameraFlipButton",
-            "printedName": "cameraFlipButton",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ButtonConfig",
-                "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvp",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ButtonConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvg",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ButtonConfig",
-                    "printedName": "ZiggeoMediaSwiftSDK.ButtonConfig",
-                    "usr": "s:19ZiggeoMediaSwiftSDK12ButtonConfigC"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0Cvs",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0CvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC16cameraFlipButtonAA0jG0CvM",
-                "moduleName": "ZiggeoMediaSwiftSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ZiggeoRecorderInterfaceConfig",
-                "printedName": "ZiggeoMediaSwiftSDK.ZiggeoRecorderInterfaceConfig",
-                "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigCACycfc",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigCACycfc",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC",
-        "mangledName": "$s19ZiggeoMediaSwiftSDK0A23RecorderInterfaceConfigC",
-        "moduleName": "ZiggeoMediaSwiftSDK",
-        "declAttributes": [
-          "AccessControl"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZiggeoMediaSwiftSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -49833,6 +50260,34 @@
       "value": "\"ZiggeoMediaSwiftSDK.RecordingInfo\""
     },
     {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 252,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 259,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 266,
+      "length": 4,
+      "value": "1024"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 306,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "FloatLiteral",
       "offset": 283,
@@ -50318,21 +50773,7 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "Dictionary",
-      "offset": 8695,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
-      "kind": "Dictionary",
-      "offset": 8758,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
-      "kind": "Dictionary",
-      "offset": 8815,
+      "offset": 8699,
       "length": 3,
       "value": "[]"
     },
@@ -50423,63 +50864,63 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 760,
+      "offset": 754,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 964,
+      "offset": 958,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 2461,
+      "offset": 2455,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 2907,
+      "offset": 2901,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 2952,
+      "offset": 2946,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 2987,
+      "offset": 2981,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3326,
+      "offset": 3320,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3360,
+      "offset": 3354,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3555,
+      "offset": 3549,
       "length": 1,
       "value": "0"
     },
