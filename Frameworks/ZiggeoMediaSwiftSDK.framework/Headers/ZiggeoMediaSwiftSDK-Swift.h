@@ -678,6 +678,12 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK15SpringboardData")
 @end
 
 
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK37StopRecordingConfirmationDialogConfig")
+@interface StopRecordingConfirmationDialogConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14TPGAudioPlayer")
 @interface TPGAudioPlayer : NSObject
 @property (nonatomic) BOOL isPlaying;
@@ -769,12 +775,12 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK6Ziggeo")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
 @class MFMailComposeViewController;
 
 @interface Ziggeo (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <MFMailComposeViewControllerDelegate>
 - (void)mailComposeController:(MFMailComposeViewController * _Nonnull)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError * _Nullable)error;
 @end
+
 
 @class UIImagePickerController;
 
@@ -940,14 +946,25 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (IBAction)changeCamera:(id _Nonnull)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer * _Nonnull)gestureRecognizer;
 - (IBAction)toggleMovieRecording:(id _Nonnull)sender;
+- (IBAction)toggleMoviePaused:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
-
 
 @class SelfieSegmentation;
 
 @interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <SelfieSegmentationDelegate>
 - (void)selfieSegmentation:(SelfieSegmentation * _Null_unspecified)selfieSegmentation didOutputPixelBuffer:(CVPixelBufferRef _Null_unspecified)pixelBuffer;
+@end
+
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <H264EncoderDelegate>
+- (void)compressedVideoDataReceived:(CMSampleBufferRef _Null_unspecified)sampleBuffer;
+@end
+
+
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <AACEncoderDelegate>
+- (void)compressedAudioDataReceived:(NSData * _Null_unspecified)data asc:(NSData * _Null_unspecified)asc pts:(CMTime)pts;
 @end
 
 @class AVCaptureMetadataOutput;
@@ -964,6 +981,13 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
+
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <LiveStreamerDelegate>
+- (void)onError:(NSString * _Null_unspecified)description;
+- (void)onPublishStart;
+- (void)onPublishStop;
+@end
 
 
 SWIFT_PROTOCOL("_TtP19ZiggeoMediaSwiftSDK22ZiggeoRecorderDelegate_")
