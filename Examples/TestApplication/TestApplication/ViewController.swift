@@ -60,7 +60,15 @@ class ViewController: UIViewController {
         recorderConfig.setMaxDuration(0)
         recorderConfig.setShouldSendImmediately(false)
         recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
-        recorderConfig.setBlurMode(true)
+        recorderConfig.setShouldConfirmStopRecording(true)
+        
+        let stopRecordingConfirmationDialogConfig = StopRecordingConfirmationDialogConfig()
+        stopRecordingConfirmationDialogConfig.setTitleText("Ziggeo")
+        stopRecordingConfirmationDialogConfig.setMesText("Do you want to stop recording?")
+        stopRecordingConfirmationDialogConfig.setPosBtnText("Yes")
+        stopRecordingConfirmationDialogConfig.setNegBtnText("No")
+        recorderConfig.setStopRecordingConfirmationDialogConfig(stopRecordingConfirmationDialogConfig)
+        
         recorderConfig.setExtraArgs(["tags": "iOS,Video,Record",
                                        "client_auth" : "CLIENT_AUTH_TOKEN",
                                        "server_auth" : "SERVER_AUTH_TOKEN",
