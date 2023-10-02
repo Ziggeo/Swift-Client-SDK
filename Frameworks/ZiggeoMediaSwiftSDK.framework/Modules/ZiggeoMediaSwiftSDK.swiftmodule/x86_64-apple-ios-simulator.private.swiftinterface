@@ -90,7 +90,6 @@ public protocol VideoPreviewProtocol {
     set
   }
   @_Concurrency.MainActor(unsafe) open func setVideoGravity(_ videoGravity: AVFoundation.AVLayerVideoGravity)
-  @_Concurrency.MainActor(unsafe) open var duration: Swift.Double
   @_Concurrency.MainActor(unsafe) convenience public init(application: ZiggeoMediaSwiftSDK.Ziggeo)
   @_Concurrency.MainActor(unsafe) public init(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String!)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
@@ -113,6 +112,7 @@ public protocol VideoPreviewProtocol {
   @objc @IBAction @_Concurrency.MainActor(unsafe) open func changeCamera(_ sender: Swift.AnyObject)
   @objc @IBAction @_Concurrency.MainActor(unsafe) open func focusAndExposeTap(_ gestureRecognizer: UIKit.UIGestureRecognizer)
   @objc @IBAction @_Concurrency.MainActor(unsafe) open func toggleMovieRecording(_ sender: Swift.AnyObject)
+  @objc @IBAction @_Concurrency.MainActor(unsafe) open func toggleMoviePaused(_ sender: Swift.AnyObject)
   @_Concurrency.MainActor(unsafe) open func startRecording()
   @_Concurrency.MainActor(unsafe) open func stopRecording()
   @_Concurrency.MainActor(unsafe) open func processRecordedVideo(outputFileURL: Foundation.URL!, error: (any Swift.Error)!)
@@ -132,6 +132,17 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : AVFoundation.AVCaptureAudioDataOu
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : AVFoundation.AVCaptureMetadataOutputObjectsDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic open func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
+}
+extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.H264EncoderDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func compressedVideoDataReceived(_ sampleBuffer: CoreMedia.CMSampleBuffer!)
+}
+extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.AACEncoderDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func compressedAudioDataReceived(_ data: Foundation.Data!, asc: Foundation.Data!, pts: CoreMedia.CMTime)
+}
+extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func onError(_ description: Swift.String!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func onPublishStart()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func onPublishStop()
 }
 @objc @_inheritsConvenienceInitializers public class CacheConfig : ObjectiveC.NSObject {
   public var maxCacheSize: Swift.Int
@@ -164,9 +175,27 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : AVFoundation.AVCaptureMetadataOut
   public init(_ x: Swift.Int, _ y: Swift.Int)
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers public class StopRecordingConfirmationDialogConfig : ObjectiveC.NSObject {
+  public var titleText: Swift.String
+  public var mesText: Swift.String
+  public var posBtnText: Swift.String
+  public var negBtnText: Swift.String
+  @objc override dynamic public init()
+  open func getTitleText() -> Swift.String
+  open func setTitleText(_ titleText: Swift.String)
+  open func getMesText() -> Swift.String
+  open func setMesText(_ mesText: Swift.String)
+  open func getPosBtnText() -> Swift.String
+  open func setPosBtnText(_ posBtnText: Swift.String)
+  open func getNegBtnText() -> Swift.String
+  open func setNegBtnText(_ negBtnText: Swift.String)
+  open func stringValueConfig() -> Swift.String
+  @objc deinit
+}
 public class RecorderInterfaceConfig {
   public var recordButton: ZiggeoMediaSwiftSDK.ButtonConfig
   public var closeButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  public var pauseButton: ZiggeoMediaSwiftSDK.ButtonConfig
   public var cameraFlipButton: ZiggeoMediaSwiftSDK.ButtonConfig
   public init()
   @objc deinit
@@ -233,8 +262,11 @@ public class RecorderInterfaceConfig {
   open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.ContentModel], _ error: (any Swift.Error)?) -> Swift.Void)
   open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func createLiveVideoWithData(data: Foundation.NSDictionary, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func destroy(_ token: Swift.String, streamToken: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func confirmLiveStreaming(videoToken: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func confirm(_ token: Swift.String, streamToken: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
   open func getImage(_ token: Swift.String, params: Foundation.NSDictionary, callback: @escaping (_ image: UIKit.UIImage?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func getImage(_ path: Swift.String, callback: @escaping (_ image: UIKit.UIImage?, _ error: (any Swift.Error)?) -> Swift.Void)
@@ -336,6 +368,7 @@ public protocol CoverSelectorDelegate {
   open var cdnAPIUrl: Swift.String
   open var devServerApiUrl: Swift.String
   open var fileServerUrl: Swift.String
+  open var streamServerUrl: Swift.String
   public init(token: Swift.String)
   @objc deinit
 }
@@ -558,7 +591,6 @@ public let ARG_DATA: Swift.String
   public var playerConfig: ZiggeoMediaSwiftSDK.PlayerConfig
   public var qrScannerConfig: ZiggeoMediaSwiftSDK.QrScannerConfig
   public var recorderConfig: ZiggeoMediaSwiftSDK.RecorderConfig
-  public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
   @objc override dynamic public init()
   public init(token: Swift.String)
   open func sendLocalNotification(_ message: Swift.String)
@@ -572,7 +604,6 @@ public let ARG_DATA: Swift.String
   open func setPlayerConfig(_ config: ZiggeoMediaSwiftSDK.PlayerConfig)
   open func setQrScannerConfig(_ config: ZiggeoMediaSwiftSDK.QrScannerConfig)
   open func setRecorderConfig(_ config: ZiggeoMediaSwiftSDK.RecorderConfig)
-  open func setCacheConfig(_ config: ZiggeoMediaSwiftSDK.CacheConfig)
   open func sendReport(_ array: [Swift.String])
   open func sendEmailToSupport()
   open func sendEmailToSupport(subject: Swift.String, messageBody: Swift.String, file: ZiggeoMediaSwiftSDK.FileInfoData?)
@@ -1079,6 +1110,7 @@ public protocol ImagePickerControllerDelegate : AnyObject {
   public var desc: Swift.String!
   public var stateString: Swift.String!
   public var token: Swift.String!
+  public var streamToken: Swift.String!
   public var date: Swift.Double!
   public var duration: Swift.Double!
   @objc deinit
@@ -1141,6 +1173,8 @@ public protocol ImagePickerControllerDelegate : AnyObject {
   public var videoBitrate: Swift.Int
   public var audioBitrate: Swift.Int
   public var audioSampleRate: Swift.Int
+  public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
+  public var stopRecordingConfirmationDialogConfig: ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig
   public var extraArgs: [Swift.String : Any]
   @objc override dynamic public init()
   open func getStyle() -> ZiggeoMediaSwiftSDK.CameraRecorderStyle
@@ -1188,6 +1222,10 @@ public protocol ImagePickerControllerDelegate : AnyObject {
   open func setAudioBitrate(_ audioBitrate: Swift.Int)
   open func getAudioSampleRate() -> Swift.Int
   open func setAudioSampleRate(_ rate: Swift.Int)
+  open func getCacheConfig() -> ZiggeoMediaSwiftSDK.CacheConfig
+  open func setCacheConfig(_ cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig)
+  open func getStopRecordingConfirmationDialogConfig() -> ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig
+  open func setStopRecordingConfirmationDialogConfig(_ stopRecordingConfirmationDialogConfig: ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig)
   open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
   open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
   open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)

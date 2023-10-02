@@ -1,5 +1,11 @@
 # Changelog
 
+Version 1.1.44 *(2023-09-28)*
+-----------------------------
+* The update adds stop recording confirmation dialog config.
+* The update adds pause button on recording video/audio screen.
+* The update adds live streaming.
+
 Version 1.1.42 *(2023-09-21)*
 -----------------------------
 * The update adds ability to remove the video from uploading when connection is lost.

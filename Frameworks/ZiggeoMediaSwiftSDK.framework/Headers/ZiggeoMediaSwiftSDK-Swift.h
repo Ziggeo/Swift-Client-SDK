@@ -270,6 +270,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 #endif
 
+#import <ZiggeoMediaSwiftSDK/ZiggeoMediaSwiftSDK.h>
+
 #endif
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
@@ -675,6 +677,12 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK15SpringboardData")
 @end
 
 
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK37StopRecordingConfirmationDialogConfig")
+@interface StopRecordingConfirmationDialogConfig : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14TPGAudioPlayer")
 @interface TPGAudioPlayer : NSObject
 @property (nonatomic) BOOL isPlaying;
@@ -937,9 +945,14 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (IBAction)changeCamera:(id _Nonnull)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer * _Nonnull)gestureRecognizer;
 - (IBAction)toggleMovieRecording:(id _Nonnull)sender;
+- (IBAction)toggleMoviePaused:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <H264EncoderDelegate>
+- (void)compressedVideoDataReceived:(CMSampleBufferRef _Null_unspecified)sampleBuffer;
+@end
 
 @class AVCaptureMetadataOutput;
 @class AVMetadataObject;
@@ -949,12 +962,25 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
+
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <AACEncoderDelegate>
+- (void)compressedAudioDataReceived:(NSData * _Null_unspecified)data asc:(NSData * _Null_unspecified)asc pts:(CMTime)pts;
+@end
+
 @class AVCaptureOutput;
 
 @interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
+
+
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <LiveStreamerDelegate>
+- (void)onError:(NSString * _Null_unspecified)description;
+- (void)onPublishStart;
+- (void)onPublishStop;
+@end
 
 
 SWIFT_PROTOCOL("_TtP19ZiggeoMediaSwiftSDK22ZiggeoRecorderDelegate_")
