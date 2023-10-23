@@ -1,12 +1,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreVideo/CoreVideo.h>
+#import <CoreMedia/CoreMedia.h>
 
 @class SelfieSegmentation;
 
 
 @protocol SelfieSegmentationDelegate <NSObject>
 
-- (void)selfieSegmentation:(SelfieSegmentation*)selfieSegmentation didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+- (void)selfieSegmentation:(SelfieSegmentation*)selfieSegmentation didOutputPixelBuffer:(CVPixelBufferRef)pixelBuffer cmTime:(CMTime)cmTime;
 
 @end
 
@@ -17,6 +18,6 @@
 
 - (instancetype)init;
 - (void)startGraph;
-- (void)processVideoFrame:(CVPixelBufferRef)imageBuffer;
+- (void)processVideoFrame:(CVPixelBufferRef)imageBuffer cmTime:(CMTime)cmTime;
 
 @end
