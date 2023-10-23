@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D8CE76092A97D32E00A57F3B /* CustomUIRecroderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CE76072A97D32E00A57F3B /* CustomUIRecroderView.xib */; };
 		D8CE760A2A97D32E00A57F3B /* CustomUIRecroderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE76082A97D32E00A57F3B /* CustomUIRecroderViewController.swift */; };
-		D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F2E638D2F8D73227C97B0541 /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC4EB53C3179E49A289BFF0 /* libPods-TestApplication.a */; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */,
+				D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +393,8 @@
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication98348768;
+				MARKETING_VERSION = 1.1.45;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -416,7 +417,8 @@
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication98348768;
+				MARKETING_VERSION = 1.1.45;
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

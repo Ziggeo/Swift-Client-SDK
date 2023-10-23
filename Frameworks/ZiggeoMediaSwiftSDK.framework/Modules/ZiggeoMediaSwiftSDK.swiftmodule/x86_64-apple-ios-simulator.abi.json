@@ -180,6 +180,92 @@
         "children": [
           {
             "kind": "Var",
+            "name": "style",
+            "printedName": "style",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PlayerStyle",
+                "printedName": "ZiggeoMediaSwiftSDK.PlayerStyle",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlayerStyle",
+                    "printedName": "ZiggeoMediaSwiftSDK.PlayerStyle",
+                    "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlayerStyle",
+                    "printedName": "ZiggeoMediaSwiftSDK.PlayerStyle",
+                    "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK12PlayerConfigC5styleAA0E5StyleCvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "shouldShowSubtitles",
             "printedName": "shouldShowSubtitles",
             "children": [
@@ -758,6 +844,53 @@
               "AccessControl"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getStyle",
+            "printedName": "getStyle()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PlayerStyle",
+                "printedName": "ZiggeoMediaSwiftSDK.PlayerStyle",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK12PlayerConfigC8getStyleAA0eH0CyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK12PlayerConfigC8getStyleAA0eH0CyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setStyle",
+            "printedName": "setStyle(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PlayerStyle",
+                "printedName": "ZiggeoMediaSwiftSDK.PlayerStyle",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK12PlayerConfigC8setStyleyyAA0eH0CF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK12PlayerConfigC8setStyleyyAA0eH0CF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -6440,6 +6573,253 @@
         "declKind": "Class",
         "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)StopRecordingConfirmationDialogConfig",
         "mangledName": "$s19ZiggeoMediaSwiftSDK37StopRecordingConfirmationDialogConfigC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ZiggeoMediaSwiftSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PlayerStyle",
+        "printedName": "PlayerStyle",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "hideControls",
+            "printedName": "hideControls",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC12hideControlsSbvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PlayerStyle",
+                "printedName": "ZiggeoMediaSwiftSDK.PlayerStyle",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle(im)init",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleCACycfc",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "getHideControls",
+            "printedName": "getHideControls()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11PlayerStyleC15getHideControlsSbyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC15getHideControlsSbyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setHideControls",
+            "printedName": "setHideControls(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK11PlayerStyleC15setHideControlsyySbF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC15setHideControlsyySbF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)PlayerStyle",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK11PlayerStyleC",
         "moduleName": "ZiggeoMediaSwiftSDK",
         "declAttributes": [
           "AccessControl",
@@ -51637,42 +52017,42 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 262,
+      "offset": 312,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 305,
+      "offset": 355,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 341,
+      "offset": 391,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 387,
+      "offset": 437,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "StringLiteral",
-      "offset": 424,
+      "offset": 474,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "Dictionary",
-      "offset": 479,
+      "offset": 529,
       "length": 3,
       "value": "[]"
     },
@@ -51749,91 +52129,105 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 2496,
+      "offset": 2451,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
+      "offset": 2898,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "kind": "IntegerLiteral",
       "offset": 2943,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2988,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3023,
+      "offset": 2978,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3362,
+      "offset": 3317,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3396,
+      "offset": 3351,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3591,
+      "offset": 3504,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 3620,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3804,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3871,
+      "offset": 3552,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3924,
+      "offset": 3583,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3761,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3828,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3859,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3912,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
-      "offset": 3938,
+      "offset": 3926,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
-      "offset": 4031,
+      "offset": 4019,
       "length": 5,
       "value": "false"
     },
@@ -52004,6 +52398,13 @@
       "offset": 463,
       "length": 4,
       "value": "\"No\""
+    },
+    {
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 253,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",

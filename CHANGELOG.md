@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.1.45 *(2023-10-20)*
+-----------------------------
+* The update changes delegate functions of mediapipe selfiesegmentation framework.
+* The update fixes pausable recording function on blurring mode.
+
 Version 1.1.44 *(2023-09-28)*
 -----------------------------
 * The update adds stop recording confirmation dialog config.

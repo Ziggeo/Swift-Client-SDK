@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         recorderConfig.setFacing(FACING_BACK)
         recorderConfig.setMaxDuration(0)
         recorderConfig.setShouldSendImmediately(false)
+        recorderConfig.setIsPausedMode(true)
         recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
         recorderConfig.setShouldConfirmStopRecording(true)
         
@@ -70,10 +71,10 @@ class ViewController: UIViewController {
         recorderConfig.setStopRecordingConfirmationDialogConfig(stopRecordingConfirmationDialogConfig)
         
         recorderConfig.setExtraArgs(["tags": "iOS,Video,Record",
-                                       "client_auth" : "CLIENT_AUTH_TOKEN",
-                                       "server_auth" : "SERVER_AUTH_TOKEN",
-                                       "data" : ["foo": "bar"],
-                                       "effect_profile" : "1234,5678"])
+                                     "client_auth" : "CLIENT_AUTH_TOKEN",
+                                     "server_auth" : "SERVER_AUTH_TOKEN",
+                                     "data" : ["foo": "bar"],
+                                     "effect_profile" : "1234,5678"])
         self.m_ziggeo.setRecorderConfig(recorderConfig)
         
         self.m_ziggeo.record()

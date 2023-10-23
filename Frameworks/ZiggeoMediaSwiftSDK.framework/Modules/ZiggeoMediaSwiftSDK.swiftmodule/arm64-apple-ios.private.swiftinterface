@@ -28,6 +28,7 @@ import os
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class PlayerConfig : ObjectiveC.NSObject {
+  public var style: ZiggeoMediaSwiftSDK.PlayerStyle
   public var shouldShowSubtitles: Swift.Bool
   public var shouldPreload: Swift.Bool
   public var isMuted: Swift.Bool
@@ -35,6 +36,8 @@ import os
   public var adsUri: Swift.String
   public var extraArgs: [Swift.String : Any]
   @objc override dynamic public init()
+  open func getStyle() -> ZiggeoMediaSwiftSDK.PlayerStyle
+  open func setStyle(_ style: ZiggeoMediaSwiftSDK.PlayerStyle)
   open func getShouldShowSubtitles() -> Swift.Bool
   open func setShouldShowSubtitles(_ shouldShowSubtitles: Swift.Bool)
   open func getShouldPreload() -> Swift.Bool
@@ -190,6 +193,13 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerD
   open func getNegBtnText() -> Swift.String
   open func setNegBtnText(_ negBtnText: Swift.String)
   open func stringValueConfig() -> Swift.String
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class PlayerStyle : ObjectiveC.NSObject {
+  public var hideControls: Swift.Bool
+  @objc override dynamic public init()
+  open func getHideControls() -> Swift.Bool
+  open func setHideControls(_ hideControls: Swift.Bool)
   @objc deinit
 }
 public class RecorderInterfaceConfig {

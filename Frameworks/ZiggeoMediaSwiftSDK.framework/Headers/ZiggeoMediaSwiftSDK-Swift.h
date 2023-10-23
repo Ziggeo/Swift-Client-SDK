@@ -546,6 +546,12 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK12PlayerConfig")
 @end
 
 
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK11PlayerStyle")
+@interface PlayerStyle : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK15QrScannerConfig")
 @interface QrScannerConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -774,12 +780,12 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK6Ziggeo")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
 @class MFMailComposeViewController;
 
 @interface Ziggeo (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <MFMailComposeViewControllerDelegate>
 - (void)mailComposeController:(MFMailComposeViewController * _Nonnull)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError * _Nullable)error;
 @end
-
 
 @class UIImagePickerController;
 
@@ -950,6 +956,11 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 @end
 
 
+@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <AACEncoderDelegate>
+- (void)compressedAudioDataReceived:(NSData * _Null_unspecified)data asc:(NSData * _Null_unspecified)asc pts:(CMTime)pts;
+@end
+
+
 @interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <H264EncoderDelegate>
 - (void)compressedVideoDataReceived:(CMSampleBufferRef _Null_unspecified)sampleBuffer;
 @end
@@ -962,11 +973,6 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK14ZiggeoRecorder")
 - (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
-
-
-@interface ZiggeoRecorder (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <AACEncoderDelegate>
-- (void)compressedAudioDataReceived:(NSData * _Null_unspecified)data asc:(NSData * _Null_unspecified)asc pts:(CMTime)pts;
-@end
 
 @class AVCaptureOutput;
 
