@@ -315,7 +315,9 @@ extension HomeViewController: MenuActionDelegate {
     }
     
     func didSelectPlayVideoFromUrlMenu() {
-        Common.ziggeo?.playFromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        Common.ziggeo?.play(fromUris: ["http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                                       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+                                       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"])
     }
     
     func didSelectPlayLocalVideoMenu() {
@@ -508,4 +510,5 @@ extension HomeViewController: ZiggeoPlayerDelegate {
 
 // MARK: - ZiggeoScreenRecorderDelegate
 extension HomeViewController: ZiggeoScreenRecorderDelegate {
+    
 }
