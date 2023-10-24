@@ -452,6 +452,13 @@ extension ZiggeoMediaSwiftSDK.Ziggeo : ZiggeoMediaSwiftSDK.ReachabilityChangeDel
   open func stringValueConfig() -> Swift.String
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers public class PlayerStyle : ObjectiveC.NSObject {
+  public var hideControls: Swift.Bool
+  @objc override dynamic public init()
+  open func getHideControls() -> Swift.Bool
+  open func setHideControls(_ hideControls: Swift.Bool)
+  @objc deinit
+}
 @objc @_Concurrency.MainActor(unsafe) open class ZiggeoRecorder : UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) open var videoPreview: (any ZiggeoMediaSwiftSDK.VideoPreviewProtocol)!
   @_Concurrency.MainActor(unsafe) open var recorderUIConfig: ZiggeoMediaSwiftSDK.RecorderInterfaceConfig
@@ -509,7 +516,7 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : AVFoundation.AVCaptureMetadataOut
   @_Concurrency.MainActor(unsafe) @objc dynamic open func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.SelfieSegmentationDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func selfieSegmentation(_ selfieSegmentation: ZiggeoMediaSwiftSDK.SelfieSegmentation!, didOutputPixelBuffer pixelBuffer: CoreVideo.CVPixelBuffer!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func selfieSegmentation(_ selfieSegmentation: ZiggeoMediaSwiftSDK.SelfieSegmentation!, didOutputPixelBuffer pixelBuffer: CoreVideo.CVPixelBuffer!, cmTime: CoreMedia.CMTime)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.H264EncoderDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func compressedVideoDataReceived(_ sampleBuffer: CoreMedia.CMSampleBuffer!)
@@ -872,6 +879,7 @@ public protocol VideoPreviewProtocol {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers public class PlayerConfig : ObjectiveC.NSObject {
+  public var style: ZiggeoMediaSwiftSDK.PlayerStyle
   public var shouldShowSubtitles: Swift.Bool
   public var shouldPreload: Swift.Bool
   public var isMuted: Swift.Bool
@@ -879,6 +887,8 @@ public protocol VideoPreviewProtocol {
   public var adsUri: Swift.String
   public var extraArgs: [Swift.String : Any]
   @objc override dynamic public init()
+  open func getStyle() -> ZiggeoMediaSwiftSDK.PlayerStyle
+  open func setStyle(_ style: ZiggeoMediaSwiftSDK.PlayerStyle)
   open func getShouldShowSubtitles() -> Swift.Bool
   open func setShouldShowSubtitles(_ shouldShowSubtitles: Swift.Bool)
   open func getShouldPreload() -> Swift.Bool

@@ -10,7 +10,7 @@
 		A9988324AB7C8E78E8458B9D /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6093EA3DEA49FF986722B28C /* libPods-TestApplication.a */; };
 		D8CE76042A97D26A00A57F3B /* CustomUIRecroderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CE76022A97D26A00A57F3B /* CustomUIRecroderView.xib */; };
 		D8CE76052A97D26A00A57F3B /* CustomUIRecroderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE76032A97D26A00A57F3B /* CustomUIRecroderViewController.swift */; };
-		D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D98123EF25895F2D00108352 /* BuildFile in Embed Frameworks (1 item) */,
+				D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */,
 			);
 			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +397,8 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication98348768;
+				MARKETING_VERSION = "1.1.45-blurring";
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -422,7 +423,8 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication98348768;
+				MARKETING_VERSION = "1.1.45-blurring";
+				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

@@ -132,6 +132,7 @@ class HomeViewController: UIViewController {
             recorderConfig.videoQuality = QUALITY_HIGH
             recorderConfig.facing = FACING_BACK
             recorderConfig.maxDuration = 0
+            recorderConfig.blurMode = UserDefaults.standard.bool(forKey: Common.Blur_Mode_Key)
             recorderConfig.extraArgs = ["tags": "iOS,Video,Record",
                                         "client_auth" : "CLIENT_AUTH_TOKEN",
                                         "server_auth" : "SERVER_AUTH_TOKEN",
@@ -315,7 +316,9 @@ extension HomeViewController: MenuActionDelegate {
     }
     
     func didSelectPlayVideoFromUrlMenu() {
-        Common.ziggeo?.playFromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        Common.ziggeo?.play(fromUris: ["http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                                       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+                                       "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"])
     }
     
     func didSelectPlayLocalVideoMenu() {
@@ -508,4 +511,5 @@ extension HomeViewController: ZiggeoPlayerDelegate {
 
 // MARK: - ZiggeoScreenRecorderDelegate
 extension HomeViewController: ZiggeoScreenRecorderDelegate {
+    
 }
