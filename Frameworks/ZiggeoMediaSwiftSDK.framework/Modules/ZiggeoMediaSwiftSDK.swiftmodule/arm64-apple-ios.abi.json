@@ -879,7 +879,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "([ZiggeoMediaSwiftSDK.ContentModel], Swift.Error?) -> ()",
+                "printedName": "([ZiggeoMediaSwiftSDK.Video], Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -889,18 +889,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "([ZiggeoMediaSwiftSDK.ContentModel], Swift.Error?)",
+                    "printedName": "([ZiggeoMediaSwiftSDK.Video], Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[ZiggeoMediaSwiftSDK.ContentModel]",
+                        "printedName": "[ZiggeoMediaSwiftSDK.Video]",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "ContentModel",
-                            "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                            "name": "Video",
+                            "printedName": "ZiggeoMediaSwiftSDK.Video",
+                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Video"
                           }
                         ],
                         "usr": "s:Sa"
@@ -925,8 +925,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA12ContentModelCG_s5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA12ContentModelCG_s5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA5VideoCG_s5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA5VideoCG_s5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -973,7 +973,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.ContentModel, Foundation.URLResponse?, Swift.Error?) -> ()",
+                "printedName": "(ZiggeoMediaSwiftSDK.Video, Foundation.URLResponse?, Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -983,13 +983,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(ZiggeoMediaSwiftSDK.ContentModel, Foundation.URLResponse?, Swift.Error?)",
+                    "printedName": "(ZiggeoMediaSwiftSDK.Video, Foundation.URLResponse?, Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "ContentModel",
-                        "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                        "name": "Video",
+                        "printedName": "ZiggeoMediaSwiftSDK.Video",
+                        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Video"
                       },
                       {
                         "kind": "TypeNominal",
@@ -1025,8 +1025,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC3get_4data8callbackySS_SDySSypGyAA12ContentModelC_So13NSURLResponseCSgs5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC3get_4data8callbackySS_SDySSypGyAA12ContentModelC_So13NSURLResponseCSgs5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC3get_4data8callbackySS_SDySSypGyAA5VideoC_So13NSURLResponseCSgs5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC3get_4data8callbackySS_SDySSypGyAA5VideoC_So13NSURLResponseCSgs5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -1368,7 +1368,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.ContentModel?, Foundation.URLResponse?, Swift.Error?) -> ()",
+                "printedName": "(ZiggeoMediaSwiftSDK.Video?, Foundation.URLResponse?, Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -1378,18 +1378,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(ZiggeoMediaSwiftSDK.ContentModel?, Foundation.URLResponse?, Swift.Error?)",
+                    "printedName": "(ZiggeoMediaSwiftSDK.Video?, Foundation.URLResponse?, Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "ZiggeoMediaSwiftSDK.ContentModel?",
+                        "printedName": "ZiggeoMediaSwiftSDK.Video?",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "ContentModel",
-                            "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                            "name": "Video",
+                            "printedName": "ZiggeoMediaSwiftSDK.Video",
+                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Video"
                           }
                         ],
                         "usr": "s:Sq"
@@ -1428,8 +1428,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA12ContentModelCSg_So13NSURLResponseCSgs5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA12ContentModelCSg_So13NSURLResponseCSgs5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6VideosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA5VideoCSg_So13NSURLResponseCSgs5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6VideosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA5VideoCSg_So13NSURLResponseCSgs5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -6556,7 +6556,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC8getTokenSSyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC8getTokenSSyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6583,7 +6582,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC8setTokenyySSF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC8setTokenyySSF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6605,7 +6603,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11getFileTypeSiyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11getFileTypeSiyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6632,7 +6629,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11setFileTypeyySiF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11setFileTypeyySiF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6654,7 +6650,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11getUploadedSbyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11getUploadedSbyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6681,7 +6676,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11setUploadedyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11setUploadedyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6703,7 +6697,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11getVerifiedSbyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11getVerifiedSbyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6730,7 +6723,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11setVerifiedyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11setVerifiedyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6752,7 +6744,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC12getProcessedSbyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC12getProcessedSbyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6779,7 +6770,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC12setProcessedyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC12setProcessedyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6801,7 +6791,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC9getFailedSbyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC9getFailedSbyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6828,7 +6817,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC9setFailedyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC9setFailedyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6863,7 +6851,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC12getExtraArgsSDySSypGyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC12getExtraArgsSDySSypGyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6903,7 +6890,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC12setExtraArgsyySDySSypGF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC12setExtraArgsyySDySSypGF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6943,7 +6929,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC12addExtraArgsyySDySSypGF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC12addExtraArgsyySDySSypGF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -6972,7 +6957,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC19getUrisForUploadingSayypGyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC19getUrisForUploadingSayypGyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7006,7 +6990,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC19setUrisForUploadingyySayypGF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC19setUrisForUploadingyySayypGF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7028,7 +7011,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC16getUploadedPartsSiyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC16getUploadedPartsSiyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7055,7 +7037,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC16setUploadedPartsyySiF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC16setUploadedPartsyySiF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7077,7 +7058,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11getUploadIdSSyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11getUploadIdSSyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7104,7 +7084,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC11setUploadIdyySSF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC11setUploadIdyySSF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7126,7 +7105,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC14getStreamTokenSSyF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC14getStreamTokenSSyF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7153,7 +7131,6 @@
             "usr": "s:19ZiggeoMediaSwiftSDK13RecordingInfoC14setStreamTokenyySSF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC14setStreamTokenyySSF",
             "moduleName": "ZiggeoMediaSwiftSDK",
-            "isOpen": true,
             "declAttributes": [
               "AccessControl"
             ],
@@ -7190,7 +7167,6 @@
         "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)RecordingInfo",
         "mangledName": "$s19ZiggeoMediaSwiftSDK13RecordingInfoC",
         "moduleName": "ZiggeoMediaSwiftSDK",
-        "isOpen": true,
         "declAttributes": [
           "AccessControl",
           "ObjC"
@@ -17104,7 +17080,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "([ZiggeoMediaSwiftSDK.ContentModel], Swift.Error?) -> ()",
+                "printedName": "([ZiggeoMediaSwiftSDK.Image], Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -17114,18 +17090,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "([ZiggeoMediaSwiftSDK.ContentModel], Swift.Error?)",
+                    "printedName": "([ZiggeoMediaSwiftSDK.Image], Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[ZiggeoMediaSwiftSDK.ContentModel]",
+                        "printedName": "[ZiggeoMediaSwiftSDK.Image]",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "ContentModel",
-                            "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                            "name": "Image",
+                            "printedName": "ZiggeoMediaSwiftSDK.Image",
+                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Image"
                           }
                         ],
                         "usr": "s:Sa"
@@ -17150,8 +17126,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6ImagesC5index_8callbackySDys11AnyHashableVypGSg_ySayAA12ContentModelCG_s5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6ImagesC5index_8callbackySDys11AnyHashableVypGSg_ySayAA12ContentModelCG_s5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6ImagesC5index_8callbackySDys11AnyHashableVypGSg_ySayAA5ImageCG_s5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6ImagesC5index_8callbackySDys11AnyHashableVypGSg_ySayAA5ImageCG_s5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -17198,7 +17174,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.ContentModel, Foundation.URLResponse?, Swift.Error?) -> ()",
+                "printedName": "(ZiggeoMediaSwiftSDK.Image, Foundation.URLResponse?, Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -17208,13 +17184,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(ZiggeoMediaSwiftSDK.ContentModel, Foundation.URLResponse?, Swift.Error?)",
+                    "printedName": "(ZiggeoMediaSwiftSDK.Image, Foundation.URLResponse?, Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "ContentModel",
-                        "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                        "name": "Image",
+                        "printedName": "ZiggeoMediaSwiftSDK.Image",
+                        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Image"
                       },
                       {
                         "kind": "TypeNominal",
@@ -17250,8 +17226,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6ImagesC3get_4data8callbackySS_SDySSypGyAA12ContentModelC_So13NSURLResponseCSgs5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6ImagesC3get_4data8callbackySS_SDySSypGyAA12ContentModelC_So13NSURLResponseCSgs5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6ImagesC3get_4data8callbackySS_SDySSypGyAA5ImageC_So13NSURLResponseCSgs5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6ImagesC3get_4data8callbackySS_SDySSypGyAA5ImageC_So13NSURLResponseCSgs5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -17505,7 +17481,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.ContentModel?, Foundation.URLResponse?, Swift.Error?) -> ()",
+                "printedName": "(ZiggeoMediaSwiftSDK.Image?, Foundation.URLResponse?, Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -17515,18 +17491,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(ZiggeoMediaSwiftSDK.ContentModel?, Foundation.URLResponse?, Swift.Error?)",
+                    "printedName": "(ZiggeoMediaSwiftSDK.Image?, Foundation.URLResponse?, Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "ZiggeoMediaSwiftSDK.ContentModel?",
+                        "printedName": "ZiggeoMediaSwiftSDK.Image?",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "ContentModel",
-                            "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                            "name": "Image",
+                            "printedName": "ZiggeoMediaSwiftSDK.Image",
+                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Image"
                           }
                         ],
                         "usr": "s:Sq"
@@ -17565,8 +17541,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6ImagesC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA12ContentModelCSg_So13NSURLResponseCSgs5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6ImagesC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA12ContentModelCSg_So13NSURLResponseCSgs5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6ImagesC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA5ImageCSg_So13NSURLResponseCSgs5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6ImagesC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA5ImageCSg_So13NSURLResponseCSgs5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -25763,6 +25739,76 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "AudioStream",
+        "printedName": "AudioStream",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)AudioStream",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK11AudioStreamC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -28328,6 +28374,76 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "DeviceInfo",
+        "printedName": "DeviceInfo",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)DeviceInfo",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK10DeviceInfoC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -29052,6 +29168,77 @@
         "moduleName": "ZiggeoMediaSwiftSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Audio",
+        "printedName": "Audio",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Audio",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK5AudioC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ZiggeoMediaSwiftSDK.ContentModel",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -32441,6 +32628,76 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "ImageStream",
+        "printedName": "ImageStream",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ImageStream",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK11ImageStreamC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -35767,8 +36024,8 @@
           },
           {
             "kind": "Var",
-            "name": "desc",
-            "printedName": "desc",
+            "name": "descript",
+            "printedName": "descript",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -35786,8 +36043,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvp",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvp",
+            "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvp",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "declAttributes": [
               "HasInitialValue",
@@ -35817,8 +36074,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvg",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvg",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvg",
                 "moduleName": "ZiggeoMediaSwiftSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -35849,8 +36106,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvs",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvs",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvs",
                 "moduleName": "ZiggeoMediaSwiftSDK",
                 "implicit": true,
                 "accessorKind": "set"
@@ -35867,8 +36124,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvM",
-                "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC4descSSSgvM",
+                "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC8descriptSSSgvM",
                 "moduleName": "ZiggeoMediaSwiftSDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -36424,6 +36681,53 @@
                 "accessorKind": "_modify"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "getDescription",
+            "printedName": "getDescription()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC14getDescriptionSSyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC14getDescriptionSSyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDescription",
+            "printedName": "setDescription(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK12ContentModelC14setDescriptionyySSF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK12ContentModelC14setDescriptionyySSF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -37320,6 +37624,77 @@
         "moduleName": "ZiggeoMediaSwiftSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Video",
+        "printedName": "Video",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Video",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK5VideoC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ZiggeoMediaSwiftSDK.ContentModel",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -39390,7 +39765,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "([ZiggeoMediaSwiftSDK.ContentModel], Swift.Error?) -> ()",
+                "printedName": "([ZiggeoMediaSwiftSDK.Audio], Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -39400,18 +39775,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "([ZiggeoMediaSwiftSDK.ContentModel], Swift.Error?)",
+                    "printedName": "([ZiggeoMediaSwiftSDK.Audio], Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Array",
-                        "printedName": "[ZiggeoMediaSwiftSDK.ContentModel]",
+                        "printedName": "[ZiggeoMediaSwiftSDK.Audio]",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "ContentModel",
-                            "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                            "name": "Audio",
+                            "printedName": "ZiggeoMediaSwiftSDK.Audio",
+                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Audio"
                           }
                         ],
                         "usr": "s:Sa"
@@ -39436,8 +39811,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6AudiosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA12ContentModelCG_s5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6AudiosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA12ContentModelCG_s5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6AudiosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA5AudioCG_s5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6AudiosC5index_8callbackySDys11AnyHashableVypGSg_ySayAA5AudioCG_s5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -39484,7 +39859,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.ContentModel, Foundation.URLResponse?, Swift.Error?) -> ()",
+                "printedName": "(ZiggeoMediaSwiftSDK.Audio, Foundation.URLResponse?, Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -39494,13 +39869,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(ZiggeoMediaSwiftSDK.ContentModel, Foundation.URLResponse?, Swift.Error?)",
+                    "printedName": "(ZiggeoMediaSwiftSDK.Audio, Foundation.URLResponse?, Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "ContentModel",
-                        "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                        "name": "Audio",
+                        "printedName": "ZiggeoMediaSwiftSDK.Audio",
+                        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Audio"
                       },
                       {
                         "kind": "TypeNominal",
@@ -39536,8 +39911,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6AudiosC3get_4data8callbackySS_SDySSypGyAA12ContentModelC_So13NSURLResponseCSgs5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6AudiosC3get_4data8callbackySS_SDySSypGyAA12ContentModelC_So13NSURLResponseCSgs5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6AudiosC3get_4data8callbackySS_SDySSypGyAA5AudioC_So13NSURLResponseCSgs5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6AudiosC3get_4data8callbackySS_SDySSypGyAA5AudioC_So13NSURLResponseCSgs5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -39791,7 +40166,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZiggeoMediaSwiftSDK.ContentModel?, Foundation.URLResponse?, Swift.Error?) -> ()",
+                "printedName": "(ZiggeoMediaSwiftSDK.Audio?, Foundation.URLResponse?, Swift.Error?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -39801,18 +40176,18 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "(ZiggeoMediaSwiftSDK.ContentModel?, Foundation.URLResponse?, Swift.Error?)",
+                    "printedName": "(ZiggeoMediaSwiftSDK.Audio?, Foundation.URLResponse?, Swift.Error?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "ZiggeoMediaSwiftSDK.ContentModel?",
+                        "printedName": "ZiggeoMediaSwiftSDK.Audio?",
                         "children": [
                           {
                             "kind": "TypeNominal",
-                            "name": "ContentModel",
-                            "printedName": "ZiggeoMediaSwiftSDK.ContentModel",
-                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel"
+                            "name": "Audio",
+                            "printedName": "ZiggeoMediaSwiftSDK.Audio",
+                            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Audio"
                           }
                         ],
                         "usr": "s:Sq"
@@ -39851,8 +40226,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:19ZiggeoMediaSwiftSDK0A6AudiosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA12ContentModelCSg_So13NSURLResponseCSgs5Error_pSgtctF",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6AudiosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA12ContentModelCSg_So13NSURLResponseCSgs5Error_pSgtctF",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A6AudiosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA5AudioCSg_So13NSURLResponseCSgs5Error_pSgtctF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6AudiosC6update_4data8callbackySS_SDys11AnyHashableVypGSgyAA5AudioCSg_So13NSURLResponseCSgs5Error_pSgtctF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -40095,6 +40470,76 @@
         "moduleName": "ZiggeoMediaSwiftSDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VideoStream",
+        "printedName": "VideoStream",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)VideoStream",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK11VideoStreamC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -51407,6 +51852,77 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "Image",
+        "printedName": "Image",
+        "declKind": "Class",
+        "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)Image",
+        "mangledName": "$s19ZiggeoMediaSwiftSDK5ImageC",
+        "moduleName": "ZiggeoMediaSwiftSDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ContentModel",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ZiggeoMediaSwiftSDK.ContentModel",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "UIViewController",
         "printedName": "UIViewController",
         "children": [
@@ -52181,21 +52697,21 @@
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
       "kind": "Dictionary",
-      "offset": 415,
+      "offset": 421,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
       "kind": "Array",
-      "offset": 453,
+      "offset": 459,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
       "kind": "StringLiteral",
-      "offset": 174,
+      "offset": 180,
       "length": 13,
       "value": "\"ZiggeoMediaSwiftSDK.RecordingInfo\""
     },
@@ -53397,16 +53913,16 @@
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoVideoLibrary\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/AudioData.swift",
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/Audio.swift",
       "kind": "Array",
-      "offset": 698,
+      "offset": 659,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/AudioData.swift",
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/Audio.swift",
       "kind": "Array",
-      "offset": 783,
+      "offset": 744,
       "length": 2,
       "value": "[]"
     },
@@ -53789,16 +54305,16 @@
       "value": "\"AudioPlayerManagerMeteringLevelDidFinishNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/VideoData.swift",
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/Video.swift",
       "kind": "Array",
-      "offset": 764,
+      "offset": 725,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/VideoData.swift",
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/Video.swift",
       "kind": "Array",
-      "offset": 849,
+      "offset": 810,
       "length": 2,
       "value": "[]"
     },
@@ -54496,16 +55012,16 @@
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/ImageData.swift",
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/Image.swift",
       "kind": "Array",
-      "offset": 641,
+      "offset": 628,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/ImageData.swift",
+      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/07_ZiggeoSwift-Blurring\/ZiggeoMediaSwiftSDK\/Models\/Image.swift",
       "kind": "Array",
-      "offset": 726,
+      "offset": 713,
       "length": 2,
       "value": "[]"
     }

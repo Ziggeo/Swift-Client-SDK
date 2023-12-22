@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.1.46-blurring *(2023-12-22)*
+-----------------------------
+* The update changes some models.
+* The update changes demo project.
+
 Version 1.1.45-blurring *(2023-10-20)*
 -----------------------------
 * The update changes delegate functions of mediapipe selfiesegmentation framework.
