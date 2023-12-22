@@ -147,6 +147,9 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerD
   @_Concurrency.MainActor(unsafe) @objc dynamic public func onPublishStart()
   @_Concurrency.MainActor(unsafe) @objc dynamic public func onPublishStop()
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DeviceInfo : ObjectiveC.NSObject {
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers public class CacheConfig : ObjectiveC.NSObject {
   public var maxCacheSize: Swift.Int
   public var cacheRoot: Swift.String
@@ -269,11 +272,11 @@ public class RecorderInterfaceConfig {
   open func attachVideo(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, file: Swift.String, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
   open func createVideo(_ data: Foundation.NSDictionary?, file inputFilePath: Swift.String, cover: UIKit.UIImage? = nil, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)? = nil, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)? = nil) -> Foundation.URLSessionTask?
   open func reRecordVideo(_ token: Swift.String, file: Swift.String, data: Foundation.NSDictionary?, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.ContentModel], _ error: (any Swift.Error)?) -> Swift.Void)
-  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Video], _ error: (any Swift.Error)?) -> Swift.Void)
+  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Video, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func createLiveVideoWithData(data: Foundation.NSDictionary, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Video?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func destroy(_ token: Swift.String, streamToken: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func confirmLiveStreaming(videoToken: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func confirm(_ token: Swift.String, streamToken: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
@@ -373,6 +376,9 @@ public protocol CoverSelectorDelegate {
   @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Video : ZiggeoMediaSwiftSDK.ContentModel {
+  @objc deinit
+}
 @objc open class ZiggeoConfig : ObjectiveC.NSObject {
   open var serverAPIUrl: Swift.String
   open var cdnAPIUrl: Swift.String
@@ -407,6 +413,9 @@ public protocol CoverSelectorDelegate {
   @objc public func playPauseMediaFile(audioUrl: Foundation.NSURL, springboardInfo: Swift.Dictionary<Swift.String, Swift.AnyObject>, startTime: Swift.Double, completion: @escaping (_ previousItem: Swift.String?, _ stopTime: Swift.Double) -> ())
   @objc public func skipDirection(skipDirection: ZiggeoMediaSwiftSDK.SkipDirection, timeInterval: Swift.Double, offset: Swift.Double)
   @objc public func seekPlayerToTime(value: Swift.Double, completion: (() -> Swift.Void)!)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ImageStream : ObjectiveC.NSObject {
   @objc deinit
 }
 @objc public class FileInfoData : ObjectiveC.NSObject {
@@ -716,12 +725,15 @@ public protocol ReachabilityChangeDelegate {
   open func getFileSize(_ filePath: Swift.String) -> Swift.UInt64?
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Image : ZiggeoMediaSwiftSDK.ContentModel {
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class BaseNibView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers open class RecordingInfo : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers public class RecordingInfo : ObjectiveC.NSObject {
   open func getToken() -> Swift.String
   open func setToken(_ token: Swift.String)
   open func getFileType() -> Swift.Int
@@ -797,20 +809,20 @@ extension Foundation.NSNotification.Name {
 }
 @objc @_hasMissingDesignatedInitializers open class ZiggeoImages : ObjectiveC.NSObject {
   open func getImageUrl(_ token: Swift.String) -> Swift.String
-  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.ContentModel], _ error: (any Swift.Error)?) -> Swift.Void)
-  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Image], _ error: (any Swift.Error)?) -> Swift.Void)
+  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Image, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Image?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers open class ZiggeoAudios : ObjectiveC.NSObject {
   open func getAudioUrl(_ token: Swift.String) -> Swift.String
-  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.ContentModel], _ error: (any Swift.Error)?) -> Swift.Void)
-  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Audio], _ error: (any Swift.Error)?) -> Swift.Void)
+  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Audio, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.ContentModel?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Audio?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
   open func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
   @objc deinit
@@ -837,6 +849,9 @@ extension Foundation.NSNotification.Name {
   open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
   open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
   open func stringValueConfig() -> Swift.String
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Audio : ZiggeoMediaSwiftSDK.ContentModel {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(BSImagePickerSettings) @objcMembers public class Settings : ObjectiveC.NSObject {
@@ -1092,6 +1107,9 @@ extension Foundation.NSNotification.Name {
   @objc @_Concurrency.MainActor(unsafe) public func stop()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VideoStream : ObjectiveC.NSObject {
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers public class ButtonConfig {
   public var imagePath: Swift.String?
   public var selectedImagePath: Swift.String?
@@ -1114,15 +1132,20 @@ public protocol ImagePickerControllerDelegate : AnyObject {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class AudioStream : ObjectiveC.NSObject {
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ContentModel : ObjectiveC.NSObject {
   public var key: Swift.String!
   public var title: Swift.String!
-  public var desc: Swift.String!
+  public var descript: Swift.String!
   public var stateString: Swift.String!
   public var token: Swift.String!
   public var streamToken: Swift.String!
   public var date: Swift.Double!
   public var duration: Swift.Double!
+  open func getDescription() -> Swift.String
+  open func setDescription(_ description: Swift.String)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CoverSelectorTableCell : UIKit.UITableViewCell {

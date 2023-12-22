@@ -58,7 +58,7 @@ class RecordingDetailViewController: UIViewController {
             tokenTextField.isEnabled = false
             tokenTextField.text = recording!.token
             titleTextField.text = recording!.title
-            descriptionTextField.text = recording!.desc
+            descriptionTextField.text = recording!.getDescription()
         }
         
         refreshButtons()

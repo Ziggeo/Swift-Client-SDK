@@ -308,6 +308,25 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK10AssetStore")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK12ContentModel")
+@interface ContentModel : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK5Audio")
+@interface Audio : ContentModel
+@end
+
+
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK11AudioStream")
+@interface AudioStream : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSCoder;
 
 /// <ul>
@@ -423,12 +442,6 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK11Chronometer")
 @end
 
 
-SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK12ContentModel")
-@interface ContentModel : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @class UITableView;
 @class NSIndexPath;
 @class UITableViewCell;
@@ -455,6 +468,13 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK22CoverSelectorTableCell")
 @end
 
 
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK10DeviceInfo")
+@interface DeviceInfo : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK12FileInfoData")
 @interface FileInfoData : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -465,6 +485,11 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK12FileInfoData")
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK18FileSelectorConfig")
 @interface FileSelectorConfig : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK5Image")
+@interface Image : ContentModel
 @end
 
 @class BSImagePickerSettings;
@@ -512,6 +537,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) PHAuthorizationStatu
 - (void)imagePicker:(BSImagePickerController * _Nonnull)imagePicker didFinishWithAssets:(NSArray<PHAsset *> * _Nonnull)assets;
 - (void)imagePicker:(BSImagePickerController * _Nonnull)imagePicker didCancelWithAssets:(NSArray<PHAsset *> * _Nonnull)assets;
 - (void)imagePicker:(BSImagePickerController * _Nonnull)imagePicker didReachSelectionLimit:(NSInteger)count;
+@end
+
+
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK11ImageStream")
+@interface ImageStream : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -750,9 +782,21 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK15UploadingConfig")
 @end
 
 
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK5Video")
+@interface Video : ContentModel
+@end
+
+
 SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK9VideoSize")
 @interface VideoSize : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK11VideoStream")
+@interface VideoStream : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -780,12 +824,12 @@ SWIFT_CLASS("_TtC19ZiggeoMediaSwiftSDK6Ziggeo")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
 @class MFMailComposeViewController;
 
 @interface Ziggeo (SWIFT_EXTENSION(ZiggeoMediaSwiftSDK)) <MFMailComposeViewControllerDelegate>
 - (void)mailComposeController:(MFMailComposeViewController * _Nonnull)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError * _Nullable)error;
 @end
+
 
 @class UIImagePickerController;
 
