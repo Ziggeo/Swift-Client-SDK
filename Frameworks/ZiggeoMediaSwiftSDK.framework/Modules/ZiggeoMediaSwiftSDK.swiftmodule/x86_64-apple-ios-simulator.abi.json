@@ -2531,6 +2531,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -4460,6 +4467,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -9722,6 +9736,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -9963,6 +9984,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           },
           {
             "kind": "Conformance",
@@ -14801,6 +14829,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "__DefaultCustomPlaygroundQuickLookable",
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
@@ -15495,6 +15530,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -20259,6 +20301,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -26643,6 +26692,92 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "cacheConfig",
+            "printedName": "cacheConfig",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CacheConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CacheConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                    "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CacheConfig",
+                    "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                    "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0Cvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0CvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C11cacheConfigAA05CacheF0CvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -26990,6 +27125,33 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK0A0C17setRecorderConfigyyAA0fG0CF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C17setRecorderConfigyyAA0fG0CF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setCacheConfig",
+            "printedName": "setCacheConfig(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CacheConfig",
+                "printedName": "ZiggeoMediaSwiftSDK.CacheConfig",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)CacheConfig"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK0A0C14setCacheConfigyyAA0fG0CF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A0C14setCacheConfigyyAA0fG0CF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "isOpen": true,
             "declAttributes": [
@@ -30008,6 +30170,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -30685,6 +30854,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           },
           {
             "kind": "Conformance",
@@ -41641,6 +41817,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "__DefaultCustomPlaygroundQuickLookable",
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
@@ -44180,6 +44363,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           },
           {
             "kind": "Conformance",
@@ -50796,6 +50986,86 @@
           {
             "kind": "Constructor",
             "name": "init",
+            "printedName": "init(playerItem:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZiggeoPlayer",
+                "printedName": "ZiggeoMediaSwiftSDK.ZiggeoPlayer",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AVFoundation.AVPlayerItem?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AVPlayerItem",
+                    "printedName": "AVFoundation.AVPlayerItem",
+                    "usr": "c:objc(cs)AVPlayerItem"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer(im)initWithPlayerItem:",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6PlayerC10playerItemACSo08AVPlayerG0CSg_tcfc",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "overriding": true,
+            "objc_name": "initWithPlayerItem:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(items:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ZiggeoPlayer",
+                "printedName": "ZiggeoMediaSwiftSDK.ZiggeoPlayer",
+                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[AVFoundation.AVPlayerItem]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AVPlayerItem",
+                    "printedName": "AVFoundation.AVPlayerItem",
+                    "usr": "c:objc(cs)AVPlayerItem"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer(im)initWithItems:",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6PlayerC5itemsACSaySo12AVPlayerItemCG_tcfc",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "overriding": true,
+            "objc_name": "initWithItems:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
             "printedName": "init(url:)",
             "children": [
               {
@@ -51511,86 +51781,6 @@
             "funcSelfKind": "NonMutating"
           },
           {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(items:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ZiggeoPlayer",
-                "printedName": "ZiggeoMediaSwiftSDK.ZiggeoPlayer",
-                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[AVFoundation.AVPlayerItem]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AVPlayerItem",
-                    "printedName": "AVFoundation.AVPlayerItem",
-                    "usr": "c:objc(cs)AVPlayerItem"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer(im)initWithItems:",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6PlayerC5itemsACSaySo12AVPlayerItemCG_tcfc",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithItems:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(playerItem:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "ZiggeoPlayer",
-                "printedName": "ZiggeoMediaSwiftSDK.ZiggeoPlayer",
-                "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "AVFoundation.AVPlayerItem?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AVPlayerItem",
-                    "printedName": "AVFoundation.AVPlayerItem",
-                    "usr": "c:objc(cs)AVPlayerItem"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@ZiggeoMediaSwiftSDK@objc(cs)ZiggeoPlayer(im)initWithPlayerItem:",
-            "mangledName": "$s19ZiggeoMediaSwiftSDK0A6PlayerC10playerItemACSo08AVPlayerG0CSg_tcfc",
-            "moduleName": "ZiggeoMediaSwiftSDK",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "initWithPlayerItem:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
             "kind": "Function",
             "name": "adsLoader",
             "printedName": "adsLoader(_:adsLoadedWith:)",
@@ -51805,6 +51995,7 @@
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)AVQueuePlayer",
+        "inheritsConvenienceInitializers": true,
         "superclassNames": [
           "AVFoundation.AVQueuePlayer",
           "AVFoundation.AVPlayer",
@@ -52156,6 +52347,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
           }
         ]
       },
@@ -52510,2461 +52708,2447 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/AudioLevelView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/AudioLevelView.swift",
       "kind": "IntegerLiteral",
       "offset": 386,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/AudioLevelView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/AudioLevelView.swift",
       "kind": "IntegerLiteral",
       "offset": 1686,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoUploadingHandler.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoUploadingHandler.swift",
       "kind": "StringLiteral",
       "offset": 220,
       "length": 22,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoUploadingHandler\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 312,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 355,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 391,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 437,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "StringLiteral",
       "offset": 474,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerConfig.swift",
       "kind": "Dictionary",
       "offset": 529,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecordedVideoPreview.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecordedVideoPreview.swift",
       "kind": "BooleanLiteral",
       "offset": 969,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecordedVideoPreview.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecordedVideoPreview.swift",
       "kind": "StringLiteral",
       "offset": 520,
       "length": 26,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoRecordedVideoPreview\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 406,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 429,
       "length": 14,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 406,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 429,
       "length": 14,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 406,
       "length": 13,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 429,
       "length": 14,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 754,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 958,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 2451,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 2898,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 2943,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 2978,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 3317,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 3351,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 3504,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 3552,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 3583,
       "length": 2,
       "value": "-1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 3761,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 3828,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 3859,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 3912,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 3926,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "BooleanLiteral",
       "offset": 4019,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/ZiggeoRecorder.swift",
       "kind": "StringLiteral",
       "offset": 458,
       "length": 14,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoRecorder\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 252,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 259,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 266,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CacheConfig.swift",
       "kind": "StringLiteral",
       "offset": 306,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 216,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 245,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 285,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 291,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 301,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 312,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/FaceOutlineView.swift",
       "kind": "IntegerLiteral",
       "offset": 347,
       "length": 2,
       "value": "25"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "FloatLiteral",
       "offset": 283,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "BooleanLiteral",
       "offset": 312,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "FloatLiteral",
       "offset": 364,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "FloatLiteral",
       "offset": 532,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "BooleanLiteral",
       "offset": 646,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/Chronometer.swift",
       "kind": "StringLiteral",
       "offset": 190,
       "length": 11,
       "value": "\"ZiggeoMediaSwiftSDK.Chronometer\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/AspectRatio.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/AspectRatio.swift",
       "kind": "IntegerLiteral",
       "offset": 246,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/AspectRatio.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/AspectRatio.swift",
       "kind": "IntegerLiteral",
       "offset": 273,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
       "kind": "StringLiteral",
       "offset": 304,
       "length": 8,
       "value": "\"Ziggeo\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
       "kind": "StringLiteral",
       "offset": 346,
       "length": 38,
       "value": "\"Do you want to stop video recording?\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
       "kind": "StringLiteral",
       "offset": 421,
       "length": 5,
       "value": "\"Yes\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/StopRecordingConfirmationDialogConfig.swift",
       "kind": "StringLiteral",
       "offset": 463,
       "length": 4,
       "value": "\"No\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerStyle.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/PlayerStyle.swift",
       "kind": "BooleanLiteral",
       "offset": 253,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",
       "kind": "FloatLiteral",
       "offset": 2155,
       "length": 3,
       "value": "0.3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 2032,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/PreviewViewController.swift",
       "kind": "StringLiteral",
       "offset": 1198,
       "length": 21,
       "value": "\"ZiggeoMediaSwiftSDK.PreviewViewController\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Camera\/CameraViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Camera\/CameraViewController.swift",
       "kind": "StringLiteral",
       "offset": 1386,
       "length": 15,
       "value": "\"session queue\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsViewController.swift",
       "kind": "StringLiteral",
       "offset": 1604,
       "length": 20,
       "value": "\"ZiggeoMediaSwiftSDK.AssetsViewController\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/ViewModel.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/ViewModel.swift",
       "kind": "FloatLiteral",
       "offset": 259,
       "length": 4,
       "value": "0.05"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/ViewModel.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/ViewModel.swift",
       "kind": "BooleanLiteral",
       "offset": 442,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 1524,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 1984,
       "length": 6,
       "value": "\"Done\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 1999,
       "length": 6,
       "value": "\"Done\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 2014,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "IntegerLiteral",
       "offset": 2950,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "IntegerLiteral",
       "offset": 3034,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "IntegerLiteral",
       "offset": 3104,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "IntegerLiteral",
       "offset": 3406,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "Array",
       "offset": 3471,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 1258,
       "length": 21,
       "value": "\"ZiggeoMediaSwiftSDK.ImagePickerController\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 1258,
       "length": 21,
       "value": "\"ZiggeoMediaSwiftSDK.ImagePickerController\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController.swift",
       "kind": "StringLiteral",
       "offset": 1258,
       "length": 21,
       "value": "\"ZiggeoMediaSwiftSDK.ImagePickerController\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/AssetStore.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/AssetStore.swift",
       "kind": "Array",
       "offset": 1310,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/AssetStore.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/AssetStore.swift",
       "kind": "StringLiteral",
       "offset": 1203,
       "length": 10,
       "value": "\"ZiggeoMediaSwiftSDK.AssetStore\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Dropdown\/DropdownAnimator.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Dropdown\/DropdownAnimator.swift",
       "kind": "StringLiteral",
       "offset": 1182,
       "length": 16,
       "value": "\"ZiggeoMediaSwiftSDK.DropdownAnimator\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoVideos.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoVideos.swift",
       "kind": "BooleanLiteral",
       "offset": 498,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoVideos.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoVideos.swift",
       "kind": "StringLiteral",
       "offset": 228,
       "length": 12,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoVideos\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
       "kind": "Array",
       "offset": 918,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
       "kind": "FloatLiteral",
       "offset": 992,
       "length": 4,
       "value": "10.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
       "kind": "IntegerLiteral",
       "offset": 1032,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
       "kind": "IntegerLiteral",
       "offset": 1074,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioPlayer\/ZiggeoAudioPlayer.swift",
       "kind": "StringLiteral",
       "offset": 205,
       "length": 17,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoAudioPlayer\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CheckmarkView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CheckmarkView.swift",
       "kind": "StringLiteral",
       "offset": 1164,
       "length": 13,
       "value": "\"ZiggeoMediaSwiftSDK.CheckmarkView\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "BooleanLiteral",
       "offset": 1255,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 1508,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 2584,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "IntegerLiteral",
       "offset": 2851,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 3118,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "IntegerLiteral",
       "offset": 3251,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 4246,
       "length": 3,
       "value": "0.5"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 4508,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 4547,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 4610,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 4649,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "FloatLiteral",
       "offset": 4453,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/RangeSlider.swift",
       "kind": "IntegerLiteral",
       "offset": 5116,
       "length": 2,
       "value": "13"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioContext.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioContext.swift",
       "kind": "IntegerLiteral",
       "offset": 2029,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/CoverSelector\/CoverSelector.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/CoverSelector\/CoverSelector.swift",
       "kind": "StringLiteral",
       "offset": 300,
       "length": 13,
       "value": "\"ZiggeoMediaSwiftSDK.CoverSelector\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Video.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Video.swift",
       "kind": "Array",
       "offset": 725,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Video.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Video.swift",
       "kind": "Array",
       "offset": 810,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
       "kind": "StringLiteral",
       "offset": 244,
       "length": 26,
       "value": "\"https:\/\/embed.ziggeo.com\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
       "kind": "StringLiteral",
       "offset": 304,
       "length": 30,
       "value": "\"https:\/\/embed-cdn.ziggeo.com\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
       "kind": "StringLiteral",
       "offset": 379,
       "length": 40,
       "value": "\"https:\/\/api-us-east-1.ziggeo.com\/embed\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
       "kind": "StringLiteral",
       "offset": 457,
       "length": 30,
       "value": "\"https:\/\/media-cdn.ziggeo.com\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
       "kind": "StringLiteral",
       "offset": 527,
       "length": 42,
       "value": "\"rtmp:\/\/wowza.ziggeo.com\/record\/_definst_\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ZiggeoConfig.swift",
       "kind": "StringLiteral",
       "offset": 178,
       "length": 12,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoConfig\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/TPGAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/TPGAudioPlayer.swift",
       "kind": "IntegerLiteral",
       "offset": 284,
       "length": 7,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/TPGAudioPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/TPGAudioPlayer.swift",
       "kind": "IntegerLiteral",
       "offset": 284,
       "length": 7,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/FileInfoData.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/FileInfoData.swift",
       "kind": "StringLiteral",
       "offset": 179,
       "length": 12,
       "value": "\"ZiggeoMediaSwiftSDK.FileInfoData\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumsViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumsViewController.swift",
       "kind": "Array",
       "offset": 1659,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "IntegerLiteral",
       "offset": 791,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "StringLiteral",
       "offset": 9282,
       "length": 27,
       "value": "\"com.gcd.ziggeoUploadQueue\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "IntegerLiteral",
       "offset": 9387,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "IntegerLiteral",
       "offset": 9426,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "StringLiteral",
       "offset": 178,
       "length": 13,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoConnect\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoConnect.swift",
       "kind": "BooleanLiteral",
       "offset": 27341,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/ScreenRecorder\/ZiggeoScreenRecorderSampleHandler.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/ScreenRecorder\/ZiggeoScreenRecorderSampleHandler.swift",
       "kind": "BooleanLiteral",
       "offset": 327,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/ScreenRecorder\/ZiggeoScreenRecorderSampleHandler.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/ScreenRecorder\/ZiggeoScreenRecorderSampleHandler.swift",
       "kind": "IntegerLiteral",
       "offset": 676,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
       "kind": "FloatLiteral",
       "offset": 1775,
       "length": 3,
       "value": "0.1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
       "kind": "FloatLiteral",
       "offset": 2023,
       "length": 4,
       "value": "0.95"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
       "kind": "FloatLiteral",
       "offset": 2032,
       "length": 4,
       "value": "0.95"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
       "kind": "FloatLiteral",
       "offset": 2161,
       "length": 3,
       "value": "0.1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
       "kind": "FloatLiteral",
       "offset": 2348,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetCollectionViewCell.swift",
       "kind": "FloatLiteral",
       "offset": 2356,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "StringLiteral",
       "offset": 359,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "BooleanLiteral",
       "offset": 382,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "BooleanLiteral",
       "offset": 409,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "FloatLiteral",
       "offset": 729,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "FloatLiteral",
       "offset": 763,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "FloatLiteral",
       "offset": 867,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoEditor\/ZiggeoVideoEditor.swift",
       "kind": "StringLiteral",
       "offset": 275,
       "length": 17,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoVideoEditor\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumsTableViewDataSource.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumsTableViewDataSource.swift",
       "kind": "StringLiteral",
       "offset": 1273,
       "length": 25,
       "value": "\"ZiggeoMediaSwiftSDK.AlbumsTableViewDataSource\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 352,
       "length": 4,
       "value": "0x01"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 376,
       "length": 4,
       "value": "0x02"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 400,
       "length": 4,
       "value": "0x04"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 432,
       "length": 4,
       "value": "1000"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 463,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 492,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 518,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 564,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 568,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 573,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 578,
       "length": 4,
       "value": "1000"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 661,
       "length": 3,
       "value": "551"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 719,
       "length": 3,
       "value": "552"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 783,
       "length": 3,
       "value": "553"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 841,
       "length": 3,
       "value": "554"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 884,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 937,
       "length": 2,
       "value": "64"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 942,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 999,
       "length": 5,
       "value": "48000"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 1052,
       "length": 17,
       "value": "\"CameraView lock\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1183,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1295,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1329,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1364,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1396,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1462,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1546,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1657,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1748,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1840,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1874,
       "length": 2,
       "value": "90"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 1909,
       "length": 3,
       "value": "270"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 2021,
       "length": 4,
       "value": "1920"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 2076,
       "length": 4,
       "value": "1080"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 2148,
       "length": 2,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 2152,
       "length": 1,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 2222,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "IntegerLiteral",
       "offset": 2225,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2284,
       "length": 6,
       "value": "\"16:9\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2346,
       "length": 5,
       "value": "\"4:3\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2407,
       "length": 5,
       "value": "\"1:1\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2441,
       "length": 7,
       "value": "\"EMPTY\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2477,
       "length": 9,
       "value": "\"DELETED\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2516,
       "length": 10,
       "value": "\"VERIFIED\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2558,
       "length": 12,
       "value": "\"PROCESSING\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2598,
       "length": 8,
       "value": "\"FAILED\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2633,
       "length": 7,
       "value": "\"READY\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2664,
       "length": 10,
       "value": "\"ARG_PATH\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2698,
       "length": 11,
       "value": "\"ARG_TOKEN\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2743,
       "length": 21,
       "value": "\"ARG_IMAGE_MODE_ONLY\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2786,
       "length": 9,
       "value": "\"ARG_URI\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2829,
       "length": 21,
       "value": "\"ARG_COVER_SHOT_PATH\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2879,
       "length": 16,
       "value": "\"ARG_FORCE_SEND\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 2945,
       "length": 37,
       "value": "\"ARG_SHOW_COVER_SHOT_SELECTION_POPUP\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3033,
       "length": 38,
       "value": "\"ARG_SHOW_STOP_RECORDING_CONFIRMATION\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3117,
       "length": 33,
       "value": "\"ARG_SHOW_CONFIRMATION_ON_PLAYER\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3184,
       "length": 21,
       "value": "\"ARG_FILE_TO_CONFIRM\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3239,
       "length": 21,
       "value": "\"ARG_SELECTED_FILTER\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3297,
       "length": 24,
       "value": "\"ARG_SELECTED_VIEW_MODE\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3352,
       "length": 9,
       "value": "\"appname\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3391,
       "length": 13,
       "value": "\"client_auth\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3434,
       "length": 13,
       "value": "\"server_auth\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "StringLiteral",
       "offset": 3470,
       "length": 10,
       "value": "\"ARG_DATA\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoApplication.swift",
       "kind": "Dictionary",
       "offset": 8699,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/VideoPreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/VideoPreviewViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 2160,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/VideoPreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/VideoPreviewViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 3887,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/NumberView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/NumberView.swift",
       "kind": "StringLiteral",
       "offset": 1164,
       "length": 10,
       "value": "\"ZiggeoMediaSwiftSDK.NumberView\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioRecorder\/ZiggeoAudioRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioRecorder\/ZiggeoAudioRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 739,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioRecorder\/ZiggeoAudioRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioRecorder\/ZiggeoAudioRecorder.swift",
       "kind": "IntegerLiteral",
       "offset": 760,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/AudioRecorder\/ZiggeoAudioRecorder.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/AudioRecorder\/ZiggeoAudioRecorder.swift",
       "kind": "StringLiteral",
       "offset": 217,
       "length": 19,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoAudioRecorder\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/ZiggeoCacheManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/ZiggeoCacheManager.swift",
       "kind": "StringLiteral",
       "offset": 234,
       "length": 18,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoCacheManager\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Image.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Image.swift",
       "kind": "Array",
       "offset": 628,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Image.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Image.swift",
       "kind": "Array",
       "offset": 713,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/ScalableConstraint.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/ScalableConstraint.swift",
       "kind": "FloatLiteral",
       "offset": 273,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/ScalableConstraint.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/ScalableConstraint.swift",
       "kind": "FloatLiteral",
       "offset": 390,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/BaseNibView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/BaseNibView.swift",
       "kind": "BooleanLiteral",
       "offset": 1449,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
       "kind": "Dictionary",
       "offset": 421,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
       "kind": "Array",
       "offset": 459,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/RecordingInfo.swift",
       "kind": "StringLiteral",
       "offset": 180,
       "length": 13,
       "value": "\"ZiggeoMediaSwiftSDK.RecordingInfo\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 268,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 307,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 361,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/FileSelectorConfig.swift",
       "kind": "Dictionary",
       "offset": 472,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Zoom\/ZoomInteractionController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Zoom\/ZoomInteractionController.swift",
       "kind": "BooleanLiteral",
       "offset": 1473,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Zoom\/ZoomInteractionController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Zoom\/ZoomInteractionController.swift",
       "kind": "IntegerLiteral",
       "offset": 1604,
       "length": 2,
       "value": "70"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
       "kind": "FloatLiteral",
       "offset": 1819,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
       "kind": "FloatLiteral",
       "offset": 1845,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Controller\/ImagePickerController+Closure.swift",
       "kind": "BooleanLiteral",
       "offset": 1867,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
       "kind": "FloatLiteral",
       "offset": 623,
       "length": 4,
       "value": "0.05"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
       "kind": "FloatLiteral",
       "offset": 1454,
       "length": 4,
       "value": "0.05"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
       "kind": "StringLiteral",
       "offset": 3855,
       "length": 54,
       "value": "\"AudioPlayerManagerMeteringLevelDidUpdateNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioPlayerManager.swift",
       "kind": "StringLiteral",
       "offset": 3996,
       "length": 54,
       "value": "\"AudioPlayerManagerMeteringLevelDidFinishNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
       "kind": "StringLiteral",
       "offset": 330,
       "length": 49,
       "value": "\"com.3pillarglobal.medialoadedstate.notification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
       "kind": "StringLiteral",
       "offset": 556,
       "length": 46,
       "value": "\"com.3pillarglobal.playerstalled.notification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
       "kind": "StringLiteral",
       "offset": 700,
       "length": 50,
       "value": "\"com.3pillarglobal.playerdidreachend.notification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/Notifications.swift",
       "kind": "StringLiteral",
       "offset": 947,
       "length": 49,
       "value": "\"com.3pillarglobal.playertimejumped.notification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Dropdown\/DropdownPresentationController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Dropdown\/DropdownPresentationController.swift",
       "kind": "IntegerLiteral",
       "offset": 1283,
       "length": 3,
       "value": "200"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoImages.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoImages.swift",
       "kind": "StringLiteral",
       "offset": 211,
       "length": 12,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoImages\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/LivePreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/LivePreviewViewController.swift",
       "kind": "FloatLiteral",
       "offset": 2130,
       "length": 3,
       "value": "0.3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/LivePreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/LivePreviewViewController.swift",
       "kind": "IntegerLiteral",
       "offset": 2194,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/LivePreviewViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Preview\/LivePreviewViewController.swift",
       "kind": "IntegerLiteral",
       "offset": 2198,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoAudios.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/API\/ZiggeoAudios.swift",
       "kind": "StringLiteral",
       "offset": 211,
       "length": 12,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoAudios\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 375,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 422,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 574,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/UploadingConfig.swift",
       "kind": "Dictionary",
       "offset": 723,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Audio.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Audio.swift",
       "kind": "Array",
       "offset": 659,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Audio.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Models\/Audio.swift",
       "kind": "Array",
       "offset": 744,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/QRCodeReader\/ZiggeoQRCodeReaderViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/QRCodeReader\/ZiggeoQRCodeReaderViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 694,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/QRCodeReader\/ZiggeoQRCodeReaderViewController.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/QRCodeReader\/ZiggeoQRCodeReaderViewController.swift",
       "kind": "StringLiteral",
       "offset": 208,
       "length": 32,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoQRCodeReaderViewController\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsCollectionViewDataSource.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsCollectionViewDataSource.swift",
       "kind": "StringLiteral",
       "offset": 1295,
       "length": 11,
       "value": "\"AssetCell\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsCollectionViewDataSource.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsCollectionViewDataSource.swift",
       "kind": "StringLiteral",
       "offset": 1352,
       "length": 11,
       "value": "\"VideoCell\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsCollectionViewDataSource.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/AssetsCollectionViewDataSource.swift",
       "kind": "StringLiteral",
       "offset": 1178,
       "length": 30,
       "value": "\"ZiggeoMediaSwiftSDK.AssetsCollectionViewDataSource\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 2417,
       "length": 2,
       "value": "16"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 2676,
       "length": 2,
       "value": "12"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 2932,
       "length": 2,
       "value": "18"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 3314,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 3485,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 3661,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 4070,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 4157,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 4248,
       "length": 1,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 4294,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 4437,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "FloatLiteral",
       "offset": 6648,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "FloatLiteral",
       "offset": 6701,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 6905,
       "length": 11,
       "value": "\"mediaType\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 6929,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 6979,
       "length": 10,
       "value": "\"duration\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 7002,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 7051,
       "length": 14,
       "value": "\"creationDate\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 7078,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 7229,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 7248,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 7309,
       "length": 72,
       "value": "\"mediaType = %d OR mediaType = %d AND duration <= %f AND duration >= %f\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 7589,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 7609,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 7670,
       "length": 53,
       "value": "\"mediaType = %d OR mediaType = %d AND duration <= %f\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 7919,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "IntegerLiteral",
       "offset": 7938,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 7999,
       "length": 53,
       "value": "\"mediaType = %d OR mediaType = %d AND duration >= %f\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "StringLiteral",
       "offset": 8287,
       "length": 17,
       "value": "\"mediaType IN %@\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 8671,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 8908,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 9132,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 9579,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Model\/Settings.swift",
       "kind": "BooleanLiteral",
       "offset": 9693,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "IntegerLiteral",
       "offset": 320,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "IntegerLiteral",
       "offset": 343,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "IntegerLiteral",
       "offset": 320,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "IntegerLiteral",
       "offset": 343,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "FloatLiteral",
       "offset": 489,
       "length": 3,
       "value": "3.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "FloatLiteral",
       "offset": 603,
       "length": 3,
       "value": "2.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "FloatLiteral",
       "offset": 720,
       "length": 3,
       "value": "2.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "BooleanLiteral",
       "offset": 833,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "FloatLiteral",
       "offset": 1022,
       "length": 4,
       "value": "0.05"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "Array",
       "offset": 1487,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "Array",
       "offset": 1610,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWave\/AudioVisualizationView.swift",
       "kind": "FloatLiteral",
       "offset": 2097,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumCell.swift",
       "kind": "StringLiteral",
       "offset": 1285,
       "length": 11,
       "value": "\"AlbumCell\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Albums\/AlbumCell.swift",
       "kind": "BooleanLiteral",
       "offset": 1537,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/LuxMeterView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoRecorder\/LuxMeterView.swift",
       "kind": "IntegerLiteral",
       "offset": 1161,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ButtonConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/ButtonConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 317,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
       "kind": "StringLiteral",
       "offset": 222,
       "length": 10,
       "value": "\"TitleKey\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
       "kind": "StringLiteral",
       "offset": 267,
       "length": 11,
       "value": "\"AuthorKey\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
       "kind": "StringLiteral",
       "offset": 313,
       "length": 13,
       "value": "\"DurationKey\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
       "kind": "StringLiteral",
       "offset": 361,
       "length": 17,
       "value": "\"ListScreenTitle\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/iOSAudioPlayer\/SpringboardData.swift",
       "kind": "StringLiteral",
       "offset": 413,
       "length": 11,
       "value": "\"ImagePath\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CameraCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CameraCollectionViewCell.swift",
       "kind": "StringLiteral",
       "offset": 1274,
       "length": 22,
       "value": "\"cameraCellIdentifier\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CameraCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CameraCollectionViewCell.swift",
       "kind": "StringLiteral",
       "offset": 1793,
       "length": 28,
       "value": "\"AVCaptureVideoPreviewLayer\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CameraCollectionViewCell.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/CameraCollectionViewCell.swift",
       "kind": "Array",
       "offset": 1835,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Zoom\/ZoomAnimator.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Presentation\/Zoom\/ZoomAnimator.swift",
       "kind": "StringLiteral",
       "offset": 1170,
       "length": 12,
       "value": "\"ZiggeoMediaSwiftSDK.ZoomAnimator\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "StringLiteral",
       "offset": 227,
       "length": 12,
       "value": "\"percentage\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "StringLiteral",
       "offset": 313,
       "length": 16,
       "value": "\"Recorded_Audio\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "IntegerLiteral",
       "offset": 357,
       "length": 6,
       "value": "320000"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "IntegerLiteral",
       "offset": 393,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "FloatLiteral",
       "offset": 421,
       "length": 7,
       "value": "44100.0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "FloatLiteral",
       "offset": 524,
       "length": 4,
       "value": "0.05"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "BooleanLiteral",
       "offset": 556,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "FloatLiteral",
       "offset": 1091,
       "length": 4,
       "value": "0.05"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "StringLiteral",
       "offset": 5881,
       "length": 56,
       "value": "\"AudioRecorderManagerMeteringLevelDidUpdateNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "StringLiteral",
       "offset": 6026,
       "length": 56,
       "value": "\"AudioRecorderManagerMeteringLevelDidFinishNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/SoundWaveHelper\/AudioRecorderManager.swift",
       "kind": "StringLiteral",
       "offset": 6169,
       "length": 54,
       "value": "\"AudioRecorderManagerMeteringLevelDidFailNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Expansion\/String+Expansion.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Expansion\/String+Expansion.swift",
       "kind": "IntegerLiteral",
       "offset": 1591,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoLibrary\/ZiggeoVideoLibrary.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoLibrary\/ZiggeoVideoLibrary.swift",
       "kind": "StringLiteral",
       "offset": 220,
       "length": 18,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoVideoLibrary\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoLibrary\/ZiggeoVideoLibrary.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoLibrary\/ZiggeoVideoLibrary.swift",
       "kind": "StringLiteral",
       "offset": 220,
       "length": 18,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoVideoLibrary\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoLibrary\/ZiggeoVideoLibrary.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoLibrary\/ZiggeoVideoLibrary.swift",
       "kind": "StringLiteral",
       "offset": 220,
       "length": 18,
       "value": "\"ZiggeoMediaSwiftSDK.ZiggeoVideoLibrary\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/QrScannerConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/QrScannerConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 279,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CameraRecorderStyle.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/CameraRecorderStyle.swift",
       "kind": "BooleanLiteral",
       "offset": 269,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/SelectionView.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Libraries\/ImagePickerController\/Scene\/Assets\/SelectionView.swift",
       "kind": "IntegerLiteral",
       "offset": 1527,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 334,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 430,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 484,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 528,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 570,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 674,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 729,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 856,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 899,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 946,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 1134,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 1226,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 1233,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 1240,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "Dictionary",
       "offset": 1553,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
       "kind": "StringLiteral",
       "offset": 592,
       "length": 33,
       "value": "\"ReachabilityChangedNotification\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
       "kind": "StringLiteral",
       "offset": 720,
       "length": 21,
       "value": "\"reachabilityChanged\""
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
       "kind": "BooleanLiteral",
       "offset": 2009,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
       "kind": "BooleanLiteral",
       "offset": 3162,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/Common\/Reachability.swift",
       "kind": "BooleanLiteral",
       "offset": 3273,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoPlayer\/ZiggeoPlayer.swift",
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/05_Swift-SDK\/ZiggeoMediaSwiftSDK\/VideoPlayer\/ZiggeoPlayer.swift",
       "kind": "StringLiteral",
       "offset": 394,
       "length": 2,
       "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoPlayer\/ZiggeoPlayer.swift",
-      "kind": "StringLiteral",
-      "offset": 243,
-      "length": 12,
-      "value": "\"ZiggeoMediaSwiftSDK.ZiggeoPlayer\""
-    },
-    {
-      "filePath": "\/Users\/administrator\/Documents\/JGH\/ziggeo\/05_ZiggeoSwift-SDK\/ZiggeoMediaSwiftSDK\/VideoPlayer\/ZiggeoPlayer.swift",
-      "kind": "StringLiteral",
-      "offset": 243,
-      "length": 12,
-      "value": "\"ZiggeoMediaSwiftSDK.ZiggeoPlayer\""
     }
   ]
 }
