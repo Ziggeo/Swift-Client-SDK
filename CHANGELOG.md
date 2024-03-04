@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.1.47-blurring *(2024-02-29)*
+-----------------------------
+* The update changes cache for media.
+* The update changes fix crash for Ziggeo Player initializer.
+
 Version 1.1.46-blurring *(2023-12-22)*
 -----------------------------
 * The update changes some models.
