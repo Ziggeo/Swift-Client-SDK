@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZiggeoMediaSwiftSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -23,6 +23,7 @@ import UIKit
 @_exported import ZiggeoMediaSwiftSDK
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 import os
 @objc @_hasMissingDesignatedInitializers open class ZiggeoUploadingHandler : ObjectiveC.NSObject {
   @objc deinit
@@ -610,6 +611,7 @@ public let ARG_DATA: Swift.String
   public var playerConfig: ZiggeoMediaSwiftSDK.PlayerConfig
   public var qrScannerConfig: ZiggeoMediaSwiftSDK.QrScannerConfig
   public var recorderConfig: ZiggeoMediaSwiftSDK.RecorderConfig
+  public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
   @objc override dynamic public init()
   public init(token: Swift.String)
   open func sendLocalNotification(_ message: Swift.String)
@@ -623,6 +625,7 @@ public let ARG_DATA: Swift.String
   open func setPlayerConfig(_ config: ZiggeoMediaSwiftSDK.PlayerConfig)
   open func setQrScannerConfig(_ config: ZiggeoMediaSwiftSDK.QrScannerConfig)
   open func setRecorderConfig(_ config: ZiggeoMediaSwiftSDK.RecorderConfig)
+  open func setCacheConfig(_ config: ZiggeoMediaSwiftSDK.CacheConfig)
   open func sendReport(_ array: [Swift.String])
   open func sendEmailToSupport()
   open func sendEmailToSupport(subject: Swift.String, messageBody: Swift.String, file: ZiggeoMediaSwiftSDK.FileInfoData?)
@@ -1346,11 +1349,13 @@ extension ZiggeoMediaSwiftSDK.Reachability {
     get
   }
 }
-@objc open class ZiggeoPlayer : AVFoundation.AVQueuePlayer {
+@objc @_inheritsConvenienceInitializers open class ZiggeoPlayer : AVFoundation.AVQueuePlayer {
   public init(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String)
   @objc override dynamic public init()
   public init(application: ZiggeoMediaSwiftSDK.Ziggeo, playerItem: AVFoundation.AVPlayerItem?)
   public init(application: ZiggeoMediaSwiftSDK.Ziggeo, playerItems: [AVFoundation.AVPlayerItem])
+  @objc override dynamic public init(playerItem: AVFoundation.AVPlayerItem?)
+  @objc override dynamic public init(items: [AVFoundation.AVPlayerItem])
   @objc override dynamic public init(url: Foundation.URL)
   @objc deinit
   public class func createPlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, videoUrl: Swift.String?, params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
