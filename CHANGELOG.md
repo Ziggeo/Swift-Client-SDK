@@ -1,5 +1,10 @@
 # Changelog
 
+Version 1.1.48-blurring *(2024-03-19)*
+-----------------------------
+* The update changes disable video preview after recording ends.
+* The update changes demo project.
+
 Version 1.1.47-blurring *(2024-02-29)*
 -----------------------------
 * The update changes cache for media.
