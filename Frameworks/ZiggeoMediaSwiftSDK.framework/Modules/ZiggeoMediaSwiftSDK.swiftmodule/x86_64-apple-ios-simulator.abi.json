@@ -3672,6 +3672,92 @@
           },
           {
             "kind": "Var",
+            "name": "shouldDisablePreview",
+            "printedName": "shouldDisablePreview",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvp",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvp",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvg",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvg",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvs",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvs",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvM",
+                "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC20shouldDisablePreviewSbvM",
+                "moduleName": "ZiggeoMediaSwiftSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "shouldDisableCameraSwitch",
             "printedName": "shouldDisableCameraSwitch",
             "children": [
@@ -5568,6 +5654,53 @@
             "declKind": "Func",
             "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC24setShouldSendImmediatelyyySbF",
             "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC24setShouldSendImmediatelyyySbF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getShouldDisablePreview",
+            "printedName": "getShouldDisablePreview()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC23getShouldDisablePreviewSbyF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC23getShouldDisablePreviewSbyF",
+            "moduleName": "ZiggeoMediaSwiftSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setShouldDisablePreview",
+            "printedName": "setShouldDisablePreview(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19ZiggeoMediaSwiftSDK14RecorderConfigC23setShouldDisablePreviewyySbF",
+            "mangledName": "$s19ZiggeoMediaSwiftSDK14RecorderConfigC23setShouldDisablePreviewyySbF",
             "moduleName": "ZiggeoMediaSwiftSDK",
             "declAttributes": [
               "AccessControl"
@@ -52832,63 +52965,70 @@
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 729,
+      "offset": 724,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 856,
+      "offset": 779,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
+      "kind": "BooleanLiteral",
+      "offset": 906,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 899,
+      "offset": 949,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 946,
+      "offset": 996,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 1134,
+      "offset": 1184,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1226,
+      "offset": 1276,
       "length": 4,
       "value": "1024"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1233,
+      "offset": 1283,
       "length": 4,
       "value": "1024"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 1240,
+      "offset": 1290,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/administrator\/Development\/Ziggeo\/07_Swift-SDK-Blurring\/ZiggeoMediaSwiftSDK\/Config\/RecorderConfig.swift",
       "kind": "Dictionary",
-      "offset": 1553,
+      "offset": 1603,
       "length": 3,
       "value": "[]"
     },
