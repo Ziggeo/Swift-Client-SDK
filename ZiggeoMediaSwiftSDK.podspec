@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = 'ZiggeoMediaSwiftSDK'
-  spec.version          = '1.1.47'
+  spec.version          = '1.1.48'
   spec.summary          = 'Ziggeo Swift Client SDK'
   spec.description      = 'Ziggeo Swift recording and playback SDK'
 
