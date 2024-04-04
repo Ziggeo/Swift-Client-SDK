@@ -1196,6 +1196,7 @@ public protocol ImagePickerControllerDelegate : AnyObject {
   public var isPausedMode: Swift.Bool
   public var startDelay: Swift.Int
   public var shouldSendImmediately: Swift.Bool
+  public var shouldDisablePreview: Swift.Bool
   public var shouldDisableCameraSwitch: Swift.Bool
   public var videoQuality: Swift.Int
   public var facing: Swift.Int
@@ -1231,6 +1232,8 @@ public protocol ImagePickerControllerDelegate : AnyObject {
   open func setStartDelay(_ startDelay: Swift.Int)
   open func getShouldSendImmediately() -> Swift.Bool
   open func setShouldSendImmediately(_ shouldSendImmediately: Swift.Bool)
+  open func getShouldDisablePreview() -> Swift.Bool
+  open func setShouldDisablePreview(_ shouldDisablePreview: Swift.Bool)
   open func getShouldDisableCameraSwitch() -> Swift.Bool
   open func setShouldDisableCameraSwitch(_ shouldDisableCameraSwitch: Swift.Bool)
   open func getVideoQuality() -> Swift.Int
