@@ -10,47 +10,43 @@ import UIKit
 import ZiggeoMediaSwiftSDK
 
 
-class CustomUIRecroderViewController: UIViewController {
-
-    @IBOutlet weak var recordButton: UIBarButtonItem!
-    @IBOutlet weak var stopAndUploadButton: UIBarButtonItem!
+final class CustomUIRecroderViewController: UIViewController {
     
-    var m_recorder: ZiggeoRecorder?
+    @IBOutlet private weak var recordButton: UIBarButtonItem!
+    @IBOutlet private weak var stopAndUploadButton: UIBarButtonItem!
     
-
+    let recorder: ZiggeoRecorder
+    
+    init(recorder: ZiggeoRecorder) {
+        self.recorder = recorder
+        super.init(nibName: Self.identifier, bundle: .main)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.stopAndUploadButton.isEnabled = false
+        stopAndUploadButton.isEnabled = false
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    //MARK: Button Click Action
+// MARK: - @IBActions
+private extension CustomUIRecroderViewController {
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
-        if (self.m_recorder != nil) {
-            self.m_recorder!.dismiss(animated:true, completion: nil)
-        }
-        self.m_recorder = nil
+        recorder.dismiss(animated: true)
     }
 
     @IBAction func recordButtonPressed(_ sender: AnyObject) {
-        if (self.m_recorder != nil) {
-            self.m_recorder!.startRecording()
-        }
-        self.stopAndUploadButton.isEnabled = true
-        self.recordButton.isEnabled = false
+        recorder.startRecording()
+        stopAndUploadButton.isEnabled = true
+        recordButton.isEnabled = false
     }
 
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
-        if (self.m_recorder != nil) {
-            self.m_recorder!.stopRecording()
-        }
-        self.stopAndUploadButton.isEnabled = false
-        self.recordButton.isEnabled = true
+        recorder.stopRecording()
+        stopAndUploadButton.isEnabled = false
+        recordButton.isEnabled = true
     }
 }
