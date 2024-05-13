@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 import MessageUI
 
-class AboutViewController: UIViewController {
+final class AboutViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
@@ -36,26 +36,25 @@ class AboutViewController: UIViewController {
 
 // MARK: - MFMailComposeViewControllerDelegate
 extension AboutViewController: MFMailComposeViewControllerDelegate {
-    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 
 // MARK: - WKNavigationDelegate
 extension AboutViewController: WKNavigationDelegate {
-    
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-       if navigationAction.navigationType == WKNavigationType.linkActivated {
-           let link = navigationAction.request.url?.absoluteString ?? ""
-           if link.contains("mailto:") {
-               self.sendEmail(link.replacingOccurrences(of: "mailto:", with: ""))
-           } else {
-               Common.openWebBrowser(link)
-           }
-           decisionHandler(WKNavigationActionPolicy.cancel)
-           return
-       }
-       decisionHandler(WKNavigationActionPolicy.allow)
+        switch navigationAction.navigationType {
+        case .linkActivated:
+            let link = navigationAction.request.url?.absoluteString ?? ""
+            if link.contains("mailto:") {
+                sendEmail(link.replacingOccurrences(of: "mailto:", with: ""))
+            } else {
+                Common.openWebBrowser(link)
+            }
+            decisionHandler(.cancel)
+            
+        default: decisionHandler(.allow)
+        }
     }
 }
