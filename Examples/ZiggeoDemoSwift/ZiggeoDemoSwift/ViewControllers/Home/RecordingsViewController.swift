@@ -7,19 +7,10 @@
 
 import UIKit
 
-
-class RecordingsViewController: UITabBarController {
-    
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
+final class RecordingsViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Common.subNavigationController = self.navigationController
+        Common.subNavigationController = navigationController
     }
 }
-

@@ -1,11 +1,21 @@
 import UIKit
 
+// MARK: - Static properties & methods
+extension UIView {
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
+    static var nib: UINib {
+        return UINib(nibName: identifier, bundle: Bundle(for: self))
+    }
+}
+
+// MARK: - @IBDesignable
 @IBDesignable extension UIView {
     
     @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
+        get { return layer.cornerRadius }
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
@@ -13,21 +23,13 @@ import UIKit
     }
     
     @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
+        get { layer.borderWidth }
+        set { layer.borderWidth = newValue }
     }
     
     @IBInspectable var borderColor: UIColor? {
-        get {
-            return UIColor(cgColor: layer.borderColor!)
-        }
-        set {
-            layer.borderColor = newValue?.cgColor
-        }
+        get { UIColor(cgColor: layer.borderColor!) }
+        set { layer.borderColor = newValue?.cgColor }
     }
     
     func setShadow(radius: CGFloat, offset: CGSize, cornerRadius: CGFloat = 0) {
