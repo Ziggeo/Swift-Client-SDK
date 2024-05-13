@@ -23,7 +23,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
-//        Self.ziggeo.connect.postWithPath(identifier, data: nil) { data, response, error in
+//        Self.ziggeo.connect.postWithPath(identifier, data: nil) { _, _, _ in
 //            completionHandler()
 //        }
     }

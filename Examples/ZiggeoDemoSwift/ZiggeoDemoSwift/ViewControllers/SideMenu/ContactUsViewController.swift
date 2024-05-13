@@ -7,9 +7,10 @@
 
 import UIKit
 
-class ContactUsViewController: UIViewController {
-    
-    // MARK: - Actions
+final class ContactUsViewController: UIViewController { }
+
+// MARK: - @IBActions
+private extension ContactUsViewController {
     @IBAction func onContactUs(_ sender: Any) {
         Common.ziggeo?.sendEmailToSupport()
     }

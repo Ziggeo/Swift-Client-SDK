@@ -1,8 +1,8 @@
 import UIKit
 
-class LogTableViewCell: UITableViewCell {
+final class LogTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var logLabel: UILabel!
+    @IBOutlet private weak var logLabel: UILabel!
     
     func setData(log: String) {
         logLabel.text = log

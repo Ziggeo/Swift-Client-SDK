@@ -7,41 +7,32 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var startDelayTextField: UITextField!
-    @IBOutlet weak var customCameraSwitch: UISwitch!
-    @IBOutlet weak var customPlayerSwitch: UISwitch!
-    @IBOutlet weak var useBlurSwtich: UISwitch!
-    
-    
-    // MARK: - Public variables
+    @IBOutlet private weak var startDelayTextField: UITextField!
+    @IBOutlet private weak var customCameraSwitch: UISwitch!
+    @IBOutlet private weak var customPlayerSwitch: UISwitch!
+    @IBOutlet private weak var useBlurSwtich: UISwitch!
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        startDelayTextField.text = UserDefaults.standard.string(forKey: Common.Start_Delay_Key)
-        customCameraSwitch.isOn = UserDefaults.standard.bool(forKey: Common.Custom_Camera_Key)
-        customPlayerSwitch.isOn = UserDefaults.standard.bool(forKey: Common.Custom_Player_Key)
-        useBlurSwtich.isOn = UserDefaults.standard.bool(forKey: Common.Blur_Mode_Key)
+        startDelayTextField.text = UserDefaults.startDelay
+        customCameraSwitch.isOn = UserDefaults.isUsingCustomCamera
+        customPlayerSwitch.isOn = UserDefaults.isUsingCustomPlayer
+        useBlurSwtich.isOn = UserDefaults.isUsingBlurMode
     }
     
     // MARK: - Actions
-    @IBAction func onSave(_ sender: Any) {
-        UserDefaults.standard.setValue(startDelayTextField.text, forKey: Common.Start_Delay_Key)
-        UserDefaults.standard.setValue(customCameraSwitch.isOn, forKey: Common.Custom_Camera_Key)
-        UserDefaults.standard.setValue(customPlayerSwitch.isOn, forKey: Common.Custom_Player_Key)
-        UserDefaults.standard.setValue(useBlurSwtich.isOn, forKey: Common.Blur_Mode_Key)
+    @IBAction private func onSave(_ sender: Any) {
+        UserDefaults.startDelay = startDelayTextField.text
+        UserDefaults.isUsingCustomCamera = customCameraSwitch.isOn
+        UserDefaults.isUsingCustomPlayer = customPlayerSwitch.isOn
+        UserDefaults.isUsingBlurMode = useBlurSwtich.isOn
         UserDefaults.standard.synchronize()
         
         Common.showAlertView("Settings was saved.")
     }
 }
-

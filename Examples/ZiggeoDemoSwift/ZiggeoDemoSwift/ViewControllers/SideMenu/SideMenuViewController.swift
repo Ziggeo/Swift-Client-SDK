@@ -21,10 +21,10 @@ import UIKit
     func didSelectPlayLocalVideoMenu()
 }
 
-class SideMenuViewController: UIViewController {
+final class SideMenuViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var applicationTokenLabel: UILabel!
+    @IBOutlet private weak var applicationTokenLabel: UILabel!
     
     // MARK: - Public variables
     var delegate: MenuActionDelegate?
@@ -32,29 +32,27 @@ class SideMenuViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let applicationToken = UserDefaults.standard.string(forKey: Common.Application_Token_Key)
-        applicationTokenLabel.text = applicationToken
+        applicationTokenLabel.text = UserDefaults.applicationToken
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
-    
-    // MARK: - Actions
+}
+
+// MARK: - @IBActions
+private extension SideMenuViewController {
     @IBAction func onLogout(_ sender: Any) {
-        let alert = UIAlertController(title: "", message: "Are you sure you want to log out?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { (action) in
-        }))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) in
-            UserDefaults.standard.setValue(nil, forKey: Common.Application_Token_Key)
+        let alert = UIAlertController(title: "", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in }))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            UserDefaults.applicationToken = nil
             self.dismiss(animated: true) {
                 self.delegate?.didSelectLogoutMenu()
             }
         }))
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
     
     @IBAction func onRecording(_ sender: Any) {
@@ -117,4 +115,3 @@ class SideMenuViewController: UIViewController {
         }
     }
 }
-
