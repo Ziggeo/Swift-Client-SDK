@@ -14,19 +14,19 @@ import SVProgressHUD
     func recordingDeleted(_ token: String)
 }
 
-class RecordingDetailViewController: UIViewController {
+final class RecordingDetailViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var tokenTextField: UITextField!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var editButtonView: UIView!
-    @IBOutlet weak var deleteButtonView: UIView!
-    @IBOutlet weak var backButtonView: UIView!
-    @IBOutlet weak var closeButtonView: UIView!
-    @IBOutlet weak var saveButtonView: UIView!
-    @IBOutlet weak var saveButton: UIView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var tokenTextField: UITextField!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var descriptionTextField: UITextField!
+    @IBOutlet private weak var editButtonView: UIView!
+    @IBOutlet private weak var deleteButtonView: UIView!
+    @IBOutlet private weak var backButtonView: UIView!
+    @IBOutlet private weak var closeButtonView: UIView!
+    @IBOutlet private weak var saveButtonView: UIView!
+    @IBOutlet private weak var saveButton: UIView!
     
     // MARK: - Public variables
     var mediaType = VIDEO
@@ -40,31 +40,33 @@ class RecordingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        if (recording != nil) {
-            if (mediaType == VIDEO) {
-                imageView.contentMode = UIView.ContentMode.scaleAspectFill
-                let imageUrlString = Common.ziggeo?.videos.getImageUrl(recording!.token)
+        
+        if let recording = recording {
+            if mediaType == VIDEO {
+                imageView.contentMode = .scaleAspectFill
+                let imageUrlString = Common.ziggeo?.videos.getImageUrl(recording.token)
                 imageView.setURL(imageUrlString, placeholder: nil)
-            } else if (mediaType == AUDIO) {
-                imageView.contentMode = UIView.ContentMode.scaleAspectFit
-                imageView.image = UIImage(named: "bg_audio")
+            } else if mediaType == AUDIO {
+                imageView.contentMode = .scaleAspectFit
+                imageView.image = .bgAudio
             } else {
-                imageView.contentMode = UIView.ContentMode.scaleAspectFill
-                let imageUrlString = Common.ziggeo?.images.getImageUrl(recording!.token)
+                imageView.contentMode = .scaleAspectFill
+                let imageUrlString = Common.ziggeo?.images.getImageUrl(recording.token)
                 imageView.setURL(imageUrlString, placeholder: nil)
             }
             
             tokenTextField.isEnabled = false
-            tokenTextField.text = recording!.token
-            titleTextField.text = recording!.title
-            descriptionTextField.text = recording!.getDescription()
+            tokenTextField.text = recording.token
+            titleTextField.text = recording.title
+            descriptionTextField.text = recording.getDescription()
         }
         
         refreshButtons()
     }
-    
-    // MARK: - Actions
+}
+
+// MARK: - @IBActions
+private extension RecordingDetailViewController {
     @IBAction func onBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -80,101 +82,97 @@ class RecordingDetailViewController: UIViewController {
     }
     
     @IBAction func onDelete(_ sender: Any) {
-        let alert = UIAlertController(title: "", message: "Are you sure you want to delete this recording?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: { (action) in
-        }))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { [self] (action) in
-            if (self.recording != nil) {
-                SVProgressHUD.show()
-                if (self.mediaType == VIDEO) {
-                    Common.ziggeo?.videos.destroy(self.recording!.token, streamToken: self.recording!.streamToken, callback: { jsonObject, response, error in
-                        SVProgressHUD.dismiss()
-                        self.isEditMode = false
-                        self.recordingDelegate?.recordingDeleted(self.recording!.token)
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                    
-                } else if (self.mediaType == AUDIO) {
-                    Common.ziggeo?.audios.destroy(self.recording!.token, callback: { jsonObject, response, error in
-                        SVProgressHUD.dismiss()
-                        self.isEditMode = false
-                        self.recordingDelegate?.recordingDeleted(self.recording!.token)
-                        self.navigationController?.popViewController(animated: true)
-                    })
-
-                } else {
-                    Common.ziggeo?.images.destroy(self.recording!.token, callback: { jsonObject, response, error in
-                        SVProgressHUD.dismiss()
-                        self.isEditMode = false
-                        self.recordingDelegate?.recordingDeleted(self.recording!.token)
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                }
-            }
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func onSave(_ sender: Any) {
-        if (recording != nil) {
+        let alert = UIAlertController(title: "", message: "Are you sure you want to delete this recording?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in }))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            guard let recording = self.recording else { return }
             SVProgressHUD.show()
-            let data = ["title": titleTextField.text,
-                        "description": descriptionTextField.text]
-            
-            if (self.mediaType == VIDEO) {
-                Common.ziggeo?.videos.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, response, error in
+            if self.mediaType == VIDEO {
+                Common.ziggeo?.videos.destroy(recording.token, streamToken: recording.streamToken, callback: { _, _, _ in
                     SVProgressHUD.dismiss()
-                    
                     self.isEditMode = false
-                    self.refreshButtons()
+                    self.recordingDelegate?.recordingDeleted(recording.token)
+                    self.navigationController?.popViewController(animated: true)
                 })
                 
-            } else if (self.mediaType == AUDIO) {
-                Common.ziggeo?.audios.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, response, error in
+            } else if self.mediaType == AUDIO {
+                Common.ziggeo?.audios.destroy(recording.token, callback: { _, _, _ in
                     SVProgressHUD.dismiss()
-                    
                     self.isEditMode = false
-                    self.refreshButtons()
+                    self.recordingDelegate?.recordingDeleted(recording.token)
+                    self.navigationController?.popViewController(animated: true)
                 })
                 
             } else {
-                Common.ziggeo?.images.update(recording!.token, data: data as [AnyHashable : Any], callback: { content, response, error in
+                Common.ziggeo?.images.destroy(recording.token, callback: { _, _, _ in
                     SVProgressHUD.dismiss()
-                    
                     self.isEditMode = false
-                    self.refreshButtons()
+                    self.recordingDelegate?.recordingDeleted(recording.token)
+                    self.navigationController?.popViewController(animated: true)
                 })
+            }
+        }))
+        present(alert, animated: true)
+    }
+    
+    @IBAction func onSave(_ sender: Any) {
+        guard let recording = recording else { return }
+        
+        SVProgressHUD.show()
+        let data: [AnyHashable: Any] = ["title": titleTextField.text ?? "",
+                                        "description": descriptionTextField.text ?? ""]
+        let completion = {
+            SVProgressHUD.dismiss()
+            self.isEditMode = false
+            self.refreshButtons()
+        }
+        
+        switch mediaType {
+        case VIDEO:
+            Common.ziggeo?.videos.update(recording.token, data: data) { _, _, _ in
+                completion()
+            }
+            
+        case AUDIO:
+            Common.ziggeo?.audios.update(recording.token, data: data) { _, _, _ in
+                completion()
+            }
+            
+        default:
+            Common.ziggeo?.images.update(recording.token, data: data) { _, _, _ in
+                completion()
             }
         }
     }
     
     @IBAction func onPlay(_ sender: Any) {
-        if (recording != nil) {
-            if (mediaType == VIDEO) {
-                if (UserDefaults.standard.bool(forKey: Common.Custom_Player_Key) == true) {
-                    guard let urlString = Common.ziggeo?.videos.getVideoUrl(recording!.token) else {
-                        return
-                    }
-                    let vc = CustomVideoPlayer()
-                    vc.videoURL = URL(string: urlString)
-                    vc.isRecordingPreview = false
-                    present(vc, animated: true, completion: nil)
-                    
-                } else {
-                    Common.ziggeo?.playVideo(recording!.token!)
-                }
-                
-            } else if (mediaType == AUDIO) {
-                Common.ziggeo?.startAudioPlayer(recording!.token!)
-                
-            } else {
-                Common.ziggeo?.showImage(recording!.token!)
+        guard let recording = recording else { return }
+        
+        switch mediaType {
+        case VIDEO:
+            guard UserDefaults.isUsingCustomPlayer else {
+                Common.ziggeo?.playVideo(recording.token)
+                return
             }
+            guard let urlString = Common.ziggeo?.videos.getVideoUrl(recording.token) else {
+                return
+            }
+            let vc = CustomVideoPlayer()
+            vc.videoURL = URL(string: urlString)
+            vc.isRecordingPreview = false
+            present(vc, animated: true)
+            
+        case AUDIO:
+            Common.ziggeo?.startAudioPlayer(recording.token)
+        default:
+            Common.ziggeo?.showImage(recording.token)
         }
     }
+}
 
-    // MARK: - Functions
-    private func refreshButtons() {
+// MARK: - Privates
+private extension RecordingDetailViewController {
+    func refreshButtons() {
         backButtonView.isHidden = isEditMode
         closeButtonView.isHidden = !isEditMode
         editButtonView.isHidden = isEditMode

@@ -7,35 +7,32 @@
 
 import UIKit
 
-class TopClientsViewController: UIViewController {
+final class TopClientsViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var logoCollectionView: UICollectionView!
     
     // MARK: - Private variables
-    private let reuseIdentifier = "LogoCollectionViewCell"
     private let sectionInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     
-        
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         logoCollectionView.delegate = self
         logoCollectionView.dataSource = self
-        logoCollectionView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-    }   
+        logoCollectionView.register(cell: LogoCollectionViewCell.self)
+    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension TopClientsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Common.ClientList.count
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath as IndexPath) as! LogoCollectionViewCell
+        let cell: LogoCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath as IndexPath)
         cell.setData(icon: Common.ClientList[indexPath.row].image)
         return cell
     }
@@ -47,17 +44,15 @@ extension TopClientsViewController: UICollectionViewDataSource, UICollectionView
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension TopClientsViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 2 - sectionInsets.left - sectionInsets.right, height: 150)
     }
-      
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return self.sectionInsets
     }
-      
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return self.sectionInsets.left
     }
 }
-

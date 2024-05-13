@@ -5,24 +5,12 @@
 //  Created by Dragon on 6/24/22.
 //
 
-
 import UIKit
 import AVFoundation
 import ZiggeoMediaSwiftSDK
 
-// MARK AlertDelegate
-public protocol AlertButtonClickDelegate : NSObjectProtocol {
-    func onAlertButtonClicked()
-}
-
-// MARK: Common
-class Common: NSObject {
-    static let Application_Token_Key = "Application_Token_Key"
-    static let Start_Delay_Key = "Start_Delay_Key"
-    static let Custom_Camera_Key = "Custom_Camera_Key"
-    static let Custom_Player_Key = "Custom_Player_Key"
-    static let Blur_Mode_Key = "Blur_Mode_Key"
-    
+// MARK: - Common
+final class Common { // TODO: @skatolyk - Refactor this class
     static let SdkList = [
         [
             LogoData(title: "Objective-C", image: "logo-objectivec", url: "https://github.com/Ziggeo/iOS-Client-SDK"),
@@ -69,35 +57,34 @@ class Common: NSObject {
     static var recordingAudiosController: RecordingAudiosViewController?
     static var recordingImagesController: RecordingImagesViewController?
     static var currentTab = VIDEO
+    
+    private init() {}
 }
 
 extension Common {
-    class func openWebBrowser(_ urlString: String) {
+    static func openWebBrowser(_ urlString: String) {
         let url = URL(string: urlString)
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url!, options: [:])
-        } else {
-            UIApplication.shared.openURL(url!)
-        }
+        UIApplication.shared.open(url!)
     }
     
-    class func showAlertView(_ message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
-        }))
-        UIApplication.shared.windows[0].rootViewController?.present(alert, animated: true, completion: nil)
+    static func showAlertView(_ message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+        UIWindow.key?.rootViewController?.present(alert, animated: true)
     }
     
     static func getStoryboardViewController(_ identifier: String) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: identifier)
-        return vc
+        return storyboard.instantiateViewController(withIdentifier: identifier)
+    }
+    
+    static func getStoryboardViewController<T: UIViewController>(type: T.Type) -> T? {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: T.identifier) as? T
     }
     
     static func addLog(_ log: String) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let dateString = formatter.string(from: Date())
+        let dateString = DateFormatter.dateTime.string(from: Date())
         Common.logs.append("[\(dateString)] \(log)")
     }
 }

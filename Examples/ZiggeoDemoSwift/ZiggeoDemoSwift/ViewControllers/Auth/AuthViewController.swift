@@ -9,34 +9,32 @@ import UIKit
 import ActiveLabel
 import ZiggeoMediaSwiftSDK
 
-class AuthViewController: UIViewController {
-
+final class AuthViewController: UIViewController {
+    
     // MARK: - Outlets
-    @IBOutlet weak var descriptionLabel: ActiveLabel!
-    @IBOutlet weak var tokenTextField: UITextField!
-    @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var changeModeButton: UIButton!
+    @IBOutlet private weak var descriptionLabel: ActiveLabel!
+    @IBOutlet private weak var tokenTextField: UITextField!
+    @IBOutlet private weak var confirmButton: UIButton!
+    @IBOutlet private weak var changeModeButton: UIButton!
     
     // MARK: - Private variables
     private enum LoginMode {
-        case QR
-        case Manual
+        case qr
+        case manual
     }
-    private var loginMode = LoginMode.QR
-
+    private var loginMode: LoginMode = .qr
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         let customType = ActiveType.custom(pattern: "\\sziggeo.com/quickstart\\b")
         descriptionLabel.numberOfLines = 0
         descriptionLabel.enabledTypes = [customType]
         descriptionLabel.text = "Please go to ziggeo.com/quickstart on your desktop or laptop and scan QR code. This will allow you to connect your desktop and mobile demo experience."
-        descriptionLabel.textColor = UIColor.black
-        descriptionLabel.customColor[customType] = UIColor.blue
-        descriptionLabel.handleCustomTap(for: customType) { element in
+        descriptionLabel.textColor = .black
+        descriptionLabel.customColor[customType] = .blue
+        descriptionLabel.handleCustomTap(for: customType) { _ in
             Common.openWebBrowser("https://ziggeo.com/quickstart")
         }
         
@@ -46,58 +44,62 @@ class AuthViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let applicationToken = UserDefaults.standard.string(forKey: Common.Application_Token_Key), applicationToken != "" {
+        if let applicationToken = UserDefaults.applicationToken, !applicationToken.isEmpty {
             login(applicationToken)
         }
     }
-    
-    // MARK: - Actions
+}
+
+// MARK: - @IBActions
+private extension AuthViewController {
     @IBAction func onConfirm(_ sender: Any) {
-        if loginMode == LoginMode.QR {
-            self.scanQRCode()
-        } else {
-            let applicationToken = tokenTextField.text ?? ""
-            if applicationToken == "" {
-                Common.showAlertView("Please input application token.")
-                return
+        switch loginMode {
+        case .qr: scanQRCode()
+            
+        case .manual:
+            guard let applicationToken = tokenTextField.text, !applicationToken.isEmpty else {
+                return Common.showAlertView("Please input application token.")
             }
             login(applicationToken)
         }
     }
     
     @IBAction func onChangeMode(_ sender: Any) {
-        if loginMode == LoginMode.QR {
-            loginMode = LoginMode.Manual
-        } else {
-            loginMode = LoginMode.QR
+        switch loginMode {
+        case .qr: loginMode = .manual
+        case .manual: loginMode = .qr
         }
         refreshUI()
     }
-    
-    // MARK: - Private functions
-    private func refreshUI() {
-        if loginMode == LoginMode.QR {
+}
+
+// MARK: - Privates
+private extension AuthViewController {
+    func refreshUI() {
+        switch loginMode {
+        case .qr:
             tokenTextField.isHidden = true
-            confirmButton.setTitle("Scan QR Code", for: UIControl.State.normal)
-            changeModeButton.setTitle("or Enter Manually", for: UIControl.State.normal)
-        } else {
+            confirmButton.setTitle("Scan QR Code", for: .normal)
+            changeModeButton.setTitle("or Enter Manually", for: .normal)
+            
+        case .manual:
             tokenTextField.isHidden = false
-            confirmButton.setTitle("Use Entered", for: UIControl.State.normal)
-            changeModeButton.setTitle("or Use Scanner", for: UIControl.State.normal)
+            confirmButton.setTitle("Use Entered", for: .normal)
+            changeModeButton.setTitle("or Use Scanner", for: .normal)
         }
     }
     
-    private func scanQRCode() {
+    func scanQRCode() {
         let ziggeo = Ziggeo()
         ziggeo.qrScannerDelegate = self
         ziggeo.startQrScanner()
     }
     
-    private func login(_ applicationToken: String) {
-        UserDefaults.standard.setValue(applicationToken, forKey: Common.Application_Token_Key)
-        if let vc = Common.getStoryboardViewController("HomeViewController") as? HomeViewController {
+    func login(_ applicationToken: String) {
+        UserDefaults.applicationToken = applicationToken
+        if let vc = Common.getStoryboardViewController(type: HomeViewController.self) {
             Common.ziggeo = Ziggeo(token: applicationToken)
-            self.navigationController?.setViewControllers([vc], animated: true)
+            navigationController?.setViewControllers([vc], animated: true)
         }
     }
 }
@@ -105,7 +107,7 @@ class AuthViewController: UIViewController {
 // MARK: - ZiggeoQRScannerDelegate
 extension AuthViewController: ZiggeoQRScannerDelegate {
     func qrCodeScaned(_ qrCode: String) {
-        self.login(qrCode)
+        login(qrCode)
     }
     
     func qrCodeScanCancelledByUser() {
