@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A8932DE589815E0CCBA937F /* Pods_BroadcastExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1701EBA05FCCB5156E5781AC /* Pods_BroadcastExtension.framework */; };
 		86C465225B4CD9D1A8A716D8 /* Pods_ZiggeoDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADB7DA15A1AF2943D397B6 /* Pods_ZiggeoDemoSwift.framework */; };
 		D809C67D287D223300FA6B3D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D809C67C287D223300FA6B3D /* UIImageView.swift */; };
 		D80E8F7628730D3F007804C6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E8F7428730D3F007804C6 /* UIView.swift */; };
@@ -30,8 +31,6 @@
 		D8D2A3DC2873D65B004A83FE /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D2A3DB2873D65B004A83FE /* Double.swift */; };
 		D8D2A3E02873D88D004A83FE /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D2A3DE2873D88D004A83FE /* RecordingTableViewCell.swift */; };
 		D8D2A3E12873D88D004A83FE /* RecordingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8D2A3DF2873D88D004A83FE /* RecordingTableViewCell.xib */; };
-		D8DB969E29A644D7003A46F2 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB969D29A644D7003A46F2 /* SampleHandler.swift */; };
-		D8DB96A229A644D7003A46F2 /* BroadcastExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D8DB969929A644D7003A46F2 /* BroadcastExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D8F05516287444E500020AA5 /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F05514287444E400020AA5 /* LogoCollectionViewCell.xib */; };
 		D8F05517287444E500020AA5 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F05515287444E500020AA5 /* LogoCollectionViewCell.swift */; };
 		D8F0557E2874700800020AA5 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0556F2874700800020AA5 /* AuthViewController.swift */; };
@@ -48,7 +47,6 @@
 		D8F055892874700800020AA5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557C2874700800020AA5 /* SideMenuViewController.swift */; };
 		D8F0558A2874700800020AA5 /* TopClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557D2874700800020AA5 /* TopClientsViewController.swift */; };
 		D8F0558C2874708200020AA5 /* VideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */; };
-		EA7637298848D20E4C814DDD /* Pods_BroadcastExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1701EBA05FCCB5156E5781AC /* Pods_BroadcastExtension.framework */; };
 		FD69969A2BEEF41D00AB7C92 /* UIWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6996992BEEF41D00AB7C92 /* UIWindowScene.swift */; };
 		FD69969C2BEEF44900AB7C92 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969B2BEEF44900AB7C92 /* UIWindow.swift */; };
 		FD69969E2BEF9BC700AB7C92 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */; };
@@ -57,6 +55,7 @@
 		FDD8EAD12BEED1F000D5715A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD02BEED1F000D5715A /* UIImage.swift */; };
 		FDD8EAD32BEEE98100D5715A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD22BEEE98100D5715A /* UITableView.swift */; };
 		FDD8EAD52BEEECF000D5715A /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD42BEEECF000D5715A /* UICollectionView.swift */; };
+		FDDB38FF2BF389C300ECD103 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDB38FC2BF389C300ECD103 /* SampleHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +75,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D8DB96A229A644D7003A46F2 /* BroadcastExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,11 +112,6 @@
 		D8D2A3DB2873D65B004A83FE /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		D8D2A3DE2873D88D004A83FE /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		D8D2A3DF2873D88D004A83FE /* RecordingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingTableViewCell.xib; sourceTree = "<group>"; };
-		D8DB969429A644B3003A46F2 /* ZiggeoDemoSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZiggeoDemoSwift.entitlements; sourceTree = "<group>"; };
-		D8DB969929A644D7003A46F2 /* BroadcastExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BroadcastExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8DB969D29A644D7003A46F2 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
-		D8DB969F29A644D7003A46F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8DB96A729A644E9003A46F2 /* BroadcastExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastExtension.entitlements; sourceTree = "<group>"; };
 		D8F05514287444E400020AA5 /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D8F05515287444E500020AA5 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8F0556F2874700800020AA5 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +136,10 @@
 		FDD8EAD02BEED1F000D5715A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		FDD8EAD22BEEE98100D5715A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		FDD8EAD42BEEECF000D5715A /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		FDDB38FB2BF389C300ECD103 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDDB38FC2BF389C300ECD103 /* SampleHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		FDDB38FD2BF389C300ECD103 /* BroadcastExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BroadcastExtension.entitlements; sourceTree = "<group>"; };
+		FDDB39002BF38AAA00ECD103 /* ZiggeoDemoSwift.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ZiggeoDemoSwift.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C098B401433B94ECBB086E /* Pods_BroadcastExtension.framework in Frameworks */,
+				6A8932DE589815E0CCBA937F /* Pods_BroadcastExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +165,6 @@
 		AB87035D1996F3A6C9762C07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D8DB968229A6306B003A46F2 /* ReplayKit.framework */,
 				1701EBA05FCCB5156E5781AC /* Pods_BroadcastExtension.framework */,
 				A1ADB7DA15A1AF2943D397B6 /* Pods_ZiggeoDemoSwift.framework */,
 			);
@@ -213,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				D810B30C286AFC890063C877 /* ZiggeoDemoSwift.app */,
-				D8DB968129A6306B003A46F2 /* BroadcastExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,7 +216,7 @@
 		D810B30E286AFC890063C877 /* ZiggeoDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
-				D8DB968F29A63075003A46F2 /* ZiggeoDemoSwift.entitlements */,
+				FDDB39002BF38AAA00ECD103 /* ZiggeoDemoSwift.entitlements */,
 				D8B86203287734ED0011D142 /* Resources */,
 				D832A36328751D630042BCC8 /* Models */,
 				D8D2A3DD2873D88D004A83FE /* ViewCells */,
@@ -317,9 +312,9 @@
 		D8DB968429A6306B003A46F2 /* BroadcastExtension */ = {
 			isa = PBXGroup;
 			children = (
-				D8DB969029A630D7003A46F2 /* BroadcastExtension.entitlements */,
-				D8DB968529A6306B003A46F2 /* SampleHandler.swift */,
-				D8DB968729A6306B003A46F2 /* Info.plist */,
+				FDDB38FD2BF389C300ECD103 /* BroadcastExtension.entitlements */,
+				FDDB38FB2BF389C300ECD103 /* Info.plist */,
+				FDDB38FC2BF389C300ECD103 /* SampleHandler.swift */,
 			);
 			path = BroadcastExtension;
 			sourceTree = "<group>";
@@ -387,7 +382,7 @@
 				D810B309286AFC890063C877 /* Frameworks */,
 				D810B30A286AFC890063C877 /* Resources */,
 				D8DB96A629A644D7003A46F2 /* Embed Foundation Extensions */,
-				3F0167DD2249D1FFDC58A53D /* [CP] Embed Pods Frameworks */,
+				D9E535DF5C9D6EB7A43EFBA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,7 +409,6 @@
 			);
 			name = BroadcastExtension;
 			productName = BroadcastExtension;
-			productReference = D8DB968129A6306B003A46F2 /* BroadcastExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -432,6 +426,7 @@
 					};
 					D8DB968029A6306B003A46F2 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -482,23 +477,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BA07C9075D65068E729273C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9F8FF9FFC2F2129B662C3F5A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +519,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E535DF5C9D6EB7A43EFBA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -593,7 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8DB968629A6306B003A46F2 /* SampleHandler.swift in Sources */,
+				FDDB38FF2BF389C300ECD103 /* SampleHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +826,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A5474D6F00C106A5A7C08AE /* Pods-BroadcastExtension.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastExtension/BroadcastExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -852,6 +848,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -861,6 +858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0639BCEE3E4848AC7CBFBFD4 /* Pods-BroadcastExtension.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BroadcastExtension/BroadcastExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
