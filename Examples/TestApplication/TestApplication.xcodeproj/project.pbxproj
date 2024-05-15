@@ -3,19 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9988324AB7C8E78E8458B9D /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6093EA3DEA49FF986722B28C /* libPods-TestApplication.a */; };
+		9412F32B67EA44AE652F27D3 /* libPods-TestApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6093EA3DEA49FF986722B28C /* libPods-TestApplication.a */; };
 		D98123EF25895F2D00108352 /* (null) in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D21D65C05100DC784F /* AppDelegate.swift */; };
 		FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B1D41D65C05100DC784F /* ViewController.swift */; };
 		FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D61D65C05100DC784F /* Main.storyboard */; };
 		FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1D91D65C05100DC784F /* Assets.xcassets */; };
 		FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */; };
-		FD60900B2BF265150042637F /* CustomUIRecroderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6090082BF265150042637F /* CustomUIRecroderViewController.swift */; };
-		FD60900C2BF265150042637F /* CustomUIRecroderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6090092BF265150042637F /* CustomUIRecroderViewController.xib */; };
+		FD44D72D2BF6D32700AF1A6B /* CustomUIRecroderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD44D72A2BF6D32700AF1A6B /* CustomUIRecroderViewController.swift */; };
+		FD44D72E2BF6D32700AF1A6B /* CustomUIRecroderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD44D72B2BF6D32700AF1A6B /* CustomUIRecroderViewController.xib */; };
+		FDAF48462BF50A030078CC6F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FDAF48452BF50A030078CC6F /* .swiftlint.yml */; };
 		FDD8EACA2BEEBB6B00D5715A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAC92BEEBB6B00D5715A /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +47,9 @@
 		FA65B1D91D65C05100DC784F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA65B1DC1D65C05100DC784F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA65B1DE1D65C05100DC784F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD6090082BF265150042637F /* CustomUIRecroderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIRecroderViewController.swift; sourceTree = "<group>"; };
-		FD6090092BF265150042637F /* CustomUIRecroderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomUIRecroderViewController.xib; sourceTree = "<group>"; };
+		FD44D72A2BF6D32700AF1A6B /* CustomUIRecroderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIRecroderViewController.swift; sourceTree = "<group>"; };
+		FD44D72B2BF6D32700AF1A6B /* CustomUIRecroderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomUIRecroderViewController.xib; sourceTree = "<group>"; };
+		FDAF48452BF50A030078CC6F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FDD8EAC92BEEBB6B00D5715A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9988324AB7C8E78E8458B9D /* libPods-TestApplication.a in Frameworks */,
+				9412F32B67EA44AE652F27D3 /* libPods-TestApplication.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				FA65B1D11D65C05100DC784F /* TestApplication */,
+				FDAF48442BF509F70078CC6F /* SwiftLint */,
 				842910E325012C4400FAAEE1 /* Frameworks */,
 				FA65B1D01D65C05100DC784F /* Products */,
 				654CBCDF1CC405A336D957DD /* Pods */,
@@ -103,25 +106,41 @@
 		FA65B1D11D65C05100DC784F /* TestApplication */ = {
 			isa = PBXGroup;
 			children = (
+				FDAF48472BF50A440078CC6F /* Application */,
+				FD44D72C2BF6D32700AF1A6B /* CustomUIRecroder */,
+				FDD8EAC72BEEBB3700D5715A /* Extensions */,
+			);
+			path = TestApplication;
+			sourceTree = "<group>";
+		};
+		FD44D72C2BF6D32700AF1A6B /* CustomUIRecroder */ = {
+			isa = PBXGroup;
+			children = (
+				FD44D72A2BF6D32700AF1A6B /* CustomUIRecroderViewController.swift */,
+				FD44D72B2BF6D32700AF1A6B /* CustomUIRecroderViewController.xib */,
+			);
+			path = CustomUIRecroder;
+			sourceTree = "<group>";
+		};
+		FDAF48442BF509F70078CC6F /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF48452BF50A030078CC6F /* .swiftlint.yml */,
+			);
+			name = SwiftLint;
+			sourceTree = "<group>";
+		};
+		FDAF48472BF50A440078CC6F /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				FA65B1D21D65C05100DC784F /* AppDelegate.swift */,
 				FA65B1D41D65C05100DC784F /* ViewController.swift */,
-				FD60900A2BF265150042637F /* CustomUIRecroder */,
-				FDD8EAC72BEEBB3700D5715A /* Extensions */,
 				FA65B1D61D65C05100DC784F /* Main.storyboard */,
 				FA65B1D91D65C05100DC784F /* Assets.xcassets */,
 				FA65B1DB1D65C05100DC784F /* LaunchScreen.storyboard */,
 				FA65B1DE1D65C05100DC784F /* Info.plist */,
 			);
-			path = TestApplication;
-			sourceTree = "<group>";
-		};
-		FD60900A2BF265150042637F /* CustomUIRecroder */ = {
-			isa = PBXGroup;
-			children = (
-				FD6090082BF265150042637F /* CustomUIRecroderViewController.swift */,
-				FD6090092BF265150042637F /* CustomUIRecroderViewController.xib */,
-			);
-			path = CustomUIRecroder;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		FDD8EAC72BEEBB3700D5715A /* Extensions */ = {
@@ -147,7 +166,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA65B1E11D65C05100DC784F /* Build configuration list for PBXNativeTarget "TestApplication" */;
 			buildPhases = (
-				E7C71F519D3EC52B44F097C8 /* [CP] Check Pods Manifest.lock */,
+				FA2233E6E5AF530C994AF40A /* [CP] Check Pods Manifest.lock */,
+				FDAF48482BF50B060078CC6F /* SwiftLint */,
 				FA65B1CB1D65C05100DC784F /* Sources */,
 				FA65B1CC1D65C05100DC784F /* Frameworks */,
 				FA65B1CD1D65C05100DC784F /* Resources */,
@@ -171,7 +191,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = "Ziggeo Inc";
 				TargetAttributes = {
 					FA65B1CE1D65C05100DC784F = {
@@ -205,8 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAF48462BF50A030078CC6F /* .swiftlint.yml in Resources */,
+				FD44D72E2BF6D32700AF1A6B /* CustomUIRecroderViewController.xib in Resources */,
 				FA65B1DD1D65C05100DC784F /* LaunchScreen.storyboard in Resources */,
-				FD60900C2BF265150042637F /* CustomUIRecroderViewController.xib in Resources */,
 				FA65B1DA1D65C05100DC784F /* Assets.xcassets in Resources */,
 				FA65B1D81D65C05100DC784F /* Main.storyboard in Resources */,
 			);
@@ -223,8 +244,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-frameworks.sh",
 				"${PODS_ROOT}/GoogleAds-IMA-iOS-SDK/GoogleInteractiveMediaAds.framework",
-				"${PODS_ROOT}/../../../Frameworks/SelfieSegmentation.framework",
-				"${PODS_ROOT}/../../../Frameworks/ZiggeoMediaSwiftSDK.framework",
+				"${PODS_ROOT}/ZiggeoMediaSwiftSDK/Frameworks/SelfieSegmentation.framework",
+				"${PODS_ROOT}/ZiggeoMediaSwiftSDK/Frameworks/ZiggeoMediaSwiftSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -237,7 +258,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestApplication/Pods-TestApplication-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E7C71F519D3EC52B44F097C8 /* [CP] Check Pods Manifest.lock */ = {
+		FA2233E6E5AF530C994AF40A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,6 +293,25 @@
 			shellPath = /bin/sh;
 			shellScript = "# Signs a framework with the provided identity\ncode_sign() {\n    # Use the current code_sign_identitiy\n    echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n    echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
 		};
+		FDAF48482BF50B060078CC6F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -280,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA65B1D51D65C05100DC784F /* ViewController.swift in Sources */,
-				FD60900B2BF265150042637F /* CustomUIRecroderViewController.swift in Sources */,
+				FD44D72D2BF6D32700AF1A6B /* CustomUIRecroderViewController.swift in Sources */,
 				FDD8EACA2BEEBB6B00D5715A /* UIViewController.swift in Sources */,
 				FA65B1D31D65C05100DC784F /* AppDelegate.swift in Sources */,
 			);
@@ -317,13 +357,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -366,13 +417,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -394,6 +456,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -415,9 +478,12 @@
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TestApplication/Info.plist;
+				INFOPLIST_FILE = TestApplication/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = "1.1.45-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,9 +508,12 @@
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = TestApplication/Info.plist;
+				INFOPLIST_FILE = TestApplication/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = "1.1.45-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -87,29 +87,29 @@ private extension RecordingDetailViewController {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             guard let recording = self.recording else { return }
             SVProgressHUD.show()
-            if self.mediaType == VIDEO {
-                Common.ziggeo?.videos.destroy(recording.token, streamToken: recording.streamToken, callback: { _, _, _ in
-                    SVProgressHUD.dismiss()
-                    self.isEditMode = false
-                    self.recordingDelegate?.recordingDeleted(recording.token)
-                    self.navigationController?.popViewController(animated: true)
-                })
+            
+            let completion: () -> Void = {
+                SVProgressHUD.dismiss()
+                self.isEditMode = false
+                self.recordingDelegate?.recordingDeleted(recording.token)
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            switch self.mediaType {
+            case VIDEO:
+                Common.ziggeo?.videos.destroy(recording.token, streamToken: recording.streamToken) { _, _, _ in
+                    completion()
+                }
                 
-            } else if self.mediaType == AUDIO {
-                Common.ziggeo?.audios.destroy(recording.token, callback: { _, _, _ in
-                    SVProgressHUD.dismiss()
-                    self.isEditMode = false
-                    self.recordingDelegate?.recordingDeleted(recording.token)
-                    self.navigationController?.popViewController(animated: true)
-                })
+            case AUDIO:
+                Common.ziggeo?.audios.destroy(recording.token) { _, _, _ in
+                    completion()
+                }
                 
-            } else {
-                Common.ziggeo?.images.destroy(recording.token, callback: { _, _, _ in
-                    SVProgressHUD.dismiss()
-                    self.isEditMode = false
-                    self.recordingDelegate?.recordingDeleted(recording.token)
-                    self.navigationController?.popViewController(animated: true)
-                })
+            default:
+                Common.ziggeo?.images.destroy(recording.token) { _, _, _ in
+                    completion()
+                }
             }
         }))
         present(alert, animated: true)

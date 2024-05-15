@@ -24,22 +24,22 @@ final class ViewController: UIViewController {
     var LAST_AUDIO_TOKEN = "LAST_AUDIO_TOKEN"
     var LAST_IMAGE_TOKEN = "LAST_IMAGE_TOKEN"
     
-    var m_ziggeo: Ziggeo!
+    private lazy var m_ziggeo: Ziggeo = {
+        let ziggeo = Ziggeo(token: ZIGGEO_APP_TOKEN)
+        ziggeo.hardwarePermissionDelegate = self
+        ziggeo.uploadingDelegate = self
+        ziggeo.fileSelectorDelegate = self
+        ziggeo.recorderDelegate = self
+        ziggeo.sensorDelegate = self
+        ziggeo.playerDelegate = self
+        ziggeo.screenRecorderDelegate = self
+        return ziggeo
+    }()
     fileprivate var currentType = 0
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.m_ziggeo = Ziggeo(token: ZIGGEO_APP_TOKEN)
-        self.m_ziggeo.hardwarePermissionDelegate = self
-        self.m_ziggeo.uploadingDelegate = self
-        self.m_ziggeo.fileSelectorDelegate = self
-        self.m_ziggeo.recorderDelegate = self
-        self.m_ziggeo.sensorDelegate = self
-        self.m_ziggeo.playerDelegate = self
-        self.m_ziggeo.screenRecorderDelegate = self
-    }
-    
-    //MARK: Button Click Action
+}
+
+// MARK: - @IBActions
+private extension ViewController {
     @IBAction func onRecordVideo(_ sender: AnyObject) {
         currentType = VIDEO
         
@@ -89,7 +89,7 @@ final class ViewController: UIViewController {
         fileSelectorConfig.setMinDuration(0)
         fileSelectorConfig.setShouldAllowMultipleSelection(true)
         fileSelectorConfig.setMediaType(VIDEO | AUDIO | IMAGE)
-        fileSelectorConfig.setExtraArgs(["tags" : "iOS,Choose,Media"])
+        fileSelectorConfig.setExtraArgs(["tags": "iOS,Choose,Media"])
         self.m_ziggeo.setFileSelectorConfig(fileSelectorConfig)
         
         self.m_ziggeo.startFileSelector()
@@ -293,15 +293,15 @@ extension ViewController: ZiggeoRecorderDelegate {
 // MARK: - ZiggeoSensorDelegate
 extension ViewController: ZiggeoSensorDelegate {
     func luxMeter(_ luminousity: Double) {
-        //print ("luminousity: \(luminousity)")
+        // print("luminousity: \(luminousity)")
     }
     
     func audioMeter(_ audioLevel: Double) {
-        //print ("audio level: \(audioLevel)")
+        // print("audio level: \(audioLevel)")
     }
     
     func faceDetected(_ faceID: Int, rect: CGRect) {
-        //print ("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
+        // print("face \(faceID) detected with bounds: \(rect.origin.x):\(rect.origin.y) \(rect.size.width) x \(rect.size.height)")
     }
 }
 
