@@ -9,13 +9,14 @@ import UIKit
 import Foundation
 import AVFoundation
 
-public protocol VideoPreviewDelegate {
-    func retake(_ fileToBeRemoved: URL!)
+public protocol VideoPreviewDelegate: AnyObject {
+    func retake(_ fileToBeRemoved: URL)
     func uploadVideo(_ filePath: URL)
+    func close()
 }
 
 public protocol VideoPreviewProtocol {
-    var videoURL: URL! { get set }
+    var videoURL: URL! { get set } // swiftlint:disable:this implicitly_unwrapped_optional
     var previewDelegate: VideoPreviewDelegate? { get set }
 }
 
@@ -26,13 +27,13 @@ final class CustomVideoPlayer: UIViewController, VideoPreviewProtocol {
     @IBOutlet private weak var playPauseButton: UIButton!
     @IBOutlet private weak var videoPlaceholder: UIView!
     
-    var videoURL: URL!
-    var previewDelegate: VideoPreviewDelegate?
+    var videoURL: URL! // swiftlint:disable:this implicitly_unwrapped_optional
+    weak var previewDelegate: VideoPreviewDelegate?
     var isRecordingPreview = false
-    var videoRecorder: CustomVideoRecorder?
-    var m_embeddedPlayer: AVPlayer!
-    var m_embeddedPlayerLayer: AVPlayerLayer!
-    var m_playing = false
+    
+    private var embeddedPlayer: AVPlayer?
+    private var embeddedPlayerLayer: AVPlayerLayer?
+    private var isPlaying = false
     
     override var shouldAutorotate: Bool {
         return false
@@ -42,57 +43,63 @@ final class CustomVideoPlayer: UIViewController, VideoPreviewProtocol {
         return .lightContent
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        videoURL.flatMap { initPlayer($0) }
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
         deleteButton.isHidden = !isRecordingPreview
         uploadButton.isHidden = !isRecordingPreview
     }
-
-    func killPlayer() {
-        guard let player = m_embeddedPlayer else {
-            return
-        }
-        player.pause()
-        NotificationCenter.default.removeObserver(self)
-        m_embeddedPlayerLayer.removeFromSuperlayer()
-        m_embeddedPlayerLayer = nil
-        m_embeddedPlayer = nil
-        m_playing = false
-        playPauseButton.setImage(.playIcon, for: .normal)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initPlayer(videoURL)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+// MARK: - Privates
+private extension CustomVideoPlayer {
     func initPlayer(_ url: URL) {
-        guard self.videoURL != nil, isViewLoaded else {
-            return
-        }
         killPlayer()
         let playerItem = AVPlayerItem(url: url)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(itemDidFinishPlaying),
                                                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                object: playerItem)
-        m_embeddedPlayer = AVPlayer(playerItem: playerItem)
-        m_embeddedPlayerLayer = AVPlayerLayer(player: m_embeddedPlayer)
-        m_embeddedPlayerLayer.frame = videoPlaceholder.frame
-        videoPlaceholder.layer.addSublayer(m_embeddedPlayerLayer)
-        m_playing = false
+        embeddedPlayer = AVPlayer(playerItem: playerItem)
+        embeddedPlayerLayer = AVPlayerLayer(player: embeddedPlayer)
+        embeddedPlayerLayer?.frame = videoPlaceholder.frame
+        videoPlaceholder.layer.addSublayer(embeddedPlayerLayer!) // swiftlint:disable:this force_unwrapping
+        isPlaying = false
+    }
+    
+    func killPlayer() {
+        guard let player = embeddedPlayer else {
+            return
+        }
+        player.pause()
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                  object: player.currentItem)
+        embeddedPlayerLayer?.removeFromSuperlayer()
+        embeddedPlayerLayer = nil
+        embeddedPlayer = nil
+        isPlaying = false
+        playPauseButton.setImage(.playIcon, for: .normal)
     }
     
     @objc func itemDidFinishPlaying(_ notification: Notification) {
-        DispatchQueue.main.async {
-            self.playPauseButton.setImage(.playIcon, for: .normal)
-            self.m_embeddedPlayer.pause()
-            self.m_embeddedPlayer.seek(to: CMTimeMake(value: 0, timescale: 1))
-        }
+        playPauseButton.setImage(.playIcon, for: .normal)
+        embeddedPlayer?.pause()
+        embeddedPlayer?.seek(to: CMTimeMake(value: 0, timescale: 1))
     }
     
     func uploadVideo(_ filePath: URL) {
         let tmpDirectory = URL(fileURLWithPath: NSTemporaryDirectory())
         var newFileToUpload = tmpDirectory.appendingPathComponent(filePath.lastPathComponent)
-
+        
         do {
             try FileManager.default.copyItem(at: filePath, to: newFileToUpload)
         } catch {
@@ -103,25 +110,26 @@ final class CustomVideoPlayer: UIViewController, VideoPreviewProtocol {
         }, progress: { _, _ in
         }, confirmCallback: { _, _, _ in
         })
-        dismiss(animated: false) {
-            self.videoRecorder?.dismiss(animated: false)
-        }
+        dismiss(animated: true) { self.previewDelegate?.close() }
     }
-    
+}
+
+// MARK: - @IBActions
+private extension CustomVideoPlayer {
     @IBAction func retake(_ sender: AnyObject) {
         killPlayer()
-        super.dismiss(animated: false) // TODO: @skatolyk - Check if we need super here
+        dismiss(animated: true)
         previewDelegate?.retake(videoURL)
     }
 
     @IBAction func play(_ sender: AnyObject) {
-        guard let player = m_embeddedPlayer else {
+        guard let player = embeddedPlayer else {
             return
         }
-        m_playing ? player.pause() : player.play()
-        m_playing.toggle()
+        isPlaying ? player.pause() : player.play()
+        isPlaying.toggle()
         
-        playPauseButton.setImage(m_playing ? .pauseIcon : .playIcon, for: .normal)
+        playPauseButton.setImage(isPlaying ? .pauseIcon : .playIcon, for: .normal)
     }
     
     @IBAction func upload(_ sender: AnyObject) {
@@ -131,8 +139,6 @@ final class CustomVideoPlayer: UIViewController, VideoPreviewProtocol {
     
     @IBAction func close(_ sender: AnyObject) {
         killPlayer()
-        dismiss(animated: false) {
-            self.videoRecorder?.dismiss(animated: false)
-        }
+        dismiss(animated: true) { self.previewDelegate?.close() }
     }
 }

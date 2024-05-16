@@ -12,25 +12,23 @@ import MessageUI
 final class AboutViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet private weak var webView: WKWebView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         webView.navigationDelegate = self
-        let url = Bundle.main.url(forResource: "about", withExtension: "html")!
+        let url = Bundle.main.url(forResource: "about", withExtension: "html")! // swiftlint:disable:this force_unwrapping
         webView.loadFileURL(url, allowingReadAccessTo: url)
     }
     
     // MARK: - Actions
     private func sendEmail(_ recipient: String) {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.setToRecipients([recipient])
-            mail.mailComposeDelegate = self
-            present(mail, animated: true)
-        }
+        guard MFMailComposeViewController.canSendMail() else { return }
+        let mail = MFMailComposeViewController()
+        mail.setToRecipients([recipient])
+        mail.mailComposeDelegate = self
+        present(mail, animated: true)
     }
 }
 

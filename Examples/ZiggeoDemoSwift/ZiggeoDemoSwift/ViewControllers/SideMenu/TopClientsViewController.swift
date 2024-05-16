@@ -10,7 +10,7 @@ import UIKit
 final class TopClientsViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var logoCollectionView: UICollectionView!
+    @IBOutlet private weak var logoCollectionView: UICollectionView!
     
     // MARK: - Private variables
     private let sectionInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
@@ -18,7 +18,6 @@ final class TopClientsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         logoCollectionView.delegate = self
         logoCollectionView.dataSource = self
         logoCollectionView.register(cell: LogoCollectionViewCell.self)
