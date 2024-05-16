@@ -19,7 +19,6 @@ final class AvailableSdksViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         logoCollectionView.delegate = self
         logoCollectionView.dataSource = self
         logoCollectionView.register(cell: LogoCollectionViewCell.self)
@@ -53,13 +52,13 @@ extension AvailableSdksViewController: UICollectionViewDataSource, UICollectionV
         guard kind == UICollectionView.elementKindSectionHeader else {
             fatalError("Collection view support only header section")
         }
-        let reusableview = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                           withReuseIdentifier: reuseHeaderIdentifier,
-                                                                           for: indexPath)
-        let labelHeader = reusableview.viewWithTag(1) as! UILabel
-        labelHeader.text = indexPath.section == 0 ? "Mobile SDKs" : "Server-Side SDKs"
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                     withReuseIdentifier: reuseHeaderIdentifier,
+                                                                     for: indexPath)
+        let headerLabel = header.viewWithTag(1) as! UILabel // swiftlint:disable:this force_cast
+        headerLabel.text = indexPath.section == 0 ? "Mobile SDKs" : "Server-Side SDKs"
         
-        return reusableview
+        return header
     }
 }
 

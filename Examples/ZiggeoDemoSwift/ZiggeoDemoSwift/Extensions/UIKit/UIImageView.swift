@@ -11,9 +11,9 @@ extension UIImageView {
         }
     }
     
-    func setURL(_ strUrl: String?, placeholder: UIImage?) {
-        let newString = strUrl?.replacingOccurrences(of: "\\", with: "/", options: .literal)
-        let url = URL(string: newString!)
+    func setURL(_ strUrl: String, placeholder: UIImage?) {
+        let newString = strUrl.replacingOccurrences(of: "\\", with: "/", options: .literal)
+        let url = URL(string: newString)
         self.setURL(url, placeholder: placeholder)
     }
     

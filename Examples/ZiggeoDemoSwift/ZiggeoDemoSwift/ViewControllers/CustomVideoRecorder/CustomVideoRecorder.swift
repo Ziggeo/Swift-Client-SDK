@@ -11,17 +11,11 @@ import UIKit
 
 
 enum AVCamSetupResult {
-    case none
+    case unknown
     case success
     case cameraNotAuthorized
     case micNotAuthorized
     case sessionConfigurationFailed
-}
-
-enum RecordingQuality: Int {
-    case LowQuality
-    case MediumQuality
-    case HighestQuality
 }
 
 final class CustomVideoRecorder: UIViewController {
@@ -29,9 +23,7 @@ final class CustomVideoRecorder: UIViewController {
     // MARK: - Public Properties
     var recordedVideoPreviewEnabled = true
     var cameraDevice: UIImagePickerController.CameraDevice = .rear
-    var videoPreview: CustomVideoPlayer!
     var maxRecordedDurationSeconds: Double = 0
-    var extraArgsForCreateVideo: [AnyHashable: Any]?
     var duration: Double = 0
     
     // MARK: - UI Properties
@@ -42,65 +34,51 @@ final class CustomVideoRecorder: UIViewController {
     @IBOutlet private weak var closeButton: UIButton!
     
     // MARK: - Local Properties
-    var currentCMTime: CMTime?
+    private var currentCMTime: CMTime?
     
     // session
-    let sessionQueue: DispatchQueue
-    var session: AVCaptureSession!
-    var videoDeviceInput: AVCaptureDeviceInput!
-    var movieAssetWriter: AVAssetWriter?
-    var movieAssetWriterAudioInput: AVAssetWriterInput?
-    var movieAssetWriterVideoInput: AVAssetWriterInput?
-    var movieAssetWriterVideoInputAdaptor: AVAssetWriterInputPixelBufferAdaptor?
-    var firstSampleRendered = false
-    var firstSampleTimestamp: Double = 0
-    var durationExceeded = false
-    var audioDataOutput: AVCaptureAudioDataOutput?
-    var videoDataOutput: AVCaptureVideoDataOutput?
+    private let sessionQueue: DispatchQueue
+    private let session: AVCaptureSession
+    private var videoDeviceInput: AVCaptureDeviceInput! // swiftlint:disable:this implicitly_unwrapped_optional
+    private var movieAssetWriter: AVAssetWriter?
+    private var movieAssetWriterAudioInput: AVAssetWriterInput?
+    private var movieAssetWriterVideoInput: AVAssetWriterInput?
+    private var movieAssetWriterVideoInputAdaptor: AVAssetWriterInputPixelBufferAdaptor?
+    private var firstSampleRendered = false
+    private var firstSampleTimestamp: Double = 0
+    private var durationExceeded = false
+    private var audioDataOutput: AVCaptureAudioDataOutput?
+    private var videoDataOutput: AVCaptureVideoDataOutput?
     
-    var setupResult: AVCamSetupResult = .none
-    var backgroundRecordingID = UIBackgroundTaskIdentifier(rawValue: 0)
-    var sessionRunning = false
-    var sessionRunningContext: Int?
-    var cleanup: (() -> Void)!
-    var durationUpdateTimer: Timer!
+    private var setupResult: AVCamSetupResult = .unknown
+    private var backgroundRecordingID = UIBackgroundTaskIdentifier(rawValue: 0)
+    private var sessionRunning = false
+    private var sessionObserver: NSKeyValueObservation?
+    private var cleanup: (() -> Void)?
+    private var durationUpdateTimer: Timer?
     
-    var videoWidth: Int {
-        get {
-            switch previewView.videoPreviewLayer.connection!.videoOrientation {
-            case .landscapeLeft, .landscapeRight:
-                return 1920
-            case .portrait, .portraitUpsideDown:
-                return 1080
-            @unknown default:
-                fatalError("Unknown videoOrientation")
-            }
-        }
-    }
-    
-    var videoHeight: Int {
-        get {
-            switch previewView.videoPreviewLayer.connection!.videoOrientation {
-            case .landscapeLeft, .landscapeRight:
-                return 1080
-            case .portrait, .portraitUpsideDown:
-                return 1920
-            @unknown default:
-                fatalError("Unknown videoOrientation")
-            }
+    // TODO: @skatolyk - better to return CGSize
+    private var videoSize: CGSize {
+        // swiftlint:disable:next force_unwrapping
+        switch previewView.videoPreviewLayer.connection!.videoOrientation {
+        case .landscapeLeft, .landscapeRight:
+            return CGSize(width: 1920, height: 1080)
+        case .portrait, .portraitUpsideDown:
+            return CGSize(width: 1080, height: 1920)
+        @unknown default:
+            fatalError("Unknown videoOrientation")
         }
     }
     
     // MARK: - System Functions
     init() {
-        self.sessionQueue = DispatchQueue(label: "session queue", attributes: [])
+        self.sessionQueue = DispatchQueue(label: "session queue")
+        self.session = AVCaptureSession()
+        self.session.sessionPreset = .medium
         super.init(nibName: Self.identifier, bundle: .main)
-        self.videoPreview = CustomVideoPlayer()
-        self.videoPreview.isRecordingPreview = true
-        self.videoPreview.previewDelegate = self
     }
     
-    required public init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -117,10 +95,6 @@ final class CustomVideoRecorder: UIViewController {
         
         cameraButton.isEnabled = false
         recordButton.isEnabled = false
-        
-        // Create the AVCaptureSession.
-        session = AVCaptureSession()
-        session.sessionPreset = .medium
         
         // Setup the preview view.
         previewView.session = session
@@ -232,13 +206,15 @@ final class CustomVideoRecorder: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         let deviceOrientation = UIDevice.current.orientation
         guard deviceOrientation.isPortrait || deviceOrientation.isLandscape else {
-            return
+            return // Prevent face up/down cases handling
         }
         session.beginConfiguration()
         let previewLayer = previewView.videoPreviewLayer
-        previewLayer.connection!.videoOrientation = AVCaptureVideoOrientation(rawValue: deviceOrientation.rawValue)!
+        // swiftlint:disable force_unwrapping
+        previewLayer.connection!.videoOrientation = AVCaptureVideoOrientation(orientation: deviceOrientation)!
         let connection = videoDataOutput?.connection(with: .video)
         connection?.videoOrientation = previewLayer.connection!.videoOrientation
+        // swiftlint:enable force_unwrapping
         session.commitConfiguration()
     }
     
@@ -282,33 +258,11 @@ final class CustomVideoRecorder: UIViewController {
         resetVideoOrientation()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        sessionQueue.async {
-            if self.setupResult == .success {
-                self.session.stopRunning()
-                self.removeObservers()
-            }
-        }
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard context == &sessionRunningContext else {
-            return super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-        }
-        let isSessionRunning = (change?[.newKey] as AnyObject).boolValue
-        
-        DispatchQueue.main.async {
-            self.cameraButton.isEnabled = isSessionRunning == true && self.availableVideoDevices.count > 1
-            self.recordButton.isEnabled = isSessionRunning == true
-            self.previewView.layer.opacity = 0
-            
-            if isSessionRunning == true {
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.previewView.layer.opacity = 1
-                })
-            }
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard setupResult == .success else { return }
+        session.stopRunning()
+        removeObservers()
     }
 }
 
@@ -319,112 +273,104 @@ private extension CustomVideoRecorder {
     }
     
     @IBAction func changeCamera(_ sender: AnyObject) {
-        DispatchQueue.main.async {
-            guard self.cameraButton.isEnabled else {
+        guard cameraButton.isEnabled else {
+            return
+        }
+        
+        cameraButton.isEnabled = false
+        recordButton.isEnabled = false
+        
+        sessionQueue.async {
+            defer {
+                // we currently in self.sessionQueue.async so need to switch to DispatchQueue.main
+                DispatchQueue.main.async {
+                    self.cameraButton.isEnabled = true
+                    self.recordButton.isEnabled = true
+                }
+            }
+            
+            let currentVideoDevice = self.videoDeviceInput.device
+            let preferredPosition: AVCaptureDevice.Position
+            
+            switch currentVideoDevice.position {
+            case .unspecified, .front: preferredPosition = .back
+            case .back: preferredPosition = .front
+            @unknown default:
+                fatalError("Unknown AVCaptureDevice position")
+            }
+            
+            guard let videoDevice = self.getCameraDevice(preferringPosition: preferredPosition),
+                  let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {
                 return
             }
             
-            self.cameraButton.isEnabled = false
-            self.recordButton.isEnabled = false
+            self.session.beginConfiguration()
             
-            self.sessionQueue.async {
-                defer {
-                    // we currently in self.sessionQueue.async so need to switch to DispatchQueue.main
-                    DispatchQueue.main.async {
-                        self.cameraButton.isEnabled = true
-                        self.recordButton.isEnabled = true
-                    }
-                }
+            // Remove the existing device input first, since using the front and back camera simultaneously is not supported.
+            self.session.removeInput(self.videoDeviceInput)
+            
+            if self.session.canAddInput(videoDeviceInput) {
+                NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange, object: currentVideoDevice)
+                // NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange, object: videoDevice)
                 
-                let currentVideoDevice = self.videoDeviceInput.device
-                let preferredPosition: AVCaptureDevice.Position
-                
-                switch currentVideoDevice.position {
-                case .unspecified, .front: preferredPosition = .back
-                case .back: preferredPosition = .front
-                @unknown default:
-                    fatalError("Unknown AVCaptureDevice position")
-                }
-                
-                guard let videoDevice = self.getCameraDevice(preferringPosition: preferredPosition),
-                      let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {
-                    return
-                }
-                
-                self.session.beginConfiguration()
-                
-                // Remove the existing device input first, since using the front and back camera simultaneously is not supported.
-                self.session.removeInput(self.videoDeviceInput)
-                
-                if self.session.canAddInput(videoDeviceInput) {
-                    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange, object: currentVideoDevice)
-                    // NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: NSNotification.Name.AVCaptureDeviceSubjectAreaDidChange, object: videoDevice)
-                    
-                    self.session.addInput(videoDeviceInput)
-                    self.videoDeviceInput = videoDeviceInput
-                } else {
-                    self.session.addInput(videoDeviceInput)
-                }
-                
-                guard let connection = self.videoDataOutput?.connection(with: .video) else {
-                    return
-                }
-                
-                if connection.isVideoStabilizationSupported {
-                    connection.preferredVideoStabilizationMode = .auto
-                }
-                
-                connection.isVideoMirrored = preferredPosition == .front
-                
-                DispatchQueue.main.async {
-                    // work with layers should be done in the main thread
-                    if let previewLayer = self.previewView?.videoPreviewLayer {
-                        connection.videoOrientation = previewLayer.connection!.videoOrientation
-                    }
-                }
-                
-                self.session.commitConfiguration()
+                self.session.addInput(videoDeviceInput)
+                self.videoDeviceInput = videoDeviceInput
+            } else {
+                self.session.addInput(videoDeviceInput)
             }
+            
+            guard let connection = self.videoDataOutput?.connection(with: .video) else {
+                return
+            }
+            
+            if connection.isVideoStabilizationSupported {
+                connection.preferredVideoStabilizationMode = .auto
+            }
+            
+            connection.isVideoMirrored = preferredPosition == .front
+            
+            DispatchQueue.main.async {
+                // work with layers should be done in the main thread
+                if let previewLayer = self.previewView?.videoPreviewLayer {
+                    connection.videoOrientation = previewLayer.connection!.videoOrientation // swiftlint:disable:this force_unwrapping
+                }
+            }
+            
+            self.session.commitConfiguration()
         }
     }
     
     @IBAction func toggleMovieRecording(_ sender: AnyObject) {
-        DispatchQueue.main.async {
-            guard self.recordButton.isEnabled else {
-                return
-            }
-            
-            self.sessionQueue.async {
-                self.updateUIRecordingStartingStopping()
+        guard recordButton.isEnabled else {
+            return
+        }
+        updateUIRecordingStartingStopping()
+        
+        sessionQueue.async {
+            if let movieAssetWriter = self.movieAssetWriter {
+                let outputURL = movieAssetWriter.outputURL
                 
-                if self.movieAssetWriter == nil {
-                    if UIDevice.current.isMultitaskingSupported {
-                        self.backgroundRecordingID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
-                    }
-                    
-                    // let connection = self.videoDataOutput?.connection(withMediaType: AVMediaTypeVideo)
-                    // let previewLayer = self.previewView.layer as! AVCaptureVideoPreviewLayer
-                    // connection?.videoOrientation = previewLayer.connection.videoOrientation
-                    // do not do it here to avoid blinking on start
-                    self.duration = 0
-                    self.durationExceeded = false
-                    self.setupAssetWriter()
-                    
-                    self.updateUIRecordingStarted()
-                } else {
-                    if let movieAssetWriter = self.movieAssetWriter {
-                        let outputURL = movieAssetWriter.outputURL
-                        
-                        movieAssetWriter.finishWriting {
-                            self.processRecordedVideo(outputFileURL: outputURL, error: nil)
-                        }
-                    }
-                    
-                    self.movieAssetWriter = nil
-                    self.movieAssetWriterVideoInput = nil
-                    self.movieAssetWriterAudioInput = nil
-                    self.movieAssetWriterVideoInputAdaptor = nil
+                movieAssetWriter.finishWriting {
+                    self.processRecordedVideo(outputFileURL: outputURL, error: nil)
                 }
+                self.movieAssetWriter = nil
+                self.movieAssetWriterVideoInput = nil
+                self.movieAssetWriterAudioInput = nil
+                self.movieAssetWriterVideoInputAdaptor = nil
+            } else {
+                if UIDevice.current.isMultitaskingSupported {
+                    self.backgroundRecordingID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+                }
+                
+                // let connection = self.videoDataOutput?.connection(withMediaType: AVMediaTypeVideo)
+                // let previewLayer = self.previewView.videoPreviewLayer
+                // connection?.videoOrientation = previewLayer.connection.videoOrientation
+                // do not do it here to avoid blinking on start
+                self.duration = 0
+                self.durationExceeded = false
+                self.setupAssetWriter()
+                
+                self.updateUIRecordingStarted()
             }
         }
     }
@@ -445,9 +391,9 @@ private extension CustomVideoRecorder {
     }
     
     func resetVideoOrientation() {
-        //self.sessionQueue.async {
+        // self.sessionQueue.async {
         DispatchQueue.main.async {
-
+            
             // Why are we dispatching this to the main queue?
             // Because AVCaptureVideoPreviewLayer is the backing layer for AAPLPreviewView and UIView
             // can only be manipulated on the main thread.
@@ -478,19 +424,19 @@ private extension CustomVideoRecorder {
             }
         }
     }
-
+    
     func setupDataOutputs() {
-        self.audioDataOutput = AVCaptureAudioDataOutput()
-        self.audioDataOutput?.setSampleBufferDelegate(self, queue: self.sessionQueue)
-        self.session.addOutput(self.audioDataOutput!)
+        audioDataOutput = AVCaptureAudioDataOutput()
+        audioDataOutput?.setSampleBufferDelegate(self, queue: sessionQueue)
+        session.addOutput(audioDataOutput!) // swiftlint:disable:this force_unwrapping
         
-        self.videoDataOutput = AVCaptureVideoDataOutput()
-        self.videoDataOutput?.alwaysDiscardsLateVideoFrames = true
-        self.videoDataOutput?.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_32BGRA]
-        self.videoDataOutput?.setSampleBufferDelegate(self, queue: self.sessionQueue)
-        self.session.addOutput(self.videoDataOutput!)
+        videoDataOutput = AVCaptureVideoDataOutput()
+        videoDataOutput?.alwaysDiscardsLateVideoFrames = true
+        videoDataOutput?.videoSettings = [String(kCVPixelBufferPixelFormatTypeKey): kCVPixelFormatType_32BGRA]
+        videoDataOutput?.setSampleBufferDelegate(self, queue: self.sessionQueue)
+        session.addOutput(videoDataOutput!) // swiftlint:disable:this force_unwrapping
         let connection = self.videoDataOutput?.connection(with: .video)
-        if(connection?.isVideoStabilizationSupported)! {
+        if connection?.isVideoStabilizationSupported == true {
             connection?.preferredVideoStabilizationMode = .auto
         }
         connection?.isVideoMirrored = cameraDevice == .front
@@ -502,12 +448,15 @@ private extension CustomVideoRecorder {
             let outputFilePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(outputFileName).mp4")
             do {
                 self.movieAssetWriter = try AVAssetWriter(outputURL: outputFilePath, fileType: .mp4)
+                
+                let videoSize = self.videoSize
                 movieAssetWriterVideoInput = AVAssetWriterInput(mediaType: .video, outputSettings: [
                     AVVideoCodecKey: AVVideoCodecType.h264,
-                    AVVideoWidthKey: self.videoWidth,
-                    AVVideoHeightKey: self.videoHeight,
-                    ])
+                    AVVideoWidthKey: videoSize.width,
+                    AVVideoHeightKey: videoSize.height
+                ])
                 movieAssetWriterVideoInput?.expectsMediaDataInRealTime = true
+                // swiftlint:disable force_unwrapping
                 if movieAssetWriter!.canAdd(movieAssetWriterVideoInput!) {
                     movieAssetWriter?.add(movieAssetWriterVideoInput!)
                 }
@@ -516,26 +465,28 @@ private extension CustomVideoRecorder {
                     AVFormatIDKey: kAudioFormatMPEG4AAC,
                     AVNumberOfChannelsKey: 2,
                     AVSampleRateKey: 44100,
-                    AVEncoderBitRateKey: 128000,
-                    ])
+                    AVEncoderBitRateKey: 128000
+                ])
                 movieAssetWriterAudioInput?.expectsMediaDataInRealTime = true
                 
-                if movieAssetWriterVideoInput != nil {
-                    let sourcePixelBufferAttributesDictionary = ["\(kCVPixelFormatType_32ARGB)": kCVPixelBufferPixelFormatTypeKey]
-                    self.movieAssetWriterVideoInputAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: self.movieAssetWriterVideoInput!, sourcePixelBufferAttributes: sourcePixelBufferAttributesDictionary)
-                }
+                let sourcePixelBufferAttributesDictionary = ["\(kCVPixelFormatType_32ARGB)": kCVPixelBufferPixelFormatTypeKey]
+                self.movieAssetWriterVideoInputAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: self.movieAssetWriterVideoInput!,
+                                                                                              sourcePixelBufferAttributes: sourcePixelBufferAttributesDictionary)
                 
                 if movieAssetWriter!.canAdd(movieAssetWriterAudioInput!) {
                     movieAssetWriter?.add(movieAssetWriterAudioInput!)
                 }
+                // swiftlint:enable force_unwrapping
             } catch {
             }
         }
     }
     
     func addObservers() {
-        session.addObserver(self, forKeyPath: "running", options: .new, context: &sessionRunningContext)
-        NotificationCenter.default.addObserver(self, 
+        sessionObserver = session.observe(\.isRunning, options: [.new]) { _, change in
+            self.handleSessionStatus(isRunning: change.newValue ?? false)
+        }
+        NotificationCenter.default.addObserver(self,
                                                selector: #selector(sessionRuntimeError),
                                                name: NSNotification.Name.AVCaptureSessionRuntimeError,
                                                object: session)
@@ -550,22 +501,20 @@ private extension CustomVideoRecorder {
     }
     
     func removeObservers() {
-        NotificationCenter.default.removeObserver(self)
-        session.removeObserver(self, forKeyPath: "running", context: &sessionRunningContext)
+        NotificationCenter.default.removeObserver(self) // swiftlint:disable:this notification_center_detachment
+        sessionObserver.kill()
     }
-
+    
     func updateUIRecordingStartingStopping() {
-        DispatchQueue.main.async {
-            self.cameraButton.isEnabled = false
-            self.recordButton.isEnabled = false
-        }
+        cameraButton.isEnabled = false
+        recordButton.isEnabled = false
     }
     
     func updateUIRecordingStarted() {
         DispatchQueue.main.async {
             self.recordButton.isEnabled = true
             self.recordButton.isSelected = true
-            self.durationUpdateTimer?.invalidate()
+            self.durationUpdateTimer.kill()
             self.durationUpdateTimer = Timer.scheduledTimer(timeInterval: 1,
                                                             target: self,
                                                             selector: #selector(self.updateDuration),
@@ -590,26 +539,23 @@ private extension CustomVideoRecorder {
             
             var currentDurationStr = String(format: "%02d:%02d", arguments: [minutes, seconds])
             if self.maxRecordedDurationSeconds > 0 {
-                var remainingDuration = self.maxRecordedDurationSeconds - currentDuration
-                if(remainingDuration < 0) {
-                    remainingDuration = 0
-                }
+                let remainingDuration = max(self.maxRecordedDurationSeconds - currentDuration, 0)
+                
                 let minutesMax = Int(remainingDuration) / 60
                 let secondsMax = Int(remainingDuration + 0.4) % 60
-                let maxDurationStr = String(format: "%02d:%02d", arguments: [minutesMax, secondsMax])
-                currentDurationStr = "\(maxDurationStr)"
+                currentDurationStr = String(format: "%02d:%02d", arguments: [minutesMax, secondsMax])
             }
             self.recordingDurationLabel.text = currentDurationStr
         }
     }
     
-    func processRecordedVideo(outputFileURL: URL!, error: Error!) {
+    func processRecordedVideo(outputFileURL: URL, error: Error?) {
         // Note that currentBackgroundRecordingID is used to end the background task associated with this recording.
         // This allows a new recording to be started, associated with a new UIBackgroundTaskIdentifier, once the movie file output's isRecording property
         // is back to NO — which happens sometime after this method returns.
         // Note: Since we use a unique file path for each recording, a new recording will not overwrite a recording currently being saved.
-        self.durationUpdateTimer?.invalidate()
-        self.updateDuration() //send last duration update
+        self.durationUpdateTimer.kill()
+        self.updateDuration() // send last duration update
         
         let currentBackgroundRecordingID = self.backgroundRecordingID
         self.backgroundRecordingID = .invalid
@@ -625,8 +571,7 @@ private extension CustomVideoRecorder {
         }
         var success = true
         if error != nil {
-            //success = (error!.userInfo[AVErrorRecordingSuccessfullyFinishedKey]?.boolValue)!
-            success = false
+            // success = error?.userInfo[AVErrorRecordingSuccessfullyFinishedKey]?.boolValue ?? false
             let data = try? Data(contentsOf: outputFileURL)
             success = (data?.count ?? 0) > 1024
         }
@@ -639,21 +584,18 @@ private extension CustomVideoRecorder {
                 if compatiblePresets.contains(AVAssetExportPresetLowQuality) {
                     let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetMediumQuality)
                     let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-                    let videoPath = "\(paths.first!)/\(Int(CFAbsoluteTimeGetCurrent())).mp4"
+                    let videoPath = "\(paths[0])/\(Int(CFAbsoluteTimeGetCurrent())).mp4"
                     exportSession?.outputURL = URL(fileURLWithPath: videoPath)
                     exportSession?.outputFileType = .mp4
                     
                     exportSession?.exportAsynchronously {
-                        switch exportSession!.status {
+                        switch exportSession?.status {
                         case .completed:
-                            guard let videoPreview = self.videoPreview, self.recordedVideoPreviewEnabled else {
-                                self.uploadVideo(exportSession!.outputURL!)
-                                return
+                            guard self.recordedVideoPreviewEnabled else {
+                                return self.uploadVideo(exportSession!.outputURL!) // swiftlint:disable:this force_unwrapping
                             }
                             DispatchQueue.main.async {
-                                videoPreview.videoURL = exportSession?.outputURL
-                                videoPreview.videoRecorder = self
-                                self.present(videoPreview, animated: true)
+                                self.openVideoPreviewPlayer(url: exportSession!.outputURL!) // swiftlint:disable:this force_unwrapping
                             }
                             
                         default:
@@ -667,6 +609,28 @@ private extension CustomVideoRecorder {
         }
         
         updateUIRecordingComplete()
+    }
+    
+    func openVideoPreviewPlayer(url: URL) {
+        let videoPreview = CustomVideoPlayer()
+        videoPreview.isRecordingPreview = true
+        videoPreview.previewDelegate = self
+        videoPreview.videoURL = url
+        present(videoPreview, animated: true)
+    }
+    
+    func handleSessionStatus(isRunning: Bool) {
+        DispatchQueue.main.async {
+            self.cameraButton.isEnabled = isRunning && self.availableVideoDevices.count > 1
+            self.recordButton.isEnabled = isRunning
+            self.previewView.layer.opacity = 0
+            
+            if isRunning {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.previewView.layer.opacity = 1
+                })
+            }
+        }
     }
     
     @objc func sessionRuntimeError(_ notification: Notification) {
@@ -722,7 +686,7 @@ private extension CustomVideoRecorder {
         let settingsAction = UIAlertAction(title: NSLocalizedString("Settings",
                                                                     comment: "Alert button to open Settings"),
                                            style: .default) { _ in
-            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) // swiftlint:disable:this force_unwrapping
         }
         alertController.addAction(settingsAction)
         present(alertController, animated: true)
@@ -731,67 +695,65 @@ private extension CustomVideoRecorder {
 
 // MARK: - VideoPreviewDelegate
 extension CustomVideoRecorder: VideoPreviewDelegate {
-    func retake(_ fileToBeRemoved: URL!) {
-        if fileToBeRemoved != nil {
-            do {
-                try FileManager.default.removeItem(at: fileToBeRemoved!)
-            } catch { }
-        }
+    func retake(_ fileToBeRemoved: URL) {
+        do {
+            try FileManager.default.removeItem(at: fileToBeRemoved)
+        } catch { }
         cleanup?()
         resetVideoOrientation()
     }
-
+    
     func uploadVideo(_ filePath: URL) {
         let tmpDirectory = URL(fileURLWithPath: NSTemporaryDirectory())
         var newFileToUpload = tmpDirectory.appendingPathComponent(filePath.lastPathComponent)
-
+        
         do {
             try FileManager.default.copyItem(at: filePath, to: newFileToUpload)
         } catch {
             newFileToUpload = filePath // try to use original file, maybe it will not be removed before it will be uploaded
         }
-
+        
         Common.ziggeo?.uploadFromPath(filePath.absoluteString, data: [:], callback: { _, _, _ in
         }, progress: { _, _ in
         }, confirmCallback: { _, _, _ in
         })
-        self.dismiss(animated: false)
+        dismiss(animated: false)
+    }
+    
+    func close() {
+        dismiss(animated: false)
     }
 }
 
 // MARK: - AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureVideoDataOutputSampleBufferDelegate
 extension CustomVideoRecorder: AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
-    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         sessionQueue.async {
             if output == self.videoDataOutput {
-                if !self.durationExceeded {
-                    self.currentCMTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-                    let currentTimestamp = CMTimeGetSeconds(self.currentCMTime!)
-                    if let movieAssetWriter = self.movieAssetWriter {
-                        if (movieAssetWriter.status == .unknown) {
-                            movieAssetWriter.startWriting()
-                            movieAssetWriter.startSession(atSourceTime: self.currentCMTime!)
-                            self.firstSampleTimestamp = currentTimestamp
+                if self.durationExceeded { return }
+                self.currentCMTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+                let currentTimestamp = CMTimeGetSeconds(self.currentCMTime!) // swiftlint:disable:this force_unwrapping
+                if let movieAssetWriter = self.movieAssetWriter {
+                    if movieAssetWriter.status == .unknown {
+                        movieAssetWriter.startWriting()
+                        movieAssetWriter.startSession(atSourceTime: self.currentCMTime!) // swiftlint:disable:this force_unwrapping
+                        self.firstSampleTimestamp = currentTimestamp
+                    }
+                    
+                    if movieAssetWriter.status != .failed,
+                       let movieAssetWriterVideoInput = self.movieAssetWriterVideoInput,
+                       movieAssetWriterVideoInput.isReadyForMoreMediaData {
+                        if movieAssetWriterVideoInput.append(sampleBuffer) {
+                            self.firstSampleRendered = true
                         }
-
-                        if movieAssetWriter.status == .failed {
-                        } else if let movieAssetWriterVideoInput = self.movieAssetWriterVideoInput {
-                            if movieAssetWriterVideoInput.isReadyForMoreMediaData {
-                                if !movieAssetWriterVideoInput.append(sampleBuffer) {
-                                } else {
-                                    self.firstSampleRendered = true
-                                }
-                                
-                                if self.maxRecordedDurationSeconds > 0 && fabs(currentTimestamp - self.firstSampleTimestamp) >= self.maxRecordedDurationSeconds {
-                                    self.durationExceeded = true
-                                    self.toggleMovieRecording(self)
-                                }
-                            }
+                        
+                        if self.maxRecordedDurationSeconds > 0 && fabs(currentTimestamp - self.firstSampleTimestamp) >= self.maxRecordedDurationSeconds {
+                            self.durationExceeded = true
+                            self.toggleMovieRecording(self)
                         }
                     }
-                    self.duration = currentTimestamp - self.firstSampleTimestamp
                 }
+                self.duration = currentTimestamp - self.firstSampleTimestamp
             } else if output == self.audioDataOutput {
             }
         }

@@ -47,9 +47,12 @@
 		D8F055892874700800020AA5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557C2874700800020AA5 /* SideMenuViewController.swift */; };
 		D8F0558A2874700800020AA5 /* TopClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557D2874700800020AA5 /* TopClientsViewController.swift */; };
 		D8F0558C2874708200020AA5 /* VideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */; };
+		FD0354672BF6A0A00058E85C /* AVCaptureVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */; };
 		FD69969A2BEEF41D00AB7C92 /* UIWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6996992BEEF41D00AB7C92 /* UIWindowScene.swift */; };
 		FD69969C2BEEF44900AB7C92 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969B2BEEF44900AB7C92 /* UIWindow.swift */; };
 		FD69969E2BEF9BC700AB7C92 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */; };
+		FD7906E22BF54E3E000C5691 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FD7906E12BF54E3E000C5691 /* .swiftlint.yml */; };
+		FD7906E52BF551C2000C5691 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7906E42BF551C2000C5691 /* Optional.swift */; };
 		FDD8EACC2BEEC3B800D5715A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */; };
 		FDD8EACF2BEECFEB00D5715A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EACE2BEECFEB00D5715A /* UIViewController.swift */; };
 		FDD8EAD12BEED1F000D5715A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD02BEED1F000D5715A /* UIImage.swift */; };
@@ -128,9 +131,12 @@
 		D8F0557C2874700800020AA5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D8F0557D2874700800020AA5 /* TopClientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopClientsViewController.swift; sourceTree = "<group>"; };
 		D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditorViewController.swift; sourceTree = "<group>"; };
+		FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientation.swift; sourceTree = "<group>"; };
 		FD6996992BEEF41D00AB7C92 /* UIWindowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowScene.swift; sourceTree = "<group>"; };
 		FD69969B2BEEF44900AB7C92 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		FD7906E12BF54E3E000C5691 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		FD7906E42BF551C2000C5691 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		FDD8EACE2BEECFEB00D5715A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FDD8EAD02BEED1F000D5715A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -188,8 +194,10 @@
 				FDD8EACD2BEEC3F100D5715A /* UIKit */,
 				FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */,
 				D8D2A3DB2873D65B004A83FE /* Double.swift */,
+				FD7906E42BF551C2000C5691 /* Optional.swift */,
 				D83752252875D571003E6493 /* String.swift */,
 				FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */,
+				FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,9 +207,10 @@
 			children = (
 				D810B30E286AFC890063C877 /* ZiggeoDemoSwift */,
 				D8DB968429A6306B003A46F2 /* BroadcastExtension */,
+				FD7906DE2BF54DF1000C5691 /* SwiftLint */,
+				AB87035D1996F3A6C9762C07 /* Frameworks */,
 				D810B30D286AFC890063C877 /* Products */,
 				AFF4E530D6ED36FB473ED267 /* Pods */,
-				AB87035D1996F3A6C9762C07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,6 +364,14 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		FD7906DE2BF54DF1000C5691 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				FD7906E12BF54E3E000C5691 /* .swiftlint.yml */,
+			);
+			name = SwiftLint;
+			sourceTree = "<group>";
+		};
 		FDD8EACD2BEEC3F100D5715A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +395,7 @@
 			buildConfigurationList = D810B320286AFC8C0063C877 /* Build configuration list for PBXNativeTarget "ZiggeoDemoSwift" */;
 			buildPhases = (
 				9F8FF9FFC2F2129B662C3F5A /* [CP] Check Pods Manifest.lock */,
+				FD7906E62BF56721000C5691 /* SwiftLint */,
 				D810B308286AFC890063C877 /* Sources */,
 				D810B309286AFC890063C877 /* Frameworks */,
 				D810B30A286AFC890063C877 /* Resources */,
@@ -464,6 +482,7 @@
 				D8F05516287444E500020AA5 /* LogoCollectionViewCell.xib in Resources */,
 				D872B6922880633900FAEE20 /* CustomVideoRecorder.xib in Resources */,
 				D8B86206287734ED0011D142 /* about.html in Resources */,
+				FD7906E22BF54E3E000C5691 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +557,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZiggeoDemoSwift/Pods-ZiggeoDemoSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FD7906E62BF56721000C5691 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -565,7 +603,9 @@
 				D83752262875D571003E6493 /* String.swift in Sources */,
 				FDD8EACF2BEECFEB00D5715A /* UIViewController.swift in Sources */,
 				D8F055822874700800020AA5 /* RecordingsViewController.swift in Sources */,
+				FD0354672BF6A0A00058E85C /* AVCaptureVideoOrientation.swift in Sources */,
 				D8F055832874700800020AA5 /* RecordingVideosViewController.swift in Sources */,
+				FD7906E52BF551C2000C5691 /* Optional.swift in Sources */,
 				D80E8F7628730D3F007804C6 /* UIView.swift in Sources */,
 				D8135353287856E700D5B04E /* RecordingDetailViewController.swift in Sources */,
 				D8F0557F2874700800020AA5 /* HomeViewController.swift in Sources */,
@@ -744,7 +784,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = ZiggeoDemoSwift/ZiggeoDemoSwift.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -786,7 +826,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = ZiggeoDemoSwift/ZiggeoDemoSwift.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

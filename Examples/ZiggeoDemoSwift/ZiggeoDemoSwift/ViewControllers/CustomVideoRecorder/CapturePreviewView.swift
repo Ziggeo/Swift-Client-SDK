@@ -15,7 +15,7 @@ final class CapturePreviewView: UIView {
         return AVCaptureVideoPreviewLayer.self
     }
     
-    var session: AVCaptureSession! {
+    var session: AVCaptureSession? {
         get { videoPreviewLayer.session }
         set(newSession) {
             videoPreviewLayer.session = newSession
