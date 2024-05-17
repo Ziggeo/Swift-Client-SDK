@@ -17,7 +17,6 @@ final class LogViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         logTableView.delegate = self
         logTableView.dataSource = self
         logTableView.estimatedRowHeight = 40

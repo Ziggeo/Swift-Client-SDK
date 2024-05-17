@@ -1,0 +1,236 @@
+included: # paths to include during linting.
+    - TestApplication
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    - Pods
+    
+# COMMAND LINE RULES: ./swiftlint rules
+# RULES URL: https://realm.github.io/SwiftLint/rule-directory.html
+# RULES CONFIG URL: https://github.com/realm/SwiftLint/tree/master/Source/SwiftLintFramework/Rules/RuleConfigurations
+
+disabled_rules: # rule identifiers to exclude from running
+    - todo
+    
+    # Cyclomatic Complexity Violation: Function should have complexity 10 or less
+    - cyclomatic_complexity
+    
+    # Disable this rules for Unit Tests
+    #- force_cast
+    #- type_body_length
+    
+    # Void Function in Ternary Violation: Using ternary to call Void functions should be avoided. 
+    - void_function_in_ternary
+    
+
+opt_in_rules: # some rules are only opt-in
+    
+    # Prefer using Array(seq) over seq.map { $0 } to convert a sequence into an Array.
+    - array_init
+    
+    # Closure end should have the same indentation as the line that started it.
+    - closure_end_indentation
+    
+    # Closure expressions should have a single space inside each brace.
+    - closure_spacing
+    
+    # All elements in a collection literal should be vertically aligned
+    - collection_alignment
+    
+    # Prefer contains over comparing filter(where:).count to 0.
+    - contains_over_filter_count
+    
+    # Prefer contains over using filter(where:).isEmpty
+    - contains_over_filter_is_empty
+    
+    # Prefer contains over first(where:) != nil and firstIndex(where:) != nil.
+    - contains_over_first_not_nil
+    
+    # Prefer contains over range(of:) != nil and range(of:) == nil.
+    - contains_over_range_nil_comparison
+    
+    # Types used for hosting only static members should be implemented as a caseless enum to avoid instantiation.
+    - convenience_type
+    
+    # When registering for a notification using a block, the opaque observer that is returned should be stored so it can be removed later.
+    - discarded_notification_center_observer
+    
+    # Discourages name cases/static members none, which can conflict with Optional<T>.none.
+    - discouraged_none_name
+    
+    # Prefer empty collection over optional collection.
+    - discouraged_optional_collection
+    
+    # Prefer checking isEmpty over comparing collection to an empty array or dictionary literal.
+    - empty_collection_literal
+    
+    # Prefer checking isEmpty over comparing count to zero.
+    - empty_count
+    
+    # Prefer checking isEmpty over comparing string to an empty string literal.
+    - empty_string
+    
+    # Explicitly calling .init() should be avoided.
+    - explicit_init
+    
+    # Prefer to use extension access modifiers
+    - extension_access_modifier
+    
+    # A fatalError call should have a message.
+    - fatal_error_message
+    
+    # Prefer using .first(where:) over .filter { }.first in collections.
+    - first_where
+    
+    # Prefer flatMap over map followed by reduce([], +).
+    - flatmap_over_map_reduce
+    
+    # Prefer to locate parameters with defaults toward the end of the parameter list.
+    - function_default_parameter_at_end
+    
+    # Comparing two identical operands is likely a mistake.
+    - identical_operands
+    
+    # Discouraged explicit usage of the default separator.
+    - joined_default_parameter
+    
+    # Prefer using .last(where:) over .filter { }.last in collections.
+    - last_where
+    
+    # Prefer Swift value types to bridged Objective-C reference types
+    # - legacy_objc_type
+    
+    # Array and dictionary literal end should have the same indentation as the line that started it.
+    - literal_expression_end_indentation
+    
+    # Ensure definitions have a lower access control level than their enclosing parent
+    - lower_acl_than_parent
+    
+    # Functions and methods parameters should be either on the same line, or one per line.
+    - multiline_parameters
+    
+    # Operators should be surrounded by a single whitespace when they are being used.
+    - operator_usage_whitespace
+    
+    # Some overridden methods should always call super
+    - overridden_super_call
+    
+    # Prefer Self over type(of: self)
+    - prefer_self_type_over_type_of_self
+    
+    # Prefer .zero over explicit init with zero parameters
+    - prefer_zero_over_explicit_init
+    
+    # IBActions should be private.
+    - private_action
+    
+    # IBOutlets should be private to avoid leaking UIKit to higher layers.
+    - private_outlet
+    
+    # Combine Subject should be private.
+    - private_subject
+    
+    # Some methods should not call super
+    - prohibited_super_call
+    
+    # nil coalescing operator is only evaluated if the lhs is nil, coalescing operator with nil as rhs is redundant
+    - redundant_nil_coalescing
+    
+    # Variables should not have redundant type annotation
+    - redundant_type_annotation
+    
+    # Prefer using min() or max() over sorted().first or sorted().last
+    - sorted_first_last
+    
+    # Prefer someBool.toggle() over someBool = !someBool.
+    - toggle_bool
+    
+    # Parentheses are not needed when declaring closure arguments.
+    - unneeded_parentheses_in_closure_argument
+
+    # Function parameters should be aligned vertically if they're in multiple lines in a method call.
+    - vertical_parameter_alignment_on_call
+    
+    # The variable should be placed on the left, the constant on the right of a comparison operator.
+    - yoda_condition
+    
+    
+    # Disable this rules for Unit Tests
+    
+    # Implicitly unwrapped optionals should be avoided when possible.
+    #NOTE: this option is questionable
+    - implicitly_unwrapped_optional
+
+    # Force unwrapping should be avoided.
+    - force_unwrapping
+    
+    
+    # Enable this rules for Unit Tests
+    
+    # Empty XCTest method should be avoided.
+    #- empty_xctest_method
+    
+    # Test cases should only contain private non-test members.
+    #- test_case_accessibility
+    
+    # Prefer specific XCTest matchers over XCTAssertEqual and XCTAssertNotEqual
+    #- xct_specific_matcher
+    
+    
+function_body_length:
+    warning: 120
+    error: 300
+
+    
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+    - explicit_self
+    
+    # Declarations should be referenced at least once within all files linted.
+    - unused_declaration
+    
+    # All imported modules should be required to make the file compile.
+    - unused_import
+
+# configurations
+trailing_whitespace:
+    ignores_empty_lines: true
+    ignores_comments: true
+    
+vertical_whitespace:
+    max_empty_lines: 2
+
+function_parameter_count:
+    warning: 8
+    error: 10
+
+# Types should be nested at most 1 level deep, and statements should be nested at most 5 levels deep.
+nesting:
+    type_level: 2
+  
+private_outlet:
+    allow_private_set: true
+
+line_length:
+    warning: 200
+    error: 250
+    ignores_function_declarations: true
+    ignores_urls: true
+
+identifier_name:
+    min_length: 1
+    allowed_symbols: "_"
+
+file_length:
+    warning: 500
+    error: 600
+    ignore_comment_only_lines: true
+    
+type_body_length:
+    warning: 250
+    error: 500
+
+# Custom rules.
+custom_rules:
+    mark_before_protocol_extensions:
+        name: "Missing Pagma Mark"
+        regex: '^(?!// MARK: -)\nextension\s+\w+:\s+\w+'
+        message: "Preffer to have // MARK: comment before each protocol extension."
+        severity: warning

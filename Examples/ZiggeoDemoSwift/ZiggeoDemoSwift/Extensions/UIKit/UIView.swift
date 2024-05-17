@@ -13,7 +13,6 @@ extension UIView {
 
 // MARK: - @IBDesignable
 @IBDesignable extension UIView {
-    
     @IBInspectable var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set {
@@ -28,12 +27,12 @@ extension UIView {
     }
     
     @IBInspectable var borderColor: UIColor? {
-        get { UIColor(cgColor: layer.borderColor!) }
+        get { layer.borderColor.flatMap(UIColor.init) }
         set { layer.borderColor = newValue?.cgColor }
     }
     
     func setShadow(radius: CGFloat, offset: CGSize, cornerRadius: CGFloat = 0) {
-        if (cornerRadius > 0) {
+        if cornerRadius > 0 {
             self.layer.cornerRadius = CGFloat(cornerRadius)
         }
         

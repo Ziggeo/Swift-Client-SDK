@@ -30,15 +30,15 @@ final class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         if let vc = Common.getStoryboardViewController(type: SideMenuViewController.self) {
             vc.delegate = self
             
             sideMenuVc = SideMenuNavigationController(rootViewController: vc)
             SideMenuManager.default.leftMenuNavigationController = sideMenuVc
             sideMenuVc?.settings = makeSettings()
+            // swiftlint:disable:next force_unwrapping
             SideMenuManager.default.addPanGestureToPresent(toView: navigationController!.navigationBar)
-            // SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+            // SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: navigationController!.view)
             sideMenuVc?.statusBarEndAlpha = 0
         }
         refreshPopupMenu()
@@ -73,7 +73,7 @@ private extension HomeViewController {
         fileSelectorConfig.minDuration = 0
         fileSelectorConfig.shouldAllowMultipleSelection = true
         fileSelectorConfig.mediaType = VIDEO | AUDIO | IMAGE
-        fileSelectorConfig.extraArgs = ["tags" : "iOS,Choose,Media"]
+        fileSelectorConfig.extraArgs = ["tags": "iOS,Choose,Media"]
         Common.ziggeo?.setFileSelectorConfig(fileSelectorConfig)
         
         Common.ziggeo?.startFileSelector()
@@ -103,8 +103,8 @@ private extension HomeViewController {
     }
     
     @IBAction func onScreenRecord(_ sender: Any) {
-        Common.ziggeo?.startScreenRecorder(appGroup: "group.com.ziggeo.demo",
-                                           preferredExtension: "com.ziggeo.demo.BroadcastExtension")
+        Common.ziggeo?.startScreenRecorder(appGroup: "group.com.ziggeo.demo123",
+                                           preferredExtension: "com.ziggeo.demo123.BroadcastExtension")
         hideMenu()
     }
     
@@ -128,10 +128,10 @@ private extension HomeViewController {
         recorderConfig.maxDuration = 0
         recorderConfig.blurMode = UserDefaults.isUsingBlurMode
         recorderConfig.extraArgs = ["tags": "iOS,Video,Record",
-                                    "client_auth" : "CLIENT_AUTH_TOKEN",
-                                    "server_auth" : "SERVER_AUTH_TOKEN",
-                                    "data" : ["foo": "bar"],
-                                    "effect_profile" : "1234,5678"]
+                                    "client_auth": "CLIENT_AUTH_TOKEN",
+                                    "server_auth": "SERVER_AUTH_TOKEN",
+                                    "data": ["foo": "bar"],
+                                    "effect_profile": "1234,5678"]
         Common.ziggeo?.setRecorderConfig(recorderConfig)
         
         Common.ziggeo?.record()
@@ -301,7 +301,7 @@ extension HomeViewController: MenuActionDelegate {
 extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         dismiss(animated: false) {
-            let videoUrl = (info[.mediaURL] as! URL).path
+            let videoUrl = (info[.mediaURL] as! URL).path // swiftlint:disable:this force_cast
             Common.ziggeo?.playFromUri(videoUrl)
         }
     }
@@ -343,7 +343,7 @@ extension HomeViewController: ZiggeoUploadingDelegate {
         Common.addLog("Upload Progress: \(totalBytesSent) - \(totalBytesExpectedToSend)")
     }
     
-    func uploadFinished(_ path:String, token: String, streamToken: String) {
+    func uploadFinished(_ path: String, token: String, streamToken: String) {
         Common.addLog("Upload Finished: \(token) - \(streamToken)")
         
         Common.recordingVideosController?.getRecordings()
@@ -351,7 +351,7 @@ extension HomeViewController: ZiggeoUploadingDelegate {
         Common.recordingImagesController?.getRecordings()
     }
     
-    func uploadVerified(_ path:String, token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
+    func uploadVerified(_ path: String, token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
         Common.addLog("Upload Verified: \(token) - \(streamToken)")
     }
     
