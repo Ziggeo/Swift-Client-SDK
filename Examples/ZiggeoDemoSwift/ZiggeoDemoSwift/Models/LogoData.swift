@@ -1,4 +1,9 @@
-import UIKit
+//
+//  LogoData.swift
+//  ZiggeoDemoSwift
+//
+//  Created by Dragon on 6/24/22.
+//
 
 struct LogoData {
     let title: String

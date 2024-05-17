@@ -39,19 +39,18 @@ final class RecordingDetailViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         if let recording = recording {
             if mediaType == VIDEO {
                 imageView.contentMode = .scaleAspectFill
-                let imageUrlString = Common.ziggeo?.videos.getImageUrl(recording.token)
+                let imageUrlString = Common.ziggeo?.videos.getImageUrl(recording.token) ?? ""
                 imageView.setURL(imageUrlString, placeholder: nil)
             } else if mediaType == AUDIO {
                 imageView.contentMode = .scaleAspectFit
                 imageView.image = .bgAudio
             } else {
                 imageView.contentMode = .scaleAspectFill
-                let imageUrlString = Common.ziggeo?.images.getImageUrl(recording.token)
+                let imageUrlString = Common.ziggeo?.images.getImageUrl(recording.token) ?? ""
                 imageView.setURL(imageUrlString, placeholder: nil)
             }
             
@@ -84,32 +83,32 @@ private extension RecordingDetailViewController {
     @IBAction func onDelete(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "Are you sure you want to delete this recording?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in }))
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
             guard let recording = self.recording else { return }
             SVProgressHUD.show()
-            if self.mediaType == VIDEO {
-                Common.ziggeo?.videos.destroy(recording.token, streamToken: recording.streamToken, callback: { _, _, _ in
-                    SVProgressHUD.dismiss()
-                    self.isEditMode = false
-                    self.recordingDelegate?.recordingDeleted(recording.token)
-                    self.navigationController?.popViewController(animated: true)
-                })
+            
+            let completion: () -> Void = {
+                SVProgressHUD.dismiss()
+                self.isEditMode = false
+                self.recordingDelegate?.recordingDeleted(recording.token)
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            switch self.mediaType {
+            case VIDEO:
+                Common.ziggeo?.videos.destroy(recording.token, streamToken: recording.streamToken) { _, _, _ in
+                    completion()
+                }
                 
-            } else if self.mediaType == AUDIO {
-                Common.ziggeo?.audios.destroy(recording.token, callback: { _, _, _ in
-                    SVProgressHUD.dismiss()
-                    self.isEditMode = false
-                    self.recordingDelegate?.recordingDeleted(recording.token)
-                    self.navigationController?.popViewController(animated: true)
-                })
+            case AUDIO:
+                Common.ziggeo?.audios.destroy(recording.token) { _, _, _ in
+                    completion()
+                }
                 
-            } else {
-                Common.ziggeo?.images.destroy(recording.token, callback: { _, _, _ in
-                    SVProgressHUD.dismiss()
-                    self.isEditMode = false
-                    self.recordingDelegate?.recordingDeleted(recording.token)
-                    self.navigationController?.popViewController(animated: true)
-                })
+            default:
+                Common.ziggeo?.images.destroy(recording.token) { _, _, _ in
+                    completion()
+                }
             }
         }))
         present(alert, animated: true)
@@ -159,7 +158,6 @@ private extension RecordingDetailViewController {
             }
             let vc = CustomVideoPlayer()
             vc.videoURL = URL(string: urlString)
-            vc.isRecordingPreview = false
             present(vc, animated: true)
             
         case AUDIO:

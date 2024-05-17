@@ -45,7 +45,7 @@ final class Common { // TODO: @skatolyk - Refactor this class
         LogoData(title: "NYU Stern", image: "logo_nyustern", url: "http://www.stern.nyu.edu"),
         LogoData(title: "Dubizzle", image: "logo_dubizzle", url: "https://dubizzle.com"),
         LogoData(title: "Union Square Ventures", image: "logo_usv", url: "https://usv.com"),
-        LogoData(title: "Maven Clinic", image: "logo_mavenclinic", url: "https://www.mavenclinic.com"),
+        LogoData(title: "Maven Clinic", image: "logo_mavenclinic", url: "https://www.mavenclinic.com")
     ]
     
     static var mainNavigationController: UINavigationController?
@@ -64,7 +64,7 @@ final class Common { // TODO: @skatolyk - Refactor this class
 extension Common {
     static func openWebBrowser(_ urlString: String) {
         let url = URL(string: urlString)
-        UIApplication.shared.open(url!)
+        UIApplication.shared.open(url!) // swiftlint:disable:this force_unwrapping
     }
     
     static func showAlertView(_ message: String) {

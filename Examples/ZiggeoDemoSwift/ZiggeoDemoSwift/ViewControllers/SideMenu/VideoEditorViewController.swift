@@ -33,7 +33,7 @@ private extension VideoEditorViewController {
 extension VideoEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         dismiss(animated: false) {
-            let videoUrl = (info[.mediaURL] as! URL).path
+            let videoUrl = (info[.mediaURL] as! URL).path // swiftlint:disable:this force_cast
             Common.ziggeo?.trimVideo(videoUrl)
         }
     }
