@@ -103,8 +103,8 @@ private extension HomeViewController {
     }
     
     @IBAction func onScreenRecord(_ sender: Any) {
-        Common.ziggeo?.startScreenRecorder(appGroup: "group.com.ziggeo.demo123",
-                                           preferredExtension: "com.ziggeo.demo123.BroadcastExtension")
+        Common.ziggeo?.startScreenRecorder(appGroup: "group.com.ziggeo.demo",
+                                           preferredExtension: "com.ziggeo.demo.BroadcastExtension")
         hideMenu()
     }
     
