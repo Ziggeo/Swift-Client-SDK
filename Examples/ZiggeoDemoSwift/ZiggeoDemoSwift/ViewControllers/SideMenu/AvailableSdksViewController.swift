@@ -45,7 +45,7 @@ extension AvailableSdksViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Common.openWebBrowser(Common.SdkList[indexPath.section][indexPath.row].url)
+        UIApplication.shared.openWebBrowser(Common.SdkList[indexPath.section][indexPath.row].url)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

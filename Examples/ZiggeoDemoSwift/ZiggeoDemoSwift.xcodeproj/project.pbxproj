@@ -49,7 +49,7 @@
 		D8F0558A2874700800020AA5 /* TopClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0557D2874700800020AA5 /* TopClientsViewController.swift */; };
 		D8F0558C2874708200020AA5 /* VideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */; };
 		FD0354672BF6A0A00058E85C /* AVCaptureVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */; };
-		FD4810B22BF6DB06006CEEEC /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4810AF2BF6DB06006CEEEC /* SampleHandler.swift */; };
+		FD0E47902C1366B800020723 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0E478F2C1366B800020723 /* UIApplication.swift */; };
 		FD69969A2BEEF41D00AB7C92 /* UIWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6996992BEEF41D00AB7C92 /* UIWindowScene.swift */; };
 		FD69969C2BEEF44900AB7C92 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969B2BEEF44900AB7C92 /* UIWindow.swift */; };
 		FD69969E2BEF9BC700AB7C92 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */; };
@@ -60,6 +60,8 @@
 		FDD8EAD12BEED1F000D5715A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD02BEED1F000D5715A /* UIImage.swift */; };
 		FDD8EAD32BEEE98100D5715A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD22BEEE98100D5715A /* UITableView.swift */; };
 		FDD8EAD52BEEECF000D5715A /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD42BEEECF000D5715A /* UICollectionView.swift */; };
+		FDFD19332C18E5360076CEFD /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4810AF2BF6DB06006CEEEC /* SampleHandler.swift */; };
+		FDFD19372C18E8330076CEFD /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFD19362C18E8330076CEFD /* RealityKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,7 @@
 		D8F0557D2874700800020AA5 /* TopClientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopClientsViewController.swift; sourceTree = "<group>"; };
 		D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditorViewController.swift; sourceTree = "<group>"; };
 		FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientation.swift; sourceTree = "<group>"; };
+		FD0E478F2C1366B800020723 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		FD4810AD2BF6DB06006CEEEC /* BroadcastExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BroadcastExtension.entitlements; sourceTree = "<group>"; };
 		FD4810AE2BF6DB06006CEEEC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD4810AF2BF6DB06006CEEEC /* SampleHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		FDD8EAD02BEED1F000D5715A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		FDD8EAD22BEEE98100D5715A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		FDD8EAD42BEEECF000D5715A /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		FDFD19362C18E8330076CEFD /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDFD19372C18E8330076CEFD /* RealityKit.framework in Frameworks */,
 				11878D4964793986612C5AB2 /* Pods_BroadcastExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +179,7 @@
 		4987A1CA16388A4AFE58D24D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDFD19362C18E8330076CEFD /* RealityKit.framework */,
 				17B32510D9BC199732178EE9 /* Pods_BroadcastExtension.framework */,
 				5726019AC597CE440B5AC8A1 /* Pods_ZiggeoDemoSwift.framework */,
 			);
@@ -195,12 +201,12 @@
 			isa = PBXGroup;
 			children = (
 				FDD8EACD2BEEC3F100D5715A /* UIKit */,
+				FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */,
 				FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */,
 				D8D2A3DB2873D65B004A83FE /* Double.swift */,
 				FD7906E42BF551C2000C5691 /* Optional.swift */,
 				D83752252875D571003E6493 /* String.swift */,
 				FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */,
-				FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 		FDD8EACD2BEEC3F100D5715A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				FD0E478F2C1366B800020723 /* UIApplication.swift */,
 				FDD8EAD42BEEECF000D5715A /* UICollectionView.swift */,
 				FDD8EAD02BEED1F000D5715A /* UIImage.swift */,
 				D809C67C287D223300FA6B3D /* UIImageView.swift */,
@@ -587,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD0E47902C1366B800020723 /* UIApplication.swift in Sources */,
 				D872B695288067A100FAEE20 /* CapturePreviewView.swift in Sources */,
 				D832A36528751D630042BCC8 /* LogoData.swift in Sources */,
 				D8F055812874700800020AA5 /* RecordingImagesViewController.swift in Sources */,
@@ -595,7 +603,6 @@
 				D872B6932880633900FAEE20 /* CustomVideoRecorder.swift in Sources */,
 				D8F055862874700800020AA5 /* ContactUsViewController.swift in Sources */,
 				FD69969C2BEEF44900AB7C92 /* UIWindow.swift in Sources */,
-				FD4810B22BF6DB06006CEEEC /* SampleHandler.swift in Sources */,
 				FDD8EACC2BEEC3B800D5715A /* DateFormatter.swift in Sources */,
 				D81353502878076800D5B04E /* LogTableViewCell.swift in Sources */,
 				FDD8EAD52BEEECF000D5715A /* UICollectionView.swift in Sources */,
@@ -633,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDFD19332C18E5360076CEFD /* SampleHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +794,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58E77C265E221C68951FEFFA /* Pods-ZiggeoDemoSwift.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = ZiggeoDemoSwift/ZiggeoDemoSwift.entitlements;
@@ -812,7 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "1.1.49-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -825,6 +834,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A07327BAFF2A8923FF5F9EC /* Pods-ZiggeoDemoSwift.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = ZiggeoDemoSwift/ZiggeoDemoSwift.entitlements;
@@ -851,7 +861,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "1.1.49-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -880,7 +890,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "1.1.49-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo.BroadcastExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -910,7 +920,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "1.1.49-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziggeo.demo.BroadcastExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

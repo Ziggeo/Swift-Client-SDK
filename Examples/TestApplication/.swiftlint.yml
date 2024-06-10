@@ -230,7 +230,7 @@ type_body_length:
 # Custom rules.
 custom_rules:
     mark_before_protocol_extensions:
-        name: "Missing Pagma Mark"
+        name: "Missing Pragma Mark"
         regex: '^(?!// MARK: -)\nextension\s+\w+:\s+\w+'
-        message: "Preffer to have // MARK: comment before each protocol extension."
+        message: "Prefer to have // MARK: comment before each protocol extension."
         severity: warning
