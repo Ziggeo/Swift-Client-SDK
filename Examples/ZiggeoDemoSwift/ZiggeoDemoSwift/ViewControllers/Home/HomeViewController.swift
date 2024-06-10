@@ -72,7 +72,7 @@ private extension HomeViewController {
         fileSelectorConfig.maxDuration = 0
         fileSelectorConfig.minDuration = 0
         fileSelectorConfig.shouldAllowMultipleSelection = true
-        fileSelectorConfig.mediaType = VIDEO | AUDIO | IMAGE
+        fileSelectorConfig.mediaType = [.video, .audio, .image]
         fileSelectorConfig.extraArgs = ["tags": "iOS,Choose,Media"]
         Common.ziggeo?.setFileSelectorConfig(fileSelectorConfig)
         
@@ -138,21 +138,22 @@ private extension HomeViewController {
     }
     
     @IBAction func onPlayAll(_ sender: Any) {
-        if Common.currentTab == VIDEO {
+        switch Common.currentTab {
+        case .video:
             let tokens = (Common.recordingVideosController?.recordings ?? []).compactMap { $0.token }
             
             tokens.isEmpty ?
             Common.showAlertView("Video recordings are empty.") :
             Common.ziggeo?.playVideos(tokens)
             
-        } else if Common.currentTab == AUDIO {
+        case .audio:
             let tokens = (Common.recordingAudiosController?.recordings ?? []).compactMap { $0.token }
             
             tokens.isEmpty ?
             Common.showAlertView("Audio recordings are empty.") :
             Common.ziggeo?.playAudios(tokens)
             
-        } else {
+        default:
             let tokens = (Common.recordingImagesController?.recordings ?? []).compactMap { $0.token }
             
             tokens.isEmpty ?
@@ -165,8 +166,8 @@ private extension HomeViewController {
 // MARK: - Privates
 private extension HomeViewController {
     func refreshPopupMenu() {
-        popupMenuView.isHidden = isShowPopupMenu
-        popupMenuImageView.image = isShowPopupMenu ? .plusIcon : .closeIcon
+        popupMenuView.isHidden = !isShowPopupMenu
+        popupMenuImageView.image = isShowPopupMenu ? .closeIcon : .plusIcon
     }
     
     func hideMenu() {
@@ -332,7 +333,7 @@ extension HomeViewController: ZiggeoUploadingDelegate {
     }
 
     func error(_ info: RecordingInfo?, _ error: Error, _ lostConnectionAction: Int) {
-        Common.addLog("Failed To Upload : \(info?.getToken() ?? "")")
+        Common.addLog("Failed To Upload : \(info?.token ?? "")")
     }
 
     func uploadStarted(_ path: String, token: String, streamToken: String, backgroundTask: URLSessionTask) {

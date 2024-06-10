@@ -196,7 +196,6 @@
 				TargetAttributes = {
 					FA65B1CE1D65C05100DC784F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = MD9AQL359V;
 						LastSwiftMigration = 1240;
 					};
 				};
@@ -484,7 +483,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.1.45-blurring";
+				MARKETING_VERSION = "1.1.49-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -514,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.1.45-blurring";
+				MARKETING_VERSION = "1.1.49-blurring";
 				PRODUCT_BUNDLE_IDENTIFIER = Ziggeo.TestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

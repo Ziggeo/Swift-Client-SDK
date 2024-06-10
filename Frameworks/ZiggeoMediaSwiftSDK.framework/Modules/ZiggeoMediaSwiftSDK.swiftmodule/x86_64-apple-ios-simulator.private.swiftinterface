@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZiggeoMediaSwiftSDK
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZiggeoMediaSwiftSDK
 import AVFoundation
 import AVKit
 import Accelerate
@@ -25,174 +24,133 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-@objc @_hasMissingDesignatedInitializers open class ZiggeoVideos : ObjectiveC.NSObject, Foundation.NSFilePresenter {
-  @objc public var presentedItemURL: Foundation.URL?
-  @objc public var presentedItemOperationQueue: Foundation.OperationQueue
-  open func getVideoUrl(_ token: Swift.String) -> Swift.String
-  open func getImageUrl(_ token: Swift.String) -> Swift.String
-  open func attachVideo(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, file: Swift.String, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func createVideo(_ data: Foundation.NSDictionary?, file inputFilePath: Swift.String, cover: UIKit.UIImage? = nil, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)? = nil, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)? = nil) -> Foundation.URLSessionTask?
-  open func reRecordVideo(_ token: Swift.String, file: Swift.String, data: Foundation.NSDictionary?, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Video], _ error: (any Swift.Error)?) -> Swift.Void)
-  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Video, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func createLiveVideoWithData(data: Foundation.NSDictionary, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Video?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func destroy(_ token: Swift.String, streamToken: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func confirmLiveStreaming(videoToken: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func confirm(_ token: Swift.String, streamToken: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
-  open func getImage(_ token: Swift.String, params: Foundation.NSDictionary, callback: @escaping (_ image: UIKit.UIImage?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func getImage(_ path: Swift.String, callback: @escaping (_ image: UIKit.UIImage?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func startScreenRecorder(appGroup: Swift.String, preferredExtension: Swift.String?)
-  @objc public func presentedItemDidChange()
-  open func getDefaultStream(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((_ streamToken: Swift.String?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func getOriginalStreamDescriptionForVideo(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func createStream(_ token: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func createEmptyVideo(_ data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func recorderSubmit(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func enforceImageForVideo(_ path: Swift.String, image: UIKit.UIImage)
-  open func attachCover(_ token: Swift.String, streamToken: Swift.String, cover: UIKit.UIImage?, data: Foundation.NSDictionary?, callback: ((_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionTask?
+@objc @_hasMissingDesignatedInitializers final public class ZiggeoVideos : ObjectiveC.NSObject, Foundation.NSFilePresenter {
+  @objc final public var presentedItemURL: Foundation.URL?
+  @objc final public var presentedItemOperationQueue: Foundation.OperationQueue
+  final public func getVideoUrl(_ token: Swift.String) -> Swift.String
+  final public func getImageUrl(_ token: Swift.String) -> Swift.String
+  final public func attachVideo(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, file: Swift.String, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
+  final public func createVideo(_ data: Foundation.NSDictionary?, file inputFilePath: Swift.String, cover: UIKit.UIImage? = nil, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)? = nil, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)? = nil) -> Foundation.URLSessionTask?
+  final public func reRecordVideo(_ token: Swift.String, file: Swift.String, data: Foundation.NSDictionary?, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
+  final public func index(_ data: [Swift.AnyHashable : Any], callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Video], _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Video, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func createLiveVideoWithData(data: Foundation.NSDictionary, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func update(_ token: Swift.String, data: [Swift.AnyHashable : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Video?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func destroy(_ token: Swift.String, streamToken: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func confirmLiveStreaming(videoToken: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func confirm(_ token: Swift.String, streamToken: Swift.String, data: [Swift.AnyHashable : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
+  final public func getImage(_ token: Swift.String, params: Foundation.NSDictionary, callback: @escaping (_ image: UIKit.UIImage?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func getImage(_ path: Swift.String, callback: @escaping (_ image: UIKit.UIImage?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func startScreenRecorder(appGroup: Swift.String, preferredExtension: Swift.String?)
+  @objc final public func presentedItemDidChange()
+  final public func getDefaultStream(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((_ streamToken: Swift.String?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionTask
+  final public func getOriginalStreamDescriptionForVideo(_ token: Swift.String, data: Foundation.NSDictionary?, callback: ((_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionTask
+  final public func createStream(_ token: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func createEmptyVideo(_ data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func recorderSubmit(_ token: Swift.String, streamToken: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func enforceImageForVideo(_ path: Swift.String, image: UIKit.UIImage)
+  final public func attachCover(_ token: Swift.String, streamToken: Swift.String, cover: UIKit.UIImage?, data: Foundation.NSDictionary?, callback: ((_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionTask?
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class RecorderConfig : ObjectiveC.NSObject {
-  public var style: ZiggeoMediaSwiftSDK.CameraRecorderStyle
-  public var shouldShowFaceOutline: Swift.Bool
-  public var faceOutlineDrawable: UIKit.UIImage?
-  public var isLiveStreaming: Swift.Bool
-  public var shouldAutoStartRecording: Swift.Bool
-  public var isImageOnlyMode: Swift.Bool
-  public var isPausedMode: Swift.Bool
-  public var startDelay: Swift.Int
-  public var shouldSendImmediately: Swift.Bool
-  public var shouldDisablePreview: Swift.Bool
-  public var shouldDisableCameraSwitch: Swift.Bool
-  public var videoQuality: Swift.Int
-  public var facing: Swift.Int
-  public var blurMode: Swift.Bool
-  public var maxDuration: Swift.Double
-  public var shouldEnableCoverShot: Swift.Bool
-  public var colorForStoppedCameraOverlay: UIKit.UIColor
-  public var drawableForStoppedCameraOverlay: UIKit.UIImage?
-  public var shouldConfirmStopRecording: Swift.Bool
-  public var resolution: ZiggeoMediaSwiftSDK.VideoSize
-  public var videoBitrate: Swift.Int
-  public var audioBitrate: Swift.Int
-  public var audioSampleRate: Swift.Int
-  public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
-  public var stopRecordingConfirmationDialogConfig: ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig
-  public var extraArgs: [Swift.String : Any]
+final public class RecorderConfig {
+  final public var style: ZiggeoMediaSwiftSDK.CameraRecorderStyle
+  final public var shouldShowFaceOutline: Swift.Bool
+  final public var faceOutlineDrawable: UIKit.UIImage?
+  final public var isLiveStreaming: Swift.Bool
+  final public var shouldAutoStartRecording: Swift.Bool
+  final public var isImageOnlyMode: Swift.Bool
+  final public var isPausedMode: Swift.Bool
+  final public var startDelay: Swift.Int {
+    get
+    set
+  }
+  final public var shouldSendImmediately: Swift.Bool
+  final public var shouldDisablePreview: Swift.Bool
+  final public var shouldDisableCameraSwitch: Swift.Bool
+  final public var videoQuality: Swift.Int {
+    get
+    set
+  }
+  final public var facing: Swift.Int
+  final public var blurMode: Swift.Bool
+  final public var maxDuration: Swift.Double {
+    get
+    set
+  }
+  final public var shouldEnableCoverShot: Swift.Bool
+  final public var colorForStoppedCameraOverlay: UIKit.UIColor
+  final public var drawableForStoppedCameraOverlay: UIKit.UIImage?
+  final public var shouldConfirmStopRecording: Swift.Bool
+  final public var resolution: ZiggeoMediaSwiftSDK.VideoSize {
+    get
+    set
+  }
+  final public var videoBitrate: Swift.Int
+  final public var audioBitrate: Swift.Int {
+    get
+    set
+  }
+  final public var audioSampleRate: Swift.Int {
+    get
+    set
+  }
+  final public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
+  final public var stopRecordingConfirmationDialogConfig: ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig
+  final public var extraArgs: [Swift.String : Any]
+  public init()
+  final public func updateVideoSize()
+  final public func addExtraArgs(_ extraArgs: [Swift.String : Any])
+  final public func stringValueConfig() -> Swift.String
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class RecordingInfo : ObjectiveC.NSObject {
+  final public var token: Swift.String
+  final public var fileType: Swift.Int
+  final public var uploaded: Swift.Bool
+  final public var verified: Swift.Bool
+  final public var processed: Swift.Bool
+  final public var failed: Swift.Bool
+  final public var coverShot: UIKit.UIImage?
+  final public var extraArgs: [Swift.String : Any]
+  final public var urisForUploading: [Any]
+  final public var uploadedParts: Swift.Int
+  final public var uploadId: Swift.String
+  final public var streamToken: Swift.String
+  final public func addExtraArgs(_ extraArgs: [Swift.String : Any])
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class CacheConfig : ObjectiveC.NSObject {
+  final public var maxCacheSize: Swift.Int
+  final public var cacheRoot: Swift.String
   @objc override dynamic public init()
-  open func getStyle() -> ZiggeoMediaSwiftSDK.CameraRecorderStyle
-  open func setStyle(_ style: ZiggeoMediaSwiftSDK.CameraRecorderStyle)
-  open func getShouldShowFaceOutline() -> Swift.Bool
-  open func setShouldShowFaceOutline(_ shouldShowFaceOutline: Swift.Bool)
-  open func getFaceOutlineDrawable() -> UIKit.UIImage?
-  open func setFaceOutlineDrawable(_ faceOutlineDrawable: UIKit.UIImage?)
-  open func getIsLiveStreaming() -> Swift.Bool
-  open func setLiveStreaming(_ liveStreaming: Swift.Bool)
-  open func getShouldAutoStartRecording() -> Swift.Bool
-  open func setShouldAutoStartRecording(_ shouldAutoStartRecording: Swift.Bool)
-  open func getIsImageOnlyMode() -> Swift.Bool
-  open func setImageOnlyMode(_ imageOnlyMode: Swift.Bool)
-  open func getIsPausedMode() -> Swift.Bool
-  open func setIsPausedMode(_ isPausedMode: Swift.Bool)
-  open func getStartDelay() -> Swift.Int
-  open func setStartDelay(_ startDelay: Swift.Int)
-  open func getShouldSendImmediately() -> Swift.Bool
-  open func setShouldSendImmediately(_ shouldSendImmediately: Swift.Bool)
-  open func getShouldDisablePreview() -> Swift.Bool
-  open func setShouldDisablePreview(_ shouldDisablePreview: Swift.Bool)
-  open func getShouldDisableCameraSwitch() -> Swift.Bool
-  open func setShouldDisableCameraSwitch(_ shouldDisableCameraSwitch: Swift.Bool)
-  open func getVideoQuality() -> Swift.Int
-  open func setVideoQuality(_ videoQuality: Swift.Int)
-  open func updateVideoSize()
-  open func getFacing() -> Swift.Int
-  open func setFacing(_ facing: Swift.Int)
-  open func getBlurMode() -> Swift.Bool
-  open func setBlurMode(_ blurMode: Swift.Bool)
-  open func getMaxDuration() -> Swift.Double
-  open func setMaxDuration(_ maxDuration: Swift.Double)
-  open func getShouldEnableCoverShot() -> Swift.Bool
-  open func setShouldEnableCoverShot(_ shouldEnableCoverShot: Swift.Bool)
-  open func getColorForStoppedCameraOverlay() -> UIKit.UIColor
-  open func setColorForStoppedCameraOverlay(_ colorForStoppedCameraOverlay: UIKit.UIColor)
-  open func getDrawableForStoppedCameraOverlay() -> UIKit.UIImage?
-  open func setDrawableForStoppedCameraOverlay(_ drawableForStoppedCameraOverlay: UIKit.UIImage?)
-  open func getShouldConfirmStopRecording() -> Swift.Bool
-  open func setShouldConfirmStopRecording(_ shouldConfirmStopRecording: Swift.Bool)
-  open func getResolution() -> ZiggeoMediaSwiftSDK.VideoSize
-  open func setResolution(_ resolution: ZiggeoMediaSwiftSDK.VideoSize)
-  open func getVideoBitrate() -> Swift.Int
-  open func setVideoBitrate(_ videoBitrate: Swift.Int)
-  open func getAudioBitrate() -> Swift.Int
-  open func setAudioBitrate(_ audioBitrate: Swift.Int)
-  open func getAudioSampleRate() -> Swift.Int
-  open func setAudioSampleRate(_ rate: Swift.Int)
-  open func getCacheConfig() -> ZiggeoMediaSwiftSDK.CacheConfig
-  open func setCacheConfig(_ cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig)
-  open func getStopRecordingConfirmationDialogConfig() -> ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig
-  open func setStopRecordingConfirmationDialogConfig(_ stopRecordingConfirmationDialogConfig: ZiggeoMediaSwiftSDK.StopRecordingConfirmationDialogConfig)
-  open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
-  open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func stringValueConfig() -> Swift.String
-  @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers public class RecordingInfo : ObjectiveC.NSObject {
-  open func getToken() -> Swift.String
-  open func setToken(_ token: Swift.String)
-  open func getFileType() -> Swift.Int
-  open func setFileType(_ fileType: Swift.Int)
-  open func getUploaded() -> Swift.Bool
-  open func setUploaded(_ uploaded: Swift.Bool)
-  open func getVerified() -> Swift.Bool
-  open func setVerified(_ verified: Swift.Bool)
-  open func getProcessed() -> Swift.Bool
-  open func setProcessed(_ processed: Swift.Bool)
-  open func getFailed() -> Swift.Bool
-  open func setFailed(_ failed: Swift.Bool)
-  open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
-  open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func getUrisForUploading() -> [Any]
-  open func setUrisForUploading(_ urisForUploading: [Any])
-  open func getUploadedParts() -> Swift.Int
-  open func setUploadedParts(_ uploadedParts: Swift.Int)
-  open func getUploadId() -> Swift.String
-  open func setUploadId(_ uploadId: Swift.String)
-  open func getStreamToken() -> Swift.String
-  open func setStreamToken(_ streamToken: Swift.String)
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers public class CacheConfig : ObjectiveC.NSObject {
-  public var maxCacheSize: Swift.Int
-  public var cacheRoot: Swift.String
-  @objc override dynamic public init()
-  open func getMaxCacheSize() -> Swift.Int
-  open func setMaxCacheSize(_ maxCacheSize: Swift.Int)
-  open func getCacheRoot() -> Swift.String
-  open func setCacheRoot(_ cacheRoot: Swift.String)
-  open func toString() -> Swift.String
-  open func stringValueConfig() -> Swift.String
+  final public func toString() -> Swift.String
+  final public func stringValueConfig() -> Swift.String
   @objc deinit
 }
 @objc final public class Chronometer : ObjectiveC.NSObject {
   final public var isPlaying: Swift.Bool
   final public var timerCurrentValue: Swift.Double
-  final public var timerDidUpdate: ((Foundation.TimeInterval) -> ())?
-  final public var timerDidComplete: (() -> ())?
-  @objc public init(withTimeInterval timeInterval: Foundation.TimeInterval = 0.0)
+  final public var timerDidUpdate: ((Foundation.TimeInterval) -> Swift.Void)?
+  final public var timerDidComplete: (() -> Swift.Void)?
+  @objc public init(withTimeInterval timeInterval: Foundation.TimeInterval = 0)
   @objc final public func start(shouldFire fire: Swift.Bool = true)
   @objc final public func pause()
   @objc final public func resume()
   @objc final public func stop()
   @objc deinit
 }
-public let VIDEO: Swift.Int
-public let AUDIO: Swift.Int
-public let IMAGE: Swift.Int
+public struct MediaTypes : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public static let video: ZiggeoMediaSwiftSDK.MediaTypes
+  public static let audio: ZiggeoMediaSwiftSDK.MediaTypes
+  public static let image: ZiggeoMediaSwiftSDK.MediaTypes
+  public init(rawValue: Swift.Int)
+  public typealias ArrayLiteralElement = ZiggeoMediaSwiftSDK.MediaTypes
+  public typealias Element = ZiggeoMediaSwiftSDK.MediaTypes
+  public typealias RawValue = Swift.Int
+}
 public let UPDATE_DELAY: Swift.Int
 public let HIGH_VOLUME: Swift.Int
 public let MIDDLE_VOLUME: Swift.Int
@@ -305,112 +263,110 @@ public let ARG_DATA: Swift.String
 }
 @objc public protocol ZiggeoScreenRecorderDelegate {
 }
-@objc @_inheritsConvenienceInitializers open class Ziggeo : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers final public class Ziggeo : ObjectiveC.NSObject {
   final public let token: Swift.String
   final public let config: ZiggeoMediaSwiftSDK.ZiggeoConfig
-  public var connect: ZiggeoMediaSwiftSDK.ZiggeoConnect!
-  public var cacheManager: ZiggeoMediaSwiftSDK.ZiggeoCacheManager!
-  public var enableDebugLogs: Swift.Bool
-  public var uploadingHandler: ZiggeoMediaSwiftSDK.ZiggeoUploadingHandler!
-  public var qrScannerDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoQRScannerDelegate)?
-  public var hardwarePermissionDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoHardwarePermissionDelegate)? {
+  final public var connect: ZiggeoMediaSwiftSDK.ZiggeoConnect!
+  final public var cacheManager: ZiggeoMediaSwiftSDK.ZiggeoCacheManager!
+  final public var enableDebugLogs: Swift.Bool
+  final public var uploadingHandler: ZiggeoMediaSwiftSDK.ZiggeoUploadingHandler!
+  final public var qrScannerDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoQRScannerDelegate)?
+  final public var hardwarePermissionDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoHardwarePermissionDelegate)? {
     get
     set
   }
-  public var uploadingDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoUploadingDelegate)?
-  public var sensorDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoSensorDelegate)?
-  public var fileSelectorDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoFileSelectorDelegate)?
-  public var recorderDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoRecorderDelegate)?
-  public var playerDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoPlayerDelegate)?
-  public var screenRecorderDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoScreenRecorderDelegate)?
-  public var videos: ZiggeoMediaSwiftSDK.ZiggeoVideos!
-  public var audios: ZiggeoMediaSwiftSDK.ZiggeoAudios!
-  public var images: ZiggeoMediaSwiftSDK.ZiggeoImages!
-  public var fileSelectorConfig: ZiggeoMediaSwiftSDK.FileSelectorConfig
-  public var uploadingConfig: ZiggeoMediaSwiftSDK.UploadingConfig
-  public var playerConfig: ZiggeoMediaSwiftSDK.PlayerConfig
-  public var qrScannerConfig: ZiggeoMediaSwiftSDK.QrScannerConfig
-  public var recorderConfig: ZiggeoMediaSwiftSDK.RecorderConfig
-  public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
+  final public var uploadingDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoUploadingDelegate)?
+  final public var sensorDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoSensorDelegate)?
+  final public var fileSelectorDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoFileSelectorDelegate)?
+  final public var recorderDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoRecorderDelegate)?
+  final public var playerDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoPlayerDelegate)?
+  final public var screenRecorderDelegate: (any ZiggeoMediaSwiftSDK.ZiggeoScreenRecorderDelegate)?
+  final public var videos: ZiggeoMediaSwiftSDK.ZiggeoVideos!
+  final public var audios: ZiggeoMediaSwiftSDK.ZiggeoAudios!
+  final public var images: ZiggeoMediaSwiftSDK.ZiggeoImages!
+  final public var fileSelectorConfig: ZiggeoMediaSwiftSDK.FileSelectorConfig
+  final public var uploadingConfig: ZiggeoMediaSwiftSDK.UploadingConfig
+  final public var playerConfig: ZiggeoMediaSwiftSDK.PlayerConfig
+  final public var qrScannerConfig: ZiggeoMediaSwiftSDK.QrScannerConfig
+  final public var recorderConfig: ZiggeoMediaSwiftSDK.RecorderConfig
+  final public var cacheConfig: ZiggeoMediaSwiftSDK.CacheConfig
   @objc override dynamic public init()
   public init(token: Swift.String)
-  open func sendLocalNotification(_ message: Swift.String)
-  public func getAppToken() -> Swift.String
-  public func getServerAuthToken() -> Swift.String
-  public func getClientAuthToken() -> Swift.String
-  public func recorderInterfaceConfig() -> [Swift.String : Any]
-  open func setRecorderInterfaceConfig(_ config: [Swift.String : Any])
-  open func setFileSelectorConfig(_ config: ZiggeoMediaSwiftSDK.FileSelectorConfig)
-  open func setUploadingConfig(_ config: ZiggeoMediaSwiftSDK.UploadingConfig)
-  open func setPlayerConfig(_ config: ZiggeoMediaSwiftSDK.PlayerConfig)
-  open func setQrScannerConfig(_ config: ZiggeoMediaSwiftSDK.QrScannerConfig)
-  open func setRecorderConfig(_ config: ZiggeoMediaSwiftSDK.RecorderConfig)
-  open func setCacheConfig(_ config: ZiggeoMediaSwiftSDK.CacheConfig)
-  open func sendReport(_ array: [Swift.String])
-  open func sendEmailToSupport()
-  open func sendEmailToSupport(subject: Swift.String, messageBody: Swift.String, file: ZiggeoMediaSwiftSDK.FileInfoData?)
-  open func log(_ message: Swift.String)
-  open func logError(_ message: Swift.String)
-  open func isNetworkConnected() -> Swift.Bool
-  open func isWifiConnected() -> Swift.Bool
-  open func record()
-  open func startScreenRecorder(appGroup: Swift.String, preferredExtension: Swift.String?)
-  open func trimVideo(_ videoUrl: Swift.String)
-  open func startImageRecorder()
-  open func startAudioRecorder()
-  open func uploadFromPaths(_ strUrls: [Swift.String], data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func uploadFromPaths(_ strUrl: Swift.String, data: [Swift.String : Any])
-  open func uploadFromPath(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func startFileSelector()
-  open func cancelUpload(_ path: Swift.String?, _ delete_file: Swift.Bool)
-  open func playVideo(_ token: Swift.String)
-  open func playVideos(_ tokens: [Swift.String])
-  open func playFromUri(_ url: Swift.String)
-  open func playFromUris(_ urls: [Swift.String])
-  open func showImage(_ token: Swift.String)
-  open func showImages(_ tokens: [Swift.String])
-  open func showImageFromUri(_ url: Swift.String)
-  open func showImageFromUris(_ urls: [Swift.String])
-  open func playAudio(_ token: Swift.String)
-  open func playAudios(_ tokens: [Swift.String])
-  open func playAudioFromUri(_ url: Swift.String)
-  open func playAudioFromUris(_ urls: [Swift.String])
-  open func startAudioPlayer(_ token: Swift.String)
-  open func startQrScanner()
+  final public func sendLocalNotification(_ message: Swift.String)
+  final public func getAppToken() -> Swift.String
+  final public func getServerAuthToken() -> Swift.String
+  final public func getClientAuthToken() -> Swift.String
+  final public func setFileSelectorConfig(_ config: ZiggeoMediaSwiftSDK.FileSelectorConfig)
+  final public func setUploadingConfig(_ config: ZiggeoMediaSwiftSDK.UploadingConfig)
+  final public func setPlayerConfig(_ config: ZiggeoMediaSwiftSDK.PlayerConfig)
+  final public func setQrScannerConfig(_ config: ZiggeoMediaSwiftSDK.QrScannerConfig)
+  final public func setRecorderConfig(_ config: ZiggeoMediaSwiftSDK.RecorderConfig)
+  final public func setCacheConfig(_ config: ZiggeoMediaSwiftSDK.CacheConfig)
+  final public func sendReport(_ array: [Swift.String])
+  final public func sendEmailToSupport()
+  final public func sendEmailToSupport(subject: Swift.String, messageBody: Swift.String, file: ZiggeoMediaSwiftSDK.FileInfoData?)
+  final public func log(_ message: Swift.String)
+  final public func logError(_ message: Swift.String)
+  final public func isNetworkConnected() -> Swift.Bool
+  final public func isWifiConnected() -> Swift.Bool
+  final public func record()
+  final public func startScreenRecorder(appGroup: Swift.String, preferredExtension: Swift.String?)
+  final public func trimVideo(_ videoUrl: Swift.String)
+  final public func startImageRecorder()
+  final public func startAudioRecorder()
+  final public func uploadFromPaths(_ strUrls: [Swift.String], data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func uploadFromPaths(_ strUrl: Swift.String, data: [Swift.String : Any])
+  final public func uploadFromPath(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func startFileSelector()
+  final public func cancelUpload(_ path: Swift.String?, deleteFile: Swift.Bool)
+  final public func playVideo(_ token: Swift.String)
+  final public func playVideos(_ tokens: [Swift.String])
+  final public func playFromUri(_ url: Swift.String)
+  final public func playFromUris(_ urls: [Swift.String])
+  final public func showImage(_ token: Swift.String)
+  final public func showImages(_ tokens: [Swift.String])
+  final public func showImageFromUri(_ url: Swift.String)
+  final public func showImageFromUris(_ urls: [Swift.String])
+  final public func playAudio(_ token: Swift.String)
+  final public func playAudios(_ tokens: [Swift.String])
+  final public func playAudioFromUri(_ url: Swift.String)
+  final public func playAudioFromUris(_ urls: [Swift.String])
+  final public func startAudioPlayer(_ token: Swift.String)
+  final public func startQrScanner()
   @objc deinit
 }
 extension ZiggeoMediaSwiftSDK.Ziggeo : UIKit.UIImagePickerControllerDelegate, UIKit.UINavigationControllerDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func imagePickerController(_ picker: UIKit.UIImagePickerController, didFinishPickingMediaWithInfo info: [UIKit.UIImagePickerController.InfoKey : Any])
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func imagePickerControllerDidCancel(_ picker: UIKit.UIImagePickerController)
+  @_Concurrency.MainActor(unsafe) @objc final public func imagePickerController(_ picker: UIKit.UIImagePickerController, didFinishPickingMediaWithInfo info: [UIKit.UIImagePickerController.InfoKey : Any])
+  @_Concurrency.MainActor(unsafe) @objc final public func imagePickerControllerDidCancel(_ picker: UIKit.UIImagePickerController)
 }
 extension ZiggeoMediaSwiftSDK.Ziggeo : MessageUI.MFMailComposeViewControllerDelegate {
-  @objc dynamic public func mailComposeController(_ controller: MessageUI.MFMailComposeViewController, didFinishWith result: MessageUI.MFMailComposeResult, error: (any Swift.Error)?)
+  @objc final public func mailComposeController(_ controller: MessageUI.MFMailComposeViewController, didFinishWith result: MessageUI.MFMailComposeResult, error: (any Swift.Error)?)
 }
 extension ZiggeoMediaSwiftSDK.Ziggeo : ZiggeoMediaSwiftSDK.ReachabilityChangeDelegate {
-  public func reachabilityChanged(_ reachability: ZiggeoMediaSwiftSDK.Reachability)
+  final public func reachabilityChanged(_ reachability: ZiggeoMediaSwiftSDK.Reachability)
 }
-@objc @_hasMissingDesignatedInitializers open class ZiggeoCacheManager : ObjectiveC.NSObject {
-  open func getCacheDirectory(_ type: Swift.Int) -> Swift.String
-  open func getCacheFileName(_ type: Swift.Int, token: Swift.String) -> Swift.String
-  open func getCacheFilePath(_ type: Swift.Int, token: Swift.String) -> Swift.String
-  open func trimCache(_ type: Swift.Int)
-  open func fileExists(_ filePath: Swift.String) -> Swift.Bool
-  open func removeFile(_ filePath: Swift.String)
-  open func getFileCreationDateWithDefaultDate(_ filePath: Swift.String) -> Foundation.Date?
-  open func getFileSize(_ filePath: Swift.String) -> Swift.UInt64?
+@objc @_hasMissingDesignatedInitializers final public class ZiggeoCacheManager : ObjectiveC.NSObject {
+  final public func getCacheDirectory(_ type: ZiggeoMediaSwiftSDK.MediaTypes) -> Swift.String
+  final public func getCacheFileName(_ type: ZiggeoMediaSwiftSDK.MediaTypes, token: Swift.String) -> Swift.String
+  final public func getCacheFilePath(_ type: ZiggeoMediaSwiftSDK.MediaTypes, token: Swift.String) -> Swift.String
+  final public func trimCache(_ type: ZiggeoMediaSwiftSDK.MediaTypes)
+  final public func fileExists(_ filePath: Swift.String) -> Swift.Bool
+  final public func removeFile(_ filePath: Swift.String)
+  final public func getFileCreationDateWithDefaultDate(_ filePath: Swift.String) -> Foundation.Date?
+  final public func getFileSize(_ filePath: Swift.String) -> Swift.UInt64?
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers open class ZiggeoImages : ObjectiveC.NSObject {
-  open func getImageUrl(_ token: Swift.String) -> Swift.String
-  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Image], _ error: (any Swift.Error)?) -> Swift.Void)
-  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Image, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Image?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
+@objc @_hasMissingDesignatedInitializers final public class ZiggeoImages : ObjectiveC.NSObject {
+  final public func getImageUrl(_ token: Swift.String) -> Swift.String
+  final public func index(_ data: [Swift.AnyHashable : Any], callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Image], _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Image, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func update(_ token: Swift.String, data: [Swift.AnyHashable : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Image?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
   @objc deinit
 }
-@objc @_Concurrency.MainActor(unsafe) open class ZiggeoAudioRecorder : UIKit.UIViewController {
+@objc @_Concurrency.MainActor(unsafe) final public class ZiggeoAudioRecorder : UIKit.UIViewController {
   public enum AudioRecorderState {
     case ready
     case recording
@@ -426,114 +382,91 @@ extension ZiggeoMediaSwiftSDK.Ziggeo : ZiggeoMediaSwiftSDK.ReachabilityChangeDel
   }
   @_Concurrency.MainActor(unsafe) public init(application: ZiggeoMediaSwiftSDK.Ziggeo)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func onClose(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func onRerecord(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func onRecord(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func onPauseOrResume(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func onUpload(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func timeChanged(_ sender: UIKit.UISlider)
-  @_Concurrency.MainActor(unsafe) open func setCurrentState(_ state: ZiggeoMediaSwiftSDK.ZiggeoAudioRecorder.AudioRecorderState)
-  @_Concurrency.MainActor(unsafe) open func stopTimer()
-  @_Concurrency.MainActor(unsafe) open func getTimeString(_ time: Swift.Int) -> Swift.String
-  @_Concurrency.MainActor(unsafe) open func updateCurrentTimeText()
-  @_Concurrency.MainActor(unsafe) open func getImageFromResource(_ resourceName: Swift.String) -> UIKit.UIImage
-  @_Concurrency.MainActor(unsafe) open func getAudioVisualizationMode() -> ZiggeoMediaSwiftSDK.AudioVisualizationView.AudioVisualizationMode
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) final public func setCurrentState(_ state: ZiggeoMediaSwiftSDK.ZiggeoAudioRecorder.AudioRecorderState)
+  @_Concurrency.MainActor(unsafe) final public func stopTimer()
+  @_Concurrency.MainActor(unsafe) final public func getTimeString(_ time: Swift.Int) -> Swift.String
+  @_Concurrency.MainActor(unsafe) final public func updateCurrentTimeText()
+  @_Concurrency.MainActor(unsafe) final public func getAudioVisualizationMode() -> ZiggeoMediaSwiftSDK.AudioVisualizationView.AudioVisualizationMode
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class StopRecordingConfirmationDialogConfig : ObjectiveC.NSObject {
-  public var titleText: Swift.String
-  public var mesText: Swift.String
-  public var posBtnText: Swift.String
-  public var negBtnText: Swift.String
-  @objc override dynamic public init()
-  open func getTitleText() -> Swift.String
-  open func setTitleText(_ titleText: Swift.String)
-  open func getMesText() -> Swift.String
-  open func setMesText(_ mesText: Swift.String)
-  open func getPosBtnText() -> Swift.String
-  open func setPosBtnText(_ posBtnText: Swift.String)
-  open func getNegBtnText() -> Swift.String
-  open func setNegBtnText(_ negBtnText: Swift.String)
-  open func stringValueConfig() -> Swift.String
+final public class StopRecordingConfirmationDialogConfig {
+  final public var titleText: Swift.String
+  final public var mesText: Swift.String
+  final public var posBtnText: Swift.String
+  final public var negBtnText: Swift.String
+  public init()
+  final public func stringValueConfig() -> Swift.String
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class PlayerStyle : ObjectiveC.NSObject {
-  public var hideControls: Swift.Bool
-  @objc override dynamic public init()
-  open func getHideControls() -> Swift.Bool
-  open func setHideControls(_ hideControls: Swift.Bool)
+final public class PlayerStyle {
+  final public var hideControls: Swift.Bool
+  public init()
   @objc deinit
 }
-@objc @_Concurrency.MainActor(unsafe) open class ZiggeoRecorder : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) open var videoPreview: (any ZiggeoMediaSwiftSDK.VideoPreviewProtocol)!
-  @_Concurrency.MainActor(unsafe) open var recorderUIConfig: ZiggeoMediaSwiftSDK.RecorderInterfaceConfig
-  @_Concurrency.MainActor(unsafe) open var videoGravity: AVFoundation.AVLayerVideoGravity
-  @_Concurrency.MainActor(unsafe) open var showLightIndicator: Swift.Bool {
+@objc @_Concurrency.MainActor(unsafe) final public class ZiggeoRecorder : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) final public var videoPreview: any ZiggeoMediaSwiftSDK.VideoPreviewProtocol
+  @_Concurrency.MainActor(unsafe) final public var recorderUIConfig: ZiggeoMediaSwiftSDK.RecorderInterfaceConfig
+  @_Concurrency.MainActor(unsafe) final public var videoGravity: AVFoundation.AVLayerVideoGravity
+  @_Concurrency.MainActor(unsafe) final public var showLightIndicator: Swift.Bool {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var showSoundIndicator: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) final public var showSoundIndicator: Swift.Bool {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open func setVideoGravity(_ videoGravity: AVFoundation.AVLayerVideoGravity)
-  @_Concurrency.MainActor(unsafe) convenience public init(application: ZiggeoMediaSwiftSDK.Ziggeo)
-  @_Concurrency.MainActor(unsafe) public init(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String!)
+  @_Concurrency.MainActor(unsafe) final public func setVideoGravity(_ videoGravity: AVFoundation.AVLayerVideoGravity)
+  @_Concurrency.MainActor(unsafe) public init(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String? = nil)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+  @_Concurrency.MainActor(unsafe) @objc override final public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var shouldAutorotate: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) @objc override final public var shouldAutorotate: Swift.Bool {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+  @_Concurrency.MainActor(unsafe) @objc override final public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func onCloseButtonTap(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func changeCamera(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func focusAndExposeTap(_ gestureRecognizer: UIKit.UIGestureRecognizer)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func toggleMovieRecording(_ sender: Swift.AnyObject)
-  @objc @IBAction @_Concurrency.MainActor(unsafe) open func toggleMoviePaused(_ sender: Swift.AnyObject)
-  @_Concurrency.MainActor(unsafe) open func startRecording()
-  @_Concurrency.MainActor(unsafe) open func stopRecording()
-  @_Concurrency.MainActor(unsafe) open func processRecordedVideo(outputFileURL: Foundation.URL!, error: (any Swift.Error)!)
-  @_Concurrency.MainActor(unsafe) open func focus(_ focusMode: AVFoundation.AVCaptureDevice.FocusMode, exposureMode: AVFoundation.AVCaptureDevice.ExposureMode, point: CoreFoundation.CGPoint, monitorSubjectAreaChange: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) open func setFlashMode(_ flashMode: AVFoundation.AVCaptureDevice.FlashMode, device: AVFoundation.AVCaptureDevice)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewWillDisappear(_ animated: Swift.Bool)
   @objc deinit
+}
+extension ZiggeoMediaSwiftSDK.ZiggeoRecorder {
+  @_Concurrency.MainActor(unsafe) final public func toggleVideoRecording()
+  @_Concurrency.MainActor(unsafe) final public func startRecording()
+  @_Concurrency.MainActor(unsafe) final public func stopRecording()
+  @objc @_Concurrency.MainActor(unsafe) final public func updateStartDelay()
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.VideoPreviewDelegate {
-  @_Concurrency.MainActor(unsafe) open func retake(_ fileToBeRemoved: Foundation.URL!)
-  @_Concurrency.MainActor(unsafe) open func uploadVideo(_ filePath: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) final public func retake(_ fileToBeRemoved: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) final public func uploadVideo(_ filePath: Foundation.URL)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.CoverSelectorDelegate {
-  @_Concurrency.MainActor(unsafe) open func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage!)
+  @_Concurrency.MainActor(unsafe) final public func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage?)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : AVFoundation.AVCaptureAudioDataOutputSampleBufferDelegate, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+  @_Concurrency.MainActor(unsafe) @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : AVFoundation.AVCaptureMetadataOutputObjectsDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic open func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
+  @_Concurrency.MainActor(unsafe) @objc final public func metadataOutput(_ output: AVFoundation.AVCaptureMetadataOutput, didOutput metadataObjects: [AVFoundation.AVMetadataObject], from connection: AVFoundation.AVCaptureConnection)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.SelfieSegmentationDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func selfieSegmentation(_ selfieSegmentation: ZiggeoMediaSwiftSDK.SelfieSegmentation!, didOutputPixelBuffer pixelBuffer: CoreVideo.CVPixelBuffer!, cmTime: CoreMedia.CMTime)
+  @_Concurrency.MainActor(unsafe) @objc final public func selfieSegmentation(_ selfieSegmentation: ZiggeoMediaSwiftSDK.SelfieSegmentation!, didOutputPixelBuffer pixelBuffer: CoreVideo.CVPixelBuffer!, cmTime: CoreMedia.CMTime)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.H264EncoderDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func compressedVideoDataReceived(_ sampleBuffer: CoreMedia.CMSampleBuffer!)
+  @_Concurrency.MainActor(unsafe) @objc final public func compressedVideoDataReceived(_ sampleBuffer: CoreMedia.CMSampleBuffer)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.AACEncoderDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func compressedAudioDataReceived(_ data: Foundation.Data!, asc: Foundation.Data!, pts: CoreMedia.CMTime)
+  @_Concurrency.MainActor(unsafe) @objc final public func compressedAudioDataReceived(_ data: Foundation.Data, asc: Foundation.Data, pts: CoreMedia.CMTime)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func onError(_ description: Swift.String!)
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func onPublishStart()
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func onPublishStop()
+  @_Concurrency.MainActor(unsafe) @objc final public func onError(_ description: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc final public func onPublishStart()
+  @_Concurrency.MainActor(unsafe) @objc final public func onPublishStop()
 }
 @objc @_inheritsConvenienceInitializers open class ZiggeoScreenRecorderSampleHandler : ReplayKit.RPBroadcastSampleHandler {
   open func getApplicationGroup() -> Swift.String
@@ -548,8 +481,8 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerD
 @_inheritsConvenienceInitializers @objc public class ViewModel : ObjectiveC.NSObject {
   @objc public var audioFilePathLocal: Foundation.URL?
   @objc public var meteringLevels: [Swift.Float]?
-  @objc public var audioMeteringLevelUpdate: ((Swift.Float) -> ())?
-  @objc public var audioDidFinish: (() -> ())?
+  @objc public var audioMeteringLevelUpdate: ((Swift.Float) -> Swift.Void)?
+  @objc public var audioDidFinish: (() -> Swift.Void)?
   @objc override dynamic public init()
   @objc public func askAudioRecordingPermission(completion: ((Swift.Bool) -> Swift.Void)? = nil)
   @objc public func startRecording(completion: @escaping (Foundation.URL?, [Swift.Float]?, (any Swift.Error)?) -> Swift.Void)
@@ -562,12 +495,11 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerD
   @objc public func pausePlaying() throws
   @objc deinit
 }
-@objc @_Concurrency.MainActor(unsafe) open class ZiggeoVideoEditor : UIKit.UIViewController {
+@objc @_Concurrency.MainActor(unsafe) final public class ZiggeoVideoEditor : UIKit.UIViewController {
   @_Concurrency.MainActor(unsafe) public init(application: ZiggeoMediaSwiftSDK.Ziggeo, videoUrl: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didReceiveMemoryWarning()
-  @_Concurrency.MainActor(unsafe) open func setUrl(_ urlString: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) final public func setUrl(_ urlString: Swift.String)
   @objc deinit
 }
 @objc(BSImagePickerController) @objcMembers @_Concurrency.MainActor(unsafe) open class ImagePickerController : UIKit.UINavigationController {
@@ -586,31 +518,25 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerD
   @objc @_Concurrency.MainActor(unsafe) public func deselect(asset: Photos.PHAsset)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class UploadingConfig : ObjectiveC.NSObject {
-  public var syncInterval: Swift.Double
-  public var shouldTurnOffUploader: Swift.Bool
-  public var shouldUseWifiOnly: Swift.Bool
-  public var shouldStartAsForeground: Swift.Bool
-  public var lostConnectionAction: Swift.Int
-  public var extraArgs: [Swift.String : Any]
+@objc @_inheritsConvenienceInitializers final public class UploadingConfig : ObjectiveC.NSObject {
+  final public var syncInterval: Swift.Double {
+    get
+    set
+  }
+  final public var shouldTurnOffUploader: Swift.Bool
+  final public var shouldUseWifiOnly: Swift.Bool
+  final public var shouldStartAsForeground: Swift.Bool
+  final public var lostConnectionAction: Swift.Int {
+    get
+    set
+  }
+  final public var extraArgs: [Swift.String : Any]
+  final public func addExtraArgs(_ extraArgs: [Swift.String : Any])
+  final public func stringValueConfig() -> Swift.String
   @objc override dynamic public init()
-  open func getSyncInterval() -> Swift.Double
-  open func setSyncInterval(_ syncInterval: Swift.Double)
-  open func getShouldTurnOffUploader() -> Swift.Bool
-  open func setShouldTurnOffUploader(_ shouldTurnOffUploader: Swift.Bool)
-  open func getShouldUseWifiOnly() -> Swift.Bool
-  open func setShouldUseWifiOnly(_ shouldUseWifiOnly: Swift.Bool)
-  open func getShouldStartAsForeground() -> Swift.Bool
-  open func setShouldStartAsForeground(_ shouldStartAsForeground: Swift.Bool)
-  open func getLostConnectionAction() -> Swift.Int
-  open func setLostConnectionAction(_ lostConnectionAction: Swift.Int)
-  open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
-  open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func stringValueConfig() -> Swift.String
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class AudioStream : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AudioStream : ObjectiveC.NSObject {
   @objc deinit
 }
 @objc @objcMembers public class AssetStore : ObjectiveC.NSObject {
@@ -621,81 +547,83 @@ extension ZiggeoMediaSwiftSDK.ZiggeoRecorder : ZiggeoMediaSwiftSDK.LiveStreamerD
   @objc public var count: Swift.Int {
     @objc get
   }
+  @objc public var isEmpty: Swift.Bool {
+    @objc get
+  }
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers open class ZiggeoPlayer : AVFoundation.AVQueuePlayer {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZiggeoPlayer : AVFoundation.AVQueuePlayer {
   public init(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String)
   @objc override dynamic public init()
   public init(application: ZiggeoMediaSwiftSDK.Ziggeo, playerItem: AVFoundation.AVPlayerItem?)
   public init(application: ZiggeoMediaSwiftSDK.Ziggeo, playerItems: [AVFoundation.AVPlayerItem])
-  @objc override dynamic public init(playerItem: AVFoundation.AVPlayerItem?)
-  @objc override dynamic public init(items: [AVFoundation.AVPlayerItem])
-  @objc override dynamic public init(url: Foundation.URL)
   @objc deinit
-  public class func createPlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, videoUrl: Swift.String?, params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
-  public class func createPlayerItemWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, videoUrl: Swift.String?, params: Foundation.NSDictionary?, callback: @escaping (_ item: AVFoundation.AVPlayerItem?) -> Swift.Void)
-  public class func createQueuePlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoTokens: [Swift.String], params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
-  public class func createQueuePlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoUrls: [Swift.String], params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
-  public class func createPlayerForMultipleVideos(application: ZiggeoMediaSwiftSDK.Ziggeo, videoTokens: [Swift.String], params: Foundation.NSDictionary?, callback: @escaping (_ player: AVFoundation.AVQueuePlayer?) -> Swift.Void)
-  public class func createPlayerWithClientAuthToken(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, authToken: Swift.String, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
-  public class func createPlayerWithServerAuthToken(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, authToken: Swift.String, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
-  public func playWithAds(adTagURL: Swift.String, playerContainer: UIKit.UIView, rootViewController: UIKit.UIViewController, playerViewController: AVKit.AVPlayerViewController)
-  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  public static func createPlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, videoUrl: Swift.String?, params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
+  public static func createPlayerItemWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, videoUrl: Swift.String?, params: Foundation.NSDictionary?, callback: @escaping (_ item: AVFoundation.AVPlayerItem?) -> Swift.Void)
+  public static func createQueuePlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoTokens: [Swift.String], params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
+  public static func createQueuePlayerWithAdditionalParams(application: ZiggeoMediaSwiftSDK.Ziggeo, videoUrls: [Swift.String], params: Foundation.NSDictionary?, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
+  public static func createPlayerForMultipleVideos(application: ZiggeoMediaSwiftSDK.Ziggeo, videoTokens: [Swift.String], params: Foundation.NSDictionary?, callback: @escaping (_ player: AVFoundation.AVQueuePlayer?) -> Swift.Void)
+  public static func createPlayerWithClientAuthToken(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, authToken: Swift.String, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
+  public static func createPlayerWithServerAuthToken(application: ZiggeoMediaSwiftSDK.Ziggeo, videoToken: Swift.String, authToken: Swift.String, callback: @escaping (_ player: ZiggeoMediaSwiftSDK.ZiggeoPlayer?) -> Swift.Void)
+  final public func playWithAds(adTagURL: Swift.String, playerContainer: UIKit.UIView, rootViewController: UIKit.UIViewController, playerViewController: AVKit.AVPlayerViewController)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoPlayer : GoogleInteractiveMediaAds.IMAAdsLoaderDelegate {
-  @objc dynamic public func adsLoader(_ loader: GoogleInteractiveMediaAds.IMAAdsLoader, adsLoadedWith adsLoadedData: GoogleInteractiveMediaAds.IMAAdsLoadedData)
-  @objc dynamic public func adsLoader(_ loader: GoogleInteractiveMediaAds.IMAAdsLoader, failedWith adErrorData: GoogleInteractiveMediaAds.IMAAdLoadingErrorData)
+  @objc final public func adsLoader(_ loader: GoogleInteractiveMediaAds.IMAAdsLoader, adsLoadedWith adsLoadedData: GoogleInteractiveMediaAds.IMAAdsLoadedData)
+  @objc final public func adsLoader(_ loader: GoogleInteractiveMediaAds.IMAAdsLoader, failedWith adErrorData: GoogleInteractiveMediaAds.IMAAdLoadingErrorData)
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoPlayer : GoogleInteractiveMediaAds.IMAAdsManagerDelegate {
-  @objc dynamic public func adsManager(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager, didReceive event: GoogleInteractiveMediaAds.IMAAdEvent)
-  @objc dynamic public func adsManager(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager, didReceive error: GoogleInteractiveMediaAds.IMAAdError)
-  @objc dynamic public func adsManagerDidRequestContentPause(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager)
-  @objc dynamic public func adsManagerDidRequestContentResume(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager)
+  @objc final public func adsManager(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager, didReceive event: GoogleInteractiveMediaAds.IMAAdEvent)
+  @objc final public func adsManager(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager, didReceive error: GoogleInteractiveMediaAds.IMAAdError)
+  @objc final public func adsManagerDidRequestContentPause(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager)
+  @objc final public func adsManagerDidRequestContentResume(_ adsManager: GoogleInteractiveMediaAds.IMAAdsManager)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CapturePreviewView : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open class var layerClass: Swift.AnyClass {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class CapturePreviewView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override public static var layerClass: Swift.AnyClass {
     @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc public class FileInfoData : ObjectiveC.NSObject {
+public struct FileInfoData {
   public init(path: Swift.String, mimeType: Swift.String, name: Swift.String)
   public init(url: Foundation.URL, mimeType: Swift.String, name: Swift.String)
-  @objc deinit
 }
-@objc open class ZiggeoConfig : ObjectiveC.NSObject {
-  open var serverAPIUrl: Swift.String
-  open var cdnAPIUrl: Swift.String
-  open var devServerApiUrl: Swift.String
-  open var fileServerUrl: Swift.String
-  open var streamServerUrl: Swift.String
+final public class ZiggeoConfig {
+  final public var serverAPIUrl: Swift.String
+  final public var cdnAPIUrl: Swift.String
+  final public var devServerApiUrl: Swift.String
+  final public var fileServerUrl: Swift.String
+  final public var streamServerUrl: Swift.String
   public init(token: Swift.String)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DeviceInfo : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DeviceInfo : ObjectiveC.NSObject {
   @objc deinit
 }
-public protocol CoverSelectorDelegate {
-  func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage!)
+public protocol CoverSelectorDelegate : AnyObject {
+  func coverSelected(_ videoPath: Swift.String, image: UIKit.UIImage?)
 }
-@objc @_Concurrency.MainActor(unsafe) open class CoverSelector : UIKit.UIViewController, UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
-  @_Concurrency.MainActor(unsafe) open var delegate: (any ZiggeoMediaSwiftSDK.CoverSelectorDelegate)!
-  @_Concurrency.MainActor(unsafe) public init(videoPath: Swift.String)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) public static func getDefaultCover(_ path: Swift.String, callback: ((_ cover: UIKit.UIImage?) -> Swift.Void)?)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var prefersStatusBarHidden: Swift.Bool {
+@objc @_Concurrency.MainActor(unsafe) final public class CoverSelector : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: (any ZiggeoMediaSwiftSDK.CoverSelectorDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override final public var prefersStatusBarHidden: Swift.Bool {
     @objc get
   }
+  @_Concurrency.MainActor(unsafe) public init(videoPath: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
-  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
-  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
-  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) public static func getDefaultCover(_ path: Swift.String, callback: ((_ cover: UIKit.UIImage?) -> Swift.Void)?)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Audio : ZiggeoMediaSwiftSDK.ContentModel {
+extension ZiggeoMediaSwiftSDK.CoverSelector : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+}
+extension ZiggeoMediaSwiftSDK.CoverSelector : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Audio : ZiggeoMediaSwiftSDK.ContentModel {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers final public class AudioContext {
@@ -703,7 +631,7 @@ public protocol CoverSelectorDelegate {
   final public let totalSamples: Swift.Int
   final public let asset: AVFoundation.AVAsset
   final public let assetTrack: AVFoundation.AVAssetTrack
-  public static func load(fromAudioURL audioURL: Foundation.URL, completionHandler: @escaping (_ audioContext: ZiggeoMediaSwiftSDK.AudioContext?) -> ())
+  public static func load(fromAudioURL audioURL: Foundation.URL, completionHandler: @escaping (_ audioContext: ZiggeoMediaSwiftSDK.AudioContext?) -> Swift.Void)
   final public func render(targetSamples: Swift.Int = 100) -> [Swift.Float]
   @objc deinit
 }
@@ -719,9 +647,9 @@ public let ReachabilityChangedNotification: Foundation.NSNotification.Name
 extension Foundation.NSNotification.Name {
   public static let reachabilityChanged: Foundation.Notification.Name
 }
-public class Reachability {
-  public typealias NetworkReachable = (ZiggeoMediaSwiftSDK.Reachability) -> ()
-  public typealias NetworkUnreachable = (ZiggeoMediaSwiftSDK.Reachability) -> ()
+final public class Reachability {
+  public typealias NetworkReachable = (ZiggeoMediaSwiftSDK.Reachability) -> Swift.Void
+  public typealias NetworkUnreachable = (ZiggeoMediaSwiftSDK.Reachability) -> Swift.Void
   @available(*, unavailable, renamed: "Connection")
   public enum NetworkStatus : Swift.CustomStringConvertible {
     case notReachable, reachableViaWiFi, reachableViaWWAN
@@ -736,7 +664,7 @@ public class Reachability {
   }
   public enum Connection : Swift.CustomStringConvertible {
     @available(*, deprecated, renamed: "unavailable")
-    case none
+    case unknown
     case unavailable, wifi, cellular
     public var description: Swift.String {
       get
@@ -747,21 +675,21 @@ public class Reachability {
       get
     }
   }
-  public var whenReachable: ZiggeoMediaSwiftSDK.Reachability.NetworkReachable?
-  public var whenUnreachable: ZiggeoMediaSwiftSDK.Reachability.NetworkUnreachable?
+  final public var whenReachable: ZiggeoMediaSwiftSDK.Reachability.NetworkReachable?
+  final public var whenUnreachable: ZiggeoMediaSwiftSDK.Reachability.NetworkUnreachable?
   @available(*, deprecated, renamed: "allowsCellularConnection")
   final public let reachableOnWWAN: Swift.Bool
-  public var allowsCellularConnection: Swift.Bool
-  public var notificationCenter: Foundation.NotificationCenter
+  final public var allowsCellularConnection: Swift.Bool
+  final public var notificationCenter: Foundation.NotificationCenter
   @available(*, deprecated, renamed: "connection.description")
-  public var currentReachabilityString: Swift.String {
+  final public var currentReachabilityString: Swift.String {
     get
   }
   @available(*, unavailable, renamed: "connection")
-  public var currentReachabilityStatus: ZiggeoMediaSwiftSDK.Reachability.Connection {
+  final public var currentReachabilityStatus: ZiggeoMediaSwiftSDK.Reachability.Connection {
     get
   }
-  public var connection: ZiggeoMediaSwiftSDK.Reachability.Connection {
+  final public var connection: ZiggeoMediaSwiftSDK.Reachability.Connection {
     get
   }
   required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main)
@@ -770,21 +698,21 @@ public class Reachability {
   @objc deinit
 }
 extension ZiggeoMediaSwiftSDK.Reachability {
-  public func startNotifier() throws
-  public func stopNotifier()
-  @available(*, deprecated, message: "Please use `connection != .none`")
-  public var isReachable: Swift.Bool {
+  final public func startNotifier() throws
+  final public func stopNotifier()
+  @available(*, deprecated, message: "Please use `connection != .unknown`")
+  final public var isReachable: Swift.Bool {
     get
   }
   @available(*, deprecated, message: "Please use `connection == .cellular`")
-  public var isReachableViaWWAN: Swift.Bool {
+  final public var isReachableViaWWAN: Swift.Bool {
     get
   }
   @available(*, deprecated, message: "Please use `connection == .wifi`")
-  public var isReachableViaWiFi: Swift.Bool {
+  final public var isReachableViaWiFi: Swift.Bool {
     get
   }
-  public var description: Swift.String {
+  final public var description: Swift.String {
     get
   }
 }
@@ -821,54 +749,54 @@ extension ZiggeoMediaSwiftSDK.ImageView {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor(unsafe) open var animationImages: [UIKit.UIImage]? {
+  @_Concurrency.MainActor(unsafe) public var animationImages: [UIKit.UIImage]? {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var highlightedAnimationImages: [UIKit.UIImage]? {
+  @_Concurrency.MainActor(unsafe) public var highlightedAnimationImages: [UIKit.UIImage]? {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var animationDuration: Foundation.TimeInterval {
+  @_Concurrency.MainActor(unsafe) public var animationDuration: Foundation.TimeInterval {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open var animationRepeatCount: Swift.Int {
+  @_Concurrency.MainActor(unsafe) public var animationRepeatCount: Swift.Int {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) open func startAnimating()
-  @_Concurrency.MainActor(unsafe) open func stopAnimating()
-  @_Concurrency.MainActor(unsafe) open var isAnimating: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) public func startAnimating()
+  @_Concurrency.MainActor(unsafe) public func stopAnimating()
+  @_Concurrency.MainActor(unsafe) public var isAnimating: Swift.Bool {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ImageStream : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ImageStream : ObjectiveC.NSObject {
   @objc deinit
 }
-public protocol VideoPreviewDelegate {
-  func retake(_ fileToBeRemoved: Foundation.URL!)
+public protocol VideoPreviewDelegate : AnyObject {
+  func retake(_ fileToBeRemoved: Foundation.URL)
   func uploadVideo(_ filePath: Foundation.URL)
 }
 public protocol VideoPreviewProtocol {
   var videoURL: Foundation.URL! { get set }
-  var videoGravity: AVFoundation.AVLayerVideoGravity! { get set }
-  var previewDelegate: (any ZiggeoMediaSwiftSDK.VideoPreviewDelegate)! { get set }
+  var videoGravity: AVFoundation.AVLayerVideoGravity { get set }
+  var previewDelegate: (any ZiggeoMediaSwiftSDK.VideoPreviewDelegate)? { get set }
 }
-@objc @_Concurrency.MainActor(unsafe) open class ZiggeoRecordedVideoPreview : UIKit.UIViewController, ZiggeoMediaSwiftSDK.VideoPreviewProtocol {
-  @_Concurrency.MainActor(unsafe) open var videoURL: Foundation.URL!
-  @_Concurrency.MainActor(unsafe) open var videoGravity: AVFoundation.AVLayerVideoGravity!
-  @_Concurrency.MainActor(unsafe) open var previewDelegate: (any ZiggeoMediaSwiftSDK.VideoPreviewDelegate)!
+@objc @_Concurrency.MainActor(unsafe) final public class ZiggeoRecordedVideoPreview : UIKit.UIViewController, ZiggeoMediaSwiftSDK.VideoPreviewProtocol {
+  @_Concurrency.MainActor(unsafe) final public var videoURL: Foundation.URL!
+  @_Concurrency.MainActor(unsafe) final public var videoGravity: AVFoundation.AVLayerVideoGravity
+  @_Concurrency.MainActor(unsafe) weak final public var previewDelegate: (any ZiggeoMediaSwiftSDK.VideoPreviewDelegate)?
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var shouldAutorotate: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) @objc override final public var shouldAutorotate: Swift.Bool {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+  @_Concurrency.MainActor(unsafe) @objc override final public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) open func killPlayer()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) final public func killPlayer()
   @objc deinit
 }
 @objc public enum SkipDirection : Swift.Int {
@@ -880,50 +808,35 @@ public protocol VideoPreviewProtocol {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers public class TPGAudioPlayer : ObjectiveC.NSObject {
-  @objc public var isPlaying: Swift.Bool {
+@objc @_inheritsConvenienceInitializers final public class TPGAudioPlayer : ObjectiveC.NSObject {
+  @objc final public var isPlaying: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public var durationInSeconds: Swift.Double {
+  @objc final public var durationInSeconds: Swift.Double {
     @objc get
   }
-  @objc public class func sharedInstance() -> ZiggeoMediaSwiftSDK.TPGAudioPlayer
-  @objc public var currentTimeInSeconds: Swift.Double {
+  @objc final public var currentTimeInSeconds: Swift.Double {
     @objc get
   }
   @objc override dynamic public init()
-  @objc public func playPauseMediaFile(audioUrl: Foundation.NSURL, springboardInfo: Swift.Dictionary<Swift.String, Swift.AnyObject>, startTime: Swift.Double, completion: @escaping (_ previousItem: Swift.String?, _ stopTime: Swift.Double) -> ())
-  @objc public func skipDirection(skipDirection: ZiggeoMediaSwiftSDK.SkipDirection, timeInterval: Swift.Double, offset: Swift.Double)
-  @objc public func seekPlayerToTime(value: Swift.Double, completion: (() -> Swift.Void)!)
+  @objc final public func playPauseMediaFile(audioUrl: Foundation.URL, springboardInfo: [Swift.String : Swift.AnyObject], startTime: Swift.Double, completion: @escaping (_ previousItem: Swift.String?, _ stopTime: Swift.Double) -> Swift.Void)
+  @objc final public func skipDirection(skipDirection: ZiggeoMediaSwiftSDK.SkipDirection, timeInterval: Swift.Double, offset: Swift.Double)
+  @objc final public func seekPlayerToTime(value: Swift.Double, completion: (() -> Swift.Void)?)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class PlayerConfig : ObjectiveC.NSObject {
-  public var style: ZiggeoMediaSwiftSDK.PlayerStyle
-  public var shouldShowSubtitles: Swift.Bool
-  public var shouldPreload: Swift.Bool
-  public var isMuted: Swift.Bool
-  public var isCachingEnabled: Swift.Bool
-  public var adsUri: Swift.String
-  public var extraArgs: [Swift.String : Any]
+@objc @_inheritsConvenienceInitializers final public class PlayerConfig : ObjectiveC.NSObject {
+  final public var style: ZiggeoMediaSwiftSDK.PlayerStyle
+  final public var shouldShowSubtitles: Swift.Bool
+  final public var shouldPreload: Swift.Bool
+  final public var isMuted: Swift.Bool
+  final public var isCachingEnabled: Swift.Bool
+  final public var adsUri: Swift.String
+  final public var extraArgs: [Swift.String : Any]
+  final public func addExtraArgs(_ extraArgs: [Swift.String : Any])
+  final public func toString() -> Swift.String
+  final public func stringValueConfig() -> Swift.String
   @objc override dynamic public init()
-  open func getStyle() -> ZiggeoMediaSwiftSDK.PlayerStyle
-  open func setStyle(_ style: ZiggeoMediaSwiftSDK.PlayerStyle)
-  open func getShouldShowSubtitles() -> Swift.Bool
-  open func setShouldShowSubtitles(_ shouldShowSubtitles: Swift.Bool)
-  open func getShouldPreload() -> Swift.Bool
-  open func setShouldPreload(_ shouldPreload: Swift.Bool)
-  open func getIsMuted() -> Swift.Bool
-  open func setIsMuted(_ isMuted: Swift.Bool)
-  open func getIsCachingEnabled() -> Swift.Bool
-  open func setIsCachingEnabled(_ isCachingEnabled: Swift.Bool)
-  open func getAdsUri() -> Swift.String
-  open func setAdsUri(_ adsUri: Swift.String)
-  open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
-  open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func toString() -> Swift.String
-  open func stringValueConfig() -> Swift.String
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ContentModel : ObjectiveC.NSObject {
@@ -935,15 +848,15 @@ public protocol VideoPreviewProtocol {
   public var streamToken: Swift.String!
   public var date: Swift.Double!
   public var duration: Swift.Double!
-  open func getDescription() -> Swift.String
-  open func setDescription(_ description: Swift.String)
+  public func getDescription() -> Swift.String
+  public func setDescription(_ description: Swift.String)
   @objc deinit
 }
-public class RecorderInterfaceConfig {
-  public var recordButton: ZiggeoMediaSwiftSDK.ButtonConfig
-  public var closeButton: ZiggeoMediaSwiftSDK.ButtonConfig
-  public var pauseButton: ZiggeoMediaSwiftSDK.ButtonConfig
-  public var cameraFlipButton: ZiggeoMediaSwiftSDK.ButtonConfig
+final public class RecorderInterfaceConfig {
+  final public var recordButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  final public var closeButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  final public var pauseButton: ZiggeoMediaSwiftSDK.ButtonConfig
+  final public var cameraFlipButton: ZiggeoMediaSwiftSDK.ButtonConfig
   public init()
   @objc deinit
 }
@@ -968,12 +881,10 @@ extension ZiggeoMediaSwiftSDK.ImagePickerController : ZiggeoMediaSwiftSDK.ImageP
   @objc @_Concurrency.MainActor(unsafe) dynamic public func imagePicker(_ imagePicker: ZiggeoMediaSwiftSDK.ImagePickerController, didReachSelectionLimit count: Swift.Int)
 }
 extension ZiggeoMediaSwiftSDK.ImagePickerController : UIKit.UIAdaptivePresentationControllerDelegate {
-  @available(iOS 13, *)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func presentationControllerShouldDismiss(_ presentationController: UIKit.UIPresentationController) -> Swift.Bool
-  @available(iOS 13, *)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func presentationControllerDidDismiss(_ presentationController: UIKit.UIPresentationController)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Video : ZiggeoMediaSwiftSDK.ContentModel {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Video : ZiggeoMediaSwiftSDK.ContentModel {
   @objc deinit
 }
 extension Foundation.NSNotification.Name {
@@ -982,86 +893,74 @@ extension Foundation.NSNotification.Name {
   public static let playerDidReachEnd: Foundation.Notification.Name
   public static let playerTimeDidChange: Foundation.Notification.Name
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CoverSelectorTableCell : UIKit.UITableViewCell {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class CoverSelectorTableCell : UIKit.UITableViewCell {
   @available(iOS 3.0, *)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class FileSelectorConfig : ObjectiveC.NSObject {
-  public var maxDuration: Swift.Double
-  public var minDuration: Swift.Double
-  public var shouldAllowMultipleSelection: Swift.Bool
-  public var mediaType: Swift.Int
-  public var extraArgs: [Swift.String : Any]
+@objc @_inheritsConvenienceInitializers final public class FileSelectorConfig : ObjectiveC.NSObject {
+  final public var maxDuration: Swift.Double
+  final public var minDuration: Swift.Double
+  final public var shouldAllowMultipleSelection: Swift.Bool
+  final public var mediaType: ZiggeoMediaSwiftSDK.MediaTypes
+  final public var extraArgs: [Swift.String : Any]
+  final public func addExtraArgs(_ extraArgs: [Swift.String : Any])
+  final public func stringValueConfig() -> Swift.String
   @objc override dynamic public init()
-  open func getMaxDuration() -> Swift.Double
-  open func setMaxDuration(_ maxDuration: Swift.Double)
-  open func getMinDuration() -> Swift.Double
-  open func setMinDuration(_ minDuration: Swift.Double)
-  open func getShouldAllowMultipleSelection() -> Swift.Bool
-  open func setShouldAllowMultipleSelection(_ shouldAllowMultipleSelection: Swift.Bool)
-  open func getMediaType() -> Swift.Int
-  open func setMediaType(_ mediaType: Swift.Int)
-  open func getExtraArgs() -> Swift.Dictionary<Swift.String, Any>
-  open func setExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func addExtraArgs(_ extraArgs: Swift.Dictionary<Swift.String, Any>)
-  open func stringValueConfig() -> Swift.String
   @objc deinit
 }
-public protocol ReachabilityChangeDelegate {
+public protocol ReachabilityChangeDelegate : AnyObject {
   func reachabilityChanged(_ reachability: ZiggeoMediaSwiftSDK.Reachability)
 }
-@objc @_inheritsConvenienceInitializers public class ReachabilityManager : ObjectiveC.NSObject {
-  public var isNetworkAvailable: Swift.Bool {
+@objc @_inheritsConvenienceInitializers final public class ReachabilityManager : ObjectiveC.NSObject {
+  final public var isNetworkAvailable: Swift.Bool {
     get
   }
-  public var reachabilityStatus: ZiggeoMediaSwiftSDK.Reachability.Connection
+  final public var reachabilityStatus: ZiggeoMediaSwiftSDK.Reachability.Connection
   final public let reachability: ZiggeoMediaSwiftSDK.Reachability
-  public var reachabilityChangeDelegate: (any ZiggeoMediaSwiftSDK.ReachabilityChangeDelegate)?
-  public func startMonitoring()
-  public func stopConnectionListener()
-  open func isNetworkConnected() -> Swift.Bool
-  open func isWifiConnected() -> Swift.Bool
+  weak final public var reachabilityChangeDelegate: (any ZiggeoMediaSwiftSDK.ReachabilityChangeDelegate)?
+  final public func startMonitoring()
+  final public func stopConnectionListener()
+  final public func isNetworkConnected() -> Swift.Bool
+  final public func isWifiConnected() -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class QrScannerConfig : ObjectiveC.NSObject {
-  public var shouldCloseAfterSuccessfulScan: Swift.Bool
+final public class QrScannerConfig {
+  final public var shouldCloseAfterSuccessfulScan: Swift.Bool
+  public init()
+  final public func stringValueConfig() -> Swift.String
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class ZiggeoAudios : ObjectiveC.NSObject {
+  final public func getAudioUrl(_ token: Swift.String) -> Swift.String
+  final public func index(_ data: [Swift.AnyHashable : Any], callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Audio], _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Audio, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func update(_ token: Swift.String, data: [Swift.AnyHashable : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Audio?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
+  final public func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VideoStream : ObjectiveC.NSObject {
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class ZiggeoUploadingHandler : ObjectiveC.NSObject {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VideoSize : ObjectiveC.NSObject {
+  final public var width: Swift.Int
+  final public var height: Swift.Int
+  final public var aspectRatio: ZiggeoMediaSwiftSDK.AspectRatio
   @objc override dynamic public init()
-  open func getShouldCloseAfterSuccessfulScan() -> Swift.Bool
-  open func setShouldCloseAfterSuccessfulScan(_ shouldCloseAfterSuccessfulScan: Swift.Bool)
-  open func stringValueConfig() -> Swift.String
-  @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers open class ZiggeoAudios : ObjectiveC.NSObject {
-  open func getAudioUrl(_ token: Swift.String) -> Swift.String
-  open func index(_ data: [Swift.AnyHashable : Any]?, callback: @escaping (_ array: [ZiggeoMediaSwiftSDK.Audio], _ error: (any Swift.Error)?) -> Swift.Void)
-  open func get(_ token: Swift.String, data: [Swift.String : Any], callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Audio, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func create(_ strUrl: Swift.String, data: [Swift.String : Any], callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void, progress: @escaping (_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void, confirmCallback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func update(_ token: Swift.String, data: [Swift.AnyHashable : Any]?, callback: @escaping (_ content: ZiggeoMediaSwiftSDK.Audio?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func destroy(_ token: Swift.String, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void)
-  open func download(_ token: Swift.String, callback: @escaping (_ filePath: Swift.String) -> Swift.Void)
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VideoStream : ObjectiveC.NSObject {
-  @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers open class ZiggeoUploadingHandler : ObjectiveC.NSObject {
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VideoSize : ObjectiveC.NSObject {
-  open var width: Swift.Int
-  open var height: Swift.Int
-  open var aspectRatio: ZiggeoMediaSwiftSDK.AspectRatio
-  @objc override dynamic public init()
-  open func getWidth() -> Swift.Int
-  open func getHeight() -> Swift.Int
-  open func getAspectRatio() -> ZiggeoMediaSwiftSDK.AspectRatio
-  open func setAspectRatio(_ aspectRatio: ZiggeoMediaSwiftSDK.AspectRatio)
-  open func equals(_ size: ZiggeoMediaSwiftSDK.VideoSize?) -> Swift.Bool
-  open func toString() -> Swift.String
-  open func compareTo(_ size: ZiggeoMediaSwiftSDK.VideoSize) -> Swift.Int
+  final public func getWidth() -> Swift.Int
+  final public func getHeight() -> Swift.Int
+  final public func getAspectRatio() -> ZiggeoMediaSwiftSDK.AspectRatio
+  final public func setAspectRatio(_ aspectRatio: ZiggeoMediaSwiftSDK.AspectRatio)
+  final public func equals(_ size: ZiggeoMediaSwiftSDK.VideoSize?) -> Swift.Bool
+  final public func toString() -> Swift.String
+  final public func compareTo(_ size: ZiggeoMediaSwiftSDK.VideoSize) -> Swift.Int
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(BSImagePickerSettings) @objcMembers public class Settings : ObjectiveC.NSObject {
@@ -1326,62 +1225,58 @@ public protocol ImagePickerControllerDelegate : AnyObject {
 }
 @_inheritsConvenienceInitializers @objc public class SpringboardData : ObjectiveC.NSObject {
   @objc public func setupLockScreenElementsWithDictionary(infoDictionary: Foundation.NSDictionary)
-  @objc public class func springboardDictionary(title: Swift.String, artist: Swift.String, duration: Swift.Int, listScreenTitle: Swift.String, imagePath: Swift.String) -> Swift.Dictionary<Swift.String, Swift.AnyObject>
+  @objc public class func springboardDictionary(title: Swift.String, artist: Swift.String, duration: Swift.Int, listScreenTitle: Swift.String, imagePath: Swift.String) -> [Swift.String : Swift.AnyObject]
   @objc public func updateLockScreenCurrentTime(currentTime: Swift.Double)
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class AspectRatio : ObjectiveC.NSObject {
-  public var mX: Swift.Int
-  public var mY: Swift.Int
-  @objc override dynamic public init()
+public struct AspectRatio {
+  public let mX: Swift.Int
+  public let mY: Swift.Int
   public init(_ x: Swift.Int, _ y: Swift.Int)
+}
+final public class CameraRecorderStyle {
+  final public var hideControls: Swift.Bool
+  public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class CameraRecorderStyle : ObjectiveC.NSObject {
-  public var hideControls: Swift.Bool
-  @objc override dynamic public init()
-  open func getHideControls() -> Swift.Bool
-  open func setHideControls(_ hideControls: Swift.Bool)
+@objc @_hasMissingDesignatedInitializers final public class ZiggeoConnect : ObjectiveC.NSObject, Foundation.URLSessionDataDelegate {
+  final public var clientAuthToken: Swift.String?
+  final public var serverAuthToken: Swift.String?
+  final public func applicationDidEnterBackground()
+  @objc final public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  @objc final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: (any Swift.Error)?)
+  @objc final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  final public func appWakeupSignalTaskComplete(_ sessionID: Swift.String)
+  final public func formatURLRequest(_ request: Foundation.URLRequest) -> Swift.String
+  final public func uploadFileWithPath(_ path: Swift.String, parameters: Foundation.NSDictionary?, identifier: Swift.String, filePath: Swift.String, fileName: Swift.String, mimeType: Swift.String, fileExtension: Swift.String, callback: ((_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
+  final public func backgroundUploadWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, identifier: Swift.String, file: Swift.String, callback: ((_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
+  final public func postRawDataWithPath(_ path: Swift.String, data: Foundation.Data, params: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func requestWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func requestStringWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ string: Swift.String?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func requestJSONWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func requestJSONArrayWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonArray: Foundation.NSArray?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func getWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func getStringWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ string: Swift.String?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func getJsonWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func getJsonArrayWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonArray: Foundation.NSArray?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func postWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func postJsonWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func deleteWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func deleteJsonWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
+  final public func addSessionData(_ data: Foundation.NSDictionary?, path: Swift.String, callback: @escaping (_ dataWithSessionData: Foundation.NSDictionary?) -> Foundation.URLSessionTask) -> Foundation.URLSessionTask
+  final public func getSession(callback: @escaping (_ sessionKey: Swift.String?, _ sessionValue: Swift.String?) -> Foundation.URLSessionTask) -> Foundation.URLSessionTask
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers open class ZiggeoConnect : ObjectiveC.NSObject, Foundation.URLSessionDataDelegate {
-  open var clientAuthToken: Swift.String?
-  open var serverAuthToken: Swift.String?
-  open func applicationDidEnterBackground()
-  @objc open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
-  @objc open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: (any Swift.Error)?)
-  @objc open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
-  open func appWakeupSignalTaskComplete(_ sessionID: Swift.String)
-  open func formatURLRequest(_ request: Foundation.URLRequest) -> Swift.String
-  open func uploadFileWithPath(_ path: Swift.String, parameters: Foundation.NSDictionary?, identifier: Swift.String, filePath: Swift.String, fileName: Swift.String, mimeType: Swift.String, fileExtension: Swift.String, callback: ((_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func backgroundUploadWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, identifier: Swift.String, file: Swift.String, callback: ((_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Foundation.NSError?) -> Swift.Void)?, progress: ((_ totalBytesSent: Swift.Int64, _ totalBytesExpectedToSend: Swift.Int64) -> Swift.Void)?) -> Foundation.URLSessionTask
-  open func postRawDataWithPath(_ path: Swift.String, data: Foundation.Data, params: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func requestWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func requestStringWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ string: Swift.String?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func requestJSONWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func requestJSONArrayWithMethod(_ method: Swift.String, path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonArray: Foundation.NSArray?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func getWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func getStringWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ string: Swift.String?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func getJsonWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func getJsonArrayWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonArray: Foundation.NSArray?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func postWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func postJsonWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func deleteWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func deleteJsonWithPath(_ path: Swift.String, data: Foundation.NSDictionary?, callback: @escaping (_ jsonObject: Foundation.NSDictionary?, _ response: Foundation.URLResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionTask
-  open func addSessionData(_ data: Foundation.NSDictionary?, path: Swift.String, callback: @escaping (_ dataWithSessionData: Foundation.NSDictionary?) -> Foundation.URLSessionTask) -> Foundation.URLSessionTask!
-  open func getSession(callback: @escaping (_ sessionKey: Swift.String?, _ sessionValue: Swift.String?) -> Foundation.URLSessionTask) -> Foundation.URLSessionTask
+@_hasMissingDesignatedInitializers final public class ButtonConfig {
+  final public var imagePath: Swift.String?
+  final public var selectedImagePath: Swift.String?
+  final public var scale: CoreFoundation.CGFloat
+  final public var width: CoreFoundation.CGFloat?
+  final public var height: CoreFoundation.CGFloat?
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class ButtonConfig {
-  public var imagePath: Swift.String?
-  public var selectedImagePath: Swift.String?
-  public var scale: CoreFoundation.CGFloat
-  public var width: CoreFoundation.CGFloat?
-  public var height: CoreFoundation.CGFloat?
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Image : ZiggeoMediaSwiftSDK.ContentModel {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Image : ZiggeoMediaSwiftSDK.ContentModel {
   @objc deinit
 }
 extension ZiggeoMediaSwiftSDK.ZiggeoAudioRecorder.AudioRecorderState : Swift.Equatable {}

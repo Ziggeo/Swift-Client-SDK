@@ -9,6 +9,6 @@ import UIKit
 
 extension UIWindow {
     static var key: UIWindow? {
-        UIWindowScene.foregroundActive?.windows.first(where: \.isKeyWindow)
+        UIWindowScene.foreground?.windows.first(where: \.isKeyWindow)
     }
 }

@@ -29,7 +29,7 @@ final class RecordingDetailViewController: UIViewController {
     @IBOutlet private weak var saveButton: UIView!
     
     // MARK: - Public variables
-    var mediaType = VIDEO
+    var mediaType: MediaTypes = .video
     var recording: ContentModel?
     var recordingDelegate: RecordingDelegate?
     
@@ -41,14 +41,15 @@ final class RecordingDetailViewController: UIViewController {
         super.viewDidLoad()
         
         if let recording = recording {
-            if mediaType == VIDEO {
+            switch mediaType {
+            case .video:
                 imageView.contentMode = .scaleAspectFill
                 let imageUrlString = Common.ziggeo?.videos.getImageUrl(recording.token) ?? ""
                 imageView.setURL(imageUrlString, placeholder: nil)
-            } else if mediaType == AUDIO {
+            case .audio:
                 imageView.contentMode = .scaleAspectFit
                 imageView.image = .bgAudio
-            } else {
+            default:
                 imageView.contentMode = .scaleAspectFill
                 let imageUrlString = Common.ziggeo?.images.getImageUrl(recording.token) ?? ""
                 imageView.setURL(imageUrlString, placeholder: nil)
@@ -95,12 +96,12 @@ private extension RecordingDetailViewController {
             }
             
             switch self.mediaType {
-            case VIDEO:
+            case .video:
                 Common.ziggeo?.videos.destroy(recording.token, streamToken: recording.streamToken) { _, _, _ in
                     completion()
                 }
                 
-            case AUDIO:
+            case .audio:
                 Common.ziggeo?.audios.destroy(recording.token) { _, _, _ in
                     completion()
                 }
@@ -128,12 +129,12 @@ private extension RecordingDetailViewController {
         }
         
         switch mediaType {
-        case VIDEO:
+        case .video:
             Common.ziggeo?.videos.update(recording.token, data: data) { _, _, _ in
                 completion()
             }
             
-        case AUDIO:
+        case .audio:
             Common.ziggeo?.audios.update(recording.token, data: data) { _, _, _ in
                 completion()
             }
@@ -149,7 +150,7 @@ private extension RecordingDetailViewController {
         guard let recording = recording else { return }
         
         switch mediaType {
-        case VIDEO:
+        case .video:
             guard UserDefaults.isUsingCustomPlayer else {
                 Common.ziggeo?.playVideo(recording.token)
                 return
@@ -161,7 +162,7 @@ private extension RecordingDetailViewController {
             vc.videoURL = URL(string: urlString)
             present(vc, animated: true)
             
-        case AUDIO:
+        case .audio:
             Common.ziggeo?.startAudioPlayer(recording.token)
         default:
             Common.ziggeo?.showImage(recording.token)
