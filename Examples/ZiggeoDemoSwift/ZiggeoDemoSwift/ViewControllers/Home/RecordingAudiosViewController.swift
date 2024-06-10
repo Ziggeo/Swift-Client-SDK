@@ -39,7 +39,7 @@ final class RecordingAudiosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Common.currentTab = AUDIO
+        Common.currentTab = .audio
     }
     
     func getRecordings() {
@@ -86,7 +86,7 @@ extension RecordingAudiosViewController: UITableViewDelegate, UITableViewDataSou
         Common.ziggeo?.audios.get(recordings[indexPath.row].token, data: [:]) { content, _, _ in
             SVProgressHUD.dismiss()
             if let vc = Common.getStoryboardViewController(type: RecordingDetailViewController.self) {
-                vc.mediaType = AUDIO
+                vc.mediaType = .audio
                 vc.recording = content
                 vc.recordingDelegate = self
                 Common.mainNavigationController?.pushViewController(vc, animated: true)

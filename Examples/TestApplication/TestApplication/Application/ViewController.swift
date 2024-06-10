@@ -35,38 +35,38 @@ final class ViewController: UIViewController {
         ziggeo.screenRecorderDelegate = self
         return ziggeo
     }()
-    fileprivate var currentType = 0
+    fileprivate var currentType: MediaTypes?
 }
 
 // MARK: - @IBActions
 private extension ViewController {
     @IBAction func onRecordVideo(_ sender: AnyObject) {
-        currentType = VIDEO
+        currentType = .video
         
         let recorderConfig = RecorderConfig()
-        recorderConfig.setShouldAutoStartRecording(true)
-        recorderConfig.setStartDelay(DEFAULT_START_DELAY)
-        recorderConfig.setShouldDisableCameraSwitch(false)
-        recorderConfig.setVideoQuality(QUALITY_HIGH)
-        recorderConfig.setFacing(FACING_BACK)
-        recorderConfig.setMaxDuration(0)
-        recorderConfig.setShouldSendImmediately(false)
-        recorderConfig.setIsPausedMode(true)
-        recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
-        recorderConfig.setShouldConfirmStopRecording(true)
+        recorderConfig.shouldAutoStartRecording = true
+        recorderConfig.startDelay = DEFAULT_START_DELAY
+        recorderConfig.shouldDisableCameraSwitch = false
+        recorderConfig.videoQuality = QUALITY_HIGH
+        recorderConfig.facing = FACING_BACK
+        recorderConfig.maxDuration = 0
+        recorderConfig.shouldSendImmediately = false
+        recorderConfig.isPausedMode = true
+        recorderConfig.resolution.aspectRatio = DEFAULT_ASPECT_RATIO
+        recorderConfig.shouldConfirmStopRecording = true
         
         let stopRecordingConfirmationDialogConfig = StopRecordingConfirmationDialogConfig()
-        stopRecordingConfirmationDialogConfig.setTitleText("Ziggeo")
-        stopRecordingConfirmationDialogConfig.setMesText("Do you want to stop recording?")
-        stopRecordingConfirmationDialogConfig.setPosBtnText("Yes")
-        stopRecordingConfirmationDialogConfig.setNegBtnText("No")
-        recorderConfig.setStopRecordingConfirmationDialogConfig(stopRecordingConfirmationDialogConfig)
+        stopRecordingConfirmationDialogConfig.titleText = "Ziggeo"
+        stopRecordingConfirmationDialogConfig.mesText = "Do you want to stop recording?"
+        stopRecordingConfirmationDialogConfig.posBtnText = "Yes"
+        stopRecordingConfirmationDialogConfig.negBtnText = "No"
+        recorderConfig.stopRecordingConfirmationDialogConfig = stopRecordingConfirmationDialogConfig
         
-        recorderConfig.setExtraArgs(["tags": "iOS,Video,Record",
-                                     "client_auth": "CLIENT_AUTH_TOKEN",
-                                     "server_auth": "SERVER_AUTH_TOKEN",
-                                     "data": ["foo": "bar"],
-                                     "effect_profile": "1234,5678"])
+        recorderConfig.extraArgs = ["tags": "iOS,Video,Record",
+                                    "client_auth": "CLIENT_AUTH_TOKEN",
+                                    "server_auth": "SERVER_AUTH_TOKEN",
+                                    "data": ["foo": "bar"],
+                                    "effect_profile": "1234,5678"]
         self.m_ziggeo.setRecorderConfig(recorderConfig)
         
         self.m_ziggeo.record()
@@ -74,32 +74,32 @@ private extension ViewController {
     
     @IBAction func onPlayVideo(_ sender: AnyObject) {
         let playerConfig = PlayerConfig()
-        playerConfig.setAdsUri("https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/single_ad_samples&sz=640x480&cust_params=sample_ct%3Dlinear&ciu_szs=300x250%2C728x90&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=")
+        playerConfig.adsUri = "https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/single_ad_samples&sz=640x480&cust_params=sample_ct%3Dlinear&ciu_szs=300x250%2C728x90&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator="
         self.m_ziggeo.setPlayerConfig(playerConfig)
         
         self.m_ziggeo.playVideo(LAST_VIDEO_TOKEN)
     }
     
     @IBAction func onChooseMedia(_ sender: Any) {
-        currentType = 0
+        currentType = nil
         
         let fileSelectorConfig = FileSelectorConfig()
-        fileSelectorConfig.setMaxDuration(0)
-        fileSelectorConfig.setMinDuration(0)
-        fileSelectorConfig.setShouldAllowMultipleSelection(true)
-        fileSelectorConfig.setMediaType(VIDEO | AUDIO | IMAGE)
-        fileSelectorConfig.setExtraArgs(["tags": "iOS,Choose,Media"])
+        fileSelectorConfig.maxDuration = 0
+        fileSelectorConfig.minDuration = 0
+        fileSelectorConfig.shouldAllowMultipleSelection = true
+        fileSelectorConfig.mediaType = [.video, .audio, .image]
+        fileSelectorConfig.extraArgs = ["tags": "iOS,Choose,Media"]
         self.m_ziggeo.setFileSelectorConfig(fileSelectorConfig)
         
         self.m_ziggeo.startFileSelector()
     }
     
     @IBAction func onRecordAudio(_ sender: Any) {
-        currentType = AUDIO
+        currentType = .audio
         
         let recorderConfig = RecorderConfig()
-        recorderConfig.setIsPausedMode(true)
-        recorderConfig.setExtraArgs(["tags": "iOS,Audio,Record"])
+        recorderConfig.isPausedMode = true
+        recorderConfig.extraArgs = ["tags": "iOS,Audio,Record"]
         self.m_ziggeo.setRecorderConfig(recorderConfig)
         
         self.m_ziggeo.startAudioRecorder()
@@ -110,10 +110,10 @@ private extension ViewController {
     }
     
     @IBAction func onTakePhoto(_ sender: Any) {
-        currentType = IMAGE
+        currentType = .image
         
         let uploadingConfig = UploadingConfig()
-        uploadingConfig.setExtraArgs(["tags": "iOS,Take,Photo"])
+        uploadingConfig.extraArgs = ["tags": "iOS,Take,Photo"]
         self.m_ziggeo.setUploadingConfig(uploadingConfig)
         
         self.m_ziggeo.startImageRecorder()
@@ -125,18 +125,18 @@ private extension ViewController {
     
     @IBAction func onCustomUIRecorder(_ sender: Any) {
         let recorderConfig = RecorderConfig()
-        recorderConfig.setShouldAutoStartRecording(false)
-        recorderConfig.setVideoQuality(QUALITY_HIGH)
-        recorderConfig.setFacing(FACING_BACK)
-        recorderConfig.setMaxDuration(0)
-        recorderConfig.setShouldSendImmediately(true)
-        recorderConfig.style.setHideControls(true)
+        recorderConfig.shouldAutoStartRecording = false
+        recorderConfig.videoQuality = QUALITY_HIGH
+        recorderConfig.facing = FACING_BACK
+        recorderConfig.maxDuration = 0
+        recorderConfig.shouldSendImmediately = true
+        recorderConfig.style.hideControls = true
         recorderConfig.resolution.setAspectRatio(DEFAULT_ASPECT_RATIO)
-        recorderConfig.setExtraArgs(["tags": "iOS,Video,Custom UI Record",
-                                     "client_auth": "CLIENT_AUTH_TOKEN",
-                                     "server_auth": "SERVER_AUTH_TOKEN",
-                                     "data": ["foo": "bar"],
-                                     "effect_profile": "1234,5678"])
+        recorderConfig.extraArgs = ["tags": "iOS,Video,Custom UI Record",
+                                    "client_auth": "CLIENT_AUTH_TOKEN",
+                                    "server_auth": "SERVER_AUTH_TOKEN",
+                                    "data": ["foo": "bar"],
+                                    "effect_profile": "1234,5678"]
         self.m_ziggeo.setRecorderConfig(recorderConfig)
         
         let recorder = ZiggeoRecorder(application: m_ziggeo)
@@ -181,7 +181,7 @@ extension ViewController: ZiggeoUploadingDelegate {
     }
     
     func error(_ info: RecordingInfo?, _ error: Error, _ lostConnectionAction: Int) {
-        print("Failed To Upload : \(info?.getToken() ?? "")")
+        print("Failed To Upload : \(info?.token ?? "")")
     }
     
     func uploadStarted(_ path: String, token: String, streamToken: String, backgroundTask: URLSessionTask) {
@@ -199,9 +199,9 @@ extension ViewController: ZiggeoUploadingDelegate {
     func uploadVerified(_ path: String, token: String, streamToken: String, response: URLResponse?, error: Error?, json: NSDictionary?) {
         print("Upload Verified : \(token) - \(streamToken)")
         switch currentType {
-        case VIDEO: LAST_VIDEO_TOKEN = token
-        case AUDIO: LAST_AUDIO_TOKEN = token
-        case IMAGE: LAST_IMAGE_TOKEN = token
+        case .video: LAST_VIDEO_TOKEN = token
+        case .audio: LAST_AUDIO_TOKEN = token
+        case .image: LAST_IMAGE_TOKEN = token
         default: break
         }
     }

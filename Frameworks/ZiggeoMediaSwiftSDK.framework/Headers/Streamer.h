@@ -15,7 +15,7 @@
 @protocol LiveStreamerDelegate
 -(void) onPublishStart;
 -(void) onPublishStop;
--(void) onError:(NSString *)description;
+-(void) onError:(NSString* _Nonnull)description;
 @end
 
 @interface LiveStreamer : NSObject

@@ -11,7 +11,7 @@ import ZiggeoMediaSwiftSDK
 
 // MARK: - Common
 final class Common { // TODO: @skatolyk - Refactor this class
-    static let SdkList = [
+    static let SdkList = [ // TODO: @skatolyk - Refactor this class (image should be UIImage and not String)
         [
             LogoData(title: "Objective-C", image: "logo-objectivec", url: "https://github.com/Ziggeo/iOS-Client-SDK"),
             LogoData(title: "Swift", image: "logo-swift", url: "https://github.com/Ziggeo/Swift-Client-SDK"),
@@ -56,26 +56,16 @@ final class Common { // TODO: @skatolyk - Refactor this class
     static var recordingVideosController: RecordingVideosViewController?
     static var recordingAudiosController: RecordingAudiosViewController?
     static var recordingImagesController: RecordingImagesViewController?
-    static var currentTab = VIDEO
+    static var currentTab: MediaTypes = .video
     
     private init() {}
 }
 
 extension Common {
-    static func openWebBrowser(_ urlString: String) {
-        let url = URL(string: urlString)
-        UIApplication.shared.open(url!) // swiftlint:disable:this force_unwrapping
-    }
-    
     static func showAlertView(_ message: String) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
         UIWindow.key?.rootViewController?.present(alert, animated: true)
-    }
-    
-    static func getStoryboardViewController(_ identifier: String) -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: identifier)
     }
     
     static func getStoryboardViewController<T: UIViewController>(type: T.Type) -> T? {

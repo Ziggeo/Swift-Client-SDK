@@ -37,7 +37,7 @@ extension TopClientsViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Common.openWebBrowser(Common.ClientList[indexPath.row].url)
+        UIApplication.shared.openWebBrowser(Common.ClientList[indexPath.row].url)
     }
 }
 
@@ -48,10 +48,10 @@ extension TopClientsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return self.sectionInsets
+        return sectionInsets
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return self.sectionInsets.left
+        return sectionInsets.left
     }
 }

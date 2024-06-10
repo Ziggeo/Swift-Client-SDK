@@ -57,7 +57,6 @@ final class CustomVideoRecorder: UIViewController {
     private var cleanup: (() -> Void)?
     private var durationUpdateTimer: Timer?
     
-    // TODO: @skatolyk - better to return CGSize
     private var videoSize: CGSize {
         // swiftlint:disable:next force_unwrapping
         switch previewView.videoPreviewLayer.connection!.videoOrientation {
@@ -83,7 +82,7 @@ final class CustomVideoRecorder: UIViewController {
     }
     
     override var shouldAutorotate: Bool {
-        return self.movieAssetWriter == nil || self.movieAssetWriter?.status != .writing
+        return movieAssetWriter == nil || movieAssetWriter?.status != .writing
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -115,7 +114,7 @@ final class CustomVideoRecorder: UIViewController {
             // We suspend the session queue to delay session setup until the access request has completed to avoid
             // asking the user for audio access if video access is denied.
             // Note that audio access will be implicitly requested when we create an AVCaptureDeviceInput for audio during session setup.
-            self.sessionQueue.suspend()
+            sessionQueue.suspend()
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if !granted {
                     self.setupResult = .cameraNotAuthorized
@@ -125,7 +124,7 @@ final class CustomVideoRecorder: UIViewController {
             
         default:
             // The user has previously denied access.
-            self.setupResult = .cameraNotAuthorized
+            setupResult = .cameraNotAuthorized
         }
         
         switch AVCaptureDevice.authorizationStatus(for: .audio) {
@@ -137,7 +136,7 @@ final class CustomVideoRecorder: UIViewController {
             // We suspend the session queue to delay session setup until the access request has completed to avoid
             // asking the user for audio access if video access is denied.
             // Note that audio access will be implicitly requested when we create an AVCaptureDeviceInput for audio during session setup.
-            self.sessionQueue.suspend()
+            sessionQueue.suspend()
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 if !granted {
                     self.setupResult = .micNotAuthorized
@@ -147,7 +146,7 @@ final class CustomVideoRecorder: UIViewController {
             
         default:
             // The user has previously denied access.
-            self.setupResult = .micNotAuthorized
+            setupResult = .micNotAuthorized
         }
         
         // Setup the capture session.
@@ -169,14 +168,13 @@ final class CustomVideoRecorder: UIViewController {
             }
             
             self.session.beginConfiguration()
-            if self.session.canAddInput(videoDeviceInput) {
-                self.session.addInput(videoDeviceInput)
-                self.videoDeviceInput = videoDeviceInput
-                self.resetVideoOrientation()
-            } else {
+            guard self.session.canAddInput(videoDeviceInput) else {
                 self.setupResult = .sessionConfigurationFailed
                 return
             }
+            self.session.addInput(videoDeviceInput)
+            self.videoDeviceInput = videoDeviceInput
+            self.resetVideoOrientation()
             
             guard let audioDevice = AVCaptureDevice.default(for: .audio),
                   let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice) else {
@@ -184,20 +182,19 @@ final class CustomVideoRecorder: UIViewController {
                 return
             }
             
-            if self.session.canAddInput(audioDeviceInput) {
-                self.session.addInput(audioDeviceInput)
-            } else {
+            guard self.session.canAddInput(audioDeviceInput) else {
                 self.setupResult = .sessionConfigurationFailed
                 return
             }
             
+            self.session.addInput(audioDeviceInput)
+            
             let movieFileOutput = AVCaptureMovieFileOutput()
-            if self.session.canAddOutput(movieFileOutput) {
-                self.setupDataOutputs()
-            } else {
+            guard self.session.canAddOutput(movieFileOutput) else {
                 self.setupResult = .sessionConfigurationFailed
                 return
             }
+            self.setupDataOutputs()
             self.session.commitConfiguration()
         }
     }
@@ -402,7 +399,7 @@ private extension CustomVideoRecorder {
             
             // Use the status bar orientation as the initial video orientation. Subsequent orientation changes are handled by
             // -[viewWillTransitionToSize:withTransitionCoordinator:].
-            let interfaceOrientation = UIWindowScene.foregroundActive?.interfaceOrientation ?? .unknown
+            let interfaceOrientation = UIWindowScene.foreground?.interfaceOrientation ?? .unknown
             var initialVideoOrientation: AVCaptureVideoOrientation = .portrait
             
             switch interfaceOrientation {

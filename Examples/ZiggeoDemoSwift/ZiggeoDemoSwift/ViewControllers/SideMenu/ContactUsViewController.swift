@@ -16,6 +16,6 @@ private extension ContactUsViewController {
     }
     
     @IBAction func onVisitSupoort(_ sender: Any) {
-        Common.openWebBrowser("https://support.ziggeo.com")
+        UIApplication.shared.openWebBrowser("https://support.ziggeo.com")
     }
 }
