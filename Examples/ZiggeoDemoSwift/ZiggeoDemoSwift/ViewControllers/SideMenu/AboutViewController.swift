@@ -48,7 +48,7 @@ extension AboutViewController: WKNavigationDelegate {
             if link.contains("mailto:") {
                 sendEmail(link.replacingOccurrences(of: "mailto:", with: ""))
             } else {
-                Common.openWebBrowser(link)
+                UIApplication.shared.openWebBrowser(link)
             }
             decisionHandler(.cancel)
             

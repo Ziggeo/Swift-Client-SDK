@@ -39,7 +39,7 @@ final class RecordingImagesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Common.currentTab = IMAGE
+        Common.currentTab = .image
     }
     
     func getRecordings() {
@@ -86,7 +86,7 @@ extension RecordingImagesViewController: UITableViewDelegate, UITableViewDataSou
         Common.ziggeo?.images.get(recordings[indexPath.row].token, data: [:]) { content, _, _ in
             SVProgressHUD.dismiss()
             if let vc = Common.getStoryboardViewController(type: RecordingDetailViewController.self) {
-                vc.mediaType = IMAGE
+                vc.mediaType = .image
                 vc.recording = content
                 vc.recordingDelegate = self
                 Common.mainNavigationController?.pushViewController(vc, animated: true)

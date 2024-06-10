@@ -1,5 +1,12 @@
 # Changelog
 
+Version 1.1.49 *(2024-06-10)*
+-----------------------------
+* The update raises minimum iOS deployment target to 15.0.
+* The update makes minor changes in SDK API functions naming.
+* The update fixes video recorder crash for unavailable camera.
+* The update fixes potential memory leaks.
+
 Version 1.1.48 *(2024-03-19)*
 -----------------------------
 * The update changes disable video preview after recording ends.

@@ -35,7 +35,7 @@ final class AuthViewController: UIViewController {
         descriptionLabel.textColor = .black
         descriptionLabel.customColor[customType] = .blue
         descriptionLabel.handleCustomTap(for: customType) { _ in
-            Common.openWebBrowser("https://ziggeo.com/quickstart")
+            UIApplication.shared.openWebBrowser("https://ziggeo.com/quickstart")
         }
         
         refreshUI()

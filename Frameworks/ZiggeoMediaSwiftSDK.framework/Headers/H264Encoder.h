@@ -13,7 +13,7 @@
 #import <VideoToolbox/VideoToolbox.h>
 
 @protocol H264EncoderDelegate <NSObject>
--(void) compressedVideoDataReceived:(CMSampleBufferRef) sampleBuffer;
+-(void) compressedVideoDataReceived:(CMSampleBufferRef _Nonnull) sampleBuffer;
 @end
 
 @interface H264Encoder : NSObject

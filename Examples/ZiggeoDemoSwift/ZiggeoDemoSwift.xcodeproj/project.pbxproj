@@ -50,6 +50,7 @@
 		D8F0558C2874708200020AA5 /* VideoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */; };
 		FD0354672BF6A0A00058E85C /* AVCaptureVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */; };
 		FD0E47D12C139FEF00020723 /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0E47D02C139FEF00020723 /* RealityKit.framework */; };
+		FD0E47902C1366B800020723 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0E478F2C1366B800020723 /* UIApplication.swift */; };
 		FD69969A2BEEF41D00AB7C92 /* UIWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6996992BEEF41D00AB7C92 /* UIWindowScene.swift */; };
 		FD69969C2BEEF44900AB7C92 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969B2BEEF44900AB7C92 /* UIWindow.swift */; };
 		FD69969E2BEF9BC700AB7C92 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */; };
@@ -137,6 +138,7 @@
 		D8F0558B2874708200020AA5 /* VideoEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditorViewController.swift; sourceTree = "<group>"; };
 		FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientation.swift; sourceTree = "<group>"; };
 		FD0E47D02C139FEF00020723 /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
+		FD0E478F2C1366B800020723 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		FD6996992BEEF41D00AB7C92 /* UIWindowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowScene.swift; sourceTree = "<group>"; };
 		FD69969B2BEEF44900AB7C92 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -199,12 +201,12 @@
 			isa = PBXGroup;
 			children = (
 				FDD8EACD2BEEC3F100D5715A /* UIKit */,
+				FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */,
 				FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */,
 				D8D2A3DB2873D65B004A83FE /* Double.swift */,
 				FD7906E42BF551C2000C5691 /* Optional.swift */,
 				D83752252875D571003E6493 /* String.swift */,
 				FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */,
-				FD0354662BF6A0A00058E85C /* AVCaptureVideoOrientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,6 +385,7 @@
 		FDD8EACD2BEEC3F100D5715A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				FD0E478F2C1366B800020723 /* UIApplication.swift */,
 				FDD8EAD42BEEECF000D5715A /* UICollectionView.swift */,
 				FDD8EAD02BEED1F000D5715A /* UIImage.swift */,
 				D809C67C287D223300FA6B3D /* UIImageView.swift */,
@@ -592,6 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD0E47902C1366B800020723 /* UIApplication.swift in Sources */,
 				D872B695288067A100FAEE20 /* CapturePreviewView.swift in Sources */,
 				D832A36528751D630042BCC8 /* LogoData.swift in Sources */,
 				D8F055812874700800020AA5 /* RecordingImagesViewController.swift in Sources */,

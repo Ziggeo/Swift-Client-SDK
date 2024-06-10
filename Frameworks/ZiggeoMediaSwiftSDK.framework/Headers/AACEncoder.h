@@ -15,7 +15,7 @@
 
 @protocol AACEncoderDelegate <NSObject>
 //-(void) compressedAudioDataReceived:(CMSampleBufferRef) sampleBuffer;
--(void) compressedAudioDataReceived:(NSData*) data asc:(NSData*)asc pts:(CMTime)pts;
+-(void) compressedAudioDataReceived:(NSData* _Nonnull) data asc:(NSData* _Nonnull)asc pts:(CMTime)pts;
 @end
 
 @interface AACEncoder : NSObject
