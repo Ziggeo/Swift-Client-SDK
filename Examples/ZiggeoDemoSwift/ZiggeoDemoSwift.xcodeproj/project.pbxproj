@@ -56,6 +56,7 @@
 		FD69969E2BEF9BC700AB7C92 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */; };
 		FD7906E22BF54E3E000C5691 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FD7906E12BF54E3E000C5691 /* .swiftlint.yml */; };
 		FD7906E52BF551C2000C5691 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7906E42BF551C2000C5691 /* Optional.swift */; };
+		FD9769972C231C2C00CBECE5 /* MailScreenInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9769962C231C2C00CBECE5 /* MailScreenInvoker.swift */; };
 		FDD8EACC2BEEC3B800D5715A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */; };
 		FDD8EACF2BEECFEB00D5715A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EACE2BEECFEB00D5715A /* UIViewController.swift */; };
 		FDD8EAD12BEED1F000D5715A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD8EAD02BEED1F000D5715A /* UIImage.swift */; };
@@ -144,6 +145,7 @@
 		FD69969D2BEF9BC700AB7C92 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		FD7906E12BF54E3E000C5691 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FD7906E42BF551C2000C5691 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		FD9769962C231C2C00CBECE5 /* MailScreenInvoker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailScreenInvoker.swift; sourceTree = "<group>"; };
 		FDD8EACB2BEEC3B800D5715A /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		FDD8EACE2BEECFEB00D5715A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FDD8EAD02BEED1F000D5715A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		D8710770286CA0D3004DD48B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FD9769962C231C2C00CBECE5 /* MailScreenInvoker.swift */,
 				D8710771286CA0D3004DD48B /* Common.swift */,
 			);
 			path = Common;
@@ -614,6 +617,7 @@
 				FDD8EAD32BEEE98100D5715A /* UITableView.swift in Sources */,
 				FDD8EAD12BEED1F000D5715A /* UIImage.swift in Sources */,
 				D83752262875D571003E6493 /* String.swift in Sources */,
+				FD9769972C231C2C00CBECE5 /* MailScreenInvoker.swift in Sources */,
 				FDD8EACF2BEECFEB00D5715A /* UIViewController.swift in Sources */,
 				D8F055822874700800020AA5 /* RecordingsViewController.swift in Sources */,
 				FD0354672BF6A0A00058E85C /* AVCaptureVideoOrientation.swift in Sources */,
